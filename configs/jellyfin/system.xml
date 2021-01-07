@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServerConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PublicPort>8096</PublicPort>
+  <EnableIPV6>false</EnableIPV6>
+  <EnableIPV4>true</EnableIPV4>
+  <PublicHttpsPort>8920</PublicHttpsPort>
+  <HttpServerPortNumber>18096</HttpServerPortNumber>
+  <HttpsPortNumber>18920</HttpsPortNumber>
+  <EnableHttps>false</EnableHttps>
+  <EnableRemoteAccess>true</EnableRemoteAccess>
+</ServerConfiguration>
