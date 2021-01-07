@@ -1,0 +1,19 @@
+server-name: h2o-jellyfin
+
+access-log: /dev/stdout
+error-log: /dev/stderr
+error-log.emit-request-errors: ON
+http2-graceful-shutdown-timeout: 1
+
+proxy.websocket: ON
+
+hosts:
+  "0.0.0.0:8096":
+    listen:
+      host: 0.0.0.0
+      port: 8096
+    paths:
+      "/":
+        proxy.reverse.url: http://0.0.0.0:18096
+      "/status":
+        status: ON
