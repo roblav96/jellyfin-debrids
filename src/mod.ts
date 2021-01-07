@@ -1,7 +1,7 @@
 import '@/console.ts'
 
 queueMicrotask(async () => {
-	let nghttpx = await import('@/nghttpx.ts')
+	await import('@/configs.ts')
 	let jellyfin = await import('@/jellyfin.ts')
-	// import('@/server.ts')
+	console.log('jellyfin ->', jellyfin)
 })

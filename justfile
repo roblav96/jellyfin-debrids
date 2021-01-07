@@ -8,7 +8,7 @@ install :
 
 run :
 	@deno cache --unstable --import-map=import_map.json --no-check src/mod.ts || true
-	deno run --unstable --import-map=import_map.json --no-check --allow-all src/mod.ts
+	@deno run --unstable --import-map=import_map.json --no-check --allow-all src/mod.ts
 
 watch :
 	watchexec --watch src --restart -- 'tput clear; just run'

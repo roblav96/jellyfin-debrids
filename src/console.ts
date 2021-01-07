@@ -1,18 +1,9 @@
-import * as assertion_error from 'https://deno.land/std/node/assertion_error.ts'
-import * as asserts from 'https://deno.land/std/testing/asserts.ts'
 import * as colors from 'https://deno.land/std/fmt/colors.ts'
 import * as datetime from 'https://deno.land/std/datetime/mod.ts'
-import * as log from 'https://deno.land/std/log/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
-import * as printf from 'https://deno.land/std/fmt/printf.ts'
-import * as util from 'https://deno.land/std/node/util.ts'
-import { intercept } from 'https://deno.land/x/function_intercept/index.ts'
 
-// @deno-types='https://cdn.skypack.dev/pretty-ms/dist=es2020,mode=types/index.d.ts'
-import ms from 'https://cdn.skypack.dev/pretty-ms?dts'
-
-const ROOT_CWD = path.parse(path.parse(Deno.mainModule).dir).dir
-const DEFAULT_INSPECT_OPTIONS = {
+export const ROOT_PATH = path.dirname(path.dirname(Deno.mainModule))
+export const DEFAULT_INSPECT_OPTIONS = {
 	colors: true,
 	compact: false,
 	depth: 4,
@@ -25,7 +16,7 @@ const DEFAULT_INSPECT_OPTIONS = {
 
 Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
 
-let nowstamp = performance.now()
+let now_stamp = Date.now()
 for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 	Object.assign(console, {
 		[level]: new Proxy(console[level], {
@@ -42,8 +33,8 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 					} else if (i == stacks.length - 1) {
 						let frame = stacks[i]
 						if (frame.includes('file:')) {
-							if (frame.includes(`${ROOT_CWD}/`)) {
-								frame = frame.replace(`${ROOT_CWD}/`, '')
+							if (frame.includes(`${ROOT_PATH}/`)) {
+								frame = frame.replace(`${ROOT_PATH}/`, '')
 							}
 							frame = frame.replace(
 								/<(.+)>:(\d+):(\d+)/,
@@ -66,13 +57,12 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 					args[i] = Deno.inspect(arg, DEFAULT_INSPECT_OPTIONS)
 				}
 
-				let now = performance.now()
-				let delta = now - nowstamp
-				nowstamp = now
-				let timestamp = ms(delta, { compact: true, formatSubMilliseconds: true })
+				let now = Date.now()
+				let delta = now - now_stamp
+				now_stamp = now
 
 				let symbol = ({ log: '🔵', warn: '🟠', error: '🔴' } as any)[level] as string
-				args.unshift(`   ${colors.dim(`${stack} +${timestamp}`)}\n${symbol}`)
+				args.unshift(`   ${colors.dim(`${stack} +${delta}ms`)}\n${symbol}`)
 				args.push('\n')
 
 				return Reflect.apply(method, ctx, args)
@@ -80,6 +70,10 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 		}),
 	})
 }
+
+globalThis.addEventListener('error', (error) => {
+	console.error(colors.bgRed('[GLOBAL ERROR]'), error)
+})
 
 declare global {
 	namespace Deno {
