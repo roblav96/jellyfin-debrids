@@ -3,7 +3,11 @@
 
 set shell := ["bash", "-cu"]
 
-install :
+_default :
+	@echo && just --dump
+
+alias install := reload
+reload :
 	deno cache --unstable --import-map=import_map.json --reload src/mod.ts
 
 run :
@@ -11,4 +15,5 @@ run :
 	@deno run --unstable --import-map=import_map.json --no-check --allow-all src/mod.ts
 
 watch :
+	just reload
 	watchexec --watch src --restart -- 'tput clear; just run'
