@@ -14,6 +14,6 @@ hosts:
       port: 8096
     paths:
       "/":
-        proxy.reverse.url: http://0.0.0.0:18096
+        proxy.reverse.url: http://127.0.0.1:18096
       "/status":
         status: ON
