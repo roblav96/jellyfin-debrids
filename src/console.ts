@@ -62,7 +62,8 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 				now_stamp = now
 
 				let symbol = ({ log: '🔵', warn: '🟠', error: '🔴' } as any)[level] as string
-				args.unshift(`   ${colors.dim(`${stack} +${delta}ms`)}\n${symbol}`)
+				let header = `${symbol} ${colors.dim(`${stack} +${delta}ms`)}`
+				args[0] = `${header}\n${args[0]}`
 				args.push('\n')
 
 				return Reflect.apply(method, ctx, args)
