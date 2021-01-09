@@ -6,6 +6,4 @@
   <PublicHttpsPort>8920</PublicHttpsPort>
   <HttpServerPortNumber>18096</HttpServerPortNumber>
   <HttpsPortNumber>18920</HttpsPortNumber>
-  <EnableHttps>false</EnableHttps>
-  <EnableRemoteAccess>true</EnableRemoteAccess>
 </ServerConfiguration>
