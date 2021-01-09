@@ -1,7 +1,11 @@
-import '/console.ts'
+await import('/devops/console.ts')
+// await import('/envs/dotenv.ts')
 
-queueMicrotask(async () => {
-	await import('/configs.ts')
-	let jellyfin = await import('/jellyfin.ts')
-	console.log('jellyfin ->', jellyfin)
-})
+let jellyfin = await import('/jellyfin/jellyfin.ts')
+console.log('jellyfin ->', jellyfin)
+
+// queueMicrotask(async () => {
+// 	await import('/envs/configs.ts')
+// 	let jellyfin = await import('/jellyfin.ts')
+// 	console.log('jellyfin ->', jellyfin)
+// })

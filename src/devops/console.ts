@@ -2,8 +2,7 @@ import * as colors from 'https://deno.land/std/fmt/colors.ts'
 import * as datetime from 'https://deno.land/std/datetime/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
 
-export const ROOT_PATH = path.dirname(path.dirname(Deno.mainModule))
-export const DEFAULT_INSPECT_OPTIONS = {
+const DEFAULT_INSPECT_OPTIONS = {
 	colors: true,
 	compact: false,
 	depth: 4,
@@ -14,7 +13,13 @@ export const DEFAULT_INSPECT_OPTIONS = {
 	trailingComma: false,
 } as Deno.InspectOptions
 
-Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
+let root_path = Deno.env.get('ROOT_PATH') as string
+if (Deno.mainModule) {
+	if (!root_path) {
+		root_path = path.dirname(path.dirname(Deno.mainModule)).replace('file://', '')
+	}
+	Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
+}
 
 let now_stamp = Date.now()
 for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
@@ -33,8 +38,8 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 					} else if (i == stacks.length - 1) {
 						let frame = stacks[i]
 						if (frame.includes('file:')) {
-							if (frame.includes(`${ROOT_PATH}/`)) {
-								frame = frame.replace(`${ROOT_PATH}/`, '')
+							if (frame.includes(`file://${root_path}/`)) {
+								frame = frame.replace(`file://${root_path}/`, '')
 							}
 							frame = frame.replace(
 								/<(.+)>:(\d+):(\d+)/,
@@ -50,11 +55,16 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 				stack = stack.replace('at ', '')
 
 				for (let i = 0; i < args.length; i++) {
-					let arg = args[i]
-					if (i == 0 && typeof arg == 'string') {
+					if (i == 0 && typeof args[i] == 'string') {
 						continue
 					}
-					args[i] = Deno.inspect(arg, DEFAULT_INSPECT_OPTIONS)
+					let arg = Deno.inspect(args[i], DEFAULT_INSPECT_OPTIONS)
+					// if (typeof args[i] == 'object') {
+					// 	let matches = Array.from(arg.matchAll(/^(\s{2})+/gm))
+					// 	console.info('matches ->', matches.map(match => match.index))
+					// 	arg = arg.replaceAll(/^(\s{2})+\b/gm, '\t')
+					// }
+					args[i] = arg
 				}
 
 				let now = Date.now()
@@ -72,7 +82,7 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 	})
 }
 
-globalThis.addEventListener('error', (error) => {
+self.addEventListener('error', (error) => {
 	console.error(colors.bgRed('[GLOBAL ERROR]'), error)
 })
 
