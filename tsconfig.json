@@ -1,15 +1,14 @@
 {
 	"compilerOptions": {
+		"strict": false,
 		"plugins": [
 			{
 				"config": "tsconfig.json",
 				"enable": true,
-				"importmap": "import_map.json",
 				"lint": false,
 				"name": "typescript-deno-plugin",
 				"unstable": true
 			}
-		],
-		"strict": false
+		]
 	}
 }

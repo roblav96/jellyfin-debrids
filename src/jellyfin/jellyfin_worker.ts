@@ -2,10 +2,11 @@ await import('../devops/console.ts')
 
 import * as io from 'https://deno.land/std/io/mod.ts'
 
-console.log('Deno.env.toObject() ->', Deno.env.toObject())
-console.log('Deno.mainModule ->', Deno.mainModule)
+// console.log('Deno.env.toObject() ->', Deno.env.toObject())
+// console.log('Deno.mainModule ->', Deno.mainModule)
+console.log('import.meta ->', import.meta)
 
-console.log('self ->', self)
+// console.log('self ->', self)
 
 // const exec = Deno.run({
 // 	cmd: ['jellyfin', '--service'],

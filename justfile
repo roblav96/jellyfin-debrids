@@ -14,16 +14,15 @@ export ROOT_PATH := env_var_or_default("ROOT_PATH", justfile_directory())
 
 alias install := reload
 reload :
-	deno cache --unstable --import-map=import_map.json --reload src/mod.ts
+	deno cache --unstable --reload src/mod.ts
 
-run action="" :
-	[[ "{{action}}" == "watch" ]] && tput clear
-	@deno cache --unstable --import-map=import_map.json --no-check src/mod.ts || true
-	@deno run --unstable --import-map=import_map.json --no-check --allow-all src/mod.ts
+run :
+	@deno cache --unstable --no-check src/mod.ts || true
+	@deno run --unstable --no-check --allow-all src/mod.ts
 
 watch :
 	just reload
-	watchexec --watch src --restart -- just run watch
+	watchexec --restart --watch src -- "tput clear && just run"
 
 
 
@@ -44,3 +43,4 @@ jellyfin-init :
 jellyfin :
 	[[ ! -d "{{JELLYFIN_CONFIG_DIR}}" ]] && just jellyfin-init
 	jellyfin --service
+# if test ! -d "{{JELLYFIN_CONFIG_DIR}}"; then just jellyfin-init; fi
