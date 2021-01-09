@@ -20,23 +20,24 @@ run :
 
 watch :
 	just reload
-	watchexec --watch src --restart -- 'tput clear; just run'
+	watchexec --watch src --restart -- "clear && just run"
 
 
 
 # ████  jellyfin  ████
 
-export JELLYFIN_DIR := justfile_directory() + "/.local/jellyfin"
-export JELLYFIN_CACHE_DIR := JELLYFIN_DIR + "/cache"
-export JELLYFIN_CONFIG_DIR := JELLYFIN_DIR + "/config"
-export JELLYFIN_DATA_DIR := JELLYFIN_DIR + "/data"
-export JELLYFIN_LOG_DIR := JELLYFIN_DIR + "/data/log"
+export ROOT_PATH := env_var_or_default("ROOT_PATH", justfile_directory())
+export JELLYFIN_DIR := env_var_or_default("JELLYFIN_DIR", ROOT_PATH + "/.local/jellyfin")
+export JELLYFIN_CACHE_DIR := env_var_or_default("JELLYFIN_CACHE_DIR", JELLYFIN_DIR + "/cache")
+export JELLYFIN_CONFIG_DIR := env_var_or_default("JELLYFIN_CONFIG_DIR", JELLYFIN_DIR + "/config")
+export JELLYFIN_DATA_DIR := env_var_or_default("JELLYFIN_DATA_DIR", JELLYFIN_DIR + "/data")
+export JELLYFIN_LOG_DIR := env_var_or_default("JELLYFIN_LOG_DIR", JELLYFIN_DIR + "/data/log")
 
 jellyfin-init :
 	rm -r -f -v "{{JELLYFIN_CONFIG_DIR}}"
-	mkdir -p -v "{{JELLYFIN_CONFIG_DIR}}"
+	mkdir -p -v "`dirname "{{JELLYFIN_CONFIG_DIR}}"`"
 	cp -r -v "{{justfile_directory()}}/configs/jellyfin" "{{JELLYFIN_CONFIG_DIR}}"
 
 jellyfin :
-	if [[ ! -d "{{JELLYFIN_DIR}}" ]]; then just jellyfin-init; fi
+	[[ ! -d "{{JELLYFIN_CONFIG_DIR}}" ]] && just jellyfin-init
 	jellyfin --service
