@@ -13,10 +13,15 @@ const exec = Deno.run({
 exec.status().then((status) => self.postMessage({ status }))
 
 let mux = new async.MuxAsyncIterator<string>()
-mux.add(io.readStringDelim(exec.stdout, '\n['))
-mux.add(io.readStringDelim(exec.stderr, '\n['))
+mux.add(io.readStringDelim(exec.stdout, '\n\n'))
+mux.add(io.readStringDelim(exec.stderr, '\n\n'))
 for await (let chunk of mux) {
-	chunk = `[${chunk}`
+	// if (!chunk.startsWith('[')) {
+	// 	chunk = `[${chunk}`
+	// }
+	if (chunk.startsWith('\n')) {
+		chunk = chunk.slice(1)
+	}
 	if (chunk.endsWith('\r')) {
 		chunk = chunk.slice(0, -1)
 	}

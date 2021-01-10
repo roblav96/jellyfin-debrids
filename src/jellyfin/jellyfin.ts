@@ -6,15 +6,15 @@ await ensureConfigDir()
 
 let worker = new Worker(new URL('jellyfin_worker.ts', import.meta.url).href, {
 	deno: { namespace: true, permissions: 'inherit' },
-	name: 'jellyfin_worker.ts',
+	name: 'jellyfin_worker',
 	type: 'module',
 })
 
 worker.addEventListener('message', function onJellyfinMessage(event) {
 	if (event?.data?.chunk) {
-		console.log('event.data.chunk ->', event.data.chunk)
+		console.log('jellyfin_worker chunk ->', event.data.chunk)
 	} else {
-		console.log('jellyfin_worker event ->', event.data)
+		// console.log('jellyfin_worker event ->', event.data)
 	}
 })
 

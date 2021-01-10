@@ -18,10 +18,6 @@ let mux = new async.MuxAsyncIterator<string>()
 mux.add(io.readLines(exec.stdout))
 mux.add(io.readLines(exec.stderr))
 for await (let chunk of mux) {
-	// if (chunk.startsWith('{')) {
-	// 	self.postMessage({ chunk: JSON.parse(chunk) })
-	// 	continue
-	// }
 	self.postMessage({ chunk })
 }
 
