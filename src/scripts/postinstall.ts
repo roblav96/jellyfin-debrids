@@ -1,4 +1,4 @@
-await import('../devops/console.ts')
+// await import('../devops/console.ts')
 import * as async from 'https://deno.land/std/async/mod.ts'
 import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as io from 'https://deno.land/std/io/mod.ts'
@@ -10,19 +10,20 @@ let pkgjson = JSON.parse(await Deno.readTextFile(path.join(root_path, 'package.j
 	devDependencies: Record<string, string>
 }
 
-// for (let pkg in pkgjson.dependencies) {
-for (let pkg of ['dts-generate']) {
+// for (let pkg of ['rxjs']) {
+for (let pkg in pkgjson.dependencies) {
 	let pkgroot = path.join(root_path, 'node_modules', pkg)
-	let exec = await Deno.run({
-		cmd: ['deno', 'fmt'],
-	})
-	console.log('await exec.status() ->', await exec.status())
+	// console.warn('pkgroot ->', pkgroot)
+	await Deno.run({
+		cmd: ['deno', 'fmt', '--unstable', '--quiet', pkgroot],
+	}).status()
 	for await (let entry of fs.walk(pkgroot, { exts: ['.d.ts'] })) {
 		let data = await Deno.readTextFile(entry.path)
-		console.warn(`${entry.path} ->\n${data}`)
-		// data = data.replace(/<(.+)>:(\d+):(\d+)/, '$1')
-		Deno.formatDiagnostics
-		console.log(`${entry.path} ->\n${data}`)
+		// console.warn(`${entry.path} ->\n${data}`)
+		data = data.replace(/ from "(.+)(\.d\.ts";)$/gm, ' from "$1";')
+		data = data.replace(/ from "(.+)(";)$/gm, ' from "$1.d.ts$2')
+		// console.log(`${entry.path} ->\n${data}`)
+		await Deno.writeTextFile(entry.path, data)
 	}
 }
 

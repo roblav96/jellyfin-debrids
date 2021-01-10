@@ -29,7 +29,7 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 			apply(method, ctx: Console, args: string[]) {
 				let e = { stack: '' }
 				Error.captureStackTrace(e, this.apply)
-				let stack = e.stack.split('\n')[1].trim()
+				let stack = e.stack.split('\n')[1]?.trim() ?? ''
 				let stacks = stack.split(' ')
 				for (let i = 0; i < stacks.length; i++) {
 					if (i == 0) {
@@ -80,11 +80,19 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 	})
 }
 
-self.addEventListener('error', (error) => {
-	console.error(colors.bgRed('[GLOBAL ERROR]'), error)
-})
+Object.assign(console, {
+	async dts(data, identifier) {
+		let generate = (await import(`${'../npms/dts-generate.ts'}`)).default
+		let output = (await generate(data, identifier)) as string
+		console.log(output)
+		return output
+	},
+} as Console)
 
 declare global {
+	interface Console {
+		dts(data: any, identifier?: string): Promise<string>
+	}
 	namespace Deno {
 		var core: any
 		var internal: symbol

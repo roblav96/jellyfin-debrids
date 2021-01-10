@@ -1,11 +1,10 @@
 await import('./devops/console.ts')
 // await import('./envs/dotenv.ts')
 
-import Rx from './libs/rxjs.ts'
-console.log('Rx ->', Rx)
-console.log('Rx.op ->', Rx.op)
+import stringFn from './npms/string-fn.ts'
+console.log('stringFn ->', stringFn)
 
-// let dts = await import('./libs/dts-generate.ts')
+// let dts = await import('./npms/dts-generate.ts')
 // console.log('dts ->', dts.generate)
 
 // let bus = await import('./events/bus.ts')

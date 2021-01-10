@@ -5,4 +5,4 @@
 // export default dts
 
 // @deno-types='../../node_modules/dts-generate/dist/index.d.ts'
-export { default as generate } from 'https://dev.jspm.io/dts-generate'
+export { default } from 'https://dev.jspm.io/dts-generate'

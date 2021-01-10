@@ -13,18 +13,17 @@ export JELLYFIN_CONFIG_DIR := env_var_or_default("JELLYFIN_CONFIG_DIR", JELLYFIN
 export JELLYFIN_DATA_DIR := env_var_or_default("JELLYFIN_DATA_DIR", JELLYFIN_DIR + "/data")
 export JELLYFIN_LOG_DIR := env_var_or_default("JELLYFIN_LOG_DIR", JELLYFIN_DIR + "/data/log")
 
-main := "src/scripts/postinstall.ts"
-
 install :
 	rm -r -f node_modules
-	npm install
+	npm install --silent
+	deno run --unstable --no-check --allow-all src/scripts/postinstall.ts
 
 reload :
-	deno cache --unstable --reload {{main}} || true
+	deno cache --unstable --reload src/mod.ts || true
 
 run :
-	@deno cache --unstable --no-check {{main}} || true
-	@deno run --unstable --no-check --allow-all {{main}}
+	@deno cache --unstable --no-check src/mod.ts || true
+	@deno run --unstable --no-check --allow-all src/mod.ts
 
 watch :
 	just reload
