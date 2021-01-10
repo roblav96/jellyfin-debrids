@@ -17,6 +17,7 @@ let root_path = Deno.env.get('ROOT_PATH') as string
 if (Deno.mainModule) {
 	if (!root_path) {
 		root_path = path.dirname(path.dirname(Deno.mainModule)).replace('file://', '')
+		Deno.env.set('ROOT_PATH', root_path)
 	}
 	Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
 }
@@ -34,7 +35,7 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 					if (i == 0) {
 						stacks[i] = stacks[i]
 					} else if (i < stacks.length - 1) {
-						stacks[i] = colors.italic(colors.bold(stacks[i]))
+						stacks[i] = colors.italic(stacks[i])
 					} else if (i == stacks.length - 1) {
 						let frame = stacks[i]
 						if (frame.includes('file:')) {
@@ -58,13 +59,7 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 					if (i == 0 && typeof args[i] == 'string') {
 						continue
 					}
-					let arg = Deno.inspect(args[i], DEFAULT_INSPECT_OPTIONS)
-					// if (typeof args[i] == 'object') {
-					// 	let matches = Array.from(arg.matchAll(/^(\s{2})+/gm))
-					// 	console.info('matches ->', matches.map(match => match.index))
-					// 	arg = arg.replaceAll(/^(\s{2})+\b/gm, '\t')
-					// }
-					args[i] = arg
+					args[i] = Deno.inspect(args[i], DEFAULT_INSPECT_OPTIONS)
 				}
 
 				let now = Date.now()
@@ -74,6 +69,9 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 				let symbol = ({ log: '🔵', warn: '🟠', error: '🔴' } as any)[level] as string
 				let header = `${symbol} ${colors.dim(`${stack} +${delta}ms`)}`
 				args[0] = `${header}\n${args[0]}`
+				if (level == 'error') {
+					args[0] = `\n${args[0]}`
+				}
 				args.push('\n')
 
 				return Reflect.apply(method, ctx, args)

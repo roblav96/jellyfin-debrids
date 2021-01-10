@@ -4,8 +4,10 @@ import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as io from 'https://deno.land/std/io/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
 
+let root_path = Deno.env.get('ROOT_PATH') as string
+let config_path = path.join(root_path, 'configs', 'nghttpx.dev.conf')
 const exec = Deno.run({
-	cmd: ['jellyfin', '--service'],
+	cmd: ['nghttpx', '--conf', config_path],
 	stdout: 'piped',
 	stderr: 'piped',
 })
@@ -13,15 +15,30 @@ const exec = Deno.run({
 exec.status().then((status) => self.postMessage({ status }))
 
 let mux = new async.MuxAsyncIterator<string>()
-mux.add(io.readStringDelim(exec.stdout, '\n['))
-mux.add(io.readStringDelim(exec.stderr, '\n['))
+mux.add(io.readLines(exec.stdout))
+mux.add(io.readLines(exec.stderr))
 for await (let chunk of mux) {
-	chunk = `[${chunk}`
-	if (chunk.endsWith('\r')) {
-		chunk = chunk.slice(0, -1)
-	}
+	// if (chunk.startsWith('{')) {
+	// 	self.postMessage({ chunk: JSON.parse(chunk) })
+	// 	continue
+	// }
 	self.postMessage({ chunk })
 }
+
+// Promise.all([
+// 	(async function stdout() {
+// 		for await (let chunk of io.readLines(exec.stdout)) {
+// 			console.log('stdout ->', chunk)
+// 			// self.postMessage({ chunk })
+// 		}
+// 	})(),
+// 	(async function stderr() {
+// 		for await (let chunk of io.readLines(exec.stderr)) {
+// 			console.log('stderr ->', chunk)
+// 			// self.postMessage({ chunk })
+// 		}
+// 	})(),
+// ])
 
 // setInterval(Function, 1 << 30)
 
