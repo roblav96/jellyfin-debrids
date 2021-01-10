@@ -2,7 +2,7 @@
 # https://github.com/casey/just
 
 _default :
-	@echo && just --dump
+	@just --dump | bat --style=grid --language=make
 
 
 
@@ -13,18 +13,20 @@ export JELLYFIN_CONFIG_DIR := env_var_or_default("JELLYFIN_CONFIG_DIR", JELLYFIN
 export JELLYFIN_DATA_DIR := env_var_or_default("JELLYFIN_DATA_DIR", JELLYFIN_DIR + "/data")
 export JELLYFIN_LOG_DIR := env_var_or_default("JELLYFIN_LOG_DIR", JELLYFIN_DIR + "/data/log")
 
+export MAIN_MODULE := env_var_or_default("MAIN_MODULE", "src/mod.ts")
+
 install :
 	rm -r -f node_modules
 	npm install --silent
 	deno run --unstable --no-check --allow-all src/scripts/postinstall.ts
+	just reload
 
 reload :
-	deno cache --unstable --reload src/mod.ts || true
+	deno cache --unstable --reload "{{MAIN_MODULE}}"
 
 run :
-	@deno cache --unstable --no-check src/mod.ts || true
-	@deno run --unstable --no-check --allow-all src/mod.ts
+	deno cache --unstable --no-check "{{MAIN_MODULE}}" || true
+	deno run --unstable --no-check --allow-all "{{MAIN_MODULE}}"
 
 watch :
-	just reload
 	watchexec --restart --watch src -- "clear; just run"

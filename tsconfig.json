@@ -1,14 +1,7 @@
 {
 	"compilerOptions": {
-		"strict": false,
-		"plugins": [
-			{
-				"config": "tsconfig.json",
-				"enable": true,
-				"lint": false,
-				"name": "typescript-deno-plugin",
-				"unstable": true
-			}
-		]
-	}
+		"plugins": [{ "name": "typescript-deno-plugin" }]
+	},
+	"exclude": [".local"],
+	"include": ["src/**/*.d.ts", "src/**/*.ts"]
 }

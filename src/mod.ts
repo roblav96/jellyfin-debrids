@@ -1,8 +1,14 @@
 await import('./devops/console.ts')
 // await import('./envs/dotenv.ts')
 
-import stringFn from './npms/string-fn.ts'
-console.log('stringFn ->', stringFn)
+import * as fae from 'https://deno.land/x/fae/mod.ts'
+console.log('fae.all ->', fae.all)
+
+import R from './npms/rambdax.ts'
+console.log('R.keys ->', R.keys)
+
+import Rx from './npms/rxjs.ts'
+console.log('Rx.Subject ->', Rx.Subject)
 
 // let dts = await import('./npms/dts-generate.ts')
 // console.log('dts ->', dts.generate)

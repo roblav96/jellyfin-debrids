@@ -14,16 +14,59 @@ let pkgjson = JSON.parse(await Deno.readTextFile(path.join(root_path, 'package.j
 for (let pkg in pkgjson.dependencies) {
 	let pkgroot = path.join(root_path, 'node_modules', pkg)
 	// console.warn('pkgroot ->', pkgroot)
-	await Deno.run({
-		cmd: ['deno', 'fmt', '--unstable', '--quiet', pkgroot],
-	}).status()
-	for await (let entry of fs.walk(pkgroot, { exts: ['.d.ts'] })) {
-		let data = await Deno.readTextFile(entry.path)
-		// console.warn(`${entry.path} ->\n${data}`)
-		data = data.replace(/ from "(.+)(\.d\.ts";)$/gm, ' from "$1";')
-		data = data.replace(/ from "(.+)(";)$/gm, ' from "$1.d.ts$2')
-		// console.log(`${entry.path} ->\n${data}`)
+	// await Deno.run({
+	// 	cmd: ['deno', 'fmt', '--unstable', '--quiet', pkgroot],
+	// }).status()
+	// for await (let entry of fs.walk(pkgroot, { exts: ['.d.ts'] })) {
+	// 	// if (entry.name.endsWith('.d.ts')) {
+	// 	// 	continue
+	// 	// }
+	// 	await fs.move(entry.path, `${entry.path.slice(0, -5)}.ts`, { overwrite: true })
+	// }
+	for await (let entry of fs.walk(pkgroot, { exts: ['.ts'] })) {
+		// console.warn('entry ->', entry.path)
+
+		let data = (await Deno.readTextFile(entry.path)).replace(
+			/ from ["'`](.+\b)["'`];?$/gm,
+			(match, capture: string) => {
+				let source = path.resolve(path.dirname(entry.path), capture)
+				// let ext = ['.d.ts', '.ts', '.js'].find((ext) => {
+				// 	return fs.existsSync(`${source}${ext}`)
+				// })
+				// // console.log('source ->', ext, source)
+				// return ` from "${capture}${ext ?? ''}";`
+				for (let ext of ['.d.ts', '.ts', '.js']) {
+					if (fs.existsSync(`${source}${ext}`)) {
+						return match.replace(capture, `${capture}${ext}`)
+					}
+				}
+				return match
+			},
+		)
+		if (entry.path.includes('rxjs/internal/scheduled/scheduled.d.ts')) {
+			data = `// @ts-ignore\n${data}`
+		}
+		if (entry.path.includes('rambdax/index.d.ts')) {
+			data = data.replace('export function isValid', '// @ts-ignore\nexport function isValid')
+		}
 		await Deno.writeTextFile(entry.path, data)
+
+		// let lines = [] as string[]
+		// let reader = await Deno.open(entry.path, { read: true })
+		// for await (let line of io.readLines(reader)) {
+		// 	// console.log(`${entry.path} ->\n${line}`)
+		// 	let match = line.match(/ from "(?<source>.+)";$/)
+		// 	if (match?.groups?.source) {
+		// 		let source = path.resolve(path.dirname(entry.path), match.groups.source)
+		// 		console.log('source ->', source)
+		// 	}
+		// 	lines.push(line)
+		// }
+		// console.warn(`${entry.path} ->\n${data}`)
+		// data = data.replace(/ from "(.+)(\.ts";)$/gm, ' from "$1";')
+		// data = data.replace(/ from "(.+)(";)$/gm, ' from "$1.ts$2')
+		// console.warn(`${entry.path} ->\n${lines.join('\n')}`)
+		// await Deno.writeTextFile(entry.path, lines.join('\n'))
 	}
 }
 
