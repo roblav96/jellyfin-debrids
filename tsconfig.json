@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
-		"plugins": [{ "name": "typescript-deno-plugin" }]
+		"plugins": [{ "name": "typescript-deno-plugin", "unstable": true }]
 	},
-	"exclude": [".local"],
-	"include": ["src/**/*.d.ts", "src/**/*.ts"]
+	"exclude": [".local"]
 }

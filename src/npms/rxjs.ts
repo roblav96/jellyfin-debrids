@@ -1,5 +1,4 @@
-// @deno-types='../../node_modules/rxjs/index.d.ts'
-import rxjs from 'https://dev.jspm.io/rxjs'
-// @deno-types='../../node_modules/rxjs/operators/index.d.ts'
-import op from 'https://dev.jspm.io/rxjs/operators'
-export default { ...rxjs, op }
+export * from 'https://esm.sh/rxjs@next?dev'
+export * as op from 'https://esm.sh/rxjs@next/operators?dev'
+
+
