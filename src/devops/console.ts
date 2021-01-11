@@ -29,7 +29,9 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 			apply(method, ctx: Console, args: string[]) {
 				let e = { stack: '' }
 				Error.captureStackTrace(e, this.apply)
-				let stack = e.stack.split('\n')[1]?.trim() ?? ''
+				// console.info('\ne.stack ->', e.stack, '\n')
+				let lines = e.stack.split('\n')
+				let stack = lines[lines.length - 1]?.trim() ?? ''
 				let stacks = stack.split(' ')
 				for (let i = 0; i < stacks.length; i++) {
 					if (i == 0) {
@@ -66,7 +68,7 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 				let delta = now - now_stamp
 				now_stamp = now
 
-				let symbol = ({ log: '🔵', warn: '🟠', error: '🔴' } as any)[level] as string
+				let symbol = ({ log: '⚪', warn: '🟠', error: '🔴' } as any)[level] as string
 				let header = `${symbol} ${colors.dim(`${stack} +${delta}ms`)}`
 				args[0] = `${header}\n${args[0]}`
 				if (level == 'error') {
@@ -82,8 +84,8 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 
 Object.assign(console, {
 	async dts(data, identifier) {
-		let generate = (await import(`${'../npms/dts-generate.ts'}`)).default
-		let output = (await generate(data, identifier)) as string
+		let dts = await import('https://esm.sh/dts-generate?dev')
+		let output = await dts.generate(data, identifier)
 		console.log(output)
 		return output
 	},
