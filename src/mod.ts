@@ -1,21 +1,22 @@
 await import('./devops/console.ts')
 // await import('./envs/dotenv.ts')
 
-import * as fae from 'https://deno.land/x/fae/mod.ts'
-console.log('fae.all ->', fae.all)
+import * as R from './shims/rambdax.ts'
+console.log('R ->', R.range(12)(22))
+console.log('R.allFalse([]) ->', R.allFalse([true]))
 
-import R from './npms/rambdax.ts'
-console.log('R.keys ->', R.keys)
 
-import Rx from './npms/rxjs.ts'
-console.log('Rx.Subject ->', Rx.Subject)
+// await console.dts(Deno.core, 'Deno.core')
 
-// let dts = await import('./npms/dts-generate.ts')
-// console.log('dts ->', dts.generate)
+// const Rx = await import('https://dev.jspm.io/rxjs')
+// import Rx from 'https://dev.jspm.io/rxjs@next'
+// import * as Rx from 'https://esm.sh/rxjs@next'
+// import * as Rx from './npms/rxjs.ts'
 
-// let bus = await import('./events/bus.ts')
 // let nghttpx = await import('./nghttpx/nghttpx.ts')
+// console.log('nghttpx ->', nghttpx)
 // let jellyfin = await import('./jellyfin/jellyfin.ts')
+// console.log('jellyfin ->', jellyfin)
 
 // self.addEventListener('load', async (event) => {
 // 	console.log('mod.ts onload ->', event.type)

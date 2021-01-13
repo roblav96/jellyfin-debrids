@@ -4,10 +4,10 @@ import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as io from 'https://deno.land/std/io/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
 
-let root_path = Deno.env.get('ROOT_PATH') as string
+let root_path = Deno.env.get('ROOT_PATH')!
 let config_path = path.join(root_path, 'configs', 'nghttpx.dev.conf')
 const exec = Deno.run({
-	cmd: ['nghttpx', '--conf', config_path],
+	cmd: ['nghttpx', '--conf', config_path, `--workers=${Deno.systemCpuInfo().cores}`],
 	stdout: 'piped',
 	stderr: 'piped',
 })

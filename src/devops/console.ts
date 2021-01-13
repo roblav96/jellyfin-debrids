@@ -13,7 +13,8 @@ const DEFAULT_INSPECT_OPTIONS = {
 	trailingComma: false,
 } as Deno.InspectOptions
 
-let root_path = Deno.env.get('ROOT_PATH') as string
+let root_path = Deno.env.get('ROOT_PATH')!
+
 if (Deno.mainModule) {
 	if (!root_path) {
 		root_path = path.dirname(path.dirname(Deno.mainModule)).replace('file://', '')
@@ -84,7 +85,9 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 
 Object.assign(console, {
 	async dts(data, identifier) {
-		let dts = await import('https://esm.sh/dts-generate?dev')
+		let dts = await (import(`${'https://esm.sh/dts-generate?no-check'}`) as Promise<
+			typeof import('https://esm.sh/dts-generate/dist/index.d.ts')
+		>)
 		let output = await dts.generate(data, identifier)
 		console.log(output)
 		return output

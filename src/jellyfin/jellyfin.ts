@@ -1,6 +1,9 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as io from 'https://deno.land/std/io/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
+import Rx from '../npms/rxjs.ts'
+
+export const rxReady = new Rx.BehaviorSubject(false)
 
 await ensureConfigDir()
 
@@ -23,13 +26,13 @@ worker.addEventListener('error', function onJellyfinError(event) {
 })
 
 export async function ensureConfigDir() {
-	let jellyfin_config_dir = Deno.env.get('JELLYFIN_CONFIG_DIR') as string
+	let jellyfin_config_dir = Deno.env.get('JELLYFIN_CONFIG_DIR')!
 	if (!path.isAbsolute(jellyfin_config_dir)) {
 		throw new TypeError('JELLYFIN_CONFIG_DIR must be an absolute path.')
 	}
 	if (await fs.exists(jellyfin_config_dir)) return
 	await fs.ensureDir(jellyfin_config_dir)
-	let root_path = Deno.env.get('ROOT_PATH') as string
+	let root_path = Deno.env.get('ROOT_PATH')!
 	await fs.copy(
 		path.join(root_path, 'configs', 'jellyfin', 'logging.json'),
 		path.join(jellyfin_config_dir, 'logging.json'),

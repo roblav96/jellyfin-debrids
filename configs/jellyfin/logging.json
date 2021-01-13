@@ -5,7 +5,7 @@
 			{
 				"Name": "Console",
 				"Args": {
-					"outputTemplate": "{NewLine}[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message}{NewLine}{Exception}"
+					"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message}{NewLine}{Exception}"
 				}
 			},
 			{
