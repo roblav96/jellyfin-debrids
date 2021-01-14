@@ -7,7 +7,13 @@ import * as path from 'https://deno.land/std/path/mod.ts'
 let root_path = Deno.env.get('ROOT_PATH')!
 let config_path = path.join(root_path, 'configs', 'nghttpx.dev.conf')
 const exec = Deno.run({
-	cmd: ['nghttpx', '--conf', config_path, `--workers=${Deno.systemCpuInfo().cores}`],
+	cmd: [
+		'nghttpx',
+		'--conf',
+		config_path,
+		`--workers=${Deno.systemCpuInfo().cores}`,
+		'--http2-proxy',
+	],
 	stdout: 'piped',
 	stderr: 'piped',
 })
