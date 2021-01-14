@@ -1,3 +1,5 @@
+import * as F from 'https://deno.land/x/fae/mod.ts'
+import * as H from 'https://deno.land/x/hyurl_utils/mod.ts'
 import * as Rx from '../shims/rxjs.ts'
 import cidrRegex from 'https://esm.sh/cidr-regex?dev'
 import ipRegex from 'https://esm.sh/ip-regex?dev'

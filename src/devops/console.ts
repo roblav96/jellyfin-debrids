@@ -1,10 +1,7 @@
 import * as colors from 'https://deno.land/std/fmt/colors.ts'
 import * as datetime from 'https://deno.land/std/datetime/mod.ts'
-import * as Fae from 'https://deno.land/x/fae/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
-import * as util from 'https://esm.sh/util?dev&target=es2020'
 import ms from 'https://esm.sh/pretty-ms?dev'
-import { isObject } from 'https://deno.land/x/fae/utils/is.ts'
 
 const LOG_SYMBOLS = {
 	log: '🔵',
@@ -122,7 +119,7 @@ declare global {
 	const closed: boolean
 	namespace Deno {
 		interface Core {
-			jsonOpSync<T>(name: string, params: T): any
+			jsonOpSync<T = any>(name: string, params: T): any
 			ops(): void
 			print(msg: string, code?: number): void
 			registerErrorClass(name: string, ctor: typeof Error): void

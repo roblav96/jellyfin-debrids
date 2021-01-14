@@ -11,34 +11,35 @@ export interface RunCmdMessage {
 	type: 'ready' | 'run' | 'status' | 'chunk'
 }
 
-export default class RunCmdWorker extends Worker {
-	declare postMessage: (message: Partial<RunCmdMessage>) => void
+export default class RunCmdWorker {
 	rx = new Rx.Subject<string>()
 
-	constructor(public cmd: string[], public delimiter: string, public name = `${cmd[0]}_worker`) {
-		super(new URL('run_cmd_worker.ts', import.meta.url).href, {
+	private worker: Worker
+	private get name() {
+		return `${this.cmd[0]}_worker`
+	}
+	private postMessage(message: Partial<RunCmdMessage>) {
+		this.worker.postMessage(message)
+	}
+
+	constructor(private cmd: string[], private delimiter: string) {
+		this.worker = new Worker(new URL('run_cmd_worker.ts', import.meta.url).href, {
 			deno: { namespace: true, permissions: 'inherit' },
-			name: name,
+			name: this.name,
 			type: 'module',
 		})
 
-		this.addEventListener('error', function error(this: RunCmdWorker, event: ErrorEvent) {
-			console.error(`${name} error ->`, event)
+		this.worker.addEventListener('error', (event) => {
+			console.error(`${this.name} error ->`, event.error)
 			this.rx.error(new Error(event.error))
-		} as any)
+		})
 
-		this.addEventListener('messageerror', function messageerror(
-			this: RunCmdWorker,
-			event: MessageEvent,
-		) {
-			console.error(`${name} messageerror ->`, event.data)
+		this.worker.addEventListener('messageerror', (event) => {
+			console.error(`${this.name} messageerror ->`, event.data)
 			this.rx.error(new Error(event.data))
-		} as any)
+		})
 
-		this.addEventListener('message', function message(
-			this: RunCmdWorker,
-			event: MessageEvent<RunCmdMessage>,
-		) {
+		this.worker.addEventListener('message', (event: MessageEvent<RunCmdMessage>) => {
 			if (event.data.type == 'ready') {
 				return this.postMessage({ type: 'run', cmd, delimiter })
 			}
@@ -47,6 +48,6 @@ export default class RunCmdWorker extends Worker {
 				return this.rx.next(event.data.chunk)
 			}
 			// console.log(`${name} message ->`, event.data)
-		} as any)
+		})
 	}
 }
