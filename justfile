@@ -17,7 +17,7 @@ deps :
 	NO_COLOR=1 deno info --unstable src/mod.ts
 
 run action="" :
-	@test "{{action}}" = "watch" && tput clear
+	@test "{{action}}" = "watch" && tput clear || true
 	@deno cache --unstable --no-check src/**/*.ts || true
 	@deno run --unstable --no-check --allow-all src/mod.ts
 

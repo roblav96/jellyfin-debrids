@@ -1,6 +1,3 @@
-// import * as fs from 'https://deno.land/std/fs/mod.ts'
-// import * as io from 'https://deno.land/std/io/mod.ts'
-// import * as path from 'https://deno.land/std/path/mod.ts'
 import * as Rx from '../shims/rxjs.ts'
 
 export interface RunCmdMessage {
@@ -8,7 +5,7 @@ export interface RunCmdMessage {
 	cmd: string[]
 	delimiter: string
 	status: Deno.ProcessStatus
-	type: 'ready' | 'run' | 'status' | 'chunk'
+	action: 'ready' | 'run' | 'status' | 'chunk'
 }
 
 export default class RunCmdWorker {
@@ -40,10 +37,10 @@ export default class RunCmdWorker {
 		})
 
 		this.worker.addEventListener('message', (event: MessageEvent<RunCmdMessage>) => {
-			if (event.data.type == 'ready') {
-				return this.postMessage({ type: 'run', cmd, delimiter })
+			if (event.data.action == 'ready') {
+				return this.postMessage({ action: 'run', cmd, delimiter })
 			}
-			if (event.data.type == 'chunk') {
+			if (event.data.action == 'chunk') {
 				// console.log(`${name} chunk ->`, event.data.chunk)
 				return this.rx.next(event.data.chunk)
 			}

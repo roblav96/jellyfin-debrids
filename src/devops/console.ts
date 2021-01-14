@@ -72,13 +72,11 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof console
 				stack = stack.replace('at ', '')
 
 				for (let i = 0; i < args.length; i++) {
-					if (i == 0 && typeof args[i] == 'string') {
+					let arg = args[i]
+					if (i == 0 && typeof arg == 'string') {
 						continue
 					}
-					// let arg = JSON.parse(JSON.stringify(args[i]))
-					// arg.level = colors.underline(arg.level)
-					// args[i] = Deno.inspect(arg) // JSON.stringify(arg, null, 4)
-					args[i] = Deno.inspect(args[i], DEFAULT_INSPECT_OPTIONS)
+					args[i] = Deno.inspect(arg, DEFAULT_INSPECT_OPTIONS)
 				}
 
 				let now = performance.now()
@@ -93,9 +91,8 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof console
 				}
 				args.push('\n')
 
-				// // prettier-ignore
-				// for (let arg of args) { Deno.core.print(arg) }
-				return Reflect.apply(method, ctx, args)
+				// @ts-ignore
+				return Reflect.apply(...arguments)
 			},
 		}),
 	})
@@ -119,7 +116,7 @@ declare global {
 	const closed: boolean
 	namespace Deno {
 		interface Core {
-			jsonOpSync<T = any>(name: string, params: T): any
+			jsonOpSync<T>(name: string, params: T): any
 			ops(): void
 			print(msg: string, code?: number): void
 			registerErrorClass(name: string, ctor: typeof Error): void
