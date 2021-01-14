@@ -5,7 +5,8 @@
 			{
 				"Name": "Console",
 				"Args": {
-					"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message}{NewLine}{Exception}"
+					"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level}] [{SourceContext}] {Message:j}{NewLine}{Exception}{NewLine}",
+					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
 				}
 			},
 			{
