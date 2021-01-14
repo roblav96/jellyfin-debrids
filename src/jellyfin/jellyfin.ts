@@ -1,44 +1,60 @@
-import * as fs from 'https://deno.land/std/fs/mod.ts'
-import * as io from 'https://deno.land/std/io/mod.ts'
-import * as path from 'https://deno.land/std/path/mod.ts'
-import Rx from '../npms/rxjs.ts'
+import * as Rx from '../shims/rxjs.ts'
+import cidrRegex from 'https://esm.sh/cidr-regex?dev'
+import ipRegex from 'https://esm.sh/ip-regex?dev'
+import isCidr from 'https://esm.sh/is-cidr?dev'
+import isIp from 'https://esm.sh/is-ip?dev'
+import RunCmdWorker from '../workers/RunCmdWorker.ts'
 
-export const rxReady = new Rx.BehaviorSubject(false)
+const worker = new RunCmdWorker(['jellyfin', '--service'], '\n\n')
+export const rxJellyfin = worker.rx.pipe(
+	// Rx.op.tap((chunk) => console.log('jellyfin chunk ->', chunk)),
+	Rx.op.map((chunk) => {
+		let regex = /^\[(?<dateiso>.+)\] \[(?<level>\w+)\] \[(?<source>.+)\] (?<message>.+)/
+		let groups = chunk.match(regex)!.groups!
+		let values = Array.from(groups.message.matchAll(/(?<value>".+")/g)).map((match) => {
+			return match.groups!.value
+		})
+		return {
+			level: groups.level as 'Debug' | 'Error' | 'Fatal' | 'Information' | 'Warning',
+			message: groups.message,
+			source: groups.source,
+			stamp: new Date(groups.dateiso).valueOf(),
+			values,
+		}
+	}),
+	Rx.op.tap((line) => console.log('jellyfin line ->', line)),
+	// Rx.op.tap((line) => console.log(JSON.stringify(line, null, 4))),
+	Rx.op.share(),
+)
 
-await ensureConfigDir()
+export const rxListening = new Rx.BehaviorSubject('')
+rxJellyfin.pipe(
+	Rx.op.filter((line) => line.message.includes(' listening ')),
+	Rx.op.map((line) => {
+		return line.message.split(' ').slice(-1)[0]
+	}),
+	Rx.op.mergeMapTo(rxListening),
+)
 
-let worker = new Worker(new URL('jellyfin_worker.ts', import.meta.url).href, {
-	deno: { namespace: true, permissions: 'inherit' },
-	name: 'jellyfin_worker',
-	type: 'module',
-})
+// worker.rx.subscribe((chunk) => {
+// 	// let regex = /^\[(?<stamp>.+)\] \[(?<level>[A-Z])\] (?<context>.+): (?<message>.+)/
+// 	// for (let match of Array.from(chunk.matchAll(regex))) {
+// 	// 	console.log(`${match.input} ->`, match.groups)
+// 	// }
+// 	// let matches = Array.from(chunk.matchAll(regex))
+// 	// if (chunk.includes(' listening ')) {
+// 	// 	console.warn('rxListening ->', chunk)
+// 	// 	let splits = chunk.split(':').slice(-1).map((v) => v.split(' '))
+// 	// 	console.log('splits ->', splits)
+// 	// 	return rxListening.next(true)
+// 	// }
+// 	console.log('jellyfin chunk ->', chunk)
+// })
 
-worker.addEventListener('message', function onJellyfinMessage(event) {
-	if (event?.data?.chunk) {
-		console.log('jellyfin_worker chunk ->', event.data.chunk)
-	} else {
-		// console.log('jellyfin_worker event ->', event.data)
-	}
-})
-
-worker.addEventListener('error', function onJellyfinError(event) {
-	console.error('jellyfin_worker error ->', event.message)
-})
-
-export async function ensureConfigDir() {
-	let jellyfin_config_dir = Deno.env.get('JELLYFIN_CONFIG_DIR')!
-	if (!path.isAbsolute(jellyfin_config_dir)) {
-		throw new TypeError('JELLYFIN_CONFIG_DIR must be an absolute path.')
-	}
-	if (await fs.exists(jellyfin_config_dir)) return
-	await fs.ensureDir(jellyfin_config_dir)
-	let root_path = Deno.env.get('ROOT_PATH')!
-	await fs.copy(
-		path.join(root_path, 'configs', 'jellyfin', 'logging.json'),
-		path.join(jellyfin_config_dir, 'logging.json'),
-	)
-	await fs.copy(
-		path.join(root_path, 'configs', 'jellyfin', 'system.xml'),
-		path.join(jellyfin_config_dir, 'system.xml'),
-	)
-}
+// worker.addEventListener('message', function onJellyfinMessage(event) {
+// 	if (event?.data?.chunk) {
+// 		console.log('jellyfin_worker chunk ->', event.data.chunk)
+// 	} else {
+// 		console.log('jellyfin_worker event ->', event.data)
+// 	}
+// })
