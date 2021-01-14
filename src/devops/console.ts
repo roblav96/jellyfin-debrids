@@ -1,20 +1,31 @@
 import * as colors from 'https://deno.land/std/fmt/colors.ts'
 import * as datetime from 'https://deno.land/std/datetime/mod.ts'
+import * as Fae from 'https://deno.land/x/fae/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
+import * as util from 'https://esm.sh/util?dev&target=es2020'
+import ms from 'https://esm.sh/pretty-ms?dev'
+import { isObject } from 'https://deno.land/x/fae/utils/is.ts'
+
+const LOG_SYMBOLS = {
+	log: '🔵',
+	info: '🟢',
+	warn: '🟠',
+	error: '🔴',
+} as Record<keyof typeof console, string>
 
 const DEFAULT_INSPECT_OPTIONS = {
 	colors: true,
-	compact: false,
+	compact: true,
 	depth: 4,
 	getters: true,
-	iterableLimit: Infinity,
+	indentLevel: 4,
+	iterableLimit: 100,
 	showProxy: true,
 	sorted: true,
 	trailingComma: false,
 } as Deno.InspectOptions
 
 let root_path = Deno.env.get('ROOT_PATH')!
-
 if (Deno.mainModule) {
 	if (!root_path) {
 		root_path = path.dirname(path.dirname(Deno.mainModule)).replace('file://', '')
@@ -23,16 +34,21 @@ if (Deno.mainModule) {
 	Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
 }
 
-let now_stamp = Date.now()
-for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
+let now_stamp = performance.now()
+for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof console, string][]) {
 	Object.assign(console, {
 		[level]: new Proxy(console[level], {
 			apply(method, ctx: Console, args: string[]) {
 				let e = { stack: '' }
 				Error.captureStackTrace(e, this.apply)
-				// console.info('\ne.stack ->', e.stack, '\n')
 				let lines = e.stack.split('\n')
-				let stack = lines[lines.length - 1]?.trim() ?? ''
+				if (!lines[1]) {
+					Deno.core.print('\n🟡 !lines[1] -> ' + e.stack + '\n\n')
+					Error.captureStackTrace(e)
+					lines = e.stack.split('\n')
+				}
+				// Deno.core.print('\n🟡 e.stack -> ' + e.stack + '\n\n')
+				let stack = lines[1]?.trim() ?? ''
 				let stacks = stack.split(' ')
 				for (let i = 0; i < stacks.length; i++) {
 					if (i == 0) {
@@ -62,21 +78,26 @@ for (let level of ['log', 'warn', 'error'] as (keyof typeof console)[]) {
 					if (i == 0 && typeof args[i] == 'string') {
 						continue
 					}
+					// let arg = JSON.parse(JSON.stringify(args[i]))
+					// arg.level = colors.underline(arg.level)
+					// args[i] = Deno.inspect(arg) // JSON.stringify(arg, null, 4)
 					args[i] = Deno.inspect(args[i], DEFAULT_INSPECT_OPTIONS)
 				}
 
-				let now = Date.now()
+				let now = performance.now()
 				let delta = now - now_stamp
 				now_stamp = now
+				let timestamp = ms(delta, { compact: true, formatSubMilliseconds: true })
 
-				let symbol = ({ log: '⚪', warn: '🟠', error: '🔴' } as any)[level] as string
-				let header = `${symbol} ${colors.dim(`${stack} +${delta}ms`)}`
+				let header = `${symbol} ${colors.dim(`${stack} +${timestamp}`)}`
 				args[0] = `${header}\n${args[0]}`
 				if (level == 'error') {
 					args[0] = `\n${args[0]}`
 				}
 				args.push('\n')
 
+				// // prettier-ignore
+				// for (let arg of args) { Deno.core.print(arg) }
 				return Reflect.apply(method, ctx, args)
 			},
 		}),
@@ -98,8 +119,15 @@ declare global {
 	interface Console {
 		dts(data: any, identifier?: string): Promise<string>
 	}
+	const closed: boolean
 	namespace Deno {
-		var core: any
-		var internal: symbol
+		interface Core {
+			jsonOpSync<T>(name: string, params: T): any
+			ops(): void
+			print(msg: string, code?: number): void
+			registerErrorClass(name: string, ctor: typeof Error): void
+		}
+		const core: Core
+		const internal: symbol
 	}
 }
