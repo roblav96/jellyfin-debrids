@@ -1,19 +1,18 @@
-import * as cases from 'https://esm.sh/change-case?dev'
 import * as path from 'https://deno.land/std/path/mod.ts'
 import * as qs from 'https://deno.land/std/node/querystring.ts'
 import * as Rx from '../shims/rxjs.ts'
 import RunCmdWorker from '../workers/RunCmdWorker.ts'
-import { upperCaseFirst } from 'https://esm.sh/upper-case-first?dev'
+import { pascalCase } from 'https://esm.sh/pascal-case?dev'
 
 let root_path = Deno.env.get('ROOT_PATH')!
 let config_path = path.join(root_path, 'configs', 'nghttpx.dev.conf')
-export const worker = new RunCmdWorker(
+const worker = new RunCmdWorker(
 	['nghttpx', `--conf=${config_path}`, `--workers=${Deno.systemCpuInfo().cores}`],
 	['}\n', '\n'],
 )
 
-export const rxNghttpx = worker.rx.pipe(
-	// Rx.op.tap((chunk) => console.log('rxNghttpx chunk ->', chunk)),
+const rxWorker = worker.rx.pipe(
+	// Rx.op.tap((chunk) => console.log('rxWorker chunk ->', chunk)),
 	Rx.op.map((chunk) => {
 		let message = chunk.slice(chunk.indexOf(' ') + 1)
 		if (message.startsWith('{')) {
@@ -28,7 +27,7 @@ export const rxNghttpx = worker.rx.pipe(
 	Rx.op.share(),
 )
 
-export const rxAccess = rxNghttpx.pipe(
+const rxAccess = rxWorker.pipe(
 	Rx.op.filter((line) => line.message.startsWith('{')),
 	Rx.op.map((line) => {
 		let access = {} as {
@@ -70,7 +69,7 @@ export const rxAccess = rxNghttpx.pipe(
 	Rx.op.share(),
 )
 
-export const rxError = rxNghttpx.pipe(
+const rxError = rxWorker.pipe(
 	Rx.op.filter((line) => !line.message.startsWith('{')),
 	Rx.op.map((line) => {
 		let error = {} as {
@@ -128,21 +127,31 @@ export const rxHttp = rxAccess.pipe(
 		let query = {} as Record<string, string>
 		if (params) {
 			query = Object.entries(qs.parse(params)).reduce((target, [key, value], index) => {
-				return Object.assign(target, { [cases.pascalCase(key)]: value })
+				return Object.assign(target, { [pascalCase(key)]: value })
 			}, query)
 		}
 		let parts = path.split('/').filter(Boolean)
 		for (let i = 0; i < parts.length; i++) {
 			let [part, next] = [parts[i], parts[i + 1]]
 			if (!next) continue
-			if (part == 'users' && next.length == 32) {
-				query.UserId ??= next
+			if (!query.UserId && part == 'users' && next.length == 32) {
+				query.UserId = next
 			}
-			if (!isNaN(next as any)) {
-				query.ItemId ??= next
+			// prettier-ignore
+			let types = ['albums', 'artists', 'audio', 'items', 'movies', 'playingitems', 'shows', 'trailers', 'videos']
+			if (!query.ItemId && types.includes(part)) {
+				if (!isNaN(next as any) || next.length == 32) {
+					query.ItemId = next
+				}
 			}
 		}
-		return { method: access.method, path, query, useragent: access.http_user_agent }
+		return {
+			method: access.method,
+			path,
+			query,
+			useragent: access.http_user_agent,
+			...{ ItemId: query.ItemId, UserId: query.UserId },
+		}
 	}),
 	// Rx.op.tap((http) => console.log('rxHttp ->', http)),
 	Rx.op.share(),

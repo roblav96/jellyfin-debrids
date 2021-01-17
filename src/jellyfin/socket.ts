@@ -1,6 +1,7 @@
 import * as qs from 'https://deno.land/std/node/querystring.ts'
 import * as R from '../shims/rambdax.ts'
 import * as Rx from '../shims/rxjs.ts'
+import * as jellyfin from './jellyfin.ts'
 
 export interface SocketEvent<T = any> {
 	Data: T
@@ -11,7 +12,7 @@ export const rxSocket = new Rx.Subject<Partial<SocketEvent>>()
 
 let query = qs.stringify({
 	api_key: Deno.env.get('API_KEY'),
-	deviceId: Deno.env.get('DEVICE_ID'),
+	deviceId: (await jellyfin.SystemInfoPublic()).Id,
 })
 const socket = new WebSocket(`ws://127.0.0.1:18096/socket?${query}`)
 socket.addEventListener('error', (event) => {

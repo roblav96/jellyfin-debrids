@@ -1,3 +1,9 @@
-import * as Rx from '../shims/rxjs.ts'
-import { rxHttp } from '../nghttpx/nghttpx.ts'
+import * as qs from 'https://deno.land/std/node/querystring.ts'
+import * as R from '../shims/rambdax.ts'
+import ky from '../shims/ky.ts'
 
+export default ky
+
+export class Http {
+	constructor({ baseUrl = '' }) {}
+}

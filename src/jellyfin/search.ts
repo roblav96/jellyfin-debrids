@@ -1,5 +1,5 @@
 import * as Rx from '../shims/rxjs.ts'
-import { rxHttp } from '../nghttpx/nghttpx.ts'
+import { rxHttp } from './jellyfin.ts'
 
 const rxSearch = rxHttp.pipe(
 	Rx.op.filter(({ query }) => !!query.SearchTerm && !!query.UserId),

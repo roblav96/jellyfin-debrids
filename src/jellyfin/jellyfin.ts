@@ -1,54 +1,157 @@
-import * as fs from 'https://deno.land/std/fs/mod.ts'
-import * as path from 'https://deno.land/std/path/mod.ts'
-import * as Rx from '../shims/rxjs.ts'
-import RunCmdWorker from '../workers/RunCmdWorker.ts'
+export { rxJellyfin } from '../workers/jellyfin_worker.ts'
+export { rxHttp } from '../workers/nghttpx_worker.ts'
+import ky from '../adapters/http.ts'
 
-let jellyfin_config_dir = Deno.env.get('JELLYFIN_CONFIG_DIR')!
-if (!path.isAbsolute(jellyfin_config_dir)) {
-	throw new TypeError(`JELLYFIN_CONFIG_DIR must be an absolute path -> '${jellyfin_config_dir}'`)
-}
-await fs.ensureDir(jellyfin_config_dir)
-
-let root_configs_dir = path.join(Deno.env.get('ROOT_PATH')!, 'configs', 'jellyfin')
-for await (let entry of fs.walk(root_configs_dir, { includeDirs: false })) {
-	let jellyfin_file = path.join(jellyfin_config_dir, entry.name)
-	if (!(await fs.exists(jellyfin_file))) {
-		await fs.copy(path.join(root_configs_dir, entry.name), jellyfin_file)
-	}
+const API_KEY = Deno.env.get('API_KEY')!
+if (!API_KEY) {
+	console.error('Undefined API_KEY ->', 'http://localhost:8096/web/index.html#!/apikeys.html')
 }
 
-export const worker = new RunCmdWorker(['jellyfin', '--service'], ['\n\n', '\n\n'])
+export const api = ky.extend({
+	prefixUrl: 'http://127.0.0.1:18096',
+	searchParams: { api_key: API_KEY },
+})
 
-export const rxJellyfin = worker.rx.pipe(
-	// Rx.op.tap((chunk) => console.log('jellyfin_worker chunk ->', chunk)),
-	Rx.op.map((chunk) => {
-		let regex = /^\[(?<datetime>\S+)\] \[(?<level>\w+)\] \[(?<context>.+)\] (?<message>.+)/
-		let groups = chunk.match(regex)!.groups!
-		let matches = Array.from(groups.message.matchAll(/"(?<value>.+)"/g))
-		return {
-			level: groups.level as 'Debug' | 'Error' | 'Fatal' | 'Information' | 'Warning',
-			message: groups.message,
-			context: groups.context,
-			stamp: new Date(groups.datetime).valueOf(),
-			values: matches.map((match) => match.groups!.value),
-		}
-	}),
-	// Rx.op.tap((line) => console.log('jellyfin line ->', line)),
-	Rx.op.share(),
-)
-// rxJellyfin.subscribe((line) => {
-// 	console.log('rxJellyfin line ->', line)
-// })
+export async function SystemInfoPublic() {
+	return (await api.get('System/Info/Public').json()) as SystemInfoPublic
+}
 
-const rxReady = new Rx.BehaviorSubject(false)
-rxJellyfin
-	.pipe(
-		Rx.op.filter((line) => line.message.includes(' listening ')),
-		Rx.op.take(1),
-		Rx.op.delay(1000),
-	)
-	.subscribe(() => rxReady.next(true))
-export async function run() {
-	worker.run()
-	await Rx.firstValueFrom(rxReady.pipe(Rx.op.filter((ready) => ready == true)))
+// if (api_key) {
+// 	let Me = (await (
+// 		await fetch(`http://127.0.0.1:18096/Users/Me?api_key=${api_key}`)
+// 	).text())
+// 	console.log('Me ->', Me)
+// }
+
+export interface SystemInfoPublic {
+	Id: string
+	LocalAddress: string
+	OperatingSystem: string
+	ProductName: string
+	ServerName: string
+	StartupWizardCompleted: boolean
+	Version: string
+}
+
+export interface SystemInfo {
+	CachePath: string
+	CanLaunchWebBrowser: boolean
+	CanSelfRestart: boolean
+	CompletedInstallations: any[]
+	EncoderLocation: string
+	HasPendingRestart: boolean
+	HasUpdateAvailable: boolean
+	Id: string
+	InternalMetadataPath: string
+	IsShuttingDown: boolean
+	ItemsByNamePath: string
+	LocalAddress: string
+	LogPath: string
+	OperatingSystem: string
+	OperatingSystemDisplayName: string
+	ProgramDataPath: string
+	ServerName: string
+	SupportsLibraryMonitor: boolean
+	SystemArchitecture: string
+	TranscodingTempPath: string
+	Version: string
+	WebPath: string
+	WebSocketPortNumber: number
+}
+
+export interface SystemConfiguration {
+	ActivityLogRetentionDays: number
+	AutoDiscovery: boolean
+	AutoDiscoveryTracing: boolean
+	BaseUrl: string
+	CertificatePassword: string
+	CertificatePath: string
+	CodecsUsed: any[]
+	ContentTypes: any[]
+	CorsHosts: string[]
+	DisableLiveTvChannelUserDataName: boolean
+	DisablePluginImages: boolean
+	DisplaySpecialsWithinSeasons: boolean
+	EnableCaseSensitiveItemIds: boolean
+	EnableDashboardResponseCaching: boolean
+	EnableExternalContentInSuggestions: boolean
+	EnableFolderView: boolean
+	EnableGroupingIntoCollections: boolean
+	EnableHttps: boolean
+	EnableIPV4: boolean
+	EnableIPV6: boolean
+	EnableMetrics: boolean
+	EnableMultiSocketBinding: boolean
+	EnableNewOmdbSupport: boolean
+	EnableNormalizedItemByNameIds: boolean
+	EnableRemoteAccess: boolean
+	EnableSSDPTracing: boolean
+	EnableSimpleArtistDetection: boolean
+	EnableSlowResponseWarning: boolean
+	EnableUPnP: boolean
+	GatewayMonitorPeriod: number
+	HDHomerunPortRange: string
+	HttpServerPortNumber: number
+	HttpsPortNumber: number
+	IgnoreVirtualInterfaces: boolean
+	ImageExtractionTimeoutMs: number
+	ImageSavingConvention: string
+	IsPortAuthorized: boolean
+	IsRemoteIPFilterBlacklist: boolean
+	IsStartupWizardCompleted: boolean
+	KnownProxies: any[]
+	LibraryMetadataRefreshConcurrency: number
+	LibraryMonitorDelay: number
+	LibraryScanFanoutConcurrency: number
+	LocalNetworkAddresses: any[]
+	LocalNetworkSubnets: any[]
+	LogFileRetentionDays: number
+	MaxAudiobookResume: number
+	MaxResumePct: number
+	MetadataCountryCode: string
+	MetadataNetworkPath: string
+	MetadataOptions: {
+		DisabledImageFetchers: string[]
+		DisabledMetadataFetchers: string[]
+		DisabledMetadataSavers: any[]
+		ImageFetcherOrder: any[]
+		ItemType: string
+		LocalMetadataReaderOrder: any[]
+		MetadataFetcherOrder: any[]
+	}[]
+	MetadataPath: string
+	MinAudiobookResume: number
+	MinResumeDurationSeconds: number
+	MinResumePct: number
+	PathSubstitutions: any[]
+	PluginRepositories: {
+		Enabled: boolean
+		Name: string
+		Url: string
+	}[]
+	PreferredMetadataLanguage: string
+	PublicHttpsPort: number
+	PublicPort: number
+	PublishedServerUriBySubnet: any[]
+	QuickConnectAvailable: boolean
+	RemoteClientBitrateLimit: number
+	RemoteIPFilter: any[]
+	RemoveOldPlugins: boolean
+	RequireHttps: boolean
+	SSDPTracingFilter: string
+	SaveMetadataHidden: boolean
+	ServerName: string
+	SkipDeserializationForBasicTypes: boolean
+	SlowResponseThresholdMs: number
+	SortRemoveCharacters: string[]
+	SortRemoveWords: string[]
+	SortReplaceCharacters: string[]
+	TrustAllIP6Interfaces: boolean
+	UDPPortRange: string
+	UDPSendCount: number
+	UDPSendDelay: number
+	UICulture: string
+	UPnPCreateHttpPortMap: boolean
+	UninstalledPlugins: any[]
+	VirtualInterfaceNames: string
 }
