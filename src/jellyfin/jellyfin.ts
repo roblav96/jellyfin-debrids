@@ -26,12 +26,17 @@ export const rxJellyfin = worker.rx.pipe(
 	// Rx.op.tap((line) => console.log('jellyfin line ->', line)),
 	Rx.op.share(),
 )
+// rxJellyfin.subscribe((line) => {
+// 	console.log('rxJellyfin line ->', line)
+// })
 
-export const rxCdir = new Rx.BehaviorSubject('')
-const rxListening = rxJellyfin.pipe(
-	Rx.op.filter((line) => line.message.includes(' listening ')),
-	// Rx.op.tap((line) => console.log('jellyfin line ->', line)),
-	Rx.op.map((line) => line.values[0]),
-	// Rx.op.mergeMapTo(rxListening),
-)
-rxListening.pipe(Rx.op.take(1), Rx.op.delay(1000)).subscribe((cdir) => rxCdir.next(cdir))
+let rxCidr = new Rx.BehaviorSubject('')
+rxJellyfin
+	.pipe(
+		Rx.op.filter((line) => line.message.includes(' listening ')),
+		Rx.op.map((line) => line.values[0]),
+		Rx.op.take(1),
+		Rx.op.delay(1000),
+	)
+	.subscribe((cidr) => rxCidr.next(cidr))
+export const rxReady = rxCidr.pipe(Rx.op.filter((cidr) => !!cidr))

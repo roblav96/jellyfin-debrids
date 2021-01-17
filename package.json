@@ -1,6 +1,6 @@
 {
 	"dependencies": {
-		"dts-generate": "^1.6.0",
+		"dts-generate": "^1.16.0",
 		"rambda": "^6.5.1",
 		"rambdax": "^7.1.0",
 		"rxjs": "^7.0.0-beta.9",
