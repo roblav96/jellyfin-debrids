@@ -24,7 +24,6 @@ export const rxJellyfin = worker.rx.pipe(
 		}
 	}),
 	// Rx.op.tap((line) => console.log('jellyfin line ->', line)),
-	// Rx.op.tap((line) => console.log(JSON.stringify(line, null, 4))),
 	Rx.op.share(),
 )
 
@@ -35,7 +34,7 @@ const rxListening = rxJellyfin.pipe(
 	Rx.op.map((line) => line.values[0]),
 	// Rx.op.mergeMapTo(rxListening),
 )
-rxListening.subscribe((cdir) => rxCdir.next(cdir))
+rxListening.pipe(Rx.op.take(1)).subscribe((cdir) => rxCdir.next(cdir))
 
 // worker.rx.subscribe((chunk) => {
 // 	// let regex = /^\[(?<stamp>.+)\] \[(?<level>[A-Z])\] (?<context>.+): (?<message>.+)/

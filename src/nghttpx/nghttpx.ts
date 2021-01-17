@@ -21,30 +21,30 @@ export const rxNghttpx = worker.rx.pipe(
 	Rx.op.share(),
 )
 
-export const rxRequest = rxNghttpx.pipe(
+export const rxAccess = rxNghttpx.pipe(
 	Rx.op.filter((line) => line.message.startsWith('{')),
 	Rx.op.map((line) => {
-		let request = {} as NghttpxRequest
+		let access = {} as NghttpxAccess
 		try {
-			request = JSON.parse(line.message.replace(/\\x22/g, '\\"'))
-			request.method &&= request.method.trim()
-			request.backend_port &&= parseInt(request.backend_port as any)
-			request.body_bytes_sent &&= parseInt(request.body_bytes_sent as any)
-			request.remote_port &&= parseInt(request.remote_port as any)
-			request.server_port &&= parseInt(request.server_port as any)
-			request.status &&= parseInt(request.status as any)
-			for (let key in request) {
-				let value = (request as any)[key] as string
+			access = JSON.parse(line.message.replace(/\\x22/g, '\\"'))
+			access.method &&= access.method.trim()
+			access.backend_port &&= parseInt(access.backend_port as any)
+			access.body_bytes_sent &&= parseInt(access.body_bytes_sent as any)
+			access.remote_port &&= parseInt(access.remote_port as any)
+			access.server_port &&= parseInt(access.server_port as any)
+			access.status &&= parseInt(access.status as any)
+			for (let key in access) {
+				let value = (access as any)[key] as string
 				if (value == '-') {
-					delete (request as any)[key]
+					delete (access as any)[key]
 				}
 			}
 		} catch (error) {
-			console.error('rxRequest ->', error)
+			console.error('rxAccess ->', error)
 		}
-		return { ...request, stamp: line.stamp }
+		return { ...access, stamp: line.stamp }
 	}),
-	Rx.op.filter((request) => Object.keys(request).length > 1),
+	Rx.op.filter((access) => Object.keys(access).length > 1),
 )
 
 export const rxError = rxNghttpx.pipe(
@@ -61,10 +61,10 @@ export const rxError = rxNghttpx.pipe(
 		}
 		return { ...error, stamp: line.stamp }
 	}),
-	Rx.op.filter((request) => Object.keys(request).length > 1),
+	Rx.op.filter((error) => Object.keys(error).length > 1),
 )
 
-export interface NghttpxRequest {
+export interface NghttpxAccess {
 	backend_host: string
 	backend_port: number
 	body_bytes_sent: number
