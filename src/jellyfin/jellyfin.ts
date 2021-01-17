@@ -7,7 +7,7 @@ import isCidr from 'https://esm.sh/is-cidr?dev'
 import isIp from 'https://esm.sh/is-ip?dev'
 import RunCmdWorker from '../workers/RunCmdWorker.ts'
 
-const worker = new RunCmdWorker(['jellyfin', '--service'], '\n\n')
+export const worker = new RunCmdWorker(['jellyfin', '--service'], ['\n\n', '\n\n'])
 
 export const rxJellyfin = worker.rx.pipe(
 	// Rx.op.tap((chunk) => console.log('jellyfin_worker chunk ->', chunk)),
@@ -34,27 +34,4 @@ const rxListening = rxJellyfin.pipe(
 	Rx.op.map((line) => line.values[0]),
 	// Rx.op.mergeMapTo(rxListening),
 )
-rxListening.pipe(Rx.op.take(1)).subscribe((cdir) => rxCdir.next(cdir))
-
-// worker.rx.subscribe((chunk) => {
-// 	// let regex = /^\[(?<stamp>.+)\] \[(?<level>[A-Z])\] (?<context>.+): (?<message>.+)/
-// 	// for (let match of Array.from(chunk.matchAll(regex))) {
-// 	// 	console.log(`${match.input} ->`, match.groups)
-// 	// }
-// 	// let matches = Array.from(chunk.matchAll(regex))
-// 	// if (chunk.includes(' listening ')) {
-// 	// 	console.warn('rxListening ->', chunk)
-// 	// 	let splits = chunk.split(':').slice(-1).map((v) => v.split(' '))
-// 	// 	console.log('splits ->', splits)
-// 	// 	return rxListening.next(true)
-// 	// }
-// 	console.log('jellyfin chunk ->', chunk)
-// })
-
-// worker.addEventListener('message', function onJellyfinMessage(event) {
-// 	if (event?.data?.chunk) {
-// 		console.log('jellyfin_worker chunk ->', event.data.chunk)
-// 	} else {
-// 		console.log('jellyfin_worker event ->', event.data)
-// 	}
-// })
+rxListening.pipe(Rx.op.take(1), Rx.op.delay(1000)).subscribe((cdir) => rxCdir.next(cdir))

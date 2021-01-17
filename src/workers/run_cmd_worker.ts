@@ -20,8 +20,8 @@ self.onmessage = async (event: MessageEvent<RunCmdMessage>) => {
 	proc.status().then((status) => postMessage({ action: 'status', status }))
 
 	let mux = new async.MuxAsyncIterator<string>()
-	mux.add(io.readStringDelim(proc.stdout, event.data.delimiter))
-	mux.add(io.readStringDelim(proc.stderr, event.data.delimiter))
+	mux.add(io.readStringDelim(proc.stdout, event.data.delimiters[0]))
+	mux.add(io.readStringDelim(proc.stderr, event.data.delimiters[1]))
 	for await (let chunk of mux) {
 		if (chunk.endsWith('\r')) {
 			chunk = chunk.slice(0, -1)
