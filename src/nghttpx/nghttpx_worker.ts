@@ -12,7 +12,6 @@ const exec = Deno.run({
 		'--conf',
 		config_path,
 		`--workers=${Deno.systemCpuInfo().cores}`,
-		'--http2-proxy',
 	],
 	stdout: 'piped',
 	stderr: 'piped',

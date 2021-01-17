@@ -8,35 +8,34 @@ import isIp from 'https://esm.sh/is-ip?dev'
 import RunCmdWorker from '../workers/RunCmdWorker.ts'
 
 const worker = new RunCmdWorker(['jellyfin', '--service'], '\n\n')
+
 export const rxJellyfin = worker.rx.pipe(
-	// Rx.op.tap((chunk) => console.log('jellyfin chunk ->', chunk)),
+	// Rx.op.tap((chunk) => console.log('jellyfin_worker chunk ->', chunk)),
 	Rx.op.map((chunk) => {
-		let regex = /^\[(?<dateiso>.+)\] \[(?<level>\w+)\] \[(?<source>.+)\] (?<message>.+)/
+		let regex = /^\[(?<datetime>\S+)\] \[(?<level>\w+)\] \[(?<context>.+)\] (?<message>.+)/
 		let groups = chunk.match(regex)!.groups!
-		let values = Array.from(groups.message.matchAll(/(?<value>".+")/g)).map((match) => {
-			return match.groups!.value
-		})
+		let matches = Array.from(groups.message.matchAll(/"(?<value>.+)"/g))
 		return {
 			level: groups.level as 'Debug' | 'Error' | 'Fatal' | 'Information' | 'Warning',
 			message: groups.message,
-			source: groups.source,
-			stamp: new Date(groups.dateiso).valueOf(),
-			values,
+			context: groups.context,
+			stamp: new Date(groups.datetime).valueOf(),
+			values: matches.map((match) => match.groups!.value),
 		}
 	}),
-	Rx.op.tap((line) => console.log('jellyfin line ->', line)),
+	// Rx.op.tap((line) => console.log('jellyfin line ->', line)),
 	// Rx.op.tap((line) => console.log(JSON.stringify(line, null, 4))),
 	Rx.op.share(),
 )
 
-export const rxListening = new Rx.BehaviorSubject('')
-rxJellyfin.pipe(
+export const rxCdir = new Rx.BehaviorSubject('')
+const rxListening = rxJellyfin.pipe(
 	Rx.op.filter((line) => line.message.includes(' listening ')),
-	Rx.op.map((line) => {
-		return line.message.split(' ').slice(-1)[0]
-	}),
-	Rx.op.mergeMapTo(rxListening),
+	// Rx.op.tap((line) => console.log('jellyfin line ->', line)),
+	Rx.op.map((line) => line.values[0]),
+	// Rx.op.mergeMapTo(rxListening),
 )
+rxListening.subscribe((cdir) => rxCdir.next(cdir))
 
 // worker.rx.subscribe((chunk) => {
 // 	// let regex = /^\[(?<stamp>.+)\] \[(?<level>[A-Z])\] (?<context>.+): (?<message>.+)/

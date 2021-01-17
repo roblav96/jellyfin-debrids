@@ -28,7 +28,7 @@ jellyfin :
 	jellyfin --service
 
 nghttpx :
-	nghttpx --conf=configs/nghttpx.dev.conf --workers=$(nproc) --http2-proxy
+	nghttpx --conf=configs/nghttpx.dev.conf --workers=$(nproc)
 
 
 

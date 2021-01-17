@@ -10,9 +10,9 @@ await fs.ensureDir(jellyfin_config_dir)
 let root_configs_dir = path.join(Deno.env.get('ROOT_PATH')!, 'configs', 'jellyfin')
 for await (let entry of fs.walk(root_configs_dir, { includeDirs: false })) {
 	let jellyfin_file = path.join(jellyfin_config_dir, entry.name)
-	if (entry.name == 'logging.json') {
-		await fs.copy(path.join(root_configs_dir, entry.name), jellyfin_file, { overwrite: true })
-	}
+	// if (entry.name == 'logging.json') {
+	// 	await fs.copy(path.join(root_configs_dir, entry.name), jellyfin_file, { overwrite: true })
+	// }
 	if (!(await fs.exists(jellyfin_file))) {
 		await fs.copy(path.join(root_configs_dir, entry.name), jellyfin_file)
 	}

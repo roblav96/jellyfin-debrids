@@ -2,16 +2,14 @@ await import('./devops/console.ts')
 import * as Rx from './shims/rxjs.ts'
 
 queueMicrotask(async function load() {
-	// console.info('queueMicrotask load ->')
 	await import('./jellyfin/setup.ts')
 	let jellyfin = await import('./jellyfin/jellyfin.ts')
-	jellyfin.rxJellyfin.subscribe(line => {
-		// console.log('line ->', line)
+	// jellyfin.rxJellyfin.subscribe((line) => {
+	// 	// console.log('line ->', line)
+	// })
+	await Rx.firstValueFrom(jellyfin.rxCdir.pipe(Rx.op.filter((cdir) => !!cdir)))
+	let nghttpx = await import('./nghttpx/nghttpx.ts')
+	nghttpx.rxRequest.subscribe((request) => {
+		console.log('rxNghttpx request ->', request)
 	})
-	let ready = await Rx.firstValueFrom(
-		jellyfin.rxListening.pipe(Rx.op.filter((address) => !!address)),
-	)
-	console.warn('jellyfin.rxListening ->', ready)
-	// let nghttpx = await import('./nghttpx/nghttpx.ts')
-	// console.log('nghttpx ->', nghttpx)
 })

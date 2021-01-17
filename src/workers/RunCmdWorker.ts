@@ -28,7 +28,7 @@ export default class RunCmdWorker {
 
 		this.worker.addEventListener('error', (event) => {
 			console.error(`${this.name} error ->`, event.error)
-			this.rx.error(new Error(event.error))
+			this.rx.error(new Error(event.message))
 		})
 
 		this.worker.addEventListener('messageerror', (event) => {
