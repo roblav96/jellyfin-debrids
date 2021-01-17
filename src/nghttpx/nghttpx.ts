@@ -66,7 +66,7 @@ export const rxAccess = rxNghttpx.pipe(
 		}
 		return { ...access, stamp: line.stamp }
 	}),
-	Rx.op.filter((access) => Object.keys(access).length > 1),
+	Rx.op.filter((access) => !!access.path),
 	Rx.op.share(),
 )
 
@@ -92,7 +92,7 @@ export const rxError = rxNghttpx.pipe(
 		}
 		return { ...error, stamp: line.stamp }
 	}),
-	Rx.op.filter((error) => Object.keys(error).length > 1),
+	Rx.op.filter((error) => !!error.level),
 	Rx.op.share(),
 )
 rxError
@@ -122,10 +122,10 @@ export const rxHttp = rxAccess.pipe(
 			let [part, next] = [parts[i], parts[i + 1]]
 			if (!next) continue
 			if (part == 'users' && next.length == 32) {
-				query.UserId = query.UserId || next
+				query.UserId ??= next
 			}
 			if (!isNaN(next as any)) {
-				query.ItemId = query.ItemId || next
+				query.ItemId ??= next
 			}
 		}
 		return { method: access.method, path, query, useragent: access.http_user_agent }
