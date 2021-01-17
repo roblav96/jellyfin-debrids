@@ -102,15 +102,18 @@ rxError
 		throw new Error(error.message)
 	})
 
-let rxIsReady = new Rx.BehaviorSubject(false)
+const rxReady = new Rx.BehaviorSubject(false)
 rxError
 	.pipe(
 		Rx.op.filter((line) => line.message.startsWith('Loading configuration')),
 		Rx.op.take(1),
 		Rx.op.delay(1000),
 	)
-	.subscribe(() => rxIsReady.next(true))
-export const rxReady = rxIsReady.pipe(Rx.op.filter((ready) => ready == true))
+	.subscribe(() => rxReady.next(true))
+export async function run() {
+	worker.run()
+	await Rx.firstValueFrom(rxReady.pipe(Rx.op.filter((ready) => ready == true)))
+}
 
 export const rxHttp = rxAccess.pipe(
 	Rx.op.filter(({ path }) => {
@@ -144,6 +147,6 @@ export const rxHttp = rxAccess.pipe(
 	// Rx.op.tap((http) => console.log('rxHttp ->', http)),
 	Rx.op.share(),
 )
-rxHttp.subscribe((http) => {
-	console.log('rxNghttpxx http ->', http)
-})
+// rxHttp.subscribe((http) => {
+// 	console.log('rxNghttpx http ->', http)
+// })

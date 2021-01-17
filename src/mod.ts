@@ -1,15 +1,14 @@
 await import('./devops/console.ts')
 import * as Rx from './shims/rxjs.ts'
 
-queueMicrotask(async function load() {
-	await import('./jellyfin/setup.ts')
+queueMicrotask(async function onload() {
 	let jellyfin = await import('./jellyfin/jellyfin.ts')
-	jellyfin.worker.run()
-	let cidr = await Rx.firstValueFrom(jellyfin.rxReady)
-	console.info('jellyfin listening ->', cidr)
+	await jellyfin.run()
+	console.info('jellyfin ready')
 	let nghttpx = await import('./nghttpx/nghttpx.ts')
-	nghttpx.worker.run()
-	await Rx.firstValueFrom(nghttpx.rxReady)
+	await nghttpx.run()
+	console.info('nghttpx ready')
 	await import('./jellyfin/config.ts')
 	await import('./jellyfin/socket.ts')
+	await import('./jellyfin/search.ts')
 })

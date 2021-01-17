@@ -100,7 +100,7 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof console
 
 Object.assign(console, {
 	async dts(data, identifier) {
-		let dts = await (import(`${'https://esm.sh/dts-generate?no-check'}`) as Promise<
+		let dts = await (import(`${'https://esm.sh/dts-generate?dev&no-check'}`) as Promise<
 			typeof import('https://esm.sh/dts-generate/dist/index.d.ts')
 		>)
 		let output = await dts.generate(data, identifier)
