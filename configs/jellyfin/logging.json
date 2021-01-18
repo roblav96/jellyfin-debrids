@@ -9,10 +9,18 @@
 		},
 		"WriteTo": [
 			{
-				"Name": "Console",
+				"Name": "Async",
 				"Args": {
-					"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message:j}{NewLine}{Exception}{NewLine}",
-					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
+					"configure": [
+						{
+							"Name": "File",
+							"Args": {
+								"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message:j}{NewLine}{NewLine}",
+								"path": "%JELLYFIN_LOG_DIR%//debrids_.log",
+								"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.File"
+							}
+						}
+					]
 				}
 			}
 		]
