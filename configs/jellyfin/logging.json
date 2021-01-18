@@ -13,11 +13,10 @@
 				"Args": {
 					"configure": [
 						{
-							"Name": "File",
+							"Name": "Console",
 							"Args": {
 								"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message:j}{NewLine}{NewLine}",
-								"path": "%JELLYFIN_LOG_DIR%//debrids_.log",
-								"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.File"
+								"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
 							}
 						}
 					]
