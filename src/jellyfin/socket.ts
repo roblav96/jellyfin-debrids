@@ -8,10 +8,10 @@ export interface SocketEvent<T = any> {
 	MessageId: string
 	MessageType: string
 }
-export const rxSocket = new Rx.Subject<Partial<SocketEvent>>()
+export const rxSocket = new Rx.Subject<SocketEvent>()
 
 let query = qs.stringify({
-	api_key: Deno.env.get('API_KEY'),
+	api_key: Deno.env.get('API_KEY')!,
 	deviceId: (await jellyfin.SystemInfoPublic()).Id,
 })
 const socket = new WebSocket(`ws://127.0.0.1:18096/socket?${query}`)

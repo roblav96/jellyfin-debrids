@@ -1,13 +1,14 @@
 export { rxJellyfin } from '../workers/jellyfin_worker.ts'
 export { rxHttp } from '../workers/nghttpx_worker.ts'
-import ky from '../adapters/http.ts'
+import http from '../adapters/http.ts'
 
 const API_KEY = Deno.env.get('API_KEY')!
 if (!API_KEY) {
 	console.error('Undefined API_KEY ->', 'http://localhost:8096/web/index.html#!/apikeys.html')
 }
 
-export const api = ky.extend({
+export const api = http.extend({
+	delay: 300,
 	prefixUrl: 'http://127.0.0.1:18096',
 	searchParams: { api_key: API_KEY },
 })

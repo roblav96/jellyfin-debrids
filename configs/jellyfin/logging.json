@@ -1,29 +1,22 @@
 {
 	"Serilog": {
-		"MinimumLevel": "Debug",
+		"Using": ["Serilog.Sinks.Console"],
+		"Enrich": [],
+		"MinimumLevel": {
+			"Default": "Debug",
+			"Override": {
+				"Microsoft": "Debug",
+				"System": "Debug"
+			}
+		},
 		"WriteTo": [
 			{
 				"Name": "Console",
 				"Args": {
-					"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level}] [{SourceContext}] {Message:j}{NewLine}{Exception}{NewLine}",
+					"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message:j}{NewLine}{Exception}{NewLine}",
 					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
 				}
-			},
-			{
-				"Name": "Async",
-				"Args": {
-					"configure": [
-						{
-							"Name": "File",
-							"Args": {
-								"path": "%JELLYFIN_LOG_DIR%//log_.log",
-								"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message}{NewLine}{Exception}"
-							}
-						}
-					]
-				}
 			}
-		],
-		"Enrich": []
+		]
 	}
 }
