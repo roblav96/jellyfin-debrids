@@ -1,7 +1,7 @@
+import * as jellyfin from './jellyfin.ts'
 import * as qs from 'https://deno.land/std/node/querystring.ts'
 import * as R from '../shims/rambdax.ts'
 import * as Rx from '../shims/rxjs.ts'
-import * as jellyfin from './jellyfin.ts'
 
 export interface SocketEvent<T = any> {
 	Data: T

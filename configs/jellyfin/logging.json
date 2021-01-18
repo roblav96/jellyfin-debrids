@@ -1,7 +1,5 @@
 {
 	"Serilog": {
-		"Using": ["Serilog.Sinks.Console"],
-		"Enrich": [],
 		"MinimumLevel": {
 			"Default": "Debug",
 			"Override": {
