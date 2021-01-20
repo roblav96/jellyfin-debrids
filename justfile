@@ -26,27 +26,12 @@ run action="" :
 watch :
 	watchexec --restart --watch configs --watch src -- just run watch
 
-jellyfin release="10.7.0~rc2" :
-	@test ! -d "{{JELLYFIN_PORTABLE_DIR}}" \
-		&& mkdir -p "{{JELLYFIN_PORTABLE_DIR}}" \
-		&& wget "https://repo.jellyfin.org/releases/server/portable/versions/stable/combined/{{release}}/jellyfin_{{release}}.tar.gz" -O "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
-		&& tar -xf "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" --directory="{{JELLYFIN_PORTABLE_DIR}}" \
-		&& rm -f "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
-		&& mv -f "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}" "{{JELLYFIN_PORTABLE_DIR}}/jellyfin" \
-		|| true
+export WEBSOCAT_PORT := env_var_or_default("WEBSOCAT_PORT", "18066")
+jellyfin :
 	cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.json"
-	cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.default.json"
-	dotnet "{{JELLYFIN_PORTABLE_DIR}}/jellyfin/jellyfin.dll" --service
-	# websocat --exit-on-eof --text ws-l:127.0.0.1:8080 broadcast:sh-c:'dotnet "{{JELLYFIN_PORTABLE_DIR}}/jellyfin/jellyfin.dll" --service'
-	# websocat --exit-on-eof --text ws-l:127.0.0.1:8080 broadcast:sh-c:"jellyfin --service"
-
-# test ! -e "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
-# 	&& wget "https://repo.jellyfin.org/releases/server/portable/versions/stable/combined/{{release}}/jellyfin_{{release}}.tar.gz" -O "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
-# 	|| true
-# test -e "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
-# 	&& mv "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}" "{{JELLYFIN_PORTABLE_DIR}}/jellyfin" \
-# 	|| true
-# mkdir -p "{{JELLYFIN_CONFIG_DIR}}"
+	# cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.default.json"
+	jellyfin --service
+# websocat --text ws-l:127.0.0.1:{{WEBSOCAT_PORT}} broadcast:sh-c:'jellyfin --service'
 
 nghttpx :
 	nghttpx --conf="{{ROOT_PATH}}/configs/nghttpx.dev.conf" --workers=`nproc`
@@ -54,6 +39,29 @@ nghttpx :
 nginx :
 	nginx -e "/dev/stderr" -c "{{ROOT_PATH}}/configs/nginx.conf" -T
 	nginx -e "/dev/stderr" -c "{{ROOT_PATH}}/configs/nginx.conf"
+
+
+
+# jellyfin release="10.7.0~rc2" :
+# 	@test ! -d "{{JELLYFIN_PORTABLE_DIR}}" \
+# 		&& mkdir -p "{{JELLYFIN_PORTABLE_DIR}}" \
+# 		&& wget "https://repo.jellyfin.org/releases/server/portable/versions/stable/combined/{{release}}/jellyfin_{{release}}.tar.gz" -O "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
+# 		&& tar -xf "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" --directory="{{JELLYFIN_PORTABLE_DIR}}" \
+# 		&& rm -f "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
+# 		&& mv -f "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}" "{{JELLYFIN_PORTABLE_DIR}}/jellyfin" \
+# 		|| true
+# 	cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.json"
+# 	dotnet "{{JELLYFIN_PORTABLE_DIR}}/jellyfin/jellyfin.dll" --service
+# 	# cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.default.json"
+# 	# websocat --exit-on-eof --text ws-l:127.0.0.1:8080 broadcast:sh-c:'dotnet "{{JELLYFIN_PORTABLE_DIR}}/jellyfin/jellyfin.dll" --service'
+# 	# websocat --exit-on-eof --text ws-l:127.0.0.1:8080 broadcast:sh-c:"jellyfin --service"
+# # test ! -e "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
+# # 	&& wget "https://repo.jellyfin.org/releases/server/portable/versions/stable/combined/{{release}}/jellyfin_{{release}}.tar.gz" -O "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
+# # 	|| true
+# # test -e "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}.tar.gz" \
+# # 	&& mv "{{JELLYFIN_PORTABLE_DIR}}/jellyfin_{{release}}" "{{JELLYFIN_PORTABLE_DIR}}/jellyfin" \
+# # 	|| true
+# # mkdir -p "{{JELLYFIN_CONFIG_DIR}}"
 
 
 

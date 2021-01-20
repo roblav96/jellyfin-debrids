@@ -7,6 +7,7 @@ export interface SocketEvent<T = any> {
 	Data: T
 	MessageId: string
 	MessageType: string
+	ServerId: string
 }
 export const rxSocket = new Rx.Subject<SocketEvent>()
 

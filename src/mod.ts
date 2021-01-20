@@ -1,5 +1,14 @@
 await import('./devops/console.ts')
+await import('./envs/dotenv.ts')
 import * as Rx from './shims/rxjs.ts'
+
+import Sockette from './shims/sockette.ts'
+Sockette
+console.log('Sockette ->', Sockette)
+let socket = new Sockette('', {
+
+})
+console.log('socket ->', socket)
 
 queueMicrotask(async function onload() {
 	await (await import('./workers/jellyfin_worker.ts')).run()
