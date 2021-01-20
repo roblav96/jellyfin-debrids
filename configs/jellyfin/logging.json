@@ -1,24 +1,41 @@
 {
 	"Serilog": {
 		"MinimumLevel": {
-			"Default": "Debug",
+			"Default": "Verbose",
 			"Override": {
-				"Microsoft": "Debug",
-				"System": "Debug"
+				"Emby": "Verbose",
+				"Jellyfin": "Verbose",
+				"Main": "Verbose",
+				"MediaBrowser": "Verbose",
+				"Microsoft": "Verbose",
+				"Microsoft.AspNetCore.Hosting.Diagnostics": "Verbose",
+				"Serilog": "Verbose",
+				"System": "Verbose"
 			}
 		},
-		"WriteTo:Async": {
-			"Name": "Async",
+		"WriteTo": [
+			{
+				"Name": "Console",
+				"Args": {
+					"outputTemplate": "[{Timestamp:HH:mm:ss}] [{Level:u1}] {SourceContext}: {Message:lj}{NewLine}{Exception}{NewLine}",
+					"restrictedToMinimumLevel": "Verbose",
+					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
+				}
+			}
+		],
+		"WriteTo:Graylog": {
+			"Name": "Graylog",
 			"Args": {
-				"configure": [
-					{
-						"Name": "Console",
-						"Args": {
-							"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message:j}{NewLine}{NewLine}",
-							"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
-						}
-					}
-				]
+				"host": "127.0.0.1",
+				"hostnameOrAddress": "127.0.0.1",
+				"includeMessageTemplate": true,
+				"messageIdGeneratorType": "Timestamp",
+				"messageTemplateFieldName": "message_template",
+				"minimumLogEventLevel": "Verbose",
+				"port": 18066,
+				"shortMessageMaxLength": 8192,
+				"stackTraceDepth": 10,
+				"transportType": "Tcp"
 			}
 		}
 	}
