@@ -12,14 +12,10 @@
 			"Args": {
 				"configure": [
 					{
-						"Name": "File",
+						"Name": "Console",
 						"Args": {
-							"fileSizeLimitBytes": null,
 							"outputTemplate": "[{Timestamp:yyyy-MM-ddTHH:mm:ss.fffzzz}] [{Level:u1}] {SourceContext}: {Message:j}{NewLine}{NewLine}",
-							"path": "%JELLYFIN_LOG_DIR%//debrids.log",
-							"retainedFileCountLimit": 1,
-							"rollingInterval": "Infinite",
-							"rollOnFileSizeLimit": false
+							"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
 						}
 					}
 				]
