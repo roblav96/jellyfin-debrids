@@ -33,8 +33,7 @@
 				"messageTemplateFieldName": "message_template",
 				"minimumLogEventLevel": "Verbose",
 				"port": 18066,
-				"shortMessageMaxLength": 8192,
-				"stackTraceDepth": 10,
+				"shortMessageMaxLength": 4096,
 				"transportType": "Tcp"
 			}
 		}

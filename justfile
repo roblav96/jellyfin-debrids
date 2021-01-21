@@ -15,23 +15,26 @@ install :
 	deno cache --unstable --no-check --reload src/**/*.ts
 # ls -laph "{{JELLYFIN_PORTABLE_DIR}}/jellyfin"
 
-deps :
-	NO_COLOR=1 deno info --unstable src/mod.ts
+deps main="src/mod.ts" :
+	NO_COLOR=1 deno info --unstable "{{main}}"
 
-run action="" :
+run main="src/mod.ts" action="" :
 	@test "{{action}}" = "watch" && tput clear || true
 	@deno cache --unstable --no-check src/**/*.ts || true
-	@deno run --unstable --no-check --allow-all src/mod.ts
+	@deno run --unstable --no-check --allow-all "{{main}}"
 
-watch :
-	watchexec --restart --watch configs --watch src -- just run watch
+watch main="src/mod.ts" :
+	watchexec --restart --watch configs --watch src -- just run "{{main}}" watch
 
-export WEBSOCAT_PORT := env_var_or_default("WEBSOCAT_PORT", "18066")
+export GRAYLOG_PORT := env_var_or_default("GRAYLOG_PORT", "18066")
 jellyfin :
-	cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.json"
-	# cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.default.json"
+	@mkdir -p "{{JELLYFIN_CONFIG_DIR}}"
+	@cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.json"
 	jellyfin --service
-# websocat --text ws-l:127.0.0.1:{{WEBSOCAT_PORT}} broadcast:sh-c:'jellyfin --service'
+# @cp -f "{{ROOT_PATH}}/configs/jellyfin/logging.json" "{{JELLYFIN_CONFIG_DIR}}/logging.default.json"
+# @mkdir -p "{{JELLYFIN_LOG_DIR}}"
+# @truncate -s0 "{{JELLYFIN_LOG_DIR}}/debrids.log"
+# websocat -v --exit-on-eof --text ws-l:127.0.0.1:{{WEBSOCAT_PORT}} reuse-broadcast:mirror:cmd:'jellyfin --service'
 
 nghttpx :
 	nghttpx --conf="{{ROOT_PATH}}/configs/nghttpx.dev.conf" --workers=`nproc`
