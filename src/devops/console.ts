@@ -111,12 +111,13 @@ Object.assign(console, {
 
 declare global {
 	interface Console {
-		dts(data: any, identifier?: string): Promise<string>
+		dts(data: unknown, identifier?: string): Promise<string>
 	}
 	const closed: boolean
 	namespace Deno {
 		interface Core {
-			jsonOpSync<T>(name: string, params: T): any
+			evalContext(content: string, filename?: string): [Promise<unknown>, unknown]
+			jsonOpSync<T>(name: string, params: T): unknown
 			ops(): void
 			print(msg: string, code?: number): void
 			registerErrorClass(name: string, ctor: typeof Error): void

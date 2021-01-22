@@ -1,11 +1,12 @@
 await import('../devops/console.ts')
-import * as async from 'https://deno.land/std/async/mod.ts'
 import * as io from 'https://deno.land/std/io/mod.ts'
 
 declare var postMessage: (message: Partial<GraylogMessage>) => void
 declare var self: DedicatedWorkerGlobalScope & typeof globalThis
 
-console.log('Symbol("events.errorMonitor") ->', Symbol("events.errorMonitor"))
+self.onerror = (error) => {
+	console.error(`graylog_worker error ->`, error)
+}
 
 const listener = Deno.listen({
 	hostname: '127.0.0.1',
@@ -13,30 +14,47 @@ const listener = Deno.listen({
 	transport: 'tcp',
 })
 
-function unload() {
-	console.warn('Graylog closing rid ->', listener.rid)
-	listener.close()
-	Deno.close(listener.rid)
-}
-
 queueMicrotask(async () => {
-	window.addEventListener('unload', () => listener.close())
 	console.info('Graylog listening ->', listener.addr)
-	for await (let conn of listener) genchunks(conn)
-
+	for await (let conn of listener)
+		(async function genchunks(conn: Deno.Conn) {
+			console.info('Graylog conn ->', conn.remoteAddr)
+			try {
+				for await (let chunk of io.readStringDelim(conn, '\x00')) {
+					let message: GraylogMessage
+					try {
+						postMessage(JSON.parse(chunk))
+					} catch (error) {
+						console.error('Graylog parse chunk ->', chunk, error)
+					}
+				}
+			} catch (error) {
+				console.error('Graylog genchunks ->', error)
+			} finally {
+				console.warn('Graylog conn close ->', conn.remoteAddr)
+				conn.close()
+			}
+		})(conn)
+	console.warn('Graylog closing ->', listener.addr)
+	listener.close()
+	self.close()
 })
 
 async function genchunks(conn: Deno.Conn) {
-	console.info('conn ->', conn.remoteAddr)
+	console.info('Graylog conn ->', conn.remoteAddr)
 	try {
 		for await (let chunk of io.readStringDelim(conn, '\x00')) {
-			console.log('chunk ->', chunk.length)
-			let message = JSON.parse(chunk) as GraylogMessage
+			let message: GraylogMessage
+			try {
+				postMessage(JSON.parse(chunk))
+			} catch (error) {
+				console.error('Graylog parse chunk ->', chunk, error)
+			}
 		}
 	} catch (error) {
-		console.error('genchunks ->', error)
+		console.error('Graylog genchunks ->', error)
 	} finally {
-		console.warn('conn close ->', conn.remoteAddr)
+		console.warn('Graylog conn close ->', conn.remoteAddr)
 		conn.close()
 	}
 }

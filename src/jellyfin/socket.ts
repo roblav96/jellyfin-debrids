@@ -3,6 +3,11 @@ import * as qs from 'https://deno.land/std/node/querystring.ts'
 import * as R from '../shims/rambdax.ts'
 import * as Rx from '../shims/rxjs.ts'
 
+// import Sockette from './shims/sockette.ts'
+// console.log('Sockette ->', Sockette)
+// let socket = new Sockette('', {})
+// console.log('socket ->', socket)
+
 export interface SocketEvent<T = any> {
 	Data: T
 	MessageId: string
