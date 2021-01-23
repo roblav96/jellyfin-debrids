@@ -1,10 +1,10 @@
 {
 	"Serilog": {
 		"MinimumLevel": {
-			"Default": "Verbose",
+			"Default": "Debug",
 			"Override": {
-				"Microsoft": "Verbose",
-				"System": "Verbose"
+				"Microsoft": "Debug",
+				"System": "Debug"
 			}
 		},
 		"WriteTo": [
@@ -12,7 +12,7 @@
 				"Name": "Console",
 				"Args": {
 					"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u4}] {SourceContext}: {Message:lj}{NewLine}{Exception}{NewLine}",
-					"restrictedToMinimumLevel": "Verbose",
+					"restrictedToMinimumLevel": "Debug",
 					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
 				}
 			}
@@ -29,7 +29,7 @@
 							"includeMessageTemplate": true,
 							"messageIdGeneratorType": "Timestamp",
 							"messageTemplateFieldName": "message_template",
-							"minimumLogEventLevel": "Verbose",
+							"minimumLogEventLevel": "Debug",
 							"port": 18066,
 							"shortMessageMaxLength": 4096,
 							"transportType": "Tcp"
