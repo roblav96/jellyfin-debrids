@@ -8,11 +8,11 @@ const LOG_SYMBOLS = {
 	info: '🟢',
 	warn: '🟠',
 	error: '🔴',
-} as Record<keyof typeof console, string>
+} as const
 
 const DEFAULT_INSPECT_OPTIONS = {
 	colors: true,
-	compact: true,
+	compact: false,
 	depth: 4,
 	getters: true,
 	indentLevel: 4,
@@ -22,23 +22,27 @@ const DEFAULT_INSPECT_OPTIONS = {
 	trailingComma: false,
 } as Deno.InspectOptions
 
-let root_path = Deno.env.get('ROOT_PATH')!
 if (Deno.mainModule) {
-	if (!root_path) {
-		root_path = path.dirname(path.dirname(Deno.mainModule)).replace('file://', '')
-		Deno.env.set('ROOT_PATH', root_path)
-	}
 	Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
 }
 
+const ROOT_PATH = Array.from(
+	new Set([
+		Deno.cwd(),
+		path.dirname(path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))),
+	]),
+).filter(Boolean)[0]
+
 let now_stamp = performance.now()
-for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof console, string][]) {
+for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYMBOLS, string][]) {
 	Object.assign(console, {
 		[level]: new Proxy(console[level], {
 			apply(method, ctx: Console, args: string[]) {
 				let e = { stack: '' }
 				Error.captureStackTrace(e, this.apply)
-				let lines = e.stack.split('\n')
+				let lines = e.stack.split('\n').filter((line) => {
+					return !line.includes(import.meta.url)
+				})
 				if (!lines[1]) {
 					Deno.core.print('\n🟡 !lines[1] -> ' + e.stack + '\n\n')
 					Error.captureStackTrace(e)
@@ -55,8 +59,8 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof console
 					} else if (i == stacks.length - 1) {
 						let frame = stacks[i]
 						if (frame.includes('file:')) {
-							if (frame.includes(`file://${root_path}/`)) {
-								frame = frame.replace(`file://${root_path}/`, '')
+							if (frame.includes(`file://${ROOT_PATH}/`)) {
+								frame = frame.replace(`file://${ROOT_PATH}/`, '')
 							}
 							frame = frame.replace(
 								/<(.+)>:(\d+):(\d+)/,
@@ -98,12 +102,29 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof console
 	})
 }
 
+const TIMERS = new Map()
 Object.assign(console, {
+	time(label) {
+		label = String(label)
+		if (TIMERS.has(label)) {
+			return console.warn(`Timer '${label}' already exists`)
+		}
+		TIMERS.set(label, performance.now())
+	},
+	timeEnd(label) {
+		label = String(label)
+		if (!TIMERS.has(label)) {
+			return console.warn(`Timer '${label}' does not exist`)
+		}
+		let duration = performance.now() - TIMERS.get(label)
+		TIMERS.delete(label)
+		console.info(`${label}: ${ms(duration, { compact: true, formatSubMilliseconds: true })}`)
+	},
 	async dts(data, identifier) {
 		let dts = await (import(`${'https://esm.sh/dts-generate?dev&no-check'}`) as Promise<
 			typeof import('https://esm.sh/dts-generate/dist/index.d.ts')
 		>)
-		let output = await dts.generate(data, identifier)
+		let output = dts.generate(data, identifier)
 		console.log(output)
 		return output
 	},

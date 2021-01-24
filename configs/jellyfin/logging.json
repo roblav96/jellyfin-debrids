@@ -12,8 +12,20 @@
 				"Name": "Console",
 				"Args": {
 					"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message:lj}{NewLine}{Exception}{NewLine}",
-					"restrictedToMinimumLevel": "Debug",
 					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
+				}
+			},
+			{
+				"Name": "Async",
+				"Args": {
+					"configure": [
+						{
+							"Name": "File",
+							"Args": {
+								"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] [{ThreadId}] {SourceContext}: {Message}{NewLine}{Exception}{NewLine}"
+							}
+						}
+					]
 				}
 			}
 		],
@@ -31,7 +43,8 @@
 							"messageTemplateFieldName": "message_template",
 							"minimumLogEventLevel": "Debug",
 							"port": 18066,
-							"shortMessageMaxLength": 4096,
+							"restrictedToMinimumLevel": "Debug",
+							"shortMessageMaxLength": 8192,
 							"transportType": "Tcp"
 						}
 					}

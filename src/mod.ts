@@ -1,11 +1,10 @@
 await import('./devops/console.ts')
-// await import('./envs/dotenv.ts')
-import * as Rx from './shims/rxjs.ts'
+await import('./envs/dotenv.ts')
 
 queueMicrotask(async function onload() {
-	let graylog = await import('./workers/GraylogWorker.ts')
-	console.log('graylog ->', graylog)
-
+	console.log('Deno.env.toObject() ->', Deno.env.toObject())
+	// let graylog = await import('./jellyfin/graylog.ts')
+	// console.log('graylog.ee.listeners ->', graylog.ee.listeners)
 	// await (await import('./workers/jellyfin_worker.ts')).run()
 	// console.info('jellyfin ready')
 	// await (await import('./workers/nghttpx_worker.ts')).run()
