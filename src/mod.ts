@@ -2,8 +2,8 @@ await import('./devops/console.ts')
 await import('./envs/dotenv.ts')
 
 queueMicrotask(async function onload() {
-	console.log('Deno.env.toObject() ->', Deno.env.toObject())
-	// let graylog = await import('./jellyfin/graylog.ts')
+	let graylog = await import('./jellyfin/graylog.ts')
+	console.log('graylog ->', graylog)
 	// console.log('graylog.ee.listeners ->', graylog.ee.listeners)
 	// await (await import('./workers/jellyfin_worker.ts')).run()
 	// console.info('jellyfin ready')

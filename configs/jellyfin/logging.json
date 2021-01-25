@@ -12,6 +12,7 @@
 				"Name": "Console",
 				"Args": {
 					"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message:lj}{NewLine}{Exception}{NewLine}",
+					"restrictedToMinimumLevel": "Warning",
 					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
 				}
 			},
@@ -22,7 +23,8 @@
 						{
 							"Name": "File",
 							"Args": {
-								"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] [{ThreadId}] {SourceContext}: {Message}{NewLine}{Exception}{NewLine}"
+								"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message:j}{NewLine}{Exception}{NewLine}",
+								"restrictedToMinimumLevel": "Warning"
 							}
 						}
 					]

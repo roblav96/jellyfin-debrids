@@ -1,6 +1,8 @@
 import * as colors from 'https://deno.land/std/fmt/colors.ts'
 import * as datetime from 'https://deno.land/std/datetime/mod.ts'
+import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
+import * as tty from 'https://deno.land/x/tty/mod.ts'
 import ms from 'https://esm.sh/pretty-ms?dev'
 
 const LOG_SYMBOLS = {
@@ -12,7 +14,7 @@ const LOG_SYMBOLS = {
 
 const DEFAULT_INSPECT_OPTIONS = {
 	colors: true,
-	compact: false,
+	compact: true,
 	depth: 4,
 	getters: true,
 	indentLevel: 4,
@@ -22,16 +24,16 @@ const DEFAULT_INSPECT_OPTIONS = {
 	trailingComma: false,
 } as Deno.InspectOptions
 
+const ANSI_REGEX = tty.ansiRegex({ onlyFirst: true })
+
+const ROOT_PATH = [
+	Deno.cwd(),
+	path.dirname(path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))),
+].filter((dir) => dir && fs.existsSync(dir))[0]
+
 if (Deno.mainModule) {
 	Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
 }
-
-const ROOT_PATH = Array.from(
-	new Set([
-		Deno.cwd(),
-		path.dirname(path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))),
-	]),
-).filter(Boolean)[0]
 
 let now_stamp = performance.now()
 for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYMBOLS, string][]) {

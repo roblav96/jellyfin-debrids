@@ -22,4 +22,3 @@ worker.onmessageerror = (event) => {
 worker.onmessage = (event: MessageEvent<GraylogChunk>) => {
 	console.log(`GraylogWorker onmessage ->`, event.data)
 }
-

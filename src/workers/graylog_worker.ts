@@ -1,15 +1,19 @@
 await import('../devops/console.ts')
 import * as io from 'https://deno.land/std/io/mod.ts'
 
-// console.log('graylog_worker Deno.env ->', Deno.env.toObject())
+console.log('postMessage ->', postMessage.toString())
+// console.log('Deno.consoleSize() ->', Deno.consoleSize(Deno.stdout.rid))
 
 const listener = Deno.listen({
 	hostname: '127.0.0.1',
 	port: parseInt(Deno.env.get('GRAYLOG_PORT') || '18066'),
 	transport: 'tcp',
 })
-queueMicrotask(async () => {
+
+queueMicrotask(async function onload() {
 	console.info('graylog_worker listening ->', listener.addr)
+	console.log('name ->', name)
+	console.log('self.name ->', self.name)
 	for await (let conn of listener) onconn(conn)
 })
 
@@ -35,9 +39,7 @@ function onchunk(chunk: GraylogChunk) {
 	console.log('chunk ->', chunk)
 }
 
-declare var self: Omit<DedicatedWorkerGlobalScope, 'postMessage'> & {
-	postMessage: (chunk: Partial<GraylogChunk>) => void
-}
+declare function postMessage(chunk: Partial<GraylogChunk>): void
 
 // export interface GraylogChunk extends Record<string, string | number> {
 export interface GraylogChunk {
