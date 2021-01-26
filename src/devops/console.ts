@@ -47,7 +47,7 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 					return !line.includes(import.meta.url)
 				})
 				if (!lines[1]) {
-					Deno.core.print('\n🟡 !lines[1] -> ' + e.stack + '\n\n')
+					// Deno.core.print('\n🟡 !lines[1] -> ' + e.stack + '\n\n')
 					Error.captureStackTrace(e)
 					lines = e.stack.split('\n')
 				}
