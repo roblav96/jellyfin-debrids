@@ -23,8 +23,7 @@
 						{
 							"Name": "File",
 							"Args": {
-								"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message:j}{NewLine}{Exception}{NewLine}",
-								"restrictedToMinimumLevel": "Warning"
+								"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message:j}{NewLine}{Exception}{NewLine}"
 							}
 						}
 					]

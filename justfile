@@ -8,21 +8,21 @@ _default :
 
 install :
 	if test -n "${DENO_DIR}"; then \
-		rm -f -v "node_modules/.cache/deno"; \
-		mkdir -p -v "node_modules/.cache"; \
-		ln -s -f -v "${DENO_DIR}" "node_modules/.cache/deno"; \
+		rm -f "node_modules/.cache/deno"; \
+		mkdir -p "node_modules/.cache"; \
+		ln -s -f "${DENO_DIR}" "node_modules/.cache/deno"; \
 	fi
 	deno cache --unstable --no-check --reload **/*.ts
 
-deps main="mod.ts" :
-	NO_COLOR=1 deno info --unstable "{{main}}"
-run main="mod.ts" :
+deps main="src/mod.ts" :
+	NO_COLOR=1 deno info --unstable {{main}}
+run main="src/mod.ts" :
 	@tput clear; echo
-	@deno cache --unstable --no-check **/*.ts || true
-	@deno cache --unstable "{{main}}" || true
-	@deno run --unstable --no-check --allow-all "{{main}}"
-watch main="mod.ts" :
-	watchexec --no-default-ignore --restart --exts ts -- just run "{{main}}"
+	@deno cache --unstable --no-check src/**/*.ts || true
+	@deno cache --unstable {{main}} || true
+	@deno run --unstable --no-check --allow-all {{main}}
+watch main="src/mod.ts" :
+	watchexec --no-default-ignore --restart --watch=src --exts=ts -- just run {{main}}
 
 
 

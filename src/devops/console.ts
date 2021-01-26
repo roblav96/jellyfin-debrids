@@ -25,15 +25,22 @@ const DEFAULT_INSPECT_OPTIONS = {
 } as Deno.InspectOptions
 
 const ANSI_REGEX = tty.ansiRegex({ onlyFirst: true })
+const EOL_REGEX = /(?:\r?\n)/
 
-const ROOT_PATH = [
-	Deno.cwd(),
-	path.dirname(path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))),
-].filter((dir) => dir && fs.existsSync(dir))[0]
+// const ROOT_PATH = [
+// 	// Deno.cwd(),
+// 	path.dirname(path.dirname(path.fromFileUrl(import.meta.url))),
+// ]//.filter((dir) => dir && fs.existsSync(dir))[0]
+// console.log('ROOT_PATH ->', ROOT_PATH)
 
-if (Deno.mainModule) {
-	Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
-}
+let root_path = path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))
+try {
+	if (Deno.mainModule) {
+		root_path = Deno.mainModule
+		Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
+	}
+	root_path = Deno.cwd()
+} catch {}
 
 let now_stamp = performance.now()
 for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYMBOLS, string][]) {
@@ -61,8 +68,8 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 					} else if (i == stacks.length - 1) {
 						let frame = stacks[i]
 						if (frame.includes('file:')) {
-							if (frame.includes(`file://${ROOT_PATH}/`)) {
-								frame = frame.replace(`file://${ROOT_PATH}/`, '')
+							if (frame.includes(`file://${root_path}/`)) {
+								frame = frame.replace(`file://${root_path}/`, '')
 							}
 							frame = frame.replace(
 								/<(.+)>:(\d+):(\d+)/,
@@ -79,8 +86,11 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 
 				for (let i = 0; i < args.length; i++) {
 					let arg = args[i]
-					if (i == 0 && typeof arg == 'string') {
-						continue
+					if (typeof arg == 'string') {
+						if (i == 0) continue
+						if (ANSI_REGEX.test(arg)) continue
+						if (EOL_REGEX.test(arg)) continue
+						if (arg != arg.trim()) continue
 					}
 					args[i] = Deno.inspect(arg, DEFAULT_INSPECT_OPTIONS)
 				}

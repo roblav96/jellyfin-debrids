@@ -10,7 +10,12 @@ const listener = Deno.listen({
 	transport: 'tcp',
 })
 
+if (import.meta.main) {
+
+}
+
 queueMicrotask(async function onload() {
+	console.log('onload ->', onload)
 	console.info('graylog_worker listening ->', listener.addr)
 	console.log('name ->', name)
 	console.log('self.name ->', self.name)
