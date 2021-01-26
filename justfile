@@ -19,7 +19,7 @@ deps main="src/mod.ts" :
 run main="src/mod.ts" :
 	@tput clear; echo
 	@deno cache --unstable --no-check src/**/*.ts || true
-	@deno cache --unstable {{main}} || true
+	@deno cache --unstable {{main}} || true; echo
 	@deno run --unstable --no-check --allow-all {{main}}
 watch main="src/mod.ts" :
 	watchexec --no-default-ignore --restart --watch=src --exts=ts -- just run {{main}}
