@@ -27,19 +27,13 @@ const DEFAULT_INSPECT_OPTIONS = {
 const ANSI_REGEX = tty.ansiRegex({ onlyFirst: true })
 const EOL_REGEX = /(?:\r?\n)/
 
-// const ROOT_PATH = [
-// 	// Deno.cwd(),
-// 	path.dirname(path.dirname(path.fromFileUrl(import.meta.url))),
-// ]//.filter((dir) => dir && fs.existsSync(dir))[0]
-// console.log('ROOT_PATH ->', ROOT_PATH)
-
 let root_path = path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))
 try {
 	if (Deno.mainModule) {
-		root_path = Deno.mainModule
+		root_path = path.dirname(path.fromFileUrl(Deno.mainModule))
 		Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
 	}
-	root_path = Deno.cwd()
+	Deno.cwd() && (root_path = Deno.cwd())
 } catch {}
 
 let now_stamp = performance.now()
