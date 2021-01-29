@@ -139,8 +139,6 @@ Object.assign(console, {
 	},
 } as Console)
 
-console.log('Deno.core.ops() ->', Deno.core.ops())
-
 declare global {
 	interface Console {
 		dts(data: unknown, identifier?: string): Promise<string>
