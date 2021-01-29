@@ -1,8 +1,7 @@
 import * as colors from 'https://deno.land/std/fmt/colors.ts'
 import * as datetime from 'https://deno.land/std/datetime/mod.ts'
-import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
-import * as tty from 'https://deno.land/x/tty/mod.ts'
+import ansi from 'https://esm.sh/ansi-regex?dev'
 import ms from 'https://esm.sh/pretty-ms?dev'
 
 const LOG_SYMBOLS = {
@@ -17,14 +16,13 @@ const DEFAULT_INSPECT_OPTIONS = {
 	compact: true,
 	depth: 4,
 	getters: true,
-	indentLevel: 4,
 	iterableLimit: 100,
 	showProxy: true,
 	sorted: true,
 	trailingComma: false,
 } as Deno.InspectOptions
 
-const ANSI_REGEX = tty.ansiRegex({ onlyFirst: true })
+const ANSI_REGEX = ansi({ onlyFirst: true })
 const EOL_REGEX = /(?:\r?\n)/
 
 let root_path = path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))
@@ -81,7 +79,12 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 				for (let i = 0; i < args.length; i++) {
 					let arg = args[i]
 					if (typeof arg == 'string') {
-						if (i == 0) continue
+						if (i == 0) {
+							if (level == 'error') {
+								args[i] = colors.bgRed(colors.bold(arg))
+							}
+							continue
+						}
 						if (ANSI_REGEX.test(arg)) continue
 						if (EOL_REGEX.test(arg)) continue
 						if (arg != arg.trim()) continue
@@ -136,20 +139,22 @@ Object.assign(console, {
 	},
 } as Console)
 
+console.log('Deno.core.ops() ->', Deno.core.ops())
+
 declare global {
 	interface Console {
 		dts(data: unknown, identifier?: string): Promise<string>
 	}
-	const closed: boolean
+	var closed: boolean
 	namespace Deno {
 		interface Core {
 			evalContext(content: string, filename?: string): [Promise<unknown>, unknown]
 			jsonOpSync<T>(name: string, params: T): unknown
-			ops(): void
+			ops(): Record<string, number>
 			print(msg: string, code?: number): void
 			registerErrorClass(name: string, ctor: typeof Error): void
 		}
-		const core: Core
-		const internal: symbol
+		var core: Core
+		var internal: symbol
 	}
 }

@@ -1,5 +1,4 @@
 import * as qs from 'https://esm.sh/query-string?dev'
-import * as R from '../shims/rambdax.ts'
 import ky from '../shims/ky.ts'
 
 type KyOptions = Parameters<typeof ky['extend']>[0]

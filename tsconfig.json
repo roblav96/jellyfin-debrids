@@ -3,5 +3,5 @@
 		"experimentalDecorators": true,
 		"plugins": [{ "name": "typescript-deno-plugin", "unstable": true }]
 	},
-	"include": ["**/*.d.ts", "**/*.ts"]
+	"include": ["src/**/*.d.ts", "src/**/*.ts"]
 }

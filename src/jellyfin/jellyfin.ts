@@ -1,6 +1,13 @@
-export { rxJellyfin } from '../workers/jellyfin_worker.ts'
-export { rxHttp } from '../workers/nghttpx_worker.ts'
 import http from '../adapters/http.ts'
+import * as storage from '../adapters/storage.ts'
+
+export async function load() {
+	let port = Number(Deno.env.get('JELLYFIN_LOCAL_PORT')) || 8096
+	let pubinfo = (await (
+		await fetch(`http://127.0.0.1:${port}/System/Info/Public`)
+	).json()) as SystemInfoPublic
+	console.log('pubinfo ->', pubinfo)
+}
 
 const API_KEY = Deno.env.get('API_KEY')!
 if (!API_KEY) {
@@ -8,7 +15,7 @@ if (!API_KEY) {
 }
 
 export const api = http.extend({
-	delay: 300,
+	// delay: 300,
 	prefixUrl: 'http://127.0.0.1:18096',
 	searchParams: { api_key: API_KEY },
 })

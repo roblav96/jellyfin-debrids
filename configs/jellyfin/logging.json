@@ -1,10 +1,10 @@
 {
 	"Serilog": {
 		"MinimumLevel": {
-			"Default": "Debug",
+			"Default": "Information",
 			"Override": {
-				"Microsoft": "Debug",
-				"System": "Debug"
+				"Microsoft": "Information",
+				"System": "Information"
 			}
 		},
 		"WriteTo": [
@@ -12,7 +12,7 @@
 				"Name": "Console",
 				"Args": {
 					"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message:lj}{NewLine}{Exception}{NewLine}",
-					"restrictedToMinimumLevel": "Warning",
+					"restrictedToMinimumLevel": "Information",
 					"theme": "Serilog.Sinks.SystemConsole.Themes.ConsoleTheme::None, Serilog.Sinks.Console"
 				}
 			},
@@ -23,7 +23,8 @@
 						{
 							"Name": "File",
 							"Args": {
-								"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message:j}{NewLine}{Exception}{NewLine}"
+								"outputTemplate": "[{Timestamp:h:mm:ss}] [{Level:u3}] {SourceContext}: {Message}{NewLine}{Exception}{NewLine}",
+								"restrictedToMinimumLevel": "Information"
 							}
 						}
 					]
@@ -37,15 +38,14 @@
 					{
 						"Name": "Graylog",
 						"Args": {
-							"host": "127.0.0.1",
 							"hostnameOrAddress": "127.0.0.1",
 							"includeMessageTemplate": true,
 							"messageIdGeneratorType": "Timestamp",
 							"messageTemplateFieldName": "message_template",
 							"minimumLogEventLevel": "Debug",
 							"port": 18066,
-							"restrictedToMinimumLevel": "Debug",
-							"shortMessageMaxLength": 8192,
+							"restrictedToMinimumLevel": "Information",
+							"shortMessageMaxLength": 4096,
 							"transportType": "Tcp"
 						}
 					}
