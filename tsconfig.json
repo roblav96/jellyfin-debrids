@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
 		"experimentalDecorators": true,
-		"plugins": [{ "name": "typescript-deno-plugin", "unstable": true }]
+		"plugins": [{ "name": "typescript-deno-plugin", "unstable": true }],
+		"strict": true
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.ts"]
 }
