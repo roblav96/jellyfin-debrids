@@ -89,6 +89,18 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 						if (EOL_REGEX.test(arg)) continue
 						if (arg != arg.trim()) continue
 					}
+					// if (typeof arg == 'object' && Object.keys(arg).length == 0) {
+					// 	let keys = Reflect.ownKeys((arg as object)?.constructor?.prototype ?? {})
+					// 	if (keys.length > 0) {
+					// 		args[i] = Deno.inspect(
+					// 			keys.reduce((target, key, index) => {
+					// 				return Object.assign(target, { [key]: (arg as any)[key] })
+					// 			}, {}),
+					// 			DEFAULT_INSPECT_OPTIONS,
+					// 		)
+					// 		continue
+					// 	}
+					// }
 					args[i] = Deno.inspect(arg, DEFAULT_INSPECT_OPTIONS)
 				}
 

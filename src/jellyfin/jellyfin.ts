@@ -1,43 +1,42 @@
-import http, { ky } from '../adapters/http.ts'
 import { Db } from '../adapters/storage.ts'
+import { Http } from '../adapters/http.ts'
 import { open } from 'https://deno.land/x/opener/mod.ts'
 
 export const db = Db.fromUrl(import.meta.url)
 
-export const api = http.extend({
+export const api = new Http({
 	prefixUrl: `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || 8096}`,
-	searchParams: 'api_key=1234',
+	// searchParams: 'api_key=1234',
 	// searchParams: new URLSearchParams({
 	// 	api_key: Deno.env.get('API_KEY') || '1234',
 	// }),
 	// searchParams: {
 	// 	api_key: Deno.env.get('API_KEY') || '1234',
 	// },
-	hooks: {
-		beforeRequestBefore: [
-			(request, options) => {
-				// console.log('options.searchParams ->', options.searchParams.toString())
-				// options.searchParams = 'api_key=9876'
-				// options.searchParams.append('api_key', Deno.env.get('API_KEY') || '9876')
-				options.searchParams = {}
-				options.searchParams['api_key'] = Deno.env.get('API_KEY') || '9876'
-				// Object.assign(options.searchParams, {
-				// 	api_key: Deno.env.get('API_KEY') || '9876',
-				// })
-				console.log('options.searchParams ->', options.searchParams)
-				console.log('request.url ->', request.url)
-				// return new Request(request)
-			},
-		],
-	},
+	// hooks: {
+	// 	beforeRequestBefore: [
+	// 		(request, options) => {
+	// 			// console.log('options.searchParams ->', options.searchParams.toString())
+	// 			// options.searchParams = 'api_key=9876'
+	// 			// options.searchParams.append('api_key', Deno.env.get('API_KEY') || '9876')
+	// 			options.searchParams = {}
+	// 			options.searchParams['api_key'] = Deno.env.get('API_KEY') || '9876'
+	// 			// Object.assign(options.searchParams, {
+	// 			// 	api_key: Deno.env.get('API_KEY') || '9876',
+	// 			// })
+	// 			console.log('options.searchParams ->', options.searchParams)
+	// 			console.log('request.url ->', request.url)
+	// 			// return new Request(request)
+	// 		},
+	// 	],
+	// },
 })
 
 export async function load() {
-	// let port = Number(Deno.env.get('JELLYFIN_LOCAL_PORT')) || 8096
-	// let pubinfo = (await (
-	// 	await fetch(`http://127.0.0.1:${port}/System/Info/Public`)
-	// ).json()) as SystemInfoPublic
-	let pubinfo = await SystemInfoPublic()
+	// let port = Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'
+	// let pubinfo = (await fetch(`http://127.0.0.1:${port}/System/Info/Public`))
+	// console.log('pubinfo ->', pubinfo.url)
+	let pubinfo = await api.get('/System/Info/Public') as SystemInfoPublic
 	console.log('pubinfo ->', pubinfo)
 }
 
@@ -47,7 +46,7 @@ if (!API_KEY) {
 }
 
 export async function SystemInfoPublic() {
-	return (await api.get('System/Info/Public').json()) as SystemInfoPublic
+	return (await api.get('System/Info/Public')) as SystemInfoPublic
 }
 
 // if (api_key) {
