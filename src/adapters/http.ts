@@ -35,7 +35,6 @@ export class Http {
 			buildRequest: [],
 			method: 'GET',
 			mime: 'json',
-			prefixUrl: 'json',
 			headers: {
 				'user-agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
 			},
@@ -95,11 +94,11 @@ export class Http {
 		] as BeforeRequestHook[]
 
 		let afterResponse = [
-			// async (request, options, response) => {
-			// 	console.log('request ->', request.url, '\n ', request.headers)
-			// 	console.log('options ->', options)
-			// 	console.log('response ->', response)
-			// },
+			async (request, options, response) => {
+				console.log(request.url, '\n ', request.headers)
+				console.log('options ->', options)
+				console.log('response ->', response)
+			},
 			...options.afterResponse!,
 		] as AfterResponseHook[]
 
