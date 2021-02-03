@@ -28,8 +28,13 @@ export class Db extends Map {
 	}
 
 	delete(key: string) {
-		Deno.removeSync(this.keypath(key), { recursive: true })
+		Deno.removeSync(this.keypath(key))
 		return super.delete(key)
+	}
+
+	has(key: string) {
+		fs.existsSync(this.keypath(key))
+		return super.has(key)
 	}
 
 	get(key: string) {

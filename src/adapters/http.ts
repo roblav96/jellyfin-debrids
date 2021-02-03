@@ -35,6 +35,7 @@ export class Http {
 			buildRequest: [],
 			method: 'GET',
 			mime: 'json',
+			prefixUrl: 'json',
 			headers: {
 				'user-agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
 			},
@@ -42,8 +43,12 @@ export class Http {
 		} as Options
 	}
 
-	constructor(public options: Options, defaults = Http.defaults) {
-		this.options = deepmerge(defaults, options)
+	constructor(public options = {} as Options) {
+		this.options = deepmerge(Http.defaults, options)
+	}
+
+	extend(options: Options) {
+		return new Http(deepmerge(this.options, options))
 	}
 
 	async request(url: string, options = {} as Options) {
@@ -71,6 +76,10 @@ export class Http {
 			}) as any
 		}
 
+		if (options.prefixUrl && url.startsWith('/')) {
+			url = url.slice(1)
+		}
+
 		let beforeRequest = [
 			...options.beforeRequest!,
 			async (request, options) => {
@@ -86,17 +95,13 @@ export class Http {
 		] as BeforeRequestHook[]
 
 		let afterResponse = [
-			...options.afterResponse!,
 			// async (request, options, response) => {
 			// 	console.log('request ->', request.url, '\n ', request.headers)
 			// 	console.log('options ->', options)
 			// 	console.log('response ->', response)
 			// },
+			...options.afterResponse!,
 		] as AfterResponseHook[]
-
-		if (options.prefixUrl && url.startsWith('/')) {
-			url = url.slice(1)
-		}
 
 		let request = ky(url, {
 			...options,
@@ -144,6 +149,8 @@ export class Http {
 		return this.request(url, { ...options, method: 'DELETE' })
 	}
 }
+
+export default new Http()
 
 // export default ky.extend({
 // 	// keepalive: true,

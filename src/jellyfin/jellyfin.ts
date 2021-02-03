@@ -1,10 +1,10 @@
+import http from '../adapters/http.ts'
 import { Db } from '../adapters/storage.ts'
-import { Http } from '../adapters/http.ts'
 import { open } from 'https://deno.land/x/opener/mod.ts'
 
 export const db = Db.fromUrl(import.meta.url)
 
-export const api = new Http({
+export const api = http.extend({
 	prefixUrl: `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || 8096}`,
 	// searchParams: 'api_key=1234',
 	// searchParams: new URLSearchParams({
