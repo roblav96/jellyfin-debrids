@@ -39,6 +39,8 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 	Object.assign(console, {
 		[level]: new Proxy(console[level], {
 			apply(method, ctx: Console, args: string[]) {
+				let delta = performance.now() - now_stamp
+
 				let e = { stack: '' }
 				Error.captureStackTrace(e, this.apply)
 				let lines = e.stack.split('\n').filter((line) => {
@@ -104,11 +106,7 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 					args[i] = Deno.inspect(arg, DEFAULT_INSPECT_OPTIONS)
 				}
 
-				let now = performance.now()
-				let delta = now - now_stamp
-				now_stamp = now
 				let timestamp = ms(delta, { compact: true, formatSubMilliseconds: true })
-
 				let header = `${symbol} ${colors.dim(`${stack} +${timestamp}`)}`
 				args[0] = `${header}\n${args[0]}`
 				if (level == 'error') {
@@ -116,6 +114,7 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 				}
 				args.push('\n')
 
+				now_stamp = performance.now()
 				// @ts-ignore
 				return Reflect.apply(...arguments)
 			},

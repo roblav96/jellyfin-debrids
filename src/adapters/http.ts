@@ -95,9 +95,12 @@ export class Http {
 
 		let afterResponse = [
 			async (request, options, response) => {
+				console.log(response.status, request.url)
+			},
+			async (request, options, response) => {
 				console.log(request.url, '\n ', request.headers)
-				console.log('options ->', options)
-				console.log('response ->', response)
+				// console.log('options ->', options)
+				// console.log('response ->', response)
 			},
 			...options.afterResponse!,
 		] as AfterResponseHook[]
