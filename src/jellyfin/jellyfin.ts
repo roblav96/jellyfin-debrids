@@ -1,3 +1,4 @@
+import * as socket from './socket.ts'
 import http from '../adapters/http.ts'
 import { Db } from '../adapters/storage.ts'
 import { open } from 'https://deno.land/x/opener/mod.ts'
@@ -37,7 +38,8 @@ export async function load() {
 	// let pubinfo = (await fetch(`http://127.0.0.1:${port}/System/Info/Public`))
 	// console.log('pubinfo ->', pubinfo.url)
 	let pubinfo = await api.get('/System/Info/Public') as SystemInfoPublic
-	console.log('pubinfo ->', pubinfo)
+	// console.log('pubinfo ->', pubinfo)
+	socket.start(Deno.env.get('API_KEY')!, pubinfo.Id)
 }
 
 const API_KEY = Deno.env.get('API_KEY')!

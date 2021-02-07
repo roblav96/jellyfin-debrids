@@ -1,7 +1,7 @@
 import * as jellyfin from './jellyfin.ts'
 import * as qs from 'https://deno.land/std/node/querystring.ts'
-import Sockette from '../shims/sockette.ts'
 import { EventEmitter } from 'https://deno.land/x/event/mod.ts'
+import { Sockette } from '../shims/sockette.ts'
 
 export interface SocketEvent<T = any> {
 	Data: T
@@ -13,23 +13,25 @@ export const ee = new EventEmitter<{
 	message: [SocketEvent]
 }>()
 
-let socket: InstanceType<typeof Sockette>
+let socket: Sockette<SocketEvent>
 export function start(api_key: string, deviceId: string) {
 	socket?.close()
-	let query = qs.stringify({ api_key, deviceId })
-	socket = new Sockette(`ws://127.0.0.1:8096/socket?${query}`, {
+	let url = `ws://127.0.0.1:8096/socket?${qs.stringify({ api_key, deviceId })}`
+	socket = new Sockette<SocketEvent>(url, {
+		timeout: 3000,
 		onerror(event) {
-			console.error('socket error ->', (event as ErrorEvent).message)
+			console.error('socket error ->', event.error)
 		},
 		onclose(event) {
 			console.warn('socket close ->', event.code, event.reason)
 		},
 		onopen(event) {
+			console.info('socket onopen ->', url)
 			socket.json({ MessageType: 'SessionsStart', Data: '0,1500' })
 		},
-		onmessage(event) {
+		onmessage({ data }) {
 			try {
-				let data = JSON.parse(event.data) as SocketEvent
+				data = JSON.parse(data as any)
 				if (data.MessageType == 'KeepAlive') return
 				if (data.MessageType == 'ForceKeepAlive') return
 				ee.emit('message', data)
@@ -40,7 +42,11 @@ export function start(api_key: string, deviceId: string) {
 	})
 }
 
-setInterval(() => socket?.json({ MessageType: 'KeepAlive' }), 10000)
+setInterval(() => {
+	try {
+		socket?.json({ MessageType: 'KeepAlive' })
+	} catch {}
+}, 10000)
 
 // let query = qs.stringify({
 // 	api_key: Deno.env.get('API_KEY')!,
