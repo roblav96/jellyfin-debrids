@@ -5,6 +5,6 @@ import * as jellyfin from './jellyfin/jellyfin.ts'
 
 queueMicrotask(async function load() {
 	await dotenv.config()
-	graylog.connect()
+	await graylog.connect()
 	await jellyfin.load()
 })

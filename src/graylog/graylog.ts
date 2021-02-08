@@ -1,6 +1,7 @@
 import * as Rx from '../shims/rxjs.ts'
 import type { GraylogMessage } from './graylog_worker.ts'
 import { EventEmitter } from 'https://deno.land/x/event/mod.ts'
+import * as async from 'https://deno.land/std/async/mod.ts'
 
 export type GraylogEvents = {
 	message: [GraylogMessage]
@@ -26,8 +27,12 @@ export type GraylogEvents = {
 export const ee = new EventEmitter<GraylogEvents>()
 
 let worker: Worker
-export function connect() {
-	worker?.terminate()
+export async function connect() {
+	if (worker) {
+		worker.terminate()
+		worker = null as any
+		await async.delay(1000)
+	}
 
 	worker = new Worker(new URL('graylog_worker.ts', import.meta.url).href, {
 		deno: { namespace: true, permissions: 'inherit' },
@@ -35,14 +40,14 @@ export function connect() {
 		type: 'module',
 	})
 
-	worker.onerror = function onerror(error) {
+	worker.onerror = (error) => {
 		console.error('graylog error ->', error.message)
 	}
-	worker.onmessageerror = function onmessageerror(event) {
+	worker.onmessageerror = (event) => {
 		console.error('graylog messageerror ->', event.data)
 	}
 
-	worker.onmessage = function onmessage({ data: message }: MessageEvent<GraylogMessage>) {
+	worker.onmessage = ({ data: message }: MessageEvent<GraylogMessage>) => {
 		// console.log('graylog message ->', message)
 		ee.emit('message', message)
 		let { context, event, level, line } = message
@@ -51,9 +56,11 @@ export function connect() {
 			context == 'Microsoft.AspNetCore.Hosting.Diagnostics' &&
 			event == 'RequestFinished'
 		) {
-			ee.emit('request', message as never)
+			ee.emit('request', message as any)
 		}
 	}
+
+	await async.delay(1000)
 }
 
 // const request = {}

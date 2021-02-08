@@ -15,6 +15,7 @@ try {
 } finally {
 	console.warn('graylog_worker listener close ->', listener.addr)
 	listener.close()
+	self.close()
 }
 
 async function onconn(conn: Deno.Conn) {
