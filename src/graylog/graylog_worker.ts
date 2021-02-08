@@ -1,9 +1,9 @@
-await import('../devops/console.ts')
+import '../devops/console.ts'
 import * as io from 'https://deno.land/std/io/mod.ts'
 
 const listener = Deno.listen({
 	hostname: '127.0.0.1',
-	port: Number(Deno.env.get('JELLYFIN_GRAYLOG_PORT')) || 18066,
+	port: Number(Deno.env.get('JELLYFIN_GRAYLOG_PORT') ?? '18066'),
 	transport: 'tcp',
 })
 

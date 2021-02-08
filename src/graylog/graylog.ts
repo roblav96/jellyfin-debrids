@@ -26,10 +26,10 @@ export type GraylogEvents = {
 export const ee = new EventEmitter<GraylogEvents>()
 
 let worker: Worker
-export function start() {
+export function connect() {
 	worker?.terminate()
 
-	worker = new Worker(new URL('./graylog_worker.ts', import.meta.url).href, {
+	worker = new Worker(new URL('graylog_worker.ts', import.meta.url).href, {
 		deno: { namespace: true, permissions: 'inherit' },
 		name: 'graylog_worker',
 		type: 'module',
