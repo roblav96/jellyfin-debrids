@@ -14,10 +14,10 @@ export async function config({ envpath = path.join(Deno.cwd(), '.env'), useflags
 	}
 	for (let parsed of parseds) {
 		for (let [key, value] of Object.entries(parsed)) {
+			if (!key || key == '_') continue
 			key = constantCase(key)
-			if ((key ?? '').length == 0) continue
-			if ((Deno.env.get(key) ?? '').length != 0) continue
-			if ((value ?? '').length == 0) continue
+			if (typeof value != 'string') continue
+			if ((Deno.env.get(key) ?? '').length > 0) continue
 			console.warn(`Deno.env.set '${key}' ->`, value)
 			Deno.env.set(key, value)
 		}
