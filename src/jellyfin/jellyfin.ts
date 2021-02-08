@@ -9,21 +9,21 @@ export const api = http.extend({
 	prefixUrl: `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || 8096}`,
 	// searchParams: 'api_key=1234',
 	// searchParams: new URLSearchParams({
-	// 	api_key: Deno.env.get('API_KEY') || '1234',
+	// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '1234',
 	// }),
 	// searchParams: {
-	// 	api_key: Deno.env.get('API_KEY') || '1234',
+	// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '1234',
 	// },
 	// hooks: {
 	// 	beforeRequestBefore: [
 	// 		(request, options) => {
 	// 			// console.log('options.searchParams ->', options.searchParams.toString())
 	// 			// options.searchParams = 'api_key=9876'
-	// 			// options.searchParams.append('api_key', Deno.env.get('API_KEY') || '9876')
+	// 			// options.searchParams.append('api_key', Deno.env.get('JELLYFIN_API_KEY') || '9876')
 	// 			options.searchParams = {}
-	// 			options.searchParams['api_key'] = Deno.env.get('API_KEY') || '9876'
+	// 			options.searchParams['api_key'] = Deno.env.get('JELLYFIN_API_KEY') || '9876'
 	// 			// Object.assign(options.searchParams, {
-	// 			// 	api_key: Deno.env.get('API_KEY') || '9876',
+	// 			// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '9876',
 	// 			// })
 	// 			console.log('options.searchParams ->', options.searchParams)
 	// 			console.log('request.url ->', request.url)
@@ -39,12 +39,12 @@ export async function load() {
 	// console.log('pubinfo ->', pubinfo.url)
 	let pubinfo = await api.get('/System/Info/Public') as SystemInfoPublic
 	// console.log('pubinfo ->', pubinfo)
-	socket.start(Deno.env.get('API_KEY')!, pubinfo.Id)
+	socket.start(Deno.env.get('JELLYFIN_API_KEY')!, pubinfo.Id)
 }
 
-const API_KEY = Deno.env.get('API_KEY')!
-if (!API_KEY) {
-	console.error('Undefined API_KEY ->', 'http://localhost:8096/web/index.html#!/apikeys.html')
+const JELLYFIN_API_KEY = Deno.env.get('JELLYFIN_API_KEY')!
+if (!JELLYFIN_API_KEY) {
+	console.error('Undefined JELLYFIN_API_KEY ->', 'http://localhost:8096/web/index.html#!/apikeys.html')
 }
 
 export async function SystemInfoPublic() {

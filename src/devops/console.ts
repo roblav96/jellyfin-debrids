@@ -66,7 +66,7 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 								frame = frame.replace(`file://${root_path}/`, '')
 							}
 							frame = frame.replace(
-								/<(.+)>:(\d+):(\d+)/,
+								/[(]?<(.+)>:(\d+):(\d+)[)]?/,
 								`$1:${colors.yellow('$2')}:${colors.yellow('$3')}`,
 							)
 						} else {
@@ -75,8 +75,8 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 						stacks[i] = frame
 					}
 				}
-				stack = stacks.join(' ')
-				stack = stack.replace('at ', '')
+				stacks[0] == 'at' && stacks.splice(0, 1)
+				stack = stacks.reverse().join(' ')
 
 				for (let i = 0; i < args.length; i++) {
 					let arg = args[i]

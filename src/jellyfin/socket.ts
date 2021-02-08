@@ -49,7 +49,7 @@ setInterval(() => {
 }, 10000)
 
 // let query = qs.stringify({
-// 	api_key: Deno.env.get('API_KEY')!,
+// 	api_key: Deno.env.get('JELLYFIN_API_KEY')!,
 // 	deviceId: (await jellyfin.SystemInfoPublic()).Id,
 // })
 // const socket = new WebSocket(`ws://127.0.0.1:8096/socket?${query}`)

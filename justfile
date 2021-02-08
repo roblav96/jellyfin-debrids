@@ -12,7 +12,7 @@ install :
 		mkdir -p "node_modules/.cache"; \
 		ln -s -f "${DENO_DIR}" "node_modules/.cache/deno"; \
 	fi
-	deno cache --unstable --no-check --reload **/*.ts
+	deno cache --unstable --no-check --reload src/**/*.ts || true
 
 deps main="src/mod.ts" :
 	NO_COLOR=1 deno info --unstable {{main}}
