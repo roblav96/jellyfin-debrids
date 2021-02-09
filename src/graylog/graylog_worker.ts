@@ -13,7 +13,7 @@ try {
 } catch (error) {
 	console.error('graylog_worker listener ->', error)
 } finally {
-	console.warn('graylog_worker listener close ->', listener.addr)
+	console.warn('graylog_worker listener close ->', ...Object.values(listener.addr))
 	listener.close()
 	self.close()
 }
@@ -32,7 +32,7 @@ async function onconn(conn: Deno.Conn) {
 	} catch (error) {
 		console.error('graylog_worker onconn ->', error)
 	} finally {
-		console.warn('graylog_worker conn close ->', conn.remoteAddr)
+		console.warn('graylog_worker conn close ->', ...Object.values(conn.remoteAddr))
 		conn.close()
 	}
 }
