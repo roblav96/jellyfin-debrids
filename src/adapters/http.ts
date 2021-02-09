@@ -11,20 +11,21 @@ type AfterResponseHook = (
 	options: Options,
 	response: Response,
 ) => Promise<Response | void>
+
 export interface Options extends Omit<KyOptions, 'hooks' | 'searchParams'> {
-	afterResponse?: AfterResponseHook[]
-	beforeRequest?: BeforeRequestHook[]
-	buildRequest?: BuildRequestHook[]
+	afterResponse: AfterResponseHook[]
+	beforeRequest: BeforeRequestHook[]
+	buildRequest: BuildRequestHook[]
 	delay?: number
 	form?: Record<string, string>
-	headers?: Record<string, string>
+	headers: Record<string, string>
 	memoize?: number
-	method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE'
-	mime?: keyof Omit<KyResponsePromise, 'then' | 'catch' | 'finally'>
+	method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE'
+	mime: keyof Omit<KyResponsePromise, keyof Promise<Response>>
 	multipart?: Record<string, string | Blob>
 	qsArrayBracket?: boolean
 	randomize?: number
-	searchParams?: Record<string, string | string[]>
+	searchParams: Record<string, string | string[]>
 }
 
 export class Http {
@@ -38,6 +39,7 @@ export class Http {
 			headers: {
 				'user-agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
 			},
+			searchParams: {},
 			timeout: 5000,
 		} as Options
 	}
@@ -53,7 +55,7 @@ export class Http {
 	async request(url: string, options = {} as Options) {
 		options = deepmerge(this.options, options)
 
-		for (let hook of options.buildRequest!) {
+		for (let hook of options.buildRequest) {
 			await hook(options)
 		}
 
@@ -69,10 +71,13 @@ export class Http {
 			options.body = new URLSearchParams(options.form)
 		}
 
-		if (options.searchParams && options.qsArrayBracket == true) {
-			options.searchParams = qs.stringify(options.searchParams, {
-				arrayFormat: 'bracket',
-			}) as any
+		if (Object.keys(options.searchParams).length == 0) delete (options as any).searchParams
+		else {
+			if (options.qsArrayBracket == true) {
+				options.searchParams = qs.stringify(options.searchParams, {
+					arrayFormat: 'bracket',
+				}) as any
+			}
 		}
 
 		if (options.prefixUrl && url.startsWith('/')) {
@@ -80,7 +85,7 @@ export class Http {
 		}
 
 		let beforeRequest = [
-			...options.beforeRequest!,
+			...options.beforeRequest,
 			async (request, options) => {
 				if (options.delay) {
 					await async.delay(options.delay)
@@ -102,11 +107,11 @@ export class Http {
 				// console.log('options ->', options)
 				// console.log('response ->', response)
 			},
-			...options.afterResponse!,
+			...options.afterResponse,
 		] as AfterResponseHook[]
 
 		let request = ky(url, {
-			...options,
+			...(options as KyOptions),
 			hooks: { beforeRequest, afterResponse },
 		} as KyOptions)
 		if (options.mime) {
@@ -114,7 +119,7 @@ export class Http {
 		}
 		return await request
 
-		// for (let hook of options.beforeFetch!) {
+		// for (let hook of options.beforeFetch) {
 		// 	let response = await hook(options)
 		// 	if (response instanceof Response) {
 		// 		return response

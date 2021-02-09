@@ -8,7 +8,7 @@ const listener = Deno.listen({
 })
 
 try {
-	console.info('graylog_worker listening ->', listener.addr)
+	console.info('graylog listening ->', ...Object.values(listener.addr))
 	for await (const conn of listener) onconn(conn)
 } catch (error) {
 	console.error('graylog_worker listener ->', error)
@@ -20,7 +20,7 @@ try {
 
 async function onconn(conn: Deno.Conn) {
 	try {
-		console.info('graylog_worker conn ->', conn.remoteAddr)
+		console.info('graylog conn ->', ...Object.values(conn.remoteAddr))
 		for await (let chunk of io.readStringDelim(conn, '\x00')) {
 			if (chunk == '') continue
 			try {

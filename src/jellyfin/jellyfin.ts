@@ -1,12 +1,16 @@
 import * as socket from './socket.ts'
-import http from '../adapters/http.ts'
 import { Db } from '../adapters/storage.ts'
-import { open } from 'https://deno.land/x/opener/mod.ts'
+import { Http } from '../adapters/http.ts'
 
 export const db = Db.fromUrl(import.meta.url)
 
-export const api = http.extend({
-	prefixUrl: `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || 8096}`,
+export const api = new Http({
+	prefixUrl: `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'}`,
+	buildRequest: [async (options) => {
+		options.searchParams.api_key = Deno.env.get('JELLYFIN_API_KEY')!
+		console.log('Deno.env.get(\'JELLYFIN_API_KEY\')! ->', Deno.env.get('JELLYFIN_API_KEY')!)
+		console.log('options.searchParams ->', options.searchParams)
+	}],
 	// searchParams: 'api_key=1234',
 	// searchParams: new URLSearchParams({
 	// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '1234',
@@ -33,19 +37,23 @@ export const api = http.extend({
 	// },
 })
 
-export async function load() {
+export async function start() {
 	// let port = Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'
 	// let pubinfo = (await fetch(`http://127.0.0.1:${port}/System/Info/Public`))
 	// console.log('pubinfo ->', pubinfo.url)
-	let pubinfo = await api.get('/System/Info/Public') as SystemInfoPublic
+	let pubinfo = (await api.get('/System/Info/Public')) as SystemInfoPublic
 	// console.log('pubinfo ->', pubinfo)
 	socket.start(Deno.env.get('JELLYFIN_API_KEY')!, pubinfo.Id)
 }
 
-const JELLYFIN_API_KEY = Deno.env.get('JELLYFIN_API_KEY')!
-if (!JELLYFIN_API_KEY) {
-	console.error('Undefined JELLYFIN_API_KEY ->', 'http://localhost:8096/web/index.html#!/apikeys.html')
-}
+// import { open } from 'https://deno.land/x/opener/mod.ts'
+// const JELLYFIN_API_KEY = Deno.env.get('JELLYFIN_API_KEY')!
+// if (!JELLYFIN_API_KEY) {
+// 	console.error(
+// 		'Undefined JELLYFIN_API_KEY ->',
+// 		'http://localhost:8096/web/index.html#!/apikeys.html',
+// 	)
+// }
 
 export async function SystemInfoPublic() {
 	return (await api.get('System/Info/Public')) as SystemInfoPublic
