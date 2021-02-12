@@ -44,11 +44,11 @@ export class Http {
 		} as Options
 	}
 
-	constructor(public options = {} as Options) {
+	constructor(public options = {} as Partial<Options>) {
 		this.options = deepmerge(Http.defaults, options)
 	}
 
-	extend(options: Options) {
+	extend(options: Partial<Options>) {
 		return new Http(deepmerge(this.options, options))
 	}
 
@@ -71,8 +71,14 @@ export class Http {
 			options.body = new URLSearchParams(options.form)
 		}
 
-		if (Object.keys(options.searchParams).length == 0) delete (options as any).searchParams
-		else {
+		for (let key in options.searchParams) {
+			if (options.searchParams[key] == null) {
+				delete options.searchParams[key]
+			}
+		}
+		if (Object.keys(options.searchParams).length == 0) {
+			delete (options as any).searchParams
+		} else {
 			if (options.qsArrayBracket == true) {
 				options.searchParams = qs.stringify(options.searchParams, {
 					arrayFormat: 'bracket',
@@ -137,23 +143,23 @@ export class Http {
 		// }
 	}
 
-	get(url: string, options = {} as Options) {
-		return this.request(url, { ...options, method: 'GET' })
+	get(url: string, options = {} as Partial<Options>) {
+		return this.request(url, { ...options, method: 'GET' } as Options)
 	}
-	post(url: string, options = {} as Options) {
-		return this.request(url, { ...options, method: 'POST' })
+	post(url: string, options = {} as Partial<Options>) {
+		return this.request(url, { ...options, method: 'POST' } as Options)
 	}
-	put(url: string, options = {} as Options) {
-		return this.request(url, { ...options, method: 'PUT' })
+	put(url: string, options = {} as Partial<Options>) {
+		return this.request(url, { ...options, method: 'PUT' } as Options)
 	}
-	patch(url: string, options = {} as Options) {
-		return this.request(url, { ...options, method: 'PATCH' })
+	patch(url: string, options = {} as Partial<Options>) {
+		return this.request(url, { ...options, method: 'PATCH' } as Options)
 	}
-	head(url: string, options = {} as Options) {
-		return this.request(url, { ...options, method: 'HEAD' })
+	head(url: string, options = {} as Partial<Options>) {
+		return this.request(url, { ...options, method: 'HEAD' } as Options)
 	}
-	delete(url: string, options = {} as Options) {
-		return this.request(url, { ...options, method: 'DELETE' })
+	delete(url: string, options = {} as Partial<Options>) {
+		return this.request(url, { ...options, method: 'DELETE' } as Options)
 	}
 }
 

@@ -42,7 +42,7 @@
 							"includeMessageTemplate": true,
 							"messageIdGeneratorType": "Timestamp",
 							"messageTemplateFieldName": "message_template",
-							"minimumLogEventLevel": "Debug",
+							"minimumLogEventLevel": "Information",
 							"port": 18066,
 							"restrictedToMinimumLevel": "Information",
 							"shortMessageMaxLength": 4096,

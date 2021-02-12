@@ -6,11 +6,13 @@ export const db = Db.fromUrl(import.meta.url)
 
 export const api = new Http({
 	prefixUrl: `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'}`,
-	buildRequest: [async (options) => {
-		options.searchParams.api_key = Deno.env.get('JELLYFIN_API_KEY')!
-		console.log('Deno.env.get(\'JELLYFIN_API_KEY\')! ->', Deno.env.get('JELLYFIN_API_KEY')!)
-		console.log('options.searchParams ->', options.searchParams)
-	}],
+	buildRequest: [
+		async (options) => {
+			options.searchParams.api_key = Deno.env.get('JELLYFIN_API_KEY')!
+			console.log("Deno.env.get('JELLYFIN_API_KEY')! ->", Deno.env.get('JELLYFIN_API_KEY')!)
+			console.log('options.searchParams ->', options.searchParams)
+		},
+	],
 	// searchParams: 'api_key=1234',
 	// searchParams: new URLSearchParams({
 	// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '1234',
