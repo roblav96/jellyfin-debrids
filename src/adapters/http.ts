@@ -37,7 +37,7 @@ export class Http {
 			method: 'GET',
 			mime: 'json',
 			headers: {
-				'user-agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
+				'User-Agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
 			},
 			searchParams: {},
 			timeout: 5000,
@@ -78,12 +78,11 @@ export class Http {
 		}
 		if (Object.keys(options.searchParams).length == 0) {
 			delete (options as any).searchParams
-		} else {
-			if (options.qsArrayBracket == true) {
-				options.searchParams = qs.stringify(options.searchParams, {
-					arrayFormat: 'bracket',
-				}) as any
-			}
+		}
+		if (options.searchParams && options.qsArrayBracket == true) {
+			options.searchParams = qs.stringify(options.searchParams, {
+				arrayFormat: 'bracket',
+			}) as any
 		}
 
 		if (options.prefixUrl && url.startsWith('/')) {
@@ -102,17 +101,16 @@ export class Http {
 					await async.delay(delay)
 				}
 			},
+			async (request, options) => {
+				console.log(request.url, options)
+			},
 		] as BeforeRequestHook[]
 
 		let afterResponse = [
-			async (request, options, response) => {
-				console.log(response.status, request.url)
-			},
-			async (request, options, response) => {
-				console.log(request.url, '\n ', request.headers)
-				// console.log('options ->', options)
-				// console.log('response ->', response)
-			},
+			// async (request, options, response) => {
+			// 	console.log(response.status, request.url)
+			// 	console.log(request.url, '\n ', request.headers)
+			// },
 			...options.afterResponse,
 		] as AfterResponseHook[]
 

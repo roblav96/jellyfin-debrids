@@ -16,7 +16,9 @@ export const ee = new EventEmitter<{
 let socket: Sockette<SocketEvent>
 export function start(api_key: string, deviceId: string) {
 	socket?.close()
-	let url = `ws://127.0.0.1:8096/socket?${qs.stringify({ api_key, deviceId })}`
+	let url = `ws://127.0.0.1:${
+		Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'
+	}/socket?${qs.stringify({ api_key, deviceId })}`
 	socket = new Sockette<SocketEvent>(url, {
 		timeout: 3000,
 		onerror(event) {

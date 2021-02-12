@@ -1,24 +1,25 @@
 import * as socket from './socket.ts'
+import * as wizard from './wizard.ts'
 import { Db } from '../adapters/storage.ts'
 import { Http } from '../adapters/http.ts'
 
 export const db = Db.fromUrl(import.meta.url)
 
 export const api = new Http({
-	prefixUrl: `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'}`,
 	buildRequest: [
 		async (options) => {
+			options.prefixUrl = `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'}`
 			options.searchParams.api_key = Deno.env.get('JELLYFIN_API_KEY')!
 		},
 	],
 })
 
 export async function start() {
-	// let port = Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'
-	// let pubinfo = (await fetch(`http://127.0.0.1:${port}/System/Info/Public`))
-	// console.log('pubinfo ->', pubinfo.url)
 	let pubinfo = (await api.get('/System/Info/Public')) as SystemInfoPublic
-	// console.log('pubinfo ->', pubinfo)
+	console.log('pubinfo ->', pubinfo)
+	if (pubinfo.StartupWizardCompleted == false) {
+		await wizard.start()
+	}
 	socket.start(Deno.env.get('JELLYFIN_API_KEY')!, pubinfo.Id)
 }
 
