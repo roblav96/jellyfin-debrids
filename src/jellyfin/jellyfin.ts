@@ -9,34 +9,8 @@ export const api = new Http({
 	buildRequest: [
 		async (options) => {
 			options.searchParams.api_key = Deno.env.get('JELLYFIN_API_KEY')!
-			console.log("Deno.env.get('JELLYFIN_API_KEY')! ->", Deno.env.get('JELLYFIN_API_KEY')!)
-			console.log('options.searchParams ->', options.searchParams)
 		},
 	],
-	// searchParams: 'api_key=1234',
-	// searchParams: new URLSearchParams({
-	// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '1234',
-	// }),
-	// searchParams: {
-	// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '1234',
-	// },
-	// hooks: {
-	// 	beforeRequestBefore: [
-	// 		(request, options) => {
-	// 			// console.log('options.searchParams ->', options.searchParams.toString())
-	// 			// options.searchParams = 'api_key=9876'
-	// 			// options.searchParams.append('api_key', Deno.env.get('JELLYFIN_API_KEY') || '9876')
-	// 			options.searchParams = {}
-	// 			options.searchParams['api_key'] = Deno.env.get('JELLYFIN_API_KEY') || '9876'
-	// 			// Object.assign(options.searchParams, {
-	// 			// 	api_key: Deno.env.get('JELLYFIN_API_KEY') || '9876',
-	// 			// })
-	// 			console.log('options.searchParams ->', options.searchParams)
-	// 			console.log('request.url ->', request.url)
-	// 			// return new Request(request)
-	// 		},
-	// 	],
-	// },
 })
 
 export async function start() {
