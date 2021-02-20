@@ -16,7 +16,7 @@ const DEFAULT_INSPECT_OPTIONS = {
 	compact: true,
 	depth: 4,
 	getters: true,
-	iterableLimit: 100,
+	iterableLimit: 1024,
 	showProxy: true,
 	sorted: true,
 	trailingComma: false,
@@ -75,8 +75,12 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 						stacks[i] = frame
 					}
 				}
-				stacks[0] == 'at' && stacks.splice(0, 1)
-				stack = stacks.reverse().join(' ')
+				for (let i = 0; i < stacks.length; i++) {
+					let stack = stacks[i]
+					if (stack == 'at') stacks[i] = ''
+					if (stack.startsWith('(') && stack.endsWith(')')) stacks[i] = stack.slice(1, -1)
+				}
+				stack = stacks.filter(Boolean).reverse().join(' ')
 
 				for (let i = 0; i < args.length; i++) {
 					let arg = args[i]
