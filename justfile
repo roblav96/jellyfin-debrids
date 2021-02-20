@@ -12,6 +12,7 @@ install :
 		mkdir -p "node_modules/.cache"; \
 		ln -s -f "${DENO_DIR}" "node_modules/.cache/deno"; \
 	fi
+	npx dtsgenerator --url "https://repo.jellyfin.org/releases/openapi/jellyfin-openapi-stable.json" | sed -e 's/declare /export /' -e 's/ | null;/;/' -e 's/ null | / /' > "src/jellyfin/openapi.d.ts"
 	deno cache --unstable --no-check --reload src/**/*.ts || true
 
 deps main="src/mod.ts" :

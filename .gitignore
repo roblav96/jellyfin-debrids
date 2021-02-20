@@ -9,3 +9,4 @@ node_modules
 !.env.example
 
 src/repl.ts
+src/jellyfin/openapi.d.ts
