@@ -1,6 +1,7 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
 import dataDir from 'https://deno.land/x/data_dir/mod.ts'
+import Emittery from 'https://esm.sh/emittery?dev'
 
 export class Db extends Map {
 	static fromUrl(url: string) {

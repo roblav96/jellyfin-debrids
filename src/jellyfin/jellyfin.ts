@@ -8,13 +8,19 @@ export const db = Db.fromUrl(import.meta.url)
 export const api = new Http({
 	buildRequest: [
 		async (options) => {
-			options.prefixUrl = `http://127.0.0.1:${Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'}`
+			let port = Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'
+			options.prefixUrl = `http://127.0.0.1:${port}`
 			options.searchParams.api_key = Deno.env.get('JELLYFIN_API_KEY')!
 		},
 	],
 })
 
 export async function start() {
+	await api.get('/System/Info/Public', {
+		searchParams: { magnets: ['a', 'b', 'c'] },
+		qsArrayBracket: true,
+	})
+	throw new Error(`DEVELOPMENT`)
 	let pubinfo = (await api.get('/System/Info/Public')) as SystemInfoPublic
 	console.log('pubinfo ->', pubinfo)
 	if (pubinfo.StartupWizardCompleted == false) {

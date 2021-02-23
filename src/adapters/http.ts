@@ -1,62 +1,132 @@
 import * as async from 'https://deno.land/std/async/mod.ts'
-import * as path from 'https://deno.land/std/path/mod.ts'
-import * as qs from 'https://esm.sh/query-string?dev'
+import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import deepmerge from 'https://esm.sh/deepmerge?dev'
 import ky, { KyOptions, KyResponsePromise } from '../shims/ky.ts'
+// import urlJoin from 'https://esm.sh/url-join?dev'
+import { join as urlJoin } from 'https://deno.land/x/urlcat/src/index.ts'
+import { status } from 'https://deno.land/x/status/status.ts'
+import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
-type BuildRequestHook = (options: Options) => Promise<void>
-type BeforeRequestHook = (request: Request, options: Options) => Promise<Request | Response | void>
-type AfterResponseHook = (
-	request: Request,
-	options: Options,
-	response: Response,
-) => Promise<Response | void>
-
-export interface Options extends Omit<KyOptions, 'hooks' | 'searchParams'> {
-	afterResponse: AfterResponseHook[]
-	beforeRequest: BeforeRequestHook[]
-	buildRequest: BuildRequestHook[]
+type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE' | 'OPTIONS'
+export interface Options extends Omit<RequestInit, 'headers'> {
+	// readonly meta?: Partial<{ retries: number }>
+	buildRequest: ((options: Options) => Promise<void>)[]
+	client?: Deno.HttpClient
 	delay?: number
 	form?: Record<string, string>
 	headers: Record<string, string>
+	json?: unknown
 	memoize?: number
-	method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE'
-	mime: keyof Omit<KyResponsePromise, keyof Promise<Response>>
+	method: RequestMethod
 	multipart?: Record<string, string | Blob>
+	prefixUrl?: string
 	qsArrayBracket?: boolean
 	randomize?: number
+	retryLimit: number
+	retryMethods: Set<RequestMethod>
+	retryStatusCodes: Set<number>
 	searchParams: Record<string, string | string[]>
+	timeout: number
 }
 
 export class Http {
 	static get defaults() {
 		return {
-			afterResponse: [],
-			beforeRequest: [],
 			buildRequest: [],
-			method: 'GET',
-			mime: 'json',
 			headers: {
-				'User-Agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
+				'user-agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
 			},
+			method: 'GET',
+			// prefixUrl: '',
+			retryLimit: 3,
+			retryMethods: new Set(['GET', 'PUT', 'HEAD', 'DELETE', 'OPTIONS']),
+			retryStatusCodes: new Set([403, 408, 413, 429, 500, 502, 503, 504]),
 			searchParams: {},
-			timeout: 5000,
+			timeout: 10000,
 		} as Options
 	}
 
+	static merge(x: Partial<Options>, y: Partial<Options>) {
+		return deepmerge(x, y, {
+			isMergeableObject: (value) => {
+				return Array.isArray(value) || what.isPlainObject(value)
+			},
+		})
+	}
+
 	constructor(public options = {} as Partial<Options>) {
-		this.options = deepmerge(Http.defaults, options)
+		this.options = Http.merge(Http.defaults, options)
 	}
 
 	extend(options: Partial<Options>) {
-		return new Http(deepmerge(this.options, options))
+		return new Http(Http.merge(this.options, options))
 	}
 
-	async request(url: string, options = {} as Options) {
-		options = deepmerge(this.options, options)
+	private fetch(input: string, options: Options) {
+		// options.client = Deno.createHttpClient({})
+		let controller = new AbortController()
+		options.signal = controller.signal
+		let timeout = setTimeout(() => {
+			console.log('controller.signal.aborted ->', Deno.resources())
+			console.log('controller.signal.aborted ->', controller.signal.aborted)
+			controller.abort()
+			// options.client!.close()
+			// Deno.close(options.client!.rid)
+			console.log('controller.signal.aborted ->', controller.signal.aborted)
+			console.log('controller.signal.aborted ->', Deno.resources())
+		}, options.timeout)
+
+		return fetch(input, options)
+	}
+
+	async request(input: string, options = {} as Options) {
+		options = Http.merge(this.options, options)
 
 		for (let hook of options.buildRequest) {
 			await hook(options)
+		}
+
+		console.log('prefixUrl ->', options.prefixUrl)
+		console.log('input ->', input)
+		let url = new URL(options.prefixUrl ?? input)
+		console.log('url ->', url)
+		if (options.prefixUrl) {
+			let prefixUrl = options.prefixUrl
+			if (!url.pathname.endsWith('/') && !'#&?'.includes(input.charAt(0))) {
+				prefixUrl += '/'
+			}
+			// if (input.startsWith('/') && url.pathname.length > 1 && !prefixUrl.endsWith('/')) {
+			// 	prefixUrl += '/'
+			// }
+			// if (!prefixUrl.endsWith('/') && !'#&?'.includes(input.charAt(0))) {
+			// if (!prefixUrl.endsWith('/') /** && input.startsWith('/') */) {
+			// 	prefixUrl += '/'
+			// }
+			url = new URL(
+				input.startsWith('/') ? input.slice(1) : input, prefixUrl,
+				// !'#&?'.includes(input.charAt(0)) && !prefixUrl.endsWith('/') ? `${prefixUrl}/` : prefixUrl,
+				// prefixUrl.endsWith('/') ? prefixUrl.slice(0, -1) : prefixUrl,
+			)
+			// url = new URL(urlJoin(url.pathname, '/', input), url.origin)
+		}
+		console.log('url ->', url)
+		console.warn('url ->', url.toString())
+		// if (options.prefixUrl.endsWith('/') && input.startsWith('/')) {
+		// 	input = input.slice(1)
+		// }
+		// // console.warn('url ->', urlJoin(options.prefixUrl, '/', input))
+		// console.warn('url ->', options.prefixUrl + input)
+		throw 'DEVELOPMENT'
+
+		url = new URL(urlJoin(`${options.prefixUrl}`, input))
+		for (let key in options.searchParams) {
+			let value = options.searchParams[key]
+			if (what.isString(value)) {
+				url.searchParams.set(key, value)
+			} else if (Array.isArray(value)) {
+				if (options.qsArrayBracket == true) key = `${key}[]`
+				value.forEach((v) => url.searchParams.append(key, v))
+			}
 		}
 
 		if (options.multipart) {
@@ -71,57 +141,35 @@ export class Http {
 			options.body = new URLSearchParams(options.form)
 		}
 
-		for (let key in options.searchParams) {
-			if (options.searchParams[key] == null) {
-				delete options.searchParams[key]
-			}
+		if (options.delay) {
+			await async.delay(options.delay)
 		}
-		if (Object.keys(options.searchParams).length == 0) {
-			delete (options as any).searchParams
-		}
-		if (options.searchParams && options.qsArrayBracket == true) {
-			options.searchParams = qs.stringify(options.searchParams, {
-				arrayFormat: 'bracket',
-			}) as any
+		if (options.randomize) {
+			let [min, max] = [options.randomize * Math.E * 0.1, options.randomize]
+			let delay = Math.ceil(Math.floor(Math.random() * (max - min + 1)) + min)
+			await async.delay(delay)
 		}
 
-		if (options.prefixUrl && url.startsWith('/')) {
-			url = url.slice(1)
-		}
+		return this.fetch(url.toString(), options)
 
-		let beforeRequest = [
-			...options.beforeRequest,
-			async (request, options) => {
-				if (options.delay) {
-					await async.delay(options.delay)
-				}
-				if (options.randomize) {
-					let [min, max] = [options.randomize * Math.E * 0.1, options.randomize]
-					let delay = Math.ceil(Math.floor(Math.random() * (max - min + 1)) + min)
-					await async.delay(delay)
-				}
-			},
-			async (request, options) => {
-				console.log(request.url, options)
-			},
-		] as BeforeRequestHook[]
+		// let afterResponse = [
+		// 	// async (request, options, response) => {
+		// 	// 	console.log(response.status, request.url)
+		// 	// 	console.log(request.url, '\n ', request.headers)
+		// 	// },
+		// 	...options.afterResponse,
+		// ] as AfterResponseHook[]
 
-		let afterResponse = [
-			// async (request, options, response) => {
-			// 	console.log(response.status, request.url)
-			// 	console.log(request.url, '\n ', request.headers)
-			// },
-			...options.afterResponse,
-		] as AfterResponseHook[]
-
-		let request = ky(url, {
-			...(options as KyOptions),
-			hooks: { beforeRequest, afterResponse },
-		} as KyOptions)
-		if (options.mime) {
-			return await request[options.mime]()
-		}
-		return await request
+		// // @ts-ignore
+		// let request = ky(url, {
+		// 	// @ts-ignore
+		// 	...(options as KyOptions),
+		// 	// @ts-ignore
+		// 	hooks: { beforeRequest, afterResponse },
+		// } as KyOptions)
+		// // @ts-ignore
+		// if (options.mime) return await request[options.mime]()
+		// return await request
 
 		// for (let hook of options.beforeFetch) {
 		// 	let response = await hook(options)

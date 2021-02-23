@@ -80,7 +80,8 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 					if (stack == 'at') stacks[i] = ''
 					if (stack.startsWith('(') && stack.endsWith(')')) stacks[i] = stack.slice(1, -1)
 				}
-				stack = stacks.filter(Boolean).reverse().join(' ')
+				stacks.unshift(...stacks.splice(-1, 1))
+				stack = stacks.filter(Boolean).join(' ')
 
 				for (let i = 0; i < args.length; i++) {
 					let arg = args[i]
