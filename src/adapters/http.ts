@@ -29,6 +29,12 @@ export interface Options extends Omit<RequestInit, 'headers'> {
 	timeout: number
 }
 
+export class AbortError extends DOMException {
+	constructor(public input: string, public options: Options) {
+		super('Aborted', 'AbortError')
+	}
+}
+
 export class Http {
 	static get defaults() {
 		return {
@@ -37,7 +43,6 @@ export class Http {
 				'user-agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
 			},
 			method: 'GET',
-			// prefixUrl: '',
 			retryLimit: 3,
 			retryMethods: new Set(['GET', 'PUT', 'HEAD', 'DELETE', 'OPTIONS']),
 			retryStatusCodes: new Set([403, 408, 413, 429, 500, 502, 503, 504]),
@@ -62,21 +67,23 @@ export class Http {
 		return new Http(Http.merge(this.options, options))
 	}
 
-	private fetch(input: string, options: Options) {
-		// options.client = Deno.createHttpClient({})
+	private async fetch(input: string, options: Options) {
 		let controller = new AbortController()
 		options.signal = controller.signal
-		let timeout = setTimeout(() => {
-			console.log('controller.signal.aborted ->', Deno.resources())
-			console.log('controller.signal.aborted ->', controller.signal.aborted)
-			controller.abort()
-			// options.client!.close()
-			// Deno.close(options.client!.rid)
-			console.log('controller.signal.aborted ->', controller.signal.aborted)
-			console.log('controller.signal.aborted ->', Deno.resources())
-		}, options.timeout)
+		let response = await Promise.race([
+			fetch(input, options), //.then((response) => ({ response })),
+			async.delay(options.timeout).then(() => {
+				return Promise.reject(new AbortError(input, options))
+			}), //.then(() => ({ timeout: true })),
+		])
+		console.log('response ->', response)
+		console.log('what.getType(response) ->', what.getType(response))
+		// let timeout = setTimeout(() => {
+		// 	controller.abort()
+		// 	p.reject(new Deno.errors.ConnectionAborted())
+		// }, options.timeout)
 
-		return fetch(input, options)
+		// return fetch(input, options)
 	}
 
 	async request(input: string, options = {} as Options) {
@@ -86,41 +93,18 @@ export class Http {
 			await hook(options)
 		}
 
-		console.log('prefixUrl ->', options.prefixUrl)
-		console.log('input ->', input)
 		let url = new URL(options.prefixUrl ?? input)
-		console.log('url ->', url)
 		if (options.prefixUrl) {
 			let prefixUrl = options.prefixUrl
-			if (!url.pathname.endsWith('/') && !'#&?'.includes(input.charAt(0))) {
-				prefixUrl += '/'
-			}
-			// if (input.startsWith('/') && url.pathname.length > 1 && !prefixUrl.endsWith('/')) {
-			// 	prefixUrl += '/'
-			// }
-			// if (!prefixUrl.endsWith('/') && !'#&?'.includes(input.charAt(0))) {
-			// if (!prefixUrl.endsWith('/') /** && input.startsWith('/') */) {
+			// if (!url.pathname.endsWith('/') && !'#&?'.includes(input.charAt(0))) {
 			// 	prefixUrl += '/'
 			// }
 			url = new URL(
-				input.startsWith('/') ? input.slice(1) : input, prefixUrl,
-				// !'#&?'.includes(input.charAt(0)) && !prefixUrl.endsWith('/') ? `${prefixUrl}/` : prefixUrl,
-				// prefixUrl.endsWith('/') ? prefixUrl.slice(0, -1) : prefixUrl,
+				input.startsWith('/') ? input.slice(1) : input,
+				!prefixUrl.endsWith('/') ? `${prefixUrl}/` : prefixUrl,
 			)
-			// url = new URL(urlJoin(url.pathname, '/', input), url.origin)
 		}
-		console.log('url ->', url)
-		console.warn('url ->', url.toString())
-		// if (options.prefixUrl.endsWith('/') && input.startsWith('/')) {
-		// 	input = input.slice(1)
-		// }
-		// // console.warn('url ->', urlJoin(options.prefixUrl, '/', input))
-		// console.warn('url ->', options.prefixUrl + input)
-		throw 'DEVELOPMENT'
-
-		url = new URL(urlJoin(`${options.prefixUrl}`, input))
-		for (let key in options.searchParams) {
-			let value = options.searchParams[key]
+		for (let [key, value] of Object.entries(options.searchParams)) {
 			if (what.isString(value)) {
 				url.searchParams.set(key, value)
 			} else if (Array.isArray(value)) {
@@ -150,7 +134,7 @@ export class Http {
 			await async.delay(delay)
 		}
 
-		return this.fetch(url.toString(), options)
+		return await this.fetch(url.toString(), options)
 
 		// let afterResponse = [
 		// 	// async (request, options, response) => {
