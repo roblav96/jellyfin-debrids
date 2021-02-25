@@ -10,8 +10,10 @@ const httpbin = new Http({
 })
 
 try {
-	// console.log('try ->', Deno.resources())
 	let [response] = await Promise.all([
+		// httpbin.get('status/404', {
+		// 	// timeout: Infinity,
+		// }),
 		httpbin.get('delay/3', {
 			timeout: 2000,
 		}),
@@ -19,25 +21,18 @@ try {
 		// 	throwHttpErrors: false,
 		// 	timeout: 2000,
 		// }),
-		// setTimeout(() => console.log('Promise.all ->', Deno.resources()), 1000)
 	])
-	console.log('response ->', Deno.resources())
-	// Deno.close(4)
 	console.log('response ->', response)
 	console.log('response.json() ->', await response.json())
-	console.log('json ->', Deno.resources())
 } catch (error) {
-	if (error instanceof AbortError) {
+	console.error('httpbin catch ->', error)
+	if (error instanceof DOMException) {
 		console.warn('AbortError ->')
 		console.log('error.code ->', error.code)
 		console.log('error.input ->', error.input)
 	}
-	console.log('Reflect.ownKeys(error) ->', Reflect.ownKeys(error))
 	console.log('error.name ->', error.name)
 	console.log('error.constructor.name ->', error.constructor.name)
-	console.log('Object.getPrototypeOf(error) ->', Object.getPrototypeOf(error))
 	console.log('what.getType(error) ->', what.getType(error))
-	console.error('catch ->', error)
-} finally {
-	// console.log('finally ->', Deno.resources())
+	console.log('Reflect.ownKeys(error) ->', Reflect.ownKeys(error))
 }

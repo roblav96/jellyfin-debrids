@@ -1,16 +1,12 @@
 import * as async from 'https://deno.land/std/async/mod.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import deepmerge from 'https://esm.sh/deepmerge?dev'
-import ky, { KyOptions, KyResponsePromise } from '../shims/ky.ts'
-// import urlJoin from 'https://esm.sh/url-join?dev'
-import { join as urlJoin } from 'https://deno.land/x/urlcat/src/index.ts'
-import { status } from 'https://deno.land/x/status/status.ts'
 import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
 type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE' | 'OPTIONS'
-export interface Options extends Omit<RequestInit, 'headers'> {
+export interface HttpInit extends Omit<RequestInit, 'headers'> {
 	// readonly meta?: Partial<{ retries: number }>
-	buildRequest: ((options: Options) => Promise<void>)[]
+	buildRequest: ((init: HttpInit) => Promise<void>)[]
 	client?: Deno.HttpClient
 	delay?: number
 	form?: Record<string, string>
@@ -22,15 +18,27 @@ export interface Options extends Omit<RequestInit, 'headers'> {
 	prefixUrl?: string
 	qsArrayBracket?: boolean
 	randomize?: number
-	retryLimit: number
+	retries: number
 	retryMethods: Set<RequestMethod>
 	retryStatusCodes: Set<number>
 	searchParams: Record<string, string | string[]>
 	timeout: number
 }
 
+export class HttpError extends Error {
+	// get code() {
+	// 	return this.response.status
+	// }
+	constructor(public input: string, public init: HttpInit, public response: Response) {
+		// let statusText = response.statusText
+		super(response.statusText ?? STATUS_TEXT.get(response.status))
+		this.name = 'HttpError'
+	}
+}
+
 export class AbortError extends DOMException {
-	constructor(public input: string, public options: Options) {
+	static ABORT_ERR = 20
+	constructor(public input: string, public init: HttpInit) {
 		super('Aborted', 'AbortError')
 	}
 }
@@ -43,15 +51,25 @@ export class Http {
 				'user-agent': 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)',
 			},
 			method: 'GET',
-			retryLimit: 3,
+			retries: 2,
 			retryMethods: new Set(['GET', 'PUT', 'HEAD', 'DELETE', 'OPTIONS']),
-			retryStatusCodes: new Set([403, 408, 413, 429, 500, 502, 503, 504]),
+			// retryStatusCodes: new Set([403, 408, 413, 429, 500, 502, 503, 504]),
+			retryStatusCodes: new Set([
+				Status.Forbidden,
+				Status.RequestTimeout,
+				Status.RequestEntityTooLarge,
+				Status.TooManyRequests,
+				Status.InternalServerError,
+				Status.BadGateway,
+				Status.ServiceUnavailable,
+				Status.GatewayTimeout,
+			]),
 			searchParams: {},
 			timeout: 10000,
-		} as Options
+		} as HttpInit
 	}
 
-	static merge(x: Partial<Options>, y: Partial<Options>) {
+	static merge(x: Partial<HttpInit>, y: Partial<HttpInit>) {
 		return deepmerge(x, y, {
 			isMergeableObject: (value) => {
 				return Array.isArray(value) || what.isPlainObject(value)
@@ -59,186 +77,125 @@ export class Http {
 		})
 	}
 
-	constructor(public options = {} as Partial<Options>) {
-		this.options = Http.merge(Http.defaults, options)
+	constructor(public init = {} as Partial<HttpInit>) {
+		this.init = Http.merge(Http.defaults, init)
 	}
 
-	extend(options: Partial<Options>) {
-		return new Http(Http.merge(this.options, options))
+	extend(init: Partial<HttpInit>) {
+		return new Http(Http.merge(this.init, init))
 	}
 
-	private async fetch(input: string, options: Options) {
+	private fetch(input: string, init: HttpInit) {
+		console.log('fetch ->', input)
+		if (!(Number.isFinite(init.timeout) && init.timeout > 0)) {
+			return fetch(input, init)
+		}
+		let aborter = async.deferred<never>()
 		let controller = new AbortController()
-		options.signal = controller.signal
-		let response = await Promise.race([
-			fetch(input, options), //.then((response) => ({ response })),
-			async.delay(options.timeout).then(() => {
-				return Promise.reject(new AbortError(input, options))
-			}), //.then(() => ({ timeout: true })),
-		])
-		console.log('response ->', response)
-		console.log('what.getType(response) ->', what.getType(response))
-		// let timeout = setTimeout(() => {
-		// 	controller.abort()
-		// 	p.reject(new Deno.errors.ConnectionAborted())
-		// }, options.timeout)
-
-		// return fetch(input, options)
+		let timer = setTimeout(() => {
+			controller.abort()
+			aborter.reject(new AbortError(input, init))
+		}, init.timeout)
+		return Promise.race([
+			fetch(input, { ...init, signal: controller.signal }),
+			aborter,
+		]).finally(() => clearTimeout(timer))
 	}
 
-	async request(input: string, options = {} as Options) {
-		options = Http.merge(this.options, options)
+	private async retry(input: string, init: HttpInit) /** : Promise<Response> */ {
+		// let response: Response
+		try {
+			let response = await this.fetch(input, init)
+			if (!response.ok) {
+				throw new HttpError(input, init, response)
+			}
+			return response
+		} catch (error) {
+			if (init.retries > 0 && init.retryMethods.has(init.method)) {
+				if (
+					error instanceof AbortError ||
+					(error instanceof HttpError && init.retryStatusCodes.has(error.response.status))
+				) {
+					init.retries--
+					return this.retry(input, init)
+				}
+			}
+			return Promise.reject(error)
+		}
+		// return response
+	}
 
-		for (let hook of options.buildRequest) {
-			await hook(options)
+	async request(input: string, init = {} as HttpInit) {
+		init = Http.merge(this.init, init)
+
+		for (let hook of init.buildRequest) {
+			await hook(init)
 		}
 
-		let url = new URL(options.prefixUrl ?? input)
-		if (options.prefixUrl) {
-			let prefixUrl = options.prefixUrl
-			// if (!url.pathname.endsWith('/') && !'#&?'.includes(input.charAt(0))) {
-			// 	prefixUrl += '/'
-			// }
-			url = new URL(
-				input.startsWith('/') ? input.slice(1) : input,
-				!prefixUrl.endsWith('/') ? `${prefixUrl}/` : prefixUrl,
-			)
+		let url = new URL(init.prefixUrl ?? input)
+		if (init.prefixUrl) {
+			let prefixUrl = init.prefixUrl
+			if (!url.pathname.endsWith('/') && !'#&?'.includes(input.charAt(0))) {
+				prefixUrl += '/'
+			}
+			url = new URL(input.startsWith('/') ? input.slice(1) : input, prefixUrl)
 		}
-		for (let [key, value] of Object.entries(options.searchParams)) {
+		for (let [key, value] of Object.entries(init.searchParams)) {
 			if (what.isString(value)) {
 				url.searchParams.set(key, value)
 			} else if (Array.isArray(value)) {
-				if (options.qsArrayBracket == true) key = `${key}[]`
+				if (init.qsArrayBracket == true) key = `${key}[]`
 				value.forEach((v) => url.searchParams.append(key, v))
 			}
 		}
 
-		if (options.multipart) {
+		if (init.multipart) {
 			let multipart = new FormData()
-			for (let key in options.multipart) {
-				multipart.append(key, options.multipart[key])
+			for (let key in init.multipart) {
+				multipart.append(key, init.multipart[key])
 			}
-			options.body = multipart
+			init.body = multipart
 		}
 
-		if (options.form) {
-			options.body = new URLSearchParams(options.form)
+		if (init.form) {
+			init.body = new URLSearchParams(init.form)
 		}
 
-		if (options.delay) {
-			await async.delay(options.delay)
+		if (init.delay) {
+			await async.delay(init.delay)
 		}
-		if (options.randomize) {
-			let [min, max] = [options.randomize * Math.E * 0.1, options.randomize]
+		if (init.randomize) {
+			let [min, max] = [init.randomize * Math.E * 0.1, init.randomize]
 			let delay = Math.ceil(Math.floor(Math.random() * (max - min + 1)) + min)
 			await async.delay(delay)
 		}
 
-		return await this.fetch(url.toString(), options)
-
-		// let afterResponse = [
-		// 	// async (request, options, response) => {
-		// 	// 	console.log(response.status, request.url)
-		// 	// 	console.log(request.url, '\n ', request.headers)
-		// 	// },
-		// 	...options.afterResponse,
-		// ] as AfterResponseHook[]
-
-		// // @ts-ignore
-		// let request = ky(url, {
-		// 	// @ts-ignore
-		// 	...(options as KyOptions),
-		// 	// @ts-ignore
-		// 	hooks: { beforeRequest, afterResponse },
-		// } as KyOptions)
-		// // @ts-ignore
-		// if (options.mime) return await request[options.mime]()
-		// return await request
-
-		// for (let hook of options.beforeFetch) {
-		// 	let response = await hook(options)
-		// 	if (response instanceof Response) {
-		// 		return response
-		// 	}
-		// }
-
-		// return response.json
-
-		// if (options.auto != true) {
-		// 	return response
-		// }
+		let response = await this.retry(url.toString(), init)
+		console.log('response ->', response)
 
 		// if (response.headers.get('content-type')?.startsWith('application/json')) {
 		// 	return await response.json()
 		// }
 	}
 
-	get(url: string, options = {} as Partial<Options>) {
-		return this.request(url, { ...options, method: 'GET' } as Options)
+	get(input: string, init = {} as Partial<HttpInit>) {
+		return this.request(input, { ...init, method: 'GET' } as HttpInit)
 	}
-	post(url: string, options = {} as Partial<Options>) {
-		return this.request(url, { ...options, method: 'POST' } as Options)
+	post(input: string, init = {} as Partial<HttpInit>) {
+		return this.request(input, { ...init, method: 'POST' } as HttpInit)
 	}
-	put(url: string, options = {} as Partial<Options>) {
-		return this.request(url, { ...options, method: 'PUT' } as Options)
+	put(input: string, init = {} as Partial<HttpInit>) {
+		return this.request(input, { ...init, method: 'PUT' } as HttpInit)
 	}
-	patch(url: string, options = {} as Partial<Options>) {
-		return this.request(url, { ...options, method: 'PATCH' } as Options)
+	patch(input: string, init = {} as Partial<HttpInit>) {
+		return this.request(input, { ...init, method: 'PATCH' } as HttpInit)
 	}
-	head(url: string, options = {} as Partial<Options>) {
-		return this.request(url, { ...options, method: 'HEAD' } as Options)
+	head(input: string, init = {} as Partial<HttpInit>) {
+		return this.request(input, { ...init, method: 'HEAD' } as HttpInit)
 	}
-	delete(url: string, options = {} as Partial<Options>) {
-		return this.request(url, { ...options, method: 'DELETE' } as Options)
+	delete(input: string, init = {} as Partial<HttpInit>) {
+		return this.request(input, { ...init, method: 'DELETE' } as HttpInit)
 	}
 }
 
 export default new Http()
-
-// export default ky.extend({
-// 	// keepalive: true,
-// 	searchParams: {},
-// 	// searchParams: new URLSearchParams(),
-// 	timeout: 5000,
-// 	hooks: {
-// 		// beforeRequestPrepend: [
-// 		// 	(request, options) => {
-// 		// 		options.searchParams ??= {}
-// 		// 	},
-// 		// ],
-// 		beforeRequest: [
-// 			async (request, options) => {
-// 				let hooks = [
-// 					options.beforeRequestPrepend ?? [],
-// 					options.beforeRequestAppend ?? [],
-// 				].flat()
-// 				for (let hook of hooks) {
-// 					let hooked = await hook(request, options)
-// 					if (hooked instanceof Request || hooked instanceof Response) {
-// 						return hooked
-// 					}
-// 				}
-// 				console.log('options.searchParams ->', options.searchParams)
-// 				console.log('request.url ->', request.url)
-// 				return new Request(request)
-// 			},
-// 		],
-// 		beforeRequestAppend: [
-// 			async (request, options) => {
-// 				if (options.delay) {
-// 					await async.delay(options.delay)
-// 				}
-// 				if (options.randomize) {
-// 					let [min, max] = [options.randomize * Math.E * 0.1, options.randomize]
-// 					let delay = Math.ceil(Math.floor(Math.random() * (max - min + 1)) + min)
-// 					await async.delay(delay)
-// 				}
-// 			},
-// 		],
-// 		// afterResponse: [
-// 		// 	async (request, options, response) => {
-// 		// 		console.log('response.headers ->', response.headers)
-// 		// 	},
-// 		// ],
-// 	},
-// }) as ReturnType<typeof import('https://esm.sh/ky/index.d.ts').default.extend>
