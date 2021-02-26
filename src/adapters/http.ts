@@ -3,12 +3,10 @@ import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import deepmerge from 'https://esm.sh/deepmerge?dev'
 import { Db } from '../adapters/storage.ts'
 import { getCookies } from 'https://deno.land/std/http/cookie.ts'
-import { serialize as setCookie } from 'https://esm.sh/cookie?dev'
 import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
 type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE' | 'OPTIONS'
 export interface HttpInit extends Omit<RequestInit, 'headers' | 'signal'> {
-	// readonly meta?: Partial<{ retries: number }>
 	buildRequest: ((init: HttpInit) => Promise<void>)[]
 	client?: Deno.HttpClient
 	cookies?: boolean
@@ -82,12 +80,12 @@ export class Http {
 		})
 	}
 
-	constructor(public init = {} as Partial<HttpInit>) {
-		this.init = Http.merge(Http.defaults, init)
+	constructor(public options = {} as Partial<HttpInit>) {
+		this.options = Http.merge(Http.defaults, options)
 	}
 
-	extend(init: Partial<HttpInit>) {
-		return new Http(Http.merge(this.init, init))
+	extend(options: Partial<HttpInit>) {
+		return new Http(Http.merge(this.options, options))
 	}
 
 	private async fetch(input: string, init: HttpInit): Promise<Response> {
@@ -135,8 +133,8 @@ export class Http {
 		}
 	}
 
-	async request(input: string, init = {} as HttpInit) {
-		init = Http.merge(this.init, init)
+	async request(input: string, options = {} as Partial<HttpInit>) {
+		let init = Http.merge(this.options, options)
 
 		for (let hook of init.buildRequest) {
 			await hook(init)
@@ -182,10 +180,6 @@ export class Http {
 			// await db.clear()
 			for (let [name, value] of await db.entries()) {
 				// console.log('name, value ->', name, value)
-				// let res = { headers: new Headers() }
-				// setCookie(res, { name, value })
-				// headers.append('cookie', res.headers.get('set-cookie')!)
-				// headers.append('cookie', setCookie(name, value))
 				headers.append('cookie', `${name}=${value}`)
 			}
 			if (headers.has('cookie')) {
@@ -235,23 +229,23 @@ export class Http {
 		// }
 	}
 
-	get(input: string, init = {} as Partial<HttpInit>) {
-		return this.request(input, { ...init, method: 'GET' } as HttpInit)
+	get(input: string, options = {} as Partial<HttpInit>) {
+		return this.request(input, { ...options, method: 'GET' })
 	}
-	post(input: string, init = {} as Partial<HttpInit>) {
-		return this.request(input, { ...init, method: 'POST' } as HttpInit)
+	post(input: string, options = {} as Partial<HttpInit>) {
+		return this.request(input, { ...options, method: 'POST' })
 	}
-	put(input: string, init = {} as Partial<HttpInit>) {
-		return this.request(input, { ...init, method: 'PUT' } as HttpInit)
+	put(input: string, options = {} as Partial<HttpInit>) {
+		return this.request(input, { ...options, method: 'PUT' })
 	}
-	patch(input: string, init = {} as Partial<HttpInit>) {
-		return this.request(input, { ...init, method: 'PATCH' } as HttpInit)
+	patch(input: string, options = {} as Partial<HttpInit>) {
+		return this.request(input, { ...options, method: 'PATCH' })
 	}
-	head(input: string, init = {} as Partial<HttpInit>) {
-		return this.request(input, { ...init, method: 'HEAD' } as HttpInit)
+	head(input: string, options = {} as Partial<HttpInit>) {
+		return this.request(input, { ...options, method: 'HEAD' })
 	}
-	delete(input: string, init = {} as Partial<HttpInit>) {
-		return this.request(input, { ...init, method: 'DELETE' } as HttpInit)
+	delete(input: string, options = {} as Partial<HttpInit>) {
+		return this.request(input, { ...options, method: 'DELETE' })
 	}
 }
 
