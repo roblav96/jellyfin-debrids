@@ -2,10 +2,12 @@ import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
 import dataDir from 'https://deno.land/x/data_dir/mod.ts'
 import Emittery from 'https://esm.sh/emittery?dev'
+import { serialize, deserialize } from 'https://deno.land/x/serialize_javascript/mod.ts'
 
-export class Db extends Map {
-	static fromUrl(url: string) {
-		return new Db(path.basename(url))
+// export interface Db extends Map<string, unknown> {}
+export class Db {
+	static fromUrl(url: string, ttl?: number) {
+		return new Db(path.basename(url), ttl)
 	}
 
 	private dirpath: string
@@ -13,38 +15,65 @@ export class Db extends Map {
 		return path.join(this.dirpath, key)
 	}
 
-	constructor(private namespace: string) {
-		super()
+	constructor(private namespace: string, private ttl?: number) {
 		this.dirpath = path.join(dataDir()!, 'jellyfin-debrids', this.namespace)
 		fs.ensureDirSync(this.dirpath)
-		for (let entry of Deno.readDirSync(this.dirpath)) {
-			super.set(entry.name, JSON.parse(Deno.readTextFileSync(this.keypath(entry.name))))
+	}
+
+	async clear() {
+		await Deno.remove(this.dirpath, { recursive: true })
+		await fs.ensureDir(this.dirpath)
+	}
+
+	async delete(key: string) {
+		await Deno.remove(this.keypath(key))
+	}
+
+	async has(key: string) {
+		return await fs.exists(this.keypath(key))
+	}
+
+	async get(key: string) {
+		let data = await Deno.readTextFile(this.keypath(key))
+		if (typeof data != 'string') {
+			return
+		}
+		let [value, ttl] = JSON.parse(data) as [any, number?]
+		if (typeof ttl == 'number' && Date.now() > ttl) {
+			await this.delete(key)
+		} else {
+			return value
 		}
 	}
 
-	clear() {
-		Deno.removeSync(this.dirpath, { recursive: true })
-		fs.ensureDirSync(this.dirpath)
-		return super.clear()
+	async set(key: string, value: any, ttl?: number) {
+		if (typeof ttl == 'number') {
+			ttl = Date.now() + ttl
+		}
+		await Deno.writeTextFile(this.keypath(key), JSON.stringify([value, ttl] as [any, number?]))
 	}
 
-	delete(key: string) {
-		Deno.removeSync(this.keypath(key))
-		return super.delete(key)
+	async entries() {
+		let entries = [] as [string, any][]
+		for await (let entry of Deno.readDir(this.dirpath)) {
+			let value = await this.get(entry.name)
+			value && entries.push([entry.name, value])
+		}
+		return entries
 	}
 
-	has(key: string) {
-		fs.existsSync(this.keypath(key))
-		return super.has(key)
-	}
-
-	get(key: string) {
-		let value = super.get(key)
-		return value
-	}
-
-	set(key: string, value: any) {
-		Deno.writeTextFileSync(this.keypath(key), JSON.stringify(value))
-		return super.set(key, value)
-	}
+	// async keys() {
+	// 	let keys = [] as string[]
+	// 	for await (let entry of Deno.readDir(this.dirpath)) {
+	// 		keys.push(entry.name)
+	// 	}
+	// 	return keys
+	// }
+	// async values() {
+	// 	let values = [] as string[]
+	// 	for await (let entry of Deno.readDir(this.dirpath)) {
+	// 		values.push(entry.name)
+	// 	}
+	// 	return values
+	// }
 }

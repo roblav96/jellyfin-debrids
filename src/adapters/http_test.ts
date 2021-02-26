@@ -14,8 +14,14 @@ try {
 		// httpbin.get('status/404', {
 		// 	// timeout: Infinity,
 		// }),
-		httpbin.get('delay/3', {
-			timeout: 2000,
+		// new Http().get('https://snowfl.com/b.min.js', {
+		// new Http().get('https://www.google.com', {
+		// new Http().get('https://github.com', {
+		// new Http().get('https://www.limetorrents.info/search/all/ubuntu/', {
+		// new Http().get('https://linkedin.com', {
+		httpbin.get('anything', {
+			// cookies: true,
+			// timeout: 2000,
 		}),
 		// ky('https://nghttp2.org/httpbin/delay/3', {
 		// 	throwHttpErrors: false,
@@ -29,10 +35,8 @@ try {
 	if (error instanceof DOMException) {
 		console.warn('AbortError ->')
 		console.log('error.code ->', error.code)
-		console.log('error.input ->', error.input)
 	}
 	console.log('error.name ->', error.name)
 	console.log('error.constructor.name ->', error.constructor.name)
 	console.log('what.getType(error) ->', what.getType(error))
-	console.log('Reflect.ownKeys(error) ->', Reflect.ownKeys(error))
 }
