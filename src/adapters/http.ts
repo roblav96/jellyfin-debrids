@@ -218,15 +218,50 @@ export class Http {
 			}
 		}
 
-		let memoized = new Response(response.body, response)
-		Object.assign(memoized, response)
-		console.log('memoized ->', JSON.stringify(memoized))
+		// let memoized = new Response(response.body, response)
+		// Object.assign(memoized, response)
+		// console.log('memoized ->', JSON.stringify(memoized))
 
 		return response
 
 		// if (response.headers.get('content-type')?.startsWith('application/json')) {
 		// 	return await response.json()
 		// }
+	}
+
+	async arrayBuffer(input: string, options = {} as Partial<HttpInit>) {
+		return (
+			await this.request(input, Http.merge({ headers: { accept: '*/*' } }, options))
+		).arrayBuffer()
+	}
+	async blob(input: string, options = {} as Partial<HttpInit>) {
+		return (
+			await this.request(input, Http.merge({ headers: { accept: '*/*' } }, options))
+		).blob()
+	}
+	async formData(input: string, options = {} as Partial<HttpInit>) {
+		return (
+			await this.request(
+				input,
+				Http.merge({ headers: { accept: 'multipart/form-data' } }, options),
+			)
+		).formData()
+	}
+	async json<T = any>(input: string, options = {} as Partial<HttpInit>) {
+		let response = await this.request(
+			input,
+			Http.merge({ headers: { accept: 'application/json' } }, options),
+		)
+		try {
+			return JSON.parse((await response.text()) as any) as T
+		} catch {
+			return {} as never
+		}
+	}
+	async text(input: string, options = {} as Partial<HttpInit>) {
+		return (
+			await this.request(input, Http.merge({ headers: { accept: 'text/*' } }, options))
+		).text()
 	}
 
 	get(input: string, options = {} as Partial<HttpInit>) {

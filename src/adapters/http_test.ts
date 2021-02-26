@@ -19,7 +19,7 @@ try {
 		// new Http().get('https://github.com', {
 		// new Http().get('https://www.limetorrents.info/search/all/ubuntu/', {
 		// new Http().get('https://linkedin.com', {
-		httpbin.get('anything', {
+		httpbin.json('status/204', {
 			// cookies: true,
 			// timeout: 2000,
 		}),
@@ -29,7 +29,7 @@ try {
 		// }),
 	])
 	console.log('response ->', response)
-	console.log('response.json() ->', await response.json())
+	// console.log('response.json() ->', await response.json())
 } catch (error) {
 	console.error('httpbin catch ->', error)
 	if (error instanceof DOMException) {
