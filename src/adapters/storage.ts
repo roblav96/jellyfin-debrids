@@ -6,8 +6,8 @@ import { serialize, deserialize } from 'https://deno.land/x/serialize_javascript
 
 export default class Db<T extends unknown> {
 	private dirpath: string
-	private keypath(key = '_') {
-		if (key.length == 0) key = '_'
+	private keypath(key: string) {
+		if (!(key?.length > 0)) key = '_'
 		return path.join(this.dirpath, key.replaceAll(/\W/g, '_'))
 	}
 
@@ -23,10 +23,9 @@ export default class Db<T extends unknown> {
 				namespace = relative
 			}
 		}
-		namespace = namespace.replaceAll(/\W/g, '_')
 		let datadir = dataDir()
 		if (!datadir) throw new Deno.errors.NotFound('data directory via dataDir()')
-		this.dirpath = path.join(datadir, 'jellyfin-debrids', namespace)
+		this.dirpath = path.join(datadir, 'jellyfin-debrids', namespace.replaceAll(/\W/g, '_'))
 		fs.ensureDirSync(this.dirpath)
 	}
 
@@ -71,19 +70,10 @@ export default class Db<T extends unknown> {
 		}
 		return entries
 	}
-
-	// async keys() {
-	// 	let keys = [] as string[]
-	// 	for await (let entry of Deno.readDir(this.dirpath)) {
-	// 		keys.push(entry.name)
-	// 	}
-	// 	return keys
-	// }
-	// async values() {
-	// 	let values = [] as string[]
-	// 	for await (let entry of Deno.readDir(this.dirpath)) {
-	// 		values.push(entry.name)
-	// 	}
-	// 	return values
-	// }
+	async keys() {
+		return (await this.entries()).map(([key, value]) => key)
+	}
+	async values<TT = T>() {
+		return (await this.entries()).map(([key, value]) => value) as TT[]
+	}
 }

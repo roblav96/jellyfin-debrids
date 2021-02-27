@@ -16,11 +16,8 @@ export function benchmark(benchmark: typeof benchmarks[0]) {
 	benchmarks.push(benchmark)
 }
 
-interface BenchmarkRunOptions extends bench.BenchmarkRunOptions {
-	runs?: number
-}
-export async function runBenchmarks(options = {} as BenchmarkRunOptions) {
-	options = { silent: true, runs: 10000, ...options }
+export async function runBenchmarks(options = {} as bench.BenchmarkRunOptions & { runs?: number }) {
+	options = { silent: true, runs: 1000, ...options }
 
 	for (let benchmark of benchmarks) {
 		let func = typeof benchmark == 'function' ? benchmark : benchmark.func
@@ -44,19 +41,19 @@ export async function runBenchmarks(options = {} as BenchmarkRunOptions) {
 	let { results } = await bench.runBenchmarks(options)
 	let duration = performance.now() - nowstamp
 	// let duration = results.reduce((sum, { totalMs }) => sum + totalMs, 0)
-	console.log('duration ->', duration)
 	for (let { name, measuredRunsAvgMs, totalMs } of results) {
-		let parts = ['\tTotal:', yellow(totalMs.toFixed(4))]
+		let parts = ['\tTotal:', yellow(totalMs.toFixed(3))]
 		if (measuredRunsAvgMs < totalMs) {
-			parts.unshift('\tAverage:', yellow(measuredRunsAvgMs.toFixed(4)))
+			parts.unshift('\tAverage:', yellow(measuredRunsAvgMs.toFixed(3)))
 		}
 		console.debug('🟣', `${magenta(name)}\n\t`, ...parts, '\n')
 	}
-
 	console.debug(
-		`🟢 ${bold(green('DONE'))}\n\t\t\t\t\t\t\tTotal:`,
-		bold(yellow(duration.toFixed(4))),
+		`🟢 ${bold(green('DONE'))}\n\t\tRuns: ${yellow(`${options.runs}`)}\t\tTotal:`,
+		bold(yellow(duration.toFixed(3))),
 	)
+
+	//
 }
 
 //
