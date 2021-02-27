@@ -1,7 +1,8 @@
 import * as async from 'https://deno.land/std/async/mod.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
+import Db from '../adapters/storage.ts'
 import deepmerge from 'https://esm.sh/deepmerge?dev'
-import { Db } from '../adapters/storage.ts'
+import { createHash } from 'https://deno.land/std/hash/mod.ts'
 import { getCookies } from 'https://deno.land/std/http/cookie.ts'
 import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
@@ -158,6 +159,22 @@ export class Http {
 			}
 		}
 
+		let inithash = ''
+		if (init.memoize) {
+			let { body, form, json, method, multipart } = init
+			let values = [body, form, json, method, multipart]
+			values.push(url.toString(), [...headers])
+			inithash = createHash('md5').update(JSON.stringify(values)).toString()
+			let db = new Db(`memoize:${url.hostname}`)
+			let memoized = await db.get(inithash)
+			if (Array.isArray(memoized)) {
+				let [body, headers, init] = memoized
+				let response = new Response(body, init)
+				Object.assign(response, init, { headers: new Headers(headers) })
+				return response
+			}
+		}
+
 		if (init.json) {
 			init.body = JSON.stringify(init.json)
 			headers.set('content-type', 'application/json')
@@ -196,9 +213,8 @@ export class Http {
 		}
 
 		// console.log('url ->', url)
-		console.log('headers ->', [...headers])
+		// console.log('headers ->', [...headers])
 		Object.assign(init, { headers })
-
 		let response = await this.fetch(url.toString(), init)
 
 		if (init.cookies == true) {
@@ -216,6 +232,13 @@ export class Http {
 					await db.set(name, cookie[name])
 				}
 			}
+		}
+
+		if (init.memoize) {
+			let memoized = Object.assign(response.clone(), response)
+			let body = await memoized.text()
+			let db = new Db(`memoize:${url.hostname}`)
+			await db.set(inithash, [body, [...memoized.headers], memoized], init.memoize)
 		}
 
 		// let memoized = new Response(response.body, response)
@@ -247,7 +270,7 @@ export class Http {
 			)
 		).formData()
 	}
-	async json<T = any>(input: string, options = {} as Partial<HttpInit>) {
+	async json<T = unknown>(input: string, options = {} as Partial<HttpInit>) {
 		let response = await this.request(
 			input,
 			Http.merge({ headers: { accept: 'application/json' } }, options),

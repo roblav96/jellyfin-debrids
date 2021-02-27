@@ -16,7 +16,8 @@ const DEFAULT_INSPECT_OPTIONS = {
 	compact: true,
 	depth: 4,
 	getters: true,
-	iterableLimit: 1024,
+	iterableLimit: 128,
+	showHidden: true,
 	showProxy: true,
 	sorted: true,
 	trailingComma: false,
@@ -111,9 +112,11 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 					args[i] = Deno.inspect(arg, DEFAULT_INSPECT_OPTIONS)
 				}
 
-				let timestamp = ms(delta, { compact: true, formatSubMilliseconds: true })
-				let header = `${symbol} ${colors.dim(`${stack} +${timestamp}`)}`
-				args[0] = `${header}\n${args[0]}`
+				if (!stack.startsWith('http') || level == 'error') {
+					let timestamp = ms(delta, { compact: true, formatSubMilliseconds: true })
+					let header = `${symbol} ${colors.dim(`${stack} +${timestamp}`)}`
+					args[0] = `${header}\n${args[0]}`
+				}
 				if (level == 'error') {
 					args[0] = `\n${args[0]}`
 				}
@@ -158,6 +161,7 @@ Object.assign(console, {
 declare global {
 	interface Console {
 		dts(data: unknown, identifier?: string): Promise<string>
+		indentLevel: number
 	}
 	var closed: boolean
 	namespace Deno {

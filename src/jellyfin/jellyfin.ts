@@ -1,9 +1,9 @@
 import * as socket from './socket.ts'
 import * as wizard from './wizard.ts'
-import { Db } from '../adapters/storage.ts'
+import Db from '../adapters/storage.ts'
 import { Http } from '../adapters/http.ts'
 
-export const db = Db.fromUrl(import.meta.url)
+export const db = new Db(import.meta.url)
 
 export const api = new Http({
 	buildRequest: [

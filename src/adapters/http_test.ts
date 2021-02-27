@@ -1,10 +1,10 @@
 import '../devops/console.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
+import Db from './storage.ts'
 import ky, { KyOptions, KyResponsePromise } from '../shims/ky.ts'
-import { Db } from './storage.ts'
 import { Http, AbortError } from './http.ts'
 
-const db = Db.fromUrl(import.meta.url)
+const db = new Db(import.meta.url)
 const httpbin = new Http({
 	prefixUrl: 'https://nghttp2.org/httpbin',
 })
@@ -19,7 +19,8 @@ try {
 		// new Http().get('https://github.com', {
 		// new Http().get('https://www.limetorrents.info/search/all/ubuntu/', {
 		// new Http().get('https://linkedin.com', {
-		httpbin.json('status/204', {
+		httpbin.json('anything', {
+			memoize: new Date(0).setMinutes(60)
 			// cookies: true,
 			// timeout: 2000,
 		}),
