@@ -1,6 +1,7 @@
 // export * as default from 'https://deno.land/std/testing/bench.ts'
 import * as bench from 'https://deno.land/std/testing/bench.ts'
-import { bold, blue, green, magenta, yellow } from 'https://deno.land/std/fmt/colors.ts'
+import ms from 'https://esm.sh/pretty-ms?dev'
+import { bold, green, magenta, yellow, gray } from 'https://deno.land/std/fmt/colors.ts'
 
 // // type BenchmarkFunction = (start: () => void, stop: () => void) => void | Promise<void>
 // interface BenchmarkFunction {
@@ -26,9 +27,9 @@ export async function runBenchmarks(options = {} as bench.BenchmarkRunOptions & 
 			name: benchmark.name,
 			runs: options.runs,
 			func: async ({ start, stop }) => {
-				autotimer == true && start()
+				if (autotimer) start()
 				await func({ start, stop })
-				autotimer == true && stop()
+				if (autotimer) stop()
 			},
 		})
 	}
@@ -41,16 +42,17 @@ export async function runBenchmarks(options = {} as bench.BenchmarkRunOptions & 
 	let { results } = await bench.runBenchmarks(options)
 	let duration = performance.now() - nowstamp
 	// let duration = results.reduce((sum, { totalMs }) => sum + totalMs, 0)
+	const toMs = (t: number) => ms(t, { compact: true, formatSubMilliseconds: true })
 	for (let { name, measuredRunsAvgMs, totalMs } of results) {
-		let parts = ['\tTotal:', yellow(totalMs.toFixed(3))]
+		let parts = [`\t${gray('Total:')}`, yellow(toMs(totalMs))]
 		if (measuredRunsAvgMs < totalMs) {
-			parts.unshift('\tAverage:', yellow(measuredRunsAvgMs.toFixed(3)))
+			parts.unshift(`\t${gray('Average:')}`, yellow(toMs(measuredRunsAvgMs)))
 		}
-		console.debug('🟣', `${magenta(name)}\n\t`, ...parts, '\n')
+		console.debug('🟣', `${bold(magenta(name))}\n\t`, ...parts, '\n')
 	}
 	console.debug(
 		`🟢 ${bold(green('DONE'))}\n\t\tRuns: ${yellow(`${options.runs}`)}\t\tTotal:`,
-		bold(yellow(duration.toFixed(3))),
+		bold(yellow(toMs(duration))),
 	)
 
 	//
