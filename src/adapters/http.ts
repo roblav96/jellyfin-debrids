@@ -1,4 +1,5 @@
 import * as async from 'https://deno.land/std/async/mod.ts'
+import * as poly from '../poly/poly.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import Db from '../adapters/storage.ts'
 import deepmerge from 'https://esm.sh/deepmerge?dev'
@@ -28,15 +29,19 @@ export interface HttpInit extends Omit<RequestInit, 'headers' | 'signal'> {
 	timeout: number
 }
 
-export class HttpError extends Error {
+export class HttpError extends DOMException {
+	// @ts-ignore
+	get code() {
+		return this.response.status
+	}
 	constructor(public input: string, public init: HttpInit, public response: Response) {
-		super(response.statusText ?? STATUS_TEXT.get(response.status))
-		this.name = 'HttpError'
+		super(response.statusText ?? STATUS_TEXT.get(response.status), 'HttpError')
+		// console.log('response.status ->', new DOMException(response.statusText, 'HttpError').constructor.toString())
+		// Object.assign(this, { code: response.status } as DOMException)
 	}
 }
 
 export class AbortError extends DOMException {
-	static ABORT_ERR = 20
 	constructor(public input: string, public init: HttpInit) {
 		super('Aborted', 'AbortError')
 	}
@@ -159,25 +164,11 @@ export class Http {
 			}
 		}
 
-		let inithash = ''
-		if (init.memoize) {
-			let { body, form, json, method, multipart } = init
-			let values = [body, form, json, method, multipart]
-			values.push(url.toString(), [...headers])
-			inithash = createHash('md5').update(JSON.stringify(values)).toString()
-			let db = new Db(`memoize:${url.hostname}`)
-			let memoized = await db.get(inithash)
-			if (Array.isArray(memoized)) {
-				let [body, headers, init] = memoized
-				let response = new Response(body, init)
-				Object.assign(response, init, { headers: new Headers(headers) })
-				return response
-			}
-		}
-
 		if (init.json) {
 			init.body = JSON.stringify(init.json)
-			headers.set('content-type', 'application/json')
+			if (!headers.has('content-type')) {
+				headers.set('content-type', 'application/json')
+			}
 		}
 
 		if (init.multipart) {
@@ -190,6 +181,27 @@ export class Http {
 
 		if (init.form) {
 			init.body = new URLSearchParams(init.form)
+		}
+
+		let reqid = ''
+		if (init.memoize) {
+			let values = [init.method, url.toString(), [...headers]] as any[]
+			if (what.isFunction((init.body as any)?.[Symbol.iterator])) {
+				values.push([...(init.body as any)])
+			} else {
+				values.push(init.body)
+			}
+			console.log('values ->', values)
+			console.log('poly.str.toHashId(JSON.stringify(values)) ->', poly.str.toHashId(JSON.stringify(values)))
+			reqid = createHash('md5').update(JSON.stringify(values)).toString()
+			let db = new Db(`memoize:${url.hostname}`)
+			let memoized = await db.get(reqid)
+			if (Array.isArray(memoized)) {
+				let [body, headers, init] = memoized
+				let response = new Response(body, init)
+				Object.assign(response, init, { headers: new Headers(headers) })
+				return response
+			}
 		}
 
 		if (init.cookies == true) {
@@ -238,7 +250,7 @@ export class Http {
 			let memoized = Object.assign(response.clone(), response)
 			let body = await memoized.text()
 			let db = new Db(`memoize:${url.hostname}`)
-			await db.set(inithash, [body, [...memoized.headers], memoized], init.memoize)
+			await db.set(reqid, [body, [...memoized.headers], memoized], init.memoize)
 		}
 
 		// let memoized = new Response(response.body, response)
@@ -253,14 +265,10 @@ export class Http {
 	}
 
 	async arrayBuffer(input: string, options = {} as Partial<HttpInit>) {
-		return (
-			await this.request(input, Http.merge({ headers: { accept: '*/*' } }, options))
-		).arrayBuffer()
+		return (await this.request(input, options)).arrayBuffer()
 	}
 	async blob(input: string, options = {} as Partial<HttpInit>) {
-		return (
-			await this.request(input, Http.merge({ headers: { accept: '*/*' } }, options))
-		).blob()
+		return (await this.request(input, options)).blob()
 	}
 	async formData(input: string, options = {} as Partial<HttpInit>) {
 		return (
@@ -288,22 +296,28 @@ export class Http {
 	}
 
 	get(input: string, options = {} as Partial<HttpInit>) {
-		return this.request(input, { ...options, method: 'GET' })
+		options.method = 'GET'
+		return this.request(input, options)
 	}
 	post(input: string, options = {} as Partial<HttpInit>) {
-		return this.request(input, { ...options, method: 'POST' })
+		options.method = 'POST'
+		return this.request(input, options)
 	}
 	put(input: string, options = {} as Partial<HttpInit>) {
-		return this.request(input, { ...options, method: 'PUT' })
+		options.method = 'PUT'
+		return this.request(input, options)
 	}
 	patch(input: string, options = {} as Partial<HttpInit>) {
-		return this.request(input, { ...options, method: 'PATCH' })
+		options.method = 'PATCH'
+		return this.request(input, options)
 	}
 	head(input: string, options = {} as Partial<HttpInit>) {
-		return this.request(input, { ...options, method: 'HEAD' })
+		options.method = 'HEAD'
+		return this.request(input, options)
 	}
 	delete(input: string, options = {} as Partial<HttpInit>) {
-		return this.request(input, { ...options, method: 'DELETE' })
+		options.method = 'DELETE'
+		return this.request(input, options)
 	}
 }
 
