@@ -1,5 +1,3 @@
-import * as what from 'https://deno.land/x/is_what/src/index.ts'
-
 export function allKeys<T>(object: T) {
 	let keys = new Set<string>()
 	let ignore = new Set(['__proto__', 'constructor', 'prototype'])
@@ -16,8 +14,4 @@ export function allKeys<T>(object: T) {
 }
 export function allEntries<T>(object: T) {
 	return allKeys(object).map((key) => [key, object[key]]) as [keyof T, T[keyof T]][]
-}
-
-export function nonce() {
-	return Math.random().toString(36).slice(-8)
 }
