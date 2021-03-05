@@ -8,6 +8,6 @@ node_modules
 !.env.defaults
 !.env.example
 
+openapi.json
 src/bench.ts
 src/repl.ts
-src/jellyfin/openapi.d.ts
