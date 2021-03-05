@@ -14,11 +14,10 @@ export const ee = new EventEmitter<{
 }>()
 
 let socket: Sockette<SocketEvent>
-export function start(api_key: string, deviceId: string) {
+export function start({ LocalAddress, Id }: jellyfin.Components.Schemas.PublicSystemInfo) {
 	socket?.close()
-	let url = `ws://127.0.0.1:${
-		Deno.env.get('JELLYFIN_LOCAL_PORT') || '8096'
-	}/socket?${qs.stringify({ api_key, deviceId })}`
+	let params = qs.stringify({ api_key: Deno.env.get('JELLYFIN_API_KEY'), deviceId: Id })
+	let url = `${LocalAddress.replace('http', 'ws')}/socket?${params}`
 	socket = new Sockette<SocketEvent>(url, {
 		timeout: 3000,
 		onerror(event) {
@@ -28,7 +27,7 @@ export function start(api_key: string, deviceId: string) {
 			console.warn('socket close ->', event.code, event.reason)
 		},
 		onopen(event) {
-			console.info('socket onopen ->', url)
+			console.info('socket onopen ->', `${new URL(url).origin}/socket`)
 			socket.json({ MessageType: 'SessionsStart', Data: '0,1500' })
 		},
 		onmessage({ data }) {

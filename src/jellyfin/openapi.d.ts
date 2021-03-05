@@ -29,57 +29,57 @@ export namespace Components {
 			/**
 			 * Gets or sets the date.
 			 */
-			Date?: string; // date-time
+			Date: string; // date-time
 			/**
 			 * Gets or sets the identifier.
 			 */
-			Id?: number; // int64
+			Id: number; // int64
 			/**
 			 * Gets or sets the item identifier.
 			 */
-			ItemId?: string;
+			ItemId: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the overview.
 			 */
-			Overview?: string;
+			Overview: string;
 			/**
 			 * Gets or sets the log severity.
 			 */
-			Severity?: LogLevel;
+			Severity: LogLevel;
 			/**
 			 * Gets or sets the short overview.
 			 */
-			ShortOverview?: string;
+			ShortOverview: string;
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: string;
+			Type: string;
 			/**
 			 * Gets or sets the user identifier.
 			 */
-			UserId?: string; // uuid
+			UserId: string; // uuid
 			/**
 			 * Gets or sets the user primary image tag.
 			 */
-			UserPrimaryImageTag?: string;
+			UserPrimaryImageTag: string;
 		}
 		export interface ActivityLogEntryQueryResult {
 			/**
 			 * Gets or sets the items.
 			 */
-			Items?: ActivityLogEntry[];
+			Items: ActivityLogEntry[];
 			/**
 			 * The index of the first record in Items.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * The total number of records available.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		/**
 		 * Add virtual folder dto.
@@ -88,122 +88,122 @@ export namespace Components {
 			/**
 			 * Gets or sets library options.
 			 */
-			LibraryOptions?: LibraryOptions;
+			LibraryOptions: LibraryOptions;
 		}
 		export interface AlbumInfo {
 			/**
 			 * Gets or sets the album artist.
 			 */
-			AlbumArtists?: string[];
+			AlbumArtists: string[];
 			/**
 			 * Gets or sets the artist provider ids.
 			 */
-			ArtistProviderIds?: {
+			ArtistProviderIds: {
 				[name: string]: string;
 			};
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
-			SongInfos?: SongInfo[];
+			SongInfos: SongInfo[];
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface AlbumInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: AlbumInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: AlbumInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export interface AllThemeMediaResult {
 			/**
 			 * Class ThemeMediaResult.
 			 */
-			SoundtrackSongsResult?: /* Class ThemeMediaResult. */ ThemeMediaResult;
+			SoundtrackSongsResult: /* Class ThemeMediaResult. */ ThemeMediaResult;
 			/**
 			 * Class ThemeMediaResult.
 			 */
-			ThemeSongsResult?: /* Class ThemeMediaResult. */ ThemeMediaResult;
+			ThemeSongsResult: /* Class ThemeMediaResult. */ ThemeMediaResult;
 			/**
 			 * Class ThemeMediaResult.
 			 */
-			ThemeVideosResult?: /* Class ThemeMediaResult. */ ThemeMediaResult;
+			ThemeVideosResult: /* Class ThemeMediaResult. */ ThemeMediaResult;
 		}
 		export type Architecture = 'X86' | 'X64' | 'Arm' | 'Arm64' | 'Wasm';
 		export interface ArtistInfo {
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
-			SongInfos?: SongInfo[];
+			SongInfos: SongInfo[];
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface ArtistInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: ArtistInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: ArtistInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		/**
 		 * The authenticate user by name request body.
@@ -212,104 +212,104 @@ export namespace Components {
 			/**
 			 * Gets or sets the sha1-hashed password.
 			 */
-			Password?: string;
+			Password: string;
 			/**
 			 * Gets or sets the plain text password.
 			 */
-			Pw?: string;
+			Pw: string;
 			/**
 			 * Gets or sets the username.
 			 */
-			Username?: string;
+			Username: string;
 		}
 		export interface AuthenticationInfo {
 			/**
 			 * Gets or sets the access token.
 			 */
-			AccessToken?: string;
+			AccessToken: string;
 			/**
 			 * Gets or sets the name of the application.
 			 */
-			AppName?: string;
+			AppName: string;
 			/**
 			 * Gets or sets the application version.
 			 */
-			AppVersion?: string;
+			AppVersion: string;
 			/**
 			 * Gets or sets the date created.
 			 */
-			DateCreated?: string; // date-time
-			DateLastActivity?: string; // date-time
+			DateCreated: string; // date-time
+			DateLastActivity: string; // date-time
 			/**
 			 * Gets or sets the date revoked.
 			 */
-			DateRevoked?: string; // date-time
+			DateRevoked: string; // date-time
 			/**
 			 * Gets or sets the device identifier.
 			 */
-			DeviceId?: string;
+			DeviceId: string;
 			/**
 			 * Gets or sets the name of the device.
 			 */
-			DeviceName?: string;
+			DeviceName: string;
 			/**
 			 * Gets or sets the identifier.
 			 */
-			Id?: number; // int64
+			Id: number; // int64
 			/**
 			 * Gets or sets a value indicating whether this instance is active.
 			 */
-			IsActive?: boolean;
+			IsActive: boolean;
 			/**
 			 * Gets or sets the user identifier.
 			 */
-			UserId?: string; // uuid
-			UserName?: string;
+			UserId: string; // uuid
+			UserName: string;
 		}
 		export interface AuthenticationInfoQueryResult {
 			/**
 			 * Gets or sets the items.
 			 */
-			Items?: AuthenticationInfo[];
+			Items: AuthenticationInfo[];
 			/**
 			 * The index of the first record in Items.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * The total number of records available.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		export interface AuthenticationResult {
-			AccessToken?: string;
-			ServerId?: string;
+			AccessToken: string;
+			ServerId: string;
 			/**
 			 * Class SessionInfo.
 			 */
-			SessionInfo?: /* Class SessionInfo. */ SessionInfo;
+			SessionInfo: /* Class SessionInfo. */ SessionInfo;
 			/**
 			 * Class UserDto.
 			 */
-			User?: /* Class UserDto. */ UserDto;
+			User: /* Class UserDto. */ UserDto;
 		}
 		/**
 		 * Class BaseItem.
 		 */
 		export interface BaseItem {
-			Container?: string;
-			DateLastSaved?: string; // date-time
-			ExtraIds?: string /* uuid */[];
-			Height?: number; // int32
-			readonly IsHD?: boolean;
-			IsShortcut?: boolean;
+			Container: string;
+			DateLastSaved: string; // date-time
+			ExtraIds: string /* uuid */[];
+			Height: number; // int32
+			readonly IsHD: boolean;
+			IsShortcut: boolean;
 			/**
 			 * Gets or sets the remote trailers.
 			 */
-			RemoteTrailers?: MediaUrl[];
-			ShortcutPath?: string;
-			Size?: number; // int64
-			readonly SupportsExternalTransfer?: boolean;
-			Width?: number; // int32
+			RemoteTrailers: MediaUrl[];
+			ShortcutPath: string;
+			Size: number; // int64
+			readonly SupportsExternalTransfer: boolean;
+			Width: number; // int32
 		}
 		/**
 		 * This is strictly used as a data transfer object from the api layer.
@@ -319,112 +319,112 @@ export namespace Components {
 			/**
 			 * Gets or sets the air days.
 			 */
-			AirDays?: DayOfWeek[];
+			AirDays: DayOfWeek[];
 			/**
 			 * Gets or sets the air time.
 			 */
-			AirTime?: string;
-			AirsAfterSeasonNumber?: number; // int32
-			AirsBeforeEpisodeNumber?: number; // int32
-			AirsBeforeSeasonNumber?: number; // int32
+			AirTime: string;
+			AirsAfterSeasonNumber: number; // int32
+			AirsBeforeEpisodeNumber: number; // int32
+			AirsBeforeSeasonNumber: number; // int32
 			/**
 			 * Gets or sets the album.
 			 */
-			Album?: string;
+			Album: string;
 			/**
 			 * Gets or sets the album artist.
 			 */
-			AlbumArtist?: string;
+			AlbumArtist: string;
 			/**
 			 * Gets or sets the album artists.
 			 */
-			AlbumArtists?: NameGuidPair[];
+			AlbumArtists: NameGuidPair[];
 			/**
 			 * Gets or sets the album count.
 			 */
-			AlbumCount?: number; // int32
+			AlbumCount: number; // int32
 			/**
 			 * Gets or sets the album id.
 			 */
-			AlbumId?: string; // uuid
+			AlbumId: string; // uuid
 			/**
 			 * Gets or sets the album image tag.
 			 */
-			AlbumPrimaryImageTag?: string;
-			Altitude?: number; // double
-			Aperture?: number; // double
-			ArtistCount?: number; // int32
+			AlbumPrimaryImageTag: string;
+			Altitude: number; // double
+			Aperture: number; // double
+			ArtistCount: number; // int32
 			/**
 			 * Gets or sets the artist items.
 			 */
-			ArtistItems?: NameGuidPair[];
+			ArtistItems: NameGuidPair[];
 			/**
 			 * Gets or sets the artists.
 			 */
-			Artists?: string[];
+			Artists: string[];
 			/**
 			 * Gets or sets the aspect ratio.
 			 */
-			AspectRatio?: string;
+			AspectRatio: string;
 			/**
 			 * Gets or sets the audio.
 			 */
-			Audio?: ProgramAudio;
+			Audio: ProgramAudio;
 			/**
 			 * Gets or sets the backdrop image tags.
 			 */
-			BackdropImageTags?: string[];
-			CameraMake?: string;
-			CameraModel?: string;
-			CanDelete?: boolean;
-			CanDownload?: boolean;
+			BackdropImageTags: string[];
+			CameraMake: string;
+			CameraModel: string;
+			CanDelete: boolean;
+			CanDownload: boolean;
 			/**
 			 * Gets or sets the channel identifier.
 			 */
-			ChannelId?: string; // uuid
-			ChannelName?: string;
-			ChannelNumber?: string;
+			ChannelId: string; // uuid
+			ChannelName: string;
+			ChannelNumber: string;
 			/**
 			 * Gets or sets the channel primary image tag.
 			 */
-			ChannelPrimaryImageTag?: string;
+			ChannelPrimaryImageTag: string;
 			/**
 			 * Gets or sets the type of the channel.
 			 */
-			ChannelType?: /* Enum ChannelType. */ ChannelType;
+			ChannelType: /* Enum ChannelType. */ ChannelType;
 			/**
 			 * Gets or sets the chapters.
 			 */
-			Chapters?: /* Class ChapterInfo. */ ChapterInfo[];
+			Chapters: /* Class ChapterInfo. */ ChapterInfo[];
 			/**
 			 * Gets or sets the child count.
 			 */
-			ChildCount?: number; // int32
+			ChildCount: number; // int32
 			/**
 			 * Gets or sets the type of the collection.
 			 */
-			CollectionType?: string;
+			CollectionType: string;
 			/**
 			 * Gets or sets the community rating.
 			 */
-			CommunityRating?: number; // float
+			CommunityRating: number; // float
 			/**
 			 * Gets or sets the completion percentage.
 			 */
-			CompletionPercentage?: number; // double
-			Container?: string;
+			CompletionPercentage: number; // double
+			Container: string;
 			/**
 			 * Gets or sets the critic rating.
 			 */
-			CriticRating?: number; // float
+			CriticRating: number; // float
 			/**
 			 * Gets or sets the cumulative run time ticks.
 			 */
-			CumulativeRunTimeTicks?: number; // int64
+			CumulativeRunTimeTicks: number; // int64
 			/**
 			 * Gets or sets the current program.
 			 */
-			CurrentProgram?: /**
+			CurrentProgram: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
@@ -432,444 +432,444 @@ export namespace Components {
 			/**
 			 * Gets or sets the custom rating.
 			 */
-			CustomRating?: string;
+			CustomRating: string;
 			/**
 			 * Gets or sets the date created.
 			 */
-			DateCreated?: string; // date-time
-			DateLastMediaAdded?: string; // date-time
+			DateCreated: string; // date-time
+			DateLastMediaAdded: string; // date-time
 			/**
 			 * Gets or sets the display order.
 			 */
-			DisplayOrder?: string;
+			DisplayOrder: string;
 			/**
 			 * Gets or sets the display preferences id.
 			 */
-			DisplayPreferencesId?: string;
-			EnableMediaSourceDisplay?: boolean;
+			DisplayPreferencesId: string;
+			EnableMediaSourceDisplay: boolean;
 			/**
 			 * Gets or sets the end date.
 			 */
-			EndDate?: string; // date-time
+			EndDate: string; // date-time
 			/**
 			 * Gets or sets the episode count.
 			 */
-			EpisodeCount?: number; // int32
+			EpisodeCount: number; // int32
 			/**
 			 * Gets or sets the episode title.
 			 */
-			EpisodeTitle?: string;
+			EpisodeTitle: string;
 			/**
 			 * Gets or sets the etag.
 			 */
-			Etag?: string;
-			ExposureTime?: number; // double
+			Etag: string;
+			ExposureTime: number; // double
 			/**
 			 * Gets or sets the external urls.
 			 */
-			ExternalUrls?: ExternalUrl[];
-			ExtraType?: string;
-			FocalLength?: number; // double
-			ForcedSortName?: string;
-			GenreItems?: NameGuidPair[];
+			ExternalUrls: ExternalUrl[];
+			ExtraType: string;
+			FocalLength: number; // double
+			ForcedSortName: string;
+			GenreItems: NameGuidPair[];
 			/**
 			 * Gets or sets the genres.
 			 */
-			Genres?: string[];
-			HasSubtitles?: boolean;
-			Height?: number; // int32
+			Genres: string[];
+			HasSubtitles: boolean;
+			Height: number; // int32
 			/**
 			 * Gets or sets the id.
 			 */
-			Id?: string; // uuid
+			Id: string; // uuid
 			/**
 			 * Gets or sets the blurhashes for the image tags.
 			 * Maps image type to dictionary mapping image tag to blurhash value.
 			 */
-			ImageBlurHashes?: {
-				Art?: {
+			ImageBlurHashes: {
+				Art: {
 					[name: string]: string;
 				};
-				Backdrop?: {
+				Backdrop: {
 					[name: string]: string;
 				};
-				Banner?: {
+				Banner: {
 					[name: string]: string;
 				};
-				Box?: {
+				Box: {
 					[name: string]: string;
 				};
-				BoxRear?: {
+				BoxRear: {
 					[name: string]: string;
 				};
-				Chapter?: {
+				Chapter: {
 					[name: string]: string;
 				};
-				Disc?: {
+				Disc: {
 					[name: string]: string;
 				};
-				Logo?: {
+				Logo: {
 					[name: string]: string;
 				};
-				Menu?: {
+				Menu: {
 					[name: string]: string;
 				};
-				Primary?: {
+				Primary: {
 					[name: string]: string;
 				};
-				Profile?: {
+				Profile: {
 					[name: string]: string;
 				};
-				Screenshot?: {
+				Screenshot: {
 					[name: string]: string;
 				};
-				Thumb?: {
+				Thumb: {
 					[name: string]: string;
 				};
 			};
-			ImageOrientation?: ImageOrientation;
+			ImageOrientation: ImageOrientation;
 			/**
 			 * Gets or sets the image tags.
 			 */
-			ImageTags?: {
+			ImageTags: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the index number.
 			 */
-			IndexNumber?: number; // int32
+			IndexNumber: number; // int32
 			/**
 			 * Gets or sets the index number end.
 			 */
-			IndexNumberEnd?: number; // int32
+			IndexNumberEnd: number; // int32
 			/**
 			 * Gets or sets a value indicating whether this instance is folder.
 			 */
-			IsFolder?: boolean;
+			IsFolder: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is HD.
 			 */
-			IsHD?: boolean;
+			IsHD: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is kids.
 			 */
-			IsKids?: boolean;
+			IsKids: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is live.
 			 */
-			IsLive?: boolean;
+			IsLive: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is movie.
 			 */
-			IsMovie?: boolean;
+			IsMovie: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is news.
 			 */
-			IsNews?: boolean;
+			IsNews: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is place holder.
 			 */
-			IsPlaceHolder?: boolean;
+			IsPlaceHolder: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is premiere.
 			 */
-			IsPremiere?: boolean;
+			IsPremiere: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is repeat.
 			 */
-			IsRepeat?: boolean;
+			IsRepeat: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is series.
 			 */
-			IsSeries?: boolean;
+			IsSeries: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is sports.
 			 */
-			IsSports?: boolean;
-			IsoSpeedRating?: number; // int32
+			IsSports: boolean;
+			IsoSpeedRating: number; // int32
 			/**
 			 * Gets or sets the type of the iso.
 			 */
-			IsoType?: /* Enum IsoType. */ IsoType;
-			Latitude?: number; // double
+			IsoType: /* Enum IsoType. */ IsoType;
+			Latitude: number; // double
 			/**
 			 * Gets or sets the local trailer count.
 			 */
-			LocalTrailerCount?: number; // int32
+			LocalTrailerCount: number; // int32
 			/**
 			 * Gets or sets the type of the location.
 			 */
-			LocationType?: /* Enum LocationType. */ LocationType;
+			LocationType: /* Enum LocationType. */ LocationType;
 			/**
 			 * Gets or sets a value indicating whether [enable internet providers].
 			 */
-			LockData?: boolean;
+			LockData: boolean;
 			/**
 			 * Gets or sets the locked fields.
 			 */
-			LockedFields?: /* Enum MetadataFields. */ MetadataField[];
-			Longitude?: number; // double
-			MediaSourceCount?: number; // int32
+			LockedFields: /* Enum MetadataFields. */ MetadataField[];
+			Longitude: number; // double
+			MediaSourceCount: number; // int32
 			/**
 			 * Gets or sets the media versions.
 			 */
-			MediaSources?: MediaSourceInfo[];
+			MediaSources: MediaSourceInfo[];
 			/**
 			 * Gets or sets the media streams.
 			 */
-			MediaStreams?: /* Class MediaStream. */ MediaStream[];
+			MediaStreams: /* Class MediaStream. */ MediaStream[];
 			/**
 			 * Gets or sets the type of the media.
 			 */
-			MediaType?: string;
+			MediaType: string;
 			/**
 			 * Gets or sets the movie count.
 			 */
-			MovieCount?: number; // int32
+			MovieCount: number; // int32
 			/**
 			 * Gets or sets the music video count.
 			 */
-			MusicVideoCount?: number; // int32
+			MusicVideoCount: number; // int32
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the number.
 			 */
-			Number?: string;
+			Number: string;
 			/**
 			 * Gets or sets the official rating.
 			 */
-			OfficialRating?: string;
-			OriginalTitle?: string;
+			OfficialRating: string;
+			OriginalTitle: string;
 			/**
 			 * Gets or sets the overview.
 			 */
-			Overview?: string;
+			Overview: string;
 			/**
 			 * Gets or sets the parent art image tag.
 			 */
-			ParentArtImageTag?: string;
+			ParentArtImageTag: string;
 			/**
 			 * If the item does not have a art, this will hold the Id of the Parent that has one.
 			 */
-			ParentArtItemId?: string;
+			ParentArtItemId: string;
 			/**
 			 * Gets or sets the parent backdrop image tags.
 			 */
-			ParentBackdropImageTags?: string[];
+			ParentBackdropImageTags: string[];
 			/**
 			 * If the item does not have any backdrops, this will hold the Id of the Parent that has one.
 			 */
-			ParentBackdropItemId?: string;
+			ParentBackdropItemId: string;
 			/**
 			 * Gets or sets the parent id.
 			 */
-			ParentId?: string; // uuid
+			ParentId: string; // uuid
 			/**
 			 * Gets or sets the parent index number.
 			 */
-			ParentIndexNumber?: number; // int32
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the parent logo image tag.
 			 */
-			ParentLogoImageTag?: string;
+			ParentLogoImageTag: string;
 			/**
 			 * If the item does not have a logo, this will hold the Id of the Parent that has one.
 			 */
-			ParentLogoItemId?: string;
+			ParentLogoItemId: string;
 			/**
 			 * Gets or sets the parent primary image item identifier.
 			 */
-			ParentPrimaryImageItemId?: string;
+			ParentPrimaryImageItemId: string;
 			/**
 			 * Gets or sets the parent primary image tag.
 			 */
-			ParentPrimaryImageTag?: string;
+			ParentPrimaryImageTag: string;
 			/**
 			 * Gets or sets the parent thumb image tag.
 			 */
-			ParentThumbImageTag?: string;
+			ParentThumbImageTag: string;
 			/**
 			 * Gets or sets the parent thumb item id.
 			 */
-			ParentThumbItemId?: string;
+			ParentThumbItemId: string;
 			/**
 			 * Gets or sets the part count.
 			 */
-			PartCount?: number; // int32
+			PartCount: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
+			Path: string;
 			/**
 			 * Gets or sets the people.
 			 */
-			People?: /* This is used by the api to get information about a Person within a BaseItem. */ BaseItemPerson[];
+			People: /* This is used by the api to get information about a Person within a BaseItem. */ BaseItemPerson[];
 			/**
 			 * Gets or sets the play access.
 			 */
-			PlayAccess?: PlayAccess;
+			PlayAccess: PlayAccess;
 			/**
 			 * Gets or sets the playlist item identifier.
 			 */
-			PlaylistItemId?: string;
-			PreferredMetadataCountryCode?: string;
-			PreferredMetadataLanguage?: string;
+			PlaylistItemId: string;
+			PreferredMetadataCountryCode: string;
+			PreferredMetadataLanguage: string;
 			/**
 			 * Gets or sets the premiere date.
 			 */
-			PremiereDate?: string; // date-time
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the primary image aspect ratio, after image enhancements.
 			 */
-			PrimaryImageAspectRatio?: number; // double
-			ProductionLocations?: string[];
+			PrimaryImageAspectRatio: number; // double
+			ProductionLocations: string[];
 			/**
 			 * Gets or sets the production year.
 			 */
-			ProductionYear?: number; // int32
-			ProgramCount?: number; // int32
+			ProductionYear: number; // int32
+			ProgramCount: number; // int32
 			/**
 			 * Gets or sets the program identifier.
 			 */
-			ProgramId?: string;
+			ProgramId: string;
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the recursive item count.
 			 */
-			RecursiveItemCount?: number; // int32
+			RecursiveItemCount: number; // int32
 			/**
 			 * Gets or sets the trailer urls.
 			 */
-			RemoteTrailers?: MediaUrl[];
+			RemoteTrailers: MediaUrl[];
 			/**
 			 * Gets or sets the run time ticks.
 			 */
-			RunTimeTicks?: number; // int64
+			RunTimeTicks: number; // int64
 			/**
 			 * Gets or sets the screenshot image tags.
 			 */
-			ScreenshotImageTags?: string[];
+			ScreenshotImageTags: string[];
 			/**
 			 * Gets or sets the season identifier.
 			 */
-			SeasonId?: string; // uuid
+			SeasonId: string; // uuid
 			/**
 			 * Gets or sets the name of the season.
 			 */
-			SeasonName?: string;
+			SeasonName: string;
 			/**
 			 * Gets or sets the series count.
 			 */
-			SeriesCount?: number; // int32
+			SeriesCount: number; // int32
 			/**
 			 * Gets or sets the series id.
 			 */
-			SeriesId?: string; // uuid
+			SeriesId: string; // uuid
 			/**
 			 * Gets or sets the name of the series.
 			 */
-			SeriesName?: string;
+			SeriesName: string;
 			/**
 			 * Gets or sets the series primary image tag.
 			 */
-			SeriesPrimaryImageTag?: string;
+			SeriesPrimaryImageTag: string;
 			/**
 			 * Gets or sets the series studio.
 			 */
-			SeriesStudio?: string;
+			SeriesStudio: string;
 			/**
 			 * Gets or sets the series thumb image tag.
 			 */
-			SeriesThumbImageTag?: string;
+			SeriesThumbImageTag: string;
 			/**
 			 * Gets or sets the series timer identifier.
 			 */
-			SeriesTimerId?: string;
+			SeriesTimerId: string;
 			/**
 			 * Gets or sets the server identifier.
 			 */
-			ServerId?: string;
-			ShutterSpeed?: number; // double
-			Software?: string;
+			ServerId: string;
+			ShutterSpeed: number; // double
+			Software: string;
 			/**
 			 * Gets or sets the song count.
 			 */
-			SongCount?: number; // int32
+			SongCount: number; // int32
 			/**
 			 * Gets or sets the name of the sort.
 			 */
-			SortName?: string;
+			SortName: string;
 			/**
 			 * Gets or sets the type of the source.
 			 */
-			SourceType?: string;
+			SourceType: string;
 			/**
 			 * Gets or sets the special feature count.
 			 */
-			SpecialFeatureCount?: number; // int32
+			SpecialFeatureCount: number; // int32
 			/**
 			 * The start date of the recording, in UTC.
 			 */
-			StartDate?: string; // date-time
+			StartDate: string; // date-time
 			/**
 			 * Gets or sets the status.
 			 */
-			Status?: string;
+			Status: string;
 			/**
 			 * Gets or sets the studios.
 			 */
-			Studios?: NameGuidPair[];
+			Studios: NameGuidPair[];
 			/**
 			 * Gets or sets a value indicating whether [supports synchronize].
 			 */
-			SupportsSync?: boolean;
+			SupportsSync: boolean;
 			/**
 			 * Gets or sets the taglines.
 			 */
-			Taglines?: string[];
+			Taglines: string[];
 			/**
 			 * Gets or sets the tags.
 			 */
-			Tags?: string[];
+			Tags: string[];
 			/**
 			 * Gets or sets the timer identifier.
 			 */
-			TimerId?: string;
+			TimerId: string;
 			/**
 			 * Gets or sets the trailer count.
 			 */
-			TrailerCount?: number; // int32
+			TrailerCount: number; // int32
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: string;
+			Type: string;
 			/**
 			 * User data for this item based on the user it's being requested for.
 			 */
-			UserData?: /* Class UserItemDataDto. */ UserItemDataDto;
+			UserData: /* Class UserItemDataDto. */ UserItemDataDto;
 			/**
 			 * Gets or sets the video3 D format.
 			 */
-			Video3DFormat?: Video3DFormat;
+			Video3DFormat: Video3DFormat;
 			/**
 			 * Gets or sets the type of the video.
 			 */
-			VideoType?: /* Enum VideoType. */ VideoType;
-			Width?: number; // int32
+			VideoType: /* Enum VideoType. */ VideoType;
+			Width: number; // int32
 		}
 		export interface BaseItemDtoQueryResult {
 			/**
 			 * Gets or sets the items.
 			 */
-			Items?: /**
+			Items: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
@@ -877,11 +877,11 @@ export namespace Components {
 			/**
 			 * The index of the first record in Items.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * The total number of records available.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		/**
 		 * This is used by the api to get information about a Person within a BaseItem.
@@ -890,170 +890,170 @@ export namespace Components {
 			/**
 			 * Gets or sets the identifier.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the primary image blurhash.
 			 */
-			ImageBlurHashes?: {
-				Art?: {
+			ImageBlurHashes: {
+				Art: {
 					[name: string]: string;
 				};
-				Backdrop?: {
+				Backdrop: {
 					[name: string]: string;
 				};
-				Banner?: {
+				Banner: {
 					[name: string]: string;
 				};
-				Box?: {
+				Box: {
 					[name: string]: string;
 				};
-				BoxRear?: {
+				BoxRear: {
 					[name: string]: string;
 				};
-				Chapter?: {
+				Chapter: {
 					[name: string]: string;
 				};
-				Disc?: {
+				Disc: {
 					[name: string]: string;
 				};
-				Logo?: {
+				Logo: {
 					[name: string]: string;
 				};
-				Menu?: {
+				Menu: {
 					[name: string]: string;
 				};
-				Primary?: {
+				Primary: {
 					[name: string]: string;
 				};
-				Profile?: {
+				Profile: {
 					[name: string]: string;
 				};
-				Screenshot?: {
+				Screenshot: {
 					[name: string]: string;
 				};
-				Thumb?: {
+				Thumb: {
 					[name: string]: string;
 				};
 			};
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the primary image tag.
 			 */
-			PrimaryImageTag?: string;
+			PrimaryImageTag: string;
 			/**
 			 * Gets or sets the role.
 			 */
-			Role?: string;
+			Role: string;
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: string;
+			Type: string;
 		}
 		/**
 		 * Class BasePluginConfiguration.
 		 */
 		export interface BasePluginConfiguration {}
 		export interface BookInfo {
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
-			SeriesName?: string;
+			SeriesName: string;
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface BookInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: BookInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: BookInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export interface BoxSetInfo {
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface BoxSetInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: BoxSetInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: BoxSetInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export interface BrandingOptions {
 			/**
 			 * Gets or sets the custom CSS.
 			 */
-			CustomCss?: string;
+			CustomCss: string;
 			/**
 			 * Gets or sets the login disclaimer.
 			 */
-			LoginDisclaimer?: string;
+			LoginDisclaimer: string;
 		}
 		/**
 		 * Class BufferRequestDto.
@@ -1062,69 +1062,69 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether the client playback is unpaused.
 			 */
-			IsPlaying?: boolean;
+			IsPlaying: boolean;
 			/**
 			 * Gets or sets the playlist item identifier of the playing item.
 			 */
-			PlaylistItemId?: string; // uuid
+			PlaylistItemId: string; // uuid
 			/**
 			 * Gets or sets the position ticks.
 			 */
-			PositionTicks?: number; // int64
+			PositionTicks: number; // int64
 			/**
 			 * Gets or sets when the request has been made by the client.
 			 */
-			When?: string; // date-time
+			When: string; // date-time
 		}
 		export interface ChannelFeatures {
 			/**
 			 * Gets or sets the automatic refresh levels.
 			 */
-			AutoRefreshLevels?: number; // int32
+			AutoRefreshLevels: number; // int32
 			/**
 			 * Gets or sets a value indicating whether this instance can filter.
 			 */
-			CanFilter?: boolean;
+			CanFilter: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance can search.
 			 */
-			CanSearch?: boolean;
+			CanSearch: boolean;
 			/**
 			 * Gets or sets the content types.
 			 */
-			ContentTypes?: ChannelMediaContentType[];
+			ContentTypes: ChannelMediaContentType[];
 			/**
 			 * Gets or sets the default sort orders.
 			 */
-			DefaultSortFields?: ChannelItemSortField[];
+			DefaultSortFields: ChannelItemSortField[];
 			/**
 			 * Gets or sets the identifier.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Represents the maximum number of records the channel allows retrieving at a time.
 			 */
-			MaxPageSize?: number; // int32
+			MaxPageSize: number; // int32
 			/**
 			 * Gets or sets the media types.
 			 */
-			MediaTypes?: ChannelMediaType[];
+			MediaTypes: ChannelMediaType[];
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets a value indicating whether [supports content downloading].
 			 */
-			SupportsContentDownloading?: boolean;
+			SupportsContentDownloading: boolean;
 			/**
 			 * Gets or sets a value indicating whether [supports latest media].
 			 */
-			SupportsLatestMedia?: boolean;
+			SupportsLatestMedia: boolean;
 			/**
 			 * Indicates if a sort ascending/descending toggle is supported or not.
 			 */
-			SupportsSortOrderToggle?: boolean;
+			SupportsSortOrderToggle: boolean;
 		}
 		export type ChannelItemSortField =
 			| 'Name'
@@ -1141,19 +1141,19 @@ export namespace Components {
 			/**
 			 * Gets or sets list of mappings.
 			 */
-			Mappings?: NameValuePair[];
+			Mappings: NameValuePair[];
 			/**
 			 * Gets or sets list of provider channels.
 			 */
-			ProviderChannels?: NameIdPair[];
+			ProviderChannels: NameIdPair[];
 			/**
 			 * Gets or sets provider name.
 			 */
-			ProviderName?: string;
+			ProviderName: string;
 			/**
 			 * Gets or sets list of tuner channels.
 			 */
-			TunerChannels?: TunerChannelMapping[];
+			TunerChannels: TunerChannelMapping[];
 		}
 		export type ChannelMediaContentType =
 			| 'Clip'
@@ -1173,35 +1173,35 @@ export namespace Components {
 		 * Class ChapterInfo.
 		 */
 		export interface ChapterInfo {
-			ImageDateModified?: string; // date-time
+			ImageDateModified: string; // date-time
 			/**
 			 * Gets or sets the image path.
 			 */
-			ImagePath?: string;
-			ImageTag?: string;
+			ImagePath: string;
+			ImageTag: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the start position ticks.
 			 */
-			StartPositionTicks?: number; // int64
+			StartPositionTicks: number; // int64
 		}
 		export interface ClientCapabilities {
-			AppStoreUrl?: string;
+			AppStoreUrl: string;
 			/**
 			 * Defines the MediaBrowser.Model.Dlna.DeviceProfile.
 			 */
-			DeviceProfile?: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
-			IconUrl?: string;
-			MessageCallbackUrl?: string;
-			PlayableMediaTypes?: string[];
-			SupportedCommands?: /* This exists simply to identify a set of known commands. */ GeneralCommandType[];
-			SupportsContentUploading?: boolean;
-			SupportsMediaControl?: boolean;
-			SupportsPersistentIdentifier?: boolean;
-			SupportsSync?: boolean;
+			DeviceProfile: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
+			IconUrl: string;
+			MessageCallbackUrl: string;
+			PlayableMediaTypes: string[];
+			SupportedCommands: /* This exists simply to identify a set of known commands. */ GeneralCommandType[];
+			SupportsContentUploading: boolean;
+			SupportsMediaControl: boolean;
+			SupportsPersistentIdentifier: boolean;
+			SupportsSync: boolean;
 		}
 		/**
 		 * Client capabilities dto.
@@ -1210,54 +1210,54 @@ export namespace Components {
 			/**
 			 * Gets or sets the app store url.
 			 */
-			AppStoreUrl?: string;
+			AppStoreUrl: string;
 			/**
 			 * Gets or sets the device profile.
 			 */
-			DeviceProfile?: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
+			DeviceProfile: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
 			/**
 			 * Gets or sets the icon url.
 			 */
-			IconUrl?: string;
+			IconUrl: string;
 			/**
 			 * Gets or sets the message callback url.
 			 */
-			MessageCallbackUrl?: string;
+			MessageCallbackUrl: string;
 			/**
 			 * Gets or sets the list of playable media types.
 			 */
-			PlayableMediaTypes?: string[];
+			PlayableMediaTypes: string[];
 			/**
 			 * Gets or sets the list of supported commands.
 			 */
-			SupportedCommands?: /* This exists simply to identify a set of known commands. */ GeneralCommandType[];
+			SupportedCommands: /* This exists simply to identify a set of known commands. */ GeneralCommandType[];
 			/**
 			 * Gets or sets a value indicating whether session supports content uploading.
 			 */
-			SupportsContentUploading?: boolean;
+			SupportsContentUploading: boolean;
 			/**
 			 * Gets or sets a value indicating whether session supports media control.
 			 */
-			SupportsMediaControl?: boolean;
+			SupportsMediaControl: boolean;
 			/**
 			 * Gets or sets a value indicating whether session supports a persistent identifier.
 			 */
-			SupportsPersistentIdentifier?: boolean;
+			SupportsPersistentIdentifier: boolean;
 			/**
 			 * Gets or sets a value indicating whether session supports sync.
 			 */
-			SupportsSync?: boolean;
+			SupportsSync: boolean;
 		}
 		export interface CodecProfile {
-			ApplyConditions?: ProfileCondition[];
-			Codec?: string;
-			Conditions?: ProfileCondition[];
-			Container?: string;
-			Type?: CodecType;
+			ApplyConditions: ProfileCondition[];
+			Codec: string;
+			Conditions: ProfileCondition[];
+			Container: string;
+			Type: CodecType;
 		}
 		export type CodecType = 'Video' | 'VideoAudio' | 'Audio';
 		export interface CollectionCreationResult {
-			Id?: string; // uuid
+			Id: string; // uuid
 		}
 		export type CollectionTypeOptions =
 			| 'Movies'
@@ -1275,47 +1275,47 @@ export namespace Components {
 			/**
 			 * Gets or sets the type of the configuration page.
 			 */
-			ConfigurationPageType?: /* Enum ConfigurationPageType. */ ConfigurationPageType;
+			ConfigurationPageType: /* Enum ConfigurationPageType. */ ConfigurationPageType;
 			/**
 			 * Gets or sets the display name.
 			 */
-			DisplayName?: string;
+			DisplayName: string;
 			/**
 			 * Gets or sets a value indicating whether the configurations page is enabled in the main menu.
 			 */
-			EnableInMainMenu?: boolean;
+			EnableInMainMenu: boolean;
 			/**
 			 * Gets or sets the menu icon.
 			 */
-			MenuIcon?: string;
+			MenuIcon: string;
 			/**
 			 * Gets or sets the menu section.
 			 */
-			MenuSection?: string;
+			MenuSection: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the plugin id.
 			 */
-			PluginId?: string; // uuid
+			PluginId: string; // uuid
 		}
 		/**
 		 * Enum ConfigurationPageType.
 		 */
 		export type ConfigurationPageType = 'PluginConfiguration' | 'None';
 		export interface ContainerProfile {
-			Conditions?: ProfileCondition[];
-			Container?: string;
-			Type?: DlnaProfileType;
+			Conditions: ProfileCondition[];
+			Container: string;
+			Type: DlnaProfileType;
 		}
 		export interface ControlResponse {
-			readonly Headers?: {
+			readonly Headers: {
 				[name: string]: string;
 			};
-			IsSuccessful?: boolean;
-			Xml?: string;
+			IsSuccessful: boolean;
+			Xml: string;
 		}
 		/**
 		 * Class CountryInfo.
@@ -1324,19 +1324,19 @@ export namespace Components {
 			/**
 			 * Gets or sets the display name.
 			 */
-			DisplayName?: string;
+			DisplayName: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the name of the three letter ISO region.
 			 */
-			ThreeLetterISORegionName?: string;
+			ThreeLetterISORegionName: string;
 			/**
 			 * Gets or sets the name of the two letter ISO region.
 			 */
-			TwoLetterISORegionName?: string;
+			TwoLetterISORegionName: string;
 		}
 		/**
 		 * Create new playlist dto.
@@ -1345,19 +1345,19 @@ export namespace Components {
 			/**
 			 * Gets or sets item ids to add to the playlist.
 			 */
-			Ids?: string /* uuid */[];
+			Ids: string /* uuid */[];
 			/**
 			 * Gets or sets the media type.
 			 */
-			MediaType?: string;
+			MediaType: string;
 			/**
 			 * Gets or sets the name of the new playlist.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the user id.
 			 */
-			UserId?: string; // uuid
+			UserId: string; // uuid
 		}
 		/**
 		 * The create user by name request body.
@@ -1366,11 +1366,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the username.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the password.
 			 */
-			Password?: string;
+			Password: string;
 		}
 		/**
 		 * Class CultureDto.
@@ -1379,20 +1379,20 @@ export namespace Components {
 			/**
 			 * Gets or sets the display name.
 			 */
-			DisplayName?: string;
+			DisplayName: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the name of the three letter ISO language.
 			 */
-			readonly ThreeLetterISOLanguageName?: string;
-			ThreeLetterISOLanguageNames?: string[];
+			readonly ThreeLetterISOLanguageName: string;
+			ThreeLetterISOLanguageNames: string[];
 			/**
 			 * Gets or sets the name of the two letter ISO language.
 			 */
-			TwoLetterISOLanguageName?: string;
+			TwoLetterISOLanguageName: string;
 		}
 		export type DayOfWeek =
 			| 'Sunday'
@@ -1410,94 +1410,94 @@ export namespace Components {
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
+			Path: string;
 		}
 		export interface DeviceIdentification {
 			/**
 			 * Gets or sets the name of the friendly.
 			 */
-			FriendlyName?: string;
+			FriendlyName: string;
 			/**
 			 * Gets or sets the headers.
 			 */
-			Headers?: HttpHeaderInfo[];
+			Headers: HttpHeaderInfo[];
 			/**
 			 * Gets or sets the manufacturer.
 			 */
-			Manufacturer?: string;
+			Manufacturer: string;
 			/**
 			 * Gets or sets the manufacturer URL.
 			 */
-			ManufacturerUrl?: string;
+			ManufacturerUrl: string;
 			/**
 			 * Gets or sets the model description.
 			 */
-			ModelDescription?: string;
+			ModelDescription: string;
 			/**
 			 * Gets or sets the name of the model.
 			 */
-			ModelName?: string;
+			ModelName: string;
 			/**
 			 * Gets or sets the model number.
 			 */
-			ModelNumber?: string;
+			ModelNumber: string;
 			/**
 			 * Gets or sets the model URL.
 			 */
-			ModelUrl?: string;
+			ModelUrl: string;
 			/**
 			 * Gets or sets the serial number.
 			 */
-			SerialNumber?: string;
+			SerialNumber: string;
 		}
 		export interface DeviceInfo {
 			/**
 			 * Gets or sets the name of the application.
 			 */
-			AppName?: string;
+			AppName: string;
 			/**
 			 * Gets or sets the application version.
 			 */
-			AppVersion?: string;
+			AppVersion: string;
 			/**
 			 * Gets or sets the capabilities.
 			 */
-			Capabilities?: ClientCapabilities;
+			Capabilities: ClientCapabilities;
 			/**
 			 * Gets or sets the date last modified.
 			 */
-			DateLastActivity?: string; // date-time
-			IconUrl?: string;
+			DateLastActivity: string; // date-time
+			IconUrl: string;
 			/**
 			 * Gets or sets the identifier.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the last user identifier.
 			 */
-			LastUserId?: string; // uuid
+			LastUserId: string; // uuid
 			/**
 			 * Gets or sets the last name of the user.
 			 */
-			LastUserName?: string;
-			Name?: string;
+			LastUserName: string;
+			Name: string;
 		}
 		export interface DeviceInfoQueryResult {
 			/**
 			 * Gets or sets the items.
 			 */
-			Items?: DeviceInfo[];
+			Items: DeviceInfo[];
 			/**
 			 * The index of the first record in Items.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * The total number of records available.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		export interface DeviceOptions {
-			CustomName?: string;
+			CustomName: string;
 		}
 		/**
 		 * Defines the MediaBrowser.Model.Dlna.DeviceProfile.
@@ -1506,180 +1506,180 @@ export namespace Components {
 			/**
 			 * Gets or sets the AlbumArtPn.
 			 */
-			AlbumArtPn?: string;
+			AlbumArtPn: string;
 			/**
 			 * Gets or sets the CodecProfiles.
 			 */
-			CodecProfiles?: CodecProfile[];
+			CodecProfiles: CodecProfile[];
 			/**
 			 * Gets or sets the ContainerProfiles.
 			 */
-			ContainerProfiles?: ContainerProfile[];
+			ContainerProfiles: ContainerProfile[];
 			/**
 			 * Gets or sets the direct play profiles.
 			 */
-			DirectPlayProfiles?: DirectPlayProfile[];
+			DirectPlayProfiles: DirectPlayProfile[];
 			/**
 			 * Gets or sets a value indicating whether EnableAlbumArtInDidl.
 			 */
-			EnableAlbumArtInDidl?: boolean;
+			EnableAlbumArtInDidl: boolean;
 			/**
 			 * Gets or sets a value indicating whether EnableMSMediaReceiverRegistrar.
 			 */
-			EnableMSMediaReceiverRegistrar?: boolean;
+			EnableMSMediaReceiverRegistrar: boolean;
 			/**
 			 * Gets or sets a value indicating whether EnableSingleAlbumArtLimit.
 			 */
-			EnableSingleAlbumArtLimit?: boolean;
+			EnableSingleAlbumArtLimit: boolean;
 			/**
 			 * Gets or sets a value indicating whether EnableSingleSubtitleLimit.
 			 */
-			EnableSingleSubtitleLimit?: boolean;
+			EnableSingleSubtitleLimit: boolean;
 			/**
 			 * Gets or sets the FriendlyName.
 			 */
-			FriendlyName?: string;
+			FriendlyName: string;
 			/**
 			 * Gets or sets the Id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the Identification.
 			 */
-			Identification?: DeviceIdentification;
+			Identification: DeviceIdentification;
 			/**
 			 * Gets or sets a value indicating whether IgnoreTranscodeByteRangeRequests.
 			 */
-			IgnoreTranscodeByteRangeRequests?: boolean;
+			IgnoreTranscodeByteRangeRequests: boolean;
 			/**
 			 * Gets or sets the Manufacturer.
 			 */
-			Manufacturer?: string;
+			Manufacturer: string;
 			/**
 			 * Gets or sets the ManufacturerUrl.
 			 */
-			ManufacturerUrl?: string;
+			ManufacturerUrl: string;
 			/**
 			 * Gets or sets the MaxAlbumArtHeight.
 			 */
-			MaxAlbumArtHeight?: number; // int32
+			MaxAlbumArtHeight: number; // int32
 			/**
 			 * Gets or sets the MaxAlbumArtWidth.
 			 */
-			MaxAlbumArtWidth?: number; // int32
+			MaxAlbumArtWidth: number; // int32
 			/**
 			 * Gets or sets the MaxIconHeight.
 			 */
-			MaxIconHeight?: number; // int32
+			MaxIconHeight: number; // int32
 			/**
 			 * Gets or sets the MaxIconWidth.
 			 */
-			MaxIconWidth?: number; // int32
+			MaxIconWidth: number; // int32
 			/**
 			 * Gets or sets the MaxStaticBitrate.
 			 */
-			MaxStaticBitrate?: number; // int32
+			MaxStaticBitrate: number; // int32
 			/**
 			 * Gets or sets the MaxStaticMusicBitrate.
 			 */
-			MaxStaticMusicBitrate?: number; // int32
+			MaxStaticMusicBitrate: number; // int32
 			/**
 			 * Gets or sets the MaxStreamingBitrate.
 			 */
-			MaxStreamingBitrate?: number; // int32
+			MaxStreamingBitrate: number; // int32
 			/**
 			 * Gets or sets the ModelDescription.
 			 */
-			ModelDescription?: string;
+			ModelDescription: string;
 			/**
 			 * Gets or sets the ModelName.
 			 */
-			ModelName?: string;
+			ModelName: string;
 			/**
 			 * Gets or sets the ModelNumber.
 			 */
-			ModelNumber?: string;
+			ModelNumber: string;
 			/**
 			 * Gets or sets the ModelUrl.
 			 */
-			ModelUrl?: string;
+			ModelUrl: string;
 			/**
 			 * Gets or sets the MusicStreamingTranscodingBitrate.
 			 */
-			MusicStreamingTranscodingBitrate?: number; // int32
+			MusicStreamingTranscodingBitrate: number; // int32
 			/**
 			 * Gets or sets the Name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the ProtocolInfo.
 			 */
-			ProtocolInfo?: string;
+			ProtocolInfo: string;
 			/**
 			 * Gets or sets a value indicating whether RequiresPlainFolders.
 			 */
-			RequiresPlainFolders?: boolean;
+			RequiresPlainFolders: boolean;
 			/**
 			 * Gets or sets a value indicating whether RequiresPlainVideoItems.
 			 */
-			RequiresPlainVideoItems?: boolean;
+			RequiresPlainVideoItems: boolean;
 			/**
 			 * Gets or sets the ResponseProfiles.
 			 */
-			ResponseProfiles?: ResponseProfile[];
+			ResponseProfiles: ResponseProfile[];
 			/**
 			 * Gets or sets the SerialNumber.
 			 */
-			SerialNumber?: string;
+			SerialNumber: string;
 			/**
 			 * Gets or sets the content of the aggregationFlags element in the urn:schemas-sonycom:av namespace.
 			 */
-			SonyAggregationFlags?: string;
+			SonyAggregationFlags: string;
 			/**
 			 * Gets or sets the SubtitleProfiles.
 			 */
-			SubtitleProfiles?: SubtitleProfile[];
+			SubtitleProfiles: SubtitleProfile[];
 			/**
 			 * Gets or sets the SupportedMediaTypes.
 			 */
-			SupportedMediaTypes?: string;
+			SupportedMediaTypes: string;
 			/**
 			 * Gets or sets the TimelineOffsetSeconds.
 			 */
-			TimelineOffsetSeconds?: number; // int32
+			TimelineOffsetSeconds: number; // int32
 			/**
 			 * Gets or sets the transcoding profiles.
 			 */
-			TranscodingProfiles?: TranscodingProfile[];
+			TranscodingProfiles: TranscodingProfile[];
 			/**
 			 * Gets or sets the UserId.
 			 */
-			UserId?: string;
+			UserId: string;
 			/**
 			 * Gets or sets the XmlRootAttributes.
 			 */
-			XmlRootAttributes?: /* Defines the MediaBrowser.Model.Dlna.XmlAttribute. */ XmlAttribute[];
+			XmlRootAttributes: /* Defines the MediaBrowser.Model.Dlna.XmlAttribute. */ XmlAttribute[];
 		}
 		export interface DeviceProfileInfo {
 			/**
 			 * Gets or sets the identifier.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: DeviceProfileType;
+			Type: DeviceProfileType;
 		}
 		export type DeviceProfileType = 'System' | 'User';
 		export interface DirectPlayProfile {
-			AudioCodec?: string;
-			Container?: string;
-			Type?: DlnaProfileType;
-			VideoCodec?: string;
+			AudioCodec: string;
+			Container: string;
+			Type: DlnaProfileType;
+			VideoCodec: string;
 		}
 		/**
 		 * Defines the display preferences for any item that supports them (usually Folders).
@@ -1688,61 +1688,61 @@ export namespace Components {
 			/**
 			 * Gets or sets the client.
 			 */
-			Client?: string;
+			Client: string;
 			/**
 			 * Gets or sets the custom prefs.
 			 */
-			CustomPrefs?: {
+			CustomPrefs: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the user id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the index by.
 			 */
-			IndexBy?: string;
+			IndexBy: string;
 			/**
 			 * Gets or sets the height of the primary image.
 			 */
-			PrimaryImageHeight?: number; // int32
+			PrimaryImageHeight: number; // int32
 			/**
 			 * Gets or sets the width of the primary image.
 			 */
-			PrimaryImageWidth?: number; // int32
+			PrimaryImageWidth: number; // int32
 			/**
 			 * Gets or sets a value indicating whether [remember indexing].
 			 */
-			RememberIndexing?: boolean;
+			RememberIndexing: boolean;
 			/**
 			 * Gets or sets a value indicating whether [remember sorting].
 			 */
-			RememberSorting?: boolean;
+			RememberSorting: boolean;
 			/**
 			 * An enum representing the axis that should be scrolled.
 			 */
-			ScrollDirection?: /* An enum representing the axis that should be scrolled. */ ScrollDirection;
+			ScrollDirection: /* An enum representing the axis that should be scrolled. */ ScrollDirection;
 			/**
 			 * Gets or sets a value indicating whether to show backdrops on this item.
 			 */
-			ShowBackdrop?: boolean;
+			ShowBackdrop: boolean;
 			/**
 			 * Gets or sets a value indicating whether [show sidebar].
 			 */
-			ShowSidebar?: boolean;
+			ShowSidebar: boolean;
 			/**
 			 * Gets or sets the sort by.
 			 */
-			SortBy?: string;
+			SortBy: string;
 			/**
 			 * An enum representing the sorting order.
 			 */
-			SortOrder?: /* An enum representing the sorting order. */ SortOrder;
+			SortOrder: /* An enum representing the sorting order. */ SortOrder;
 			/**
 			 * Gets or sets the type of the view.
 			 */
-			ViewType?: string;
+			ViewType: string;
 		}
 		export type DlnaProfileType = 'Audio' | 'Video' | 'Photo';
 		/**
@@ -1761,8 +1761,8 @@ export namespace Components {
 			| 'Weekend';
 		export type EncodingContext = 'Streaming' | 'Static';
 		export interface EndPointInfo {
-			IsInNetwork?: boolean;
-			IsLocal?: boolean;
+			IsInNetwork: boolean;
+			IsLocal: boolean;
 		}
 		/**
 		 * Represents the external id information for serialization to the client.
@@ -1771,22 +1771,22 @@ export namespace Components {
 			/**
 			 * Gets or sets the unique key for this id. This key should be unique across all providers.
 			 */
-			Key?: string;
+			Key: string;
 			/**
 			 * Gets or sets the display name of the external id provider (IE: IMDB, MusicBrainz, etc).
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the specific media type for this id. This is used to distinguish between the different
 			 * external id types for providers with multiple ids.
 			 * A null value indicates there is no specific media type associated with the external id, or this is the
 			 * default id for the external provider so there is no need to specify a type.
 			 */
-			Type?: /* The specific media type of an MediaBrowser.Model.Providers.ExternalIdInfo. */ ExternalIdMediaType;
+			Type: /* The specific media type of an MediaBrowser.Model.Providers.ExternalIdInfo. */ ExternalIdMediaType;
 			/**
 			 * Gets or sets the URL format string.
 			 */
-			UrlFormatString?: string;
+			UrlFormatString: string;
 		}
 		/**
 		 * The specific media type of an MediaBrowser.Model.Providers.ExternalIdInfo.
@@ -1808,11 +1808,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the type of the item.
 			 */
-			Url?: string;
+			Url: string;
 		}
 		/**
 		 * Enum describing the location of the FFmpeg tool.
@@ -1825,15 +1825,15 @@ export namespace Components {
 			/**
 			 * Gets the name.
 			 */
-			readonly Name?: string;
+			readonly Name: string;
 			/**
 			 * Gets the path.
 			 */
-			readonly Path?: string;
+			readonly Path: string;
 			/**
 			 * Gets the type.
 			 */
-			readonly Type?: /* Enum FileSystemEntryType. */ FileSystemEntryType;
+			readonly Type: /* Enum FileSystemEntryType. */ FileSystemEntryType;
 		}
 		/**
 		 * Enum FileSystemEntryType.
@@ -1846,19 +1846,19 @@ export namespace Components {
 			/**
 			 * Gets or sets the date created.
 			 */
-			DateCreated?: string; // date-time
+			DateCreated: string; // date-time
 			/**
 			 * Gets or sets the date modified.
 			 */
-			DateModified?: string; // date-time
+			DateModified: string; // date-time
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the size.
 			 */
-			Size?: number; // int64
+			Size: number; // int64
 		}
 		export type ForgotPasswordAction = 'ContactAdmin' | 'PinCode' | 'InNetworkRequired';
 		/**
@@ -1883,25 +1883,25 @@ export namespace Components {
 			/**
 			 * Gets or sets the action.
 			 */
-			Action?: ForgotPasswordAction;
+			Action: ForgotPasswordAction;
 			/**
 			 * Gets or sets the pin expiration date.
 			 */
-			PinExpirationDate?: string; // date-time
+			PinExpirationDate: string; // date-time
 			/**
 			 * Gets or sets the pin file.
 			 */
-			PinFile?: string;
+			PinFile: string;
 		}
 		export interface GeneralCommand {
-			Arguments?: {
+			Arguments: {
 				[name: string]: string;
 			};
-			ControllingUserId?: string; // uuid
+			ControllingUserId: string; // uuid
 			/**
 			 * This exists simply to identify a set of known commands.
 			 */
-			Name?: /* This exists simply to identify a set of known commands. */ GeneralCommandType;
+			Name: /* This exists simply to identify a set of known commands. */ GeneralCommandType;
 		}
 		/**
 		 * This exists simply to identify a set of known commands.
@@ -1955,132 +1955,132 @@ export namespace Components {
 			/**
 			 * Gets or sets the channels to return guide information for.
 			 */
-			ChannelIds?: string /* uuid */[];
+			ChannelIds: string /* uuid */[];
 			/**
 			 * Gets or sets the image types to include in the output.
 			 * Optional.
 			 */
-			EnableImageTypes?: /* Enum ImageType. */ ImageType[];
+			EnableImageTypes: /* Enum ImageType. */ ImageType[];
 			/**
 			 * Gets or sets include image information in output.
 			 * Optional.
 			 */
-			EnableImages?: boolean;
+			EnableImages: boolean;
 			/**
 			 * Gets or sets a value indicating whether retrieve total record count.
 			 */
-			EnableTotalRecordCount?: boolean;
+			EnableTotalRecordCount: boolean;
 			/**
 			 * Gets or sets include user data.
 			 * Optional.
 			 */
-			EnableUserData?: boolean;
+			EnableUserData: boolean;
 			/**
 			 * Gets or sets specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines.
 			 * Optional.
 			 */
-			Fields?: /* Used to control the data that gets attached to DtoBaseItems. */ ItemFields[];
+			Fields: /* Used to control the data that gets attached to DtoBaseItems. */ ItemFields[];
 			/**
 			 * Gets or sets the genre ids to return guide information for.
 			 */
-			GenreIds?: string /* uuid */[];
+			GenreIds: string /* uuid */[];
 			/**
 			 * Gets or sets the genres to return guide information for.
 			 */
-			Genres?: string[];
+			Genres: string[];
 			/**
 			 * Gets or sets filter by programs that have completed airing, or not.
 			 * Optional.
 			 */
-			HasAired?: boolean;
+			HasAired: boolean;
 			/**
 			 * Gets or sets the max number of images to return, per image type.
 			 * Optional.
 			 */
-			ImageTypeLimit?: number; // int32
+			ImageTypeLimit: number; // int32
 			/**
 			 * Gets or sets filter by programs that are currently airing, or not.
 			 * Optional.
 			 */
-			IsAiring?: boolean;
+			IsAiring: boolean;
 			/**
 			 * Gets or sets filter for kids.
 			 * Optional.
 			 */
-			IsKids?: boolean;
+			IsKids: boolean;
 			/**
 			 * Gets or sets filter for movies.
 			 * Optional.
 			 */
-			IsMovie?: boolean;
+			IsMovie: boolean;
 			/**
 			 * Gets or sets filter for news.
 			 * Optional.
 			 */
-			IsNews?: boolean;
+			IsNews: boolean;
 			/**
 			 * Gets or sets filter for series.
 			 * Optional.
 			 */
-			IsSeries?: boolean;
+			IsSeries: boolean;
 			/**
 			 * Gets or sets filter for sports.
 			 * Optional.
 			 */
-			IsSports?: boolean;
+			IsSports: boolean;
 			/**
 			 * Gets or sets filter by library series id.
 			 * Optional.
 			 */
-			LibrarySeriesId?: string; // uuid
+			LibrarySeriesId: string; // uuid
 			/**
 			 * Gets or sets the maximum number of records to return.
 			 * Optional.
 			 */
-			Limit?: number; // int32
+			Limit: number; // int32
 			/**
 			 * Gets or sets the maximum premiere end date.
 			 * Optional.
 			 */
-			MaxEndDate?: string; // date-time
+			MaxEndDate: string; // date-time
 			/**
 			 * Gets or sets the maximum premiere start date.
 			 * Optional.
 			 */
-			MaxStartDate?: string; // date-time
+			MaxStartDate: string; // date-time
 			/**
 			 * Gets or sets the minimum premiere end date.
 			 * Optional.
 			 */
-			MinEndDate?: string; // date-time
+			MinEndDate: string; // date-time
 			/**
 			 * Gets or sets the minimum premiere start date.
 			 * Optional.
 			 */
-			MinStartDate?: string; // date-time
+			MinStartDate: string; // date-time
 			/**
 			 * Gets or sets filter by series timer id.
 			 * Optional.
 			 */
-			SeriesTimerId?: string;
+			SeriesTimerId: string;
 			/**
 			 * Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.
 			 * Optional.
 			 */
-			SortBy?: string[];
+			SortBy: string[];
 			/**
 			 * Gets or sets sort Order - Ascending,Descending.
 			 */
-			SortOrder?: /* An enum representing the sorting order. */ SortOrder[];
+			SortOrder: /* An enum representing the sorting order. */ SortOrder[];
 			/**
 			 * Gets or sets the record index to start at. All items with a lower index will be dropped from the results.
 			 * Optional.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * Gets or sets optional. Filter by user id.
 			 */
-			UserId?: string; // uuid
+			UserId: string; // uuid
 		}
 		/**
 		 * Class GroupInfoDto.
@@ -2089,23 +2089,23 @@ export namespace Components {
 			/**
 			 * Gets the group identifier.
 			 */
-			readonly GroupId?: string; // uuid
+			readonly GroupId: string; // uuid
 			/**
 			 * Gets the group name.
 			 */
-			readonly GroupName?: string;
+			readonly GroupName: string;
 			/**
 			 * Gets the date when this DTO has been created.
 			 */
-			readonly LastUpdatedAt?: string; // date-time
+			readonly LastUpdatedAt: string; // date-time
 			/**
 			 * Gets the participants.
 			 */
-			readonly Participants?: string[];
+			readonly Participants: string[];
 			/**
 			 * Gets the group state.
 			 */
-			readonly State?: /* Enum GroupState. */ GroupStateType;
+			readonly State: /* Enum GroupState. */ GroupStateType;
 		}
 		/**
 		 * Enum GroupQueueMode.
@@ -2142,17 +2142,17 @@ export namespace Components {
 			/**
 			 * Gets or sets the end date.
 			 */
-			EndDate?: string; // date-time
+			EndDate: string; // date-time
 			/**
 			 * Gets or sets the start date.
 			 */
-			StartDate?: string; // date-time
+			StartDate: string; // date-time
 		}
 		export type HeaderMatchType = 'Equals' | 'Regex' | 'Substring';
 		export interface HttpHeaderInfo {
-			Match?: HeaderMatchType;
-			Name?: string;
-			Value?: string;
+			Match: HeaderMatchType;
+			Name: string;
+			Value: string;
 		}
 		/**
 		 * Defines the MediaBrowser.Common.Plugins.IPlugin.
@@ -2161,31 +2161,31 @@ export namespace Components {
 			/**
 			 * Gets the path to the assembly file.
 			 */
-			readonly AssemblyFilePath?: string;
+			readonly AssemblyFilePath: string;
 			/**
 			 * Gets a value indicating whether the plugin can be uninstalled.
 			 */
-			readonly CanUninstall?: boolean;
+			readonly CanUninstall: boolean;
 			/**
 			 * Gets the full path to the data folder, where the plugin can store any miscellaneous files needed.
 			 */
-			readonly DataFolderPath?: string;
+			readonly DataFolderPath: string;
 			/**
 			 * Gets the Description.
 			 */
-			readonly Description?: string;
+			readonly Description: string;
 			/**
 			 * Gets the unique id.
 			 */
-			readonly Id?: string; // uuid
+			readonly Id: string; // uuid
 			/**
 			 * Gets the name of the plugin.
 			 */
-			readonly Name?: string;
+			readonly Name: string;
 			/**
 			 * Gets the plugin version.
 			 */
-			readonly Version?: Version;
+			readonly Version: Version;
 		}
 		/**
 		 * Class IgnoreWaitRequestDto.
@@ -2194,29 +2194,29 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether the client should be ignored.
 			 */
-			IgnoreWait?: boolean;
+			IgnoreWait: boolean;
 		}
 		export interface ImageByNameInfo {
 			/**
 			 * Gets or sets the context.
 			 */
-			Context?: string;
+			Context: string;
 			/**
 			 * Gets or sets the length of the file.
 			 */
-			FileLength?: number; // int64
+			FileLength: number; // int64
 			/**
 			 * Gets or sets the format.
 			 */
-			Format?: string;
+			Format: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the theme.
 			 */
-			Theme?: string;
+			Theme: string;
 		}
 		/**
 		 * Enum ImageOutputFormat.
@@ -2229,49 +2229,49 @@ export namespace Components {
 			/**
 			 * Gets or sets the blurhash.
 			 */
-			BlurHash?: string;
+			BlurHash: string;
 			/**
 			 * Gets or sets the height.
 			 */
-			Height?: number; // int32
+			Height: number; // int32
 			/**
 			 * Gets or sets the index of the image.
 			 */
-			ImageIndex?: number; // int32
+			ImageIndex: number; // int32
 			/**
 			 * Gets or sets the image tag.
 			 */
-			ImageTag?: string;
+			ImageTag: string;
 			/**
 			 * Gets or sets the type of the image.
 			 */
-			ImageType?: /* Enum ImageType. */ ImageType;
+			ImageType: /* Enum ImageType. */ ImageType;
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
+			Path: string;
 			/**
 			 * Gets or sets the size.
 			 */
-			Size?: number; // int64
+			Size: number; // int64
 			/**
 			 * Gets or sets the width.
 			 */
-			Width?: number; // int32
+			Width: number; // int32
 		}
 		export interface ImageOption {
 			/**
 			 * Gets or sets the limit.
 			 */
-			Limit?: number; // int32
+			Limit: number; // int32
 			/**
 			 * Gets or sets the minimum width.
 			 */
-			MinWidth?: number; // int32
+			MinWidth: number; // int32
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: /* Enum ImageType. */ ImageType;
+			Type: /* Enum ImageType. */ ImageType;
 		}
 		export type ImageOrientation =
 			| 'TopLeft'
@@ -2289,11 +2289,11 @@ export namespace Components {
 			/**
 			 * Gets the name.
 			 */
-			readonly Name?: string;
+			readonly Name: string;
 			/**
 			 * Gets the supported image types.
 			 */
-			readonly SupportedImages?: /* Enum ImageType. */ ImageType[];
+			readonly SupportedImages: /* Enum ImageType. */ ImageType[];
 		}
 		export type ImageSavingConvention = 'Legacy' | 'Compatible';
 		/**
@@ -2320,31 +2320,31 @@ export namespace Components {
 			/**
 			 * Gets or sets the changelog for this version.
 			 */
-			Changelog?: string;
+			Changelog: string;
 			/**
 			 * Gets or sets a checksum for the binary.
 			 */
-			Checksum?: string;
+			Checksum: string;
 			/**
 			 * Gets or sets the Id.
 			 */
-			Guid?: string; // uuid
+			Guid: string; // uuid
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets package information for the installation.
 			 */
-			PackageInfo?: /* Class PackageInfo. */ PackageInfo;
+			PackageInfo: /* Class PackageInfo. */ PackageInfo;
 			/**
 			 * Gets or sets the source URL.
 			 */
-			SourceUrl?: string;
+			SourceUrl: string;
 			/**
 			 * Gets or sets the version.
 			 */
-			Version?: Version;
+			Version: Version;
 		}
 		/**
 		 * Enum IsoType.
@@ -2357,51 +2357,51 @@ export namespace Components {
 			/**
 			 * Gets or sets the album count.
 			 */
-			AlbumCount?: number; // int32
+			AlbumCount: number; // int32
 			/**
 			 * Gets or sets the artist count.
 			 */
-			ArtistCount?: number; // int32
+			ArtistCount: number; // int32
 			/**
 			 * Gets or sets the book count.
 			 */
-			BookCount?: number; // int32
+			BookCount: number; // int32
 			/**
 			 * Gets or sets the box set count.
 			 */
-			BoxSetCount?: number; // int32
+			BoxSetCount: number; // int32
 			/**
 			 * Gets or sets the episode count.
 			 */
-			EpisodeCount?: number; // int32
+			EpisodeCount: number; // int32
 			/**
 			 * Gets or sets the item count.
 			 */
-			ItemCount?: number; // int32
+			ItemCount: number; // int32
 			/**
 			 * Gets or sets the movie count.
 			 */
-			MovieCount?: number; // int32
+			MovieCount: number; // int32
 			/**
 			 * Gets or sets the music video count.
 			 */
-			MusicVideoCount?: number; // int32
+			MusicVideoCount: number; // int32
 			/**
 			 * Gets or sets the program count.
 			 */
-			ProgramCount?: number; // int32
+			ProgramCount: number; // int32
 			/**
 			 * Gets or sets the series count.
 			 */
-			SeriesCount?: number; // int32
+			SeriesCount: number; // int32
 			/**
 			 * Gets or sets the song count.
 			 */
-			SongCount?: number; // int32
+			SongCount: number; // int32
 			/**
 			 * Gets or sets the trailer count.
 			 */
-			TrailerCount?: number; // int32
+			TrailerCount: number; // int32
 		}
 		/**
 		 * Used to control the data that gets attached to DtoBaseItems.
@@ -2488,7 +2488,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the group identifier.
 			 */
-			GroupId?: string; // uuid
+			GroupId: string; // uuid
 		}
 		export type KeepUntil = 'UntilDeleted' | 'UntilSpaceNeeded' | 'UntilWatched' | 'UntilDate';
 		/**
@@ -2498,44 +2498,44 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether default enabled.
 			 */
-			DefaultEnabled?: boolean;
+			DefaultEnabled: boolean;
 			/**
 			 * Gets or sets name.
 			 */
-			Name?: string;
+			Name: string;
 		}
 		export interface LibraryOptions {
-			AutomaticRefreshIntervalDays?: number; // int32
-			DisabledLocalMetadataReaders?: string[];
-			DisabledSubtitleFetchers?: string[];
-			EnableAutomaticSeriesGrouping?: boolean;
-			EnableChapterImageExtraction?: boolean;
-			EnableEmbeddedEpisodeInfos?: boolean;
-			EnableEmbeddedTitles?: boolean;
-			EnableInternetProviders?: boolean;
-			EnablePhotos?: boolean;
-			EnableRealtimeMonitor?: boolean;
-			ExtractChapterImagesDuringLibraryScan?: boolean;
-			LocalMetadataReaderOrder?: string[];
+			AutomaticRefreshIntervalDays: number; // int32
+			DisabledLocalMetadataReaders: string[];
+			DisabledSubtitleFetchers: string[];
+			EnableAutomaticSeriesGrouping: boolean;
+			EnableChapterImageExtraction: boolean;
+			EnableEmbeddedEpisodeInfos: boolean;
+			EnableEmbeddedTitles: boolean;
+			EnableInternetProviders: boolean;
+			EnablePhotos: boolean;
+			EnableRealtimeMonitor: boolean;
+			ExtractChapterImagesDuringLibraryScan: boolean;
+			LocalMetadataReaderOrder: string[];
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
-			MetadataSavers?: string[];
-			PathInfos?: MediaPathInfo[];
+			MetadataCountryCode: string;
+			MetadataSavers: string[];
+			PathInfos: MediaPathInfo[];
 			/**
 			 * Gets or sets the preferred metadata language.
 			 */
-			PreferredMetadataLanguage?: string;
-			RequirePerfectSubtitleMatch?: boolean;
-			SaveLocalMetadata?: boolean;
-			SaveSubtitlesWithMedia?: boolean;
-			SeasonZeroDisplayName?: string;
-			SkipSubtitlesIfAudioTrackMatches?: boolean;
-			SkipSubtitlesIfEmbeddedSubtitlesPresent?: boolean;
-			SubtitleDownloadLanguages?: string[];
-			SubtitleFetcherOrder?: string[];
-			TypeOptions?: TypeOptions[];
+			PreferredMetadataLanguage: string;
+			RequirePerfectSubtitleMatch: boolean;
+			SaveLocalMetadata: boolean;
+			SaveSubtitlesWithMedia: boolean;
+			SeasonZeroDisplayName: string;
+			SkipSubtitlesIfAudioTrackMatches: boolean;
+			SkipSubtitlesIfEmbeddedSubtitlesPresent: boolean;
+			SubtitleDownloadLanguages: string[];
+			SubtitleFetcherOrder: string[];
+			TypeOptions: TypeOptions[];
 		}
 		/**
 		 * Library options result dto.
@@ -2544,19 +2544,19 @@ export namespace Components {
 			/**
 			 * Gets or sets the metadata readers.
 			 */
-			MetadataReaders?: /* Library option info dto. */ LibraryOptionInfoDto[];
+			MetadataReaders: /* Library option info dto. */ LibraryOptionInfoDto[];
 			/**
 			 * Gets or sets the metadata savers.
 			 */
-			MetadataSavers?: /* Library option info dto. */ LibraryOptionInfoDto[];
+			MetadataSavers: /* Library option info dto. */ LibraryOptionInfoDto[];
 			/**
 			 * Gets or sets the subtitle fetchers.
 			 */
-			SubtitleFetchers?: /* Library option info dto. */ LibraryOptionInfoDto[];
+			SubtitleFetchers: /* Library option info dto. */ LibraryOptionInfoDto[];
 			/**
 			 * Gets or sets the type options.
 			 */
-			TypeOptions?: /* Library type options dto. */ LibraryTypeOptionsDto[];
+			TypeOptions: /* Library type options dto. */ LibraryTypeOptionsDto[];
 		}
 		/**
 		 * Library type options dto.
@@ -2565,87 +2565,87 @@ export namespace Components {
 			/**
 			 * Gets or sets the default image options.
 			 */
-			DefaultImageOptions?: ImageOption[];
+			DefaultImageOptions: ImageOption[];
 			/**
 			 * Gets or sets the image fetchers.
 			 */
-			ImageFetchers?: /* Library option info dto. */ LibraryOptionInfoDto[];
+			ImageFetchers: /* Library option info dto. */ LibraryOptionInfoDto[];
 			/**
 			 * Gets or sets the metadata fetchers.
 			 */
-			MetadataFetchers?: /* Library option info dto. */ LibraryOptionInfoDto[];
+			MetadataFetchers: /* Library option info dto. */ LibraryOptionInfoDto[];
 			/**
 			 * Gets or sets the supported image types.
 			 */
-			SupportedImageTypes?: /* Enum ImageType. */ ImageType[];
+			SupportedImageTypes: /* Enum ImageType. */ ImageType[];
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: string;
+			Type: string;
 		}
 		/**
 		 * Class LibraryUpdateInfo.
 		 */
 		export interface LibraryUpdateInfo {
-			CollectionFolders?: string[];
+			CollectionFolders: string[];
 			/**
 			 * Gets or sets the folders added to.
 			 */
-			FoldersAddedTo?: string[];
+			FoldersAddedTo: string[];
 			/**
 			 * Gets or sets the folders removed from.
 			 */
-			FoldersRemovedFrom?: string[];
-			readonly IsEmpty?: boolean;
+			FoldersRemovedFrom: string[];
+			readonly IsEmpty: boolean;
 			/**
 			 * Gets or sets the items added.
 			 */
-			ItemsAdded?: string[];
+			ItemsAdded: string[];
 			/**
 			 * Gets or sets the items removed.
 			 */
-			ItemsRemoved?: string[];
+			ItemsRemoved: string[];
 			/**
 			 * Gets or sets the items updated.
 			 */
-			ItemsUpdated?: string[];
+			ItemsUpdated: string[];
 		}
 		export interface ListingsProviderInfo {
-			ChannelMappings?: NameValuePair[];
-			Country?: string;
-			EnableAllTuners?: boolean;
-			EnabledTuners?: string[];
-			Id?: string;
-			KidsCategories?: string[];
-			ListingsId?: string;
-			MovieCategories?: string[];
-			MoviePrefix?: string;
-			NewsCategories?: string[];
-			Password?: string;
-			Path?: string;
-			PreferredLanguage?: string;
-			SportsCategories?: string[];
-			Type?: string;
-			UserAgent?: string;
-			Username?: string;
-			ZipCode?: string;
+			ChannelMappings: NameValuePair[];
+			Country: string;
+			EnableAllTuners: boolean;
+			EnabledTuners: string[];
+			Id: string;
+			KidsCategories: string[];
+			ListingsId: string;
+			MovieCategories: string[];
+			MoviePrefix: string;
+			NewsCategories: string[];
+			Password: string;
+			Path: string;
+			PreferredLanguage: string;
+			SportsCategories: string[];
+			Type: string;
+			UserAgent: string;
+			Username: string;
+			ZipCode: string;
 		}
 		export interface LiveStreamResponse {
-			readonly MediaSource?: MediaSourceInfo;
+			readonly MediaSource: MediaSourceInfo;
 		}
 		export interface LiveTvInfo {
 			/**
 			 * Gets or sets the enabled users.
 			 */
-			EnabledUsers?: string[];
+			EnabledUsers: string[];
 			/**
 			 * Gets or sets a value indicating whether this instance is enabled.
 			 */
-			IsEnabled?: boolean;
+			IsEnabled: boolean;
 			/**
 			 * Gets or sets the services.
 			 */
-			Services?: /* Class ServiceInfo. */ LiveTvServiceInfo[];
+			Services: /* Class ServiceInfo. */ LiveTvServiceInfo[];
 		}
 		/**
 		 * Class ServiceInfo.
@@ -2654,37 +2654,37 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether this instance has update available.
 			 */
-			HasUpdateAvailable?: boolean;
+			HasUpdateAvailable: boolean;
 			/**
 			 * Gets or sets the home page URL.
 			 */
-			HomePageUrl?: string;
+			HomePageUrl: string;
 			/**
 			 * Gets or sets a value indicating whether this instance is visible.
 			 */
-			IsVisible?: boolean;
+			IsVisible: boolean;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the status.
 			 */
-			Status?: LiveTvServiceStatus;
+			Status: LiveTvServiceStatus;
 			/**
 			 * Gets or sets the status message.
 			 */
-			StatusMessage?: string;
-			Tuners?: string[];
+			StatusMessage: string;
+			Tuners: string[];
 			/**
 			 * Gets or sets the version.
 			 */
-			Version?: string;
+			Version: string;
 		}
 		export type LiveTvServiceStatus = 'Ok' | 'Unavailable';
 		export interface LocalizationOption {
-			Name?: string;
-			Value?: string;
+			Name: string;
+			Value: string;
 		}
 		/**
 		 * Enum LocationType.
@@ -2694,19 +2694,19 @@ export namespace Components {
 			/**
 			 * Gets or sets the date created.
 			 */
-			DateCreated?: string; // date-time
+			DateCreated: string; // date-time
 			/**
 			 * Gets or sets the date modified.
 			 */
-			DateModified?: string; // date-time
+			DateModified: string; // date-time
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the size.
 			 */
-			Size?: number; // int64
+			Size: number; // int64
 		}
 		export type LogLevel =
 			| 'Trace'
@@ -2723,31 +2723,31 @@ export namespace Components {
 			/**
 			 * Gets or sets the codec.
 			 */
-			Codec?: string;
+			Codec: string;
 			/**
 			 * Gets or sets the codec tag.
 			 */
-			CodecTag?: string;
+			CodecTag: string;
 			/**
 			 * Gets or sets the comment.
 			 */
-			Comment?: string;
+			Comment: string;
 			/**
 			 * Gets or sets the delivery URL.
 			 */
-			DeliveryUrl?: string;
+			DeliveryUrl: string;
 			/**
 			 * Gets or sets the filename.
 			 */
-			FileName?: string;
+			FileName: string;
 			/**
 			 * Gets or sets the index.
 			 */
-			Index?: number; // int32
+			Index: number; // int32
 			/**
 			 * Gets or sets the MIME type.
 			 */
-			MimeType?: string;
+			MimeType: string;
 		}
 		/**
 		 * Media Encoder Path Dto.
@@ -2756,11 +2756,11 @@ export namespace Components {
 			/**
 			 * Gets or sets media encoder path.
 			 */
-			Path?: string;
+			Path: string;
 			/**
 			 * Gets or sets media encoder path type.
 			 */
-			PathType?: string;
+			PathType: string;
 		}
 		/**
 		 * Media Path dto.
@@ -2773,65 +2773,65 @@ export namespace Components {
 			/**
 			 * Gets or sets the path to add.
 			 */
-			Path?: string;
+			Path: string;
 			/**
 			 * Gets or sets the path info.
 			 */
-			PathInfo?: MediaPathInfo;
+			PathInfo: MediaPathInfo;
 		}
 		export interface MediaPathInfo {
-			NetworkPath?: string;
-			Path?: string;
+			NetworkPath: string;
+			Path: string;
 		}
 		export type MediaProtocol = 'File' | 'Http' | 'Rtmp' | 'Rtsp' | 'Udp' | 'Rtp' | 'Ftp';
 		export interface MediaSourceInfo {
-			AnalyzeDurationMs?: number; // int32
-			Bitrate?: number; // int32
-			BufferMs?: number; // int32
-			Container?: string;
-			DefaultAudioStreamIndex?: number; // int32
-			DefaultSubtitleStreamIndex?: number; // int32
-			ETag?: string;
-			EncoderPath?: string;
-			EncoderProtocol?: MediaProtocol;
-			Formats?: string[];
-			GenPtsInput?: boolean;
-			Id?: string;
-			IgnoreDts?: boolean;
-			IgnoreIndex?: boolean;
-			IsInfiniteStream?: boolean;
+			AnalyzeDurationMs: number; // int32
+			Bitrate: number; // int32
+			BufferMs: number; // int32
+			Container: string;
+			DefaultAudioStreamIndex: number; // int32
+			DefaultSubtitleStreamIndex: number; // int32
+			ETag: string;
+			EncoderPath: string;
+			EncoderProtocol: MediaProtocol;
+			Formats: string[];
+			GenPtsInput: boolean;
+			Id: string;
+			IgnoreDts: boolean;
+			IgnoreIndex: boolean;
+			IsInfiniteStream: boolean;
 			/**
 			 * Differentiate internet url vs local network.
 			 */
-			IsRemote?: boolean;
-			IsoType?: /* Enum IsoType. */ IsoType;
-			LiveStreamId?: string;
-			MediaAttachments?: /* Class MediaAttachment. */ MediaAttachment[];
-			MediaStreams?: /* Class MediaStream. */ MediaStream[];
-			Name?: string;
-			OpenToken?: string;
-			Path?: string;
-			Protocol?: MediaProtocol;
-			ReadAtNativeFramerate?: boolean;
-			RequiredHttpHeaders?: {
+			IsRemote: boolean;
+			IsoType: /* Enum IsoType. */ IsoType;
+			LiveStreamId: string;
+			MediaAttachments: /* Class MediaAttachment. */ MediaAttachment[];
+			MediaStreams: /* Class MediaStream. */ MediaStream[];
+			Name: string;
+			OpenToken: string;
+			Path: string;
+			Protocol: MediaProtocol;
+			ReadAtNativeFramerate: boolean;
+			RequiredHttpHeaders: {
 				[name: string]: string;
 			};
-			RequiresClosing?: boolean;
-			RequiresLooping?: boolean;
-			RequiresOpening?: boolean;
-			RunTimeTicks?: number; // int64
-			Size?: number; // int64
-			SupportsDirectPlay?: boolean;
-			SupportsDirectStream?: boolean;
-			SupportsProbing?: boolean;
-			SupportsTranscoding?: boolean;
-			Timestamp?: TransportStreamTimestamp;
-			TranscodingContainer?: string;
-			TranscodingSubProtocol?: string;
-			TranscodingUrl?: string;
-			Type?: MediaSourceType;
-			Video3DFormat?: Video3DFormat;
-			VideoType?: /* Enum VideoType. */ VideoType;
+			RequiresClosing: boolean;
+			RequiresLooping: boolean;
+			RequiresOpening: boolean;
+			RunTimeTicks: number; // int64
+			Size: number; // int64
+			SupportsDirectPlay: boolean;
+			SupportsDirectStream: boolean;
+			SupportsProbing: boolean;
+			SupportsTranscoding: boolean;
+			Timestamp: TransportStreamTimestamp;
+			TranscodingContainer: string;
+			TranscodingSubProtocol: string;
+			TranscodingUrl: string;
+			Type: MediaSourceType;
+			Video3DFormat: Video3DFormat;
+			VideoType: /* Enum VideoType. */ VideoType;
 		}
 		export type MediaSourceType = 'Default' | 'Grouping' | 'Placeholder';
 		/**
@@ -2841,170 +2841,170 @@ export namespace Components {
 			/**
 			 * Gets or sets the aspect ratio.
 			 */
-			AspectRatio?: string;
+			AspectRatio: string;
 			/**
 			 * Gets or sets the average frame rate.
 			 */
-			AverageFrameRate?: number; // float
+			AverageFrameRate: number; // float
 			/**
 			 * Gets or sets the bit depth.
 			 */
-			BitDepth?: number; // int32
+			BitDepth: number; // int32
 			/**
 			 * Gets or sets the bit rate.
 			 */
-			BitRate?: number; // int32
+			BitRate: number; // int32
 			/**
 			 * Gets or sets the channel layout.
 			 */
-			ChannelLayout?: string;
+			ChannelLayout: string;
 			/**
 			 * Gets or sets the channels.
 			 */
-			Channels?: number; // int32
+			Channels: number; // int32
 			/**
 			 * Gets or sets the codec.
 			 */
-			Codec?: string;
+			Codec: string;
 			/**
 			 * Gets or sets the codec tag.
 			 */
-			CodecTag?: string;
+			CodecTag: string;
 			/**
 			 * Gets or sets the codec time base.
 			 */
-			CodecTimeBase?: string;
+			CodecTimeBase: string;
 			/**
 			 * Gets or sets the color primaries.
 			 */
-			ColorPrimaries?: string;
+			ColorPrimaries: string;
 			/**
 			 * Gets or sets the color range.
 			 */
-			ColorRange?: string;
+			ColorRange: string;
 			/**
 			 * Gets or sets the color space.
 			 */
-			ColorSpace?: string;
+			ColorSpace: string;
 			/**
 			 * Gets or sets the color transfer.
 			 */
-			ColorTransfer?: string;
+			ColorTransfer: string;
 			/**
 			 * Gets or sets the comment.
 			 */
-			Comment?: string;
+			Comment: string;
 			/**
 			 * Gets or sets the method.
 			 */
-			DeliveryMethod?: SubtitleDeliveryMethod;
+			DeliveryMethod: SubtitleDeliveryMethod;
 			/**
 			 * Gets or sets the delivery URL.
 			 */
-			DeliveryUrl?: string;
-			readonly DisplayTitle?: string;
+			DeliveryUrl: string;
+			readonly DisplayTitle: string;
 			/**
 			 * Gets or sets the height.
 			 */
-			Height?: number; // int32
+			Height: number; // int32
 			/**
 			 * Gets or sets the index.
 			 */
-			Index?: number; // int32
-			IsAVC?: boolean;
+			Index: number; // int32
+			IsAVC: boolean;
 			/**
 			 * Gets a value indicating whether this instance is anamorphic.
 			 */
-			IsAnamorphic?: boolean;
+			IsAnamorphic: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is default.
 			 */
-			IsDefault?: boolean;
+			IsDefault: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is external.
 			 */
-			IsExternal?: boolean;
+			IsExternal: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is external URL.
 			 */
-			IsExternalUrl?: boolean;
+			IsExternalUrl: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is forced.
 			 */
-			IsForced?: boolean;
+			IsForced: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is interlaced.
 			 */
-			IsInterlaced?: boolean;
-			readonly IsTextSubtitleStream?: boolean;
+			IsInterlaced: boolean;
+			readonly IsTextSubtitleStream: boolean;
 			/**
 			 * Gets or sets the language.
 			 */
-			Language?: string;
+			Language: string;
 			/**
 			 * Gets or sets the level.
 			 */
-			Level?: number; // double
-			NalLengthSize?: string;
+			Level: number; // double
+			NalLengthSize: string;
 			/**
 			 * Gets or sets the length of the packet.
 			 */
-			PacketLength?: number; // int32
+			PacketLength: number; // int32
 			/**
 			 * Gets or sets the filename.
 			 */
-			Path?: string;
+			Path: string;
 			/**
 			 * Gets or sets the pixel format.
 			 */
-			PixelFormat?: string;
+			PixelFormat: string;
 			/**
 			 * Gets or sets the profile.
 			 */
-			Profile?: string;
+			Profile: string;
 			/**
 			 * Gets or sets the real frame rate.
 			 */
-			RealFrameRate?: number; // float
+			RealFrameRate: number; // float
 			/**
 			 * Gets or sets the reference frames.
 			 */
-			RefFrames?: number; // int32
+			RefFrames: number; // int32
 			/**
 			 * Gets or sets the sample rate.
 			 */
-			SampleRate?: number; // int32
+			SampleRate: number; // int32
 			/**
 			 * Gets or sets the score.
 			 */
-			Score?: number; // int32
+			Score: number; // int32
 			/**
 			 * Gets or sets a value indicating whether [supports external stream].
 			 */
-			SupportsExternalStream?: boolean;
+			SupportsExternalStream: boolean;
 			/**
 			 * Gets or sets the time base.
 			 */
-			TimeBase?: string;
+			TimeBase: string;
 			/**
 			 * Gets or sets the title.
 			 */
-			Title?: string;
+			Title: string;
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: /* Enum MediaStreamType. */ MediaStreamType;
+			Type: /* Enum MediaStreamType. */ MediaStreamType;
 			/**
 			 * Gets or sets the video range.
 			 */
-			readonly VideoRange?: string;
+			readonly VideoRange: string;
 			/**
 			 * Gets or sets the width.
 			 */
-			Width?: number; // int32
-			localizedDefault?: string;
-			localizedForced?: string;
-			localizedUndefined?: string;
+			Width: number; // int32
+			localizedDefault: string;
+			localizedForced: string;
+			localizedUndefined: string;
 		}
 		/**
 		 * Enum MediaStreamType.
@@ -3017,24 +3017,24 @@ export namespace Components {
 			/**
 			 * Gets or sets media path.
 			 */
-			Path?: string;
+			Path: string;
 			/**
 			 * Gets or sets media update type.
 			 * Created, Modified, Deleted.
 			 */
-			UpdateType?: string;
+			UpdateType: string;
 		}
 		export interface MediaUrl {
-			Name?: string;
-			Url?: string;
+			Name: string;
+			Url: string;
 		}
 		export interface MetadataEditorInfo {
-			ContentType?: string;
-			ContentTypeOptions?: NameValuePair[];
-			Countries?: /* Class CountryInfo. */ CountryInfo[];
-			Cultures?: /* Class CultureDto. */ CultureDto[];
-			ExternalIdInfos?: /* Represents the external id information for serialization to the client. */ ExternalIdInfo[];
-			ParentalRatingOptions?: /* Class ParentalRating. */ ParentalRating[];
+			ContentType: string;
+			ContentTypeOptions: NameValuePair[];
+			Countries: /* Class CountryInfo. */ CountryInfo[];
+			Cultures: /* Class CultureDto. */ CultureDto[];
+			ExternalIdInfos: /* Represents the external id information for serialization to the client. */ ExternalIdInfo[];
+			ParentalRatingOptions: /* Class ParentalRating. */ ParentalRating[];
 		}
 		/**
 		 * Enum MetadataFields.
@@ -3053,13 +3053,13 @@ export namespace Components {
 		 * Class MetadataOptions.
 		 */
 		export interface MetadataOptions {
-			DisabledImageFetchers?: string[];
-			DisabledMetadataFetchers?: string[];
-			DisabledMetadataSavers?: string[];
-			ImageFetcherOrder?: string[];
-			ItemType?: string;
-			LocalMetadataReaderOrder?: string[];
-			MetadataFetcherOrder?: string[];
+			DisabledImageFetchers: string[];
+			DisabledMetadataFetchers: string[];
+			DisabledMetadataSavers: string[];
+			ImageFetcherOrder: string[];
+			ItemType: string;
+			LocalMetadataReaderOrder: string[];
+			MetadataFetcherOrder: string[];
 		}
 		export type MetadataRefreshMode = 'None' | 'ValidationOnly' | 'Default' | 'FullRefresh';
 		/**
@@ -3069,124 +3069,124 @@ export namespace Components {
 			/**
 			 * Gets or sets the new position.
 			 */
-			NewIndex?: number; // int32
+			NewIndex: number; // int32
 			/**
 			 * Gets or sets the playlist identifier of the item.
 			 */
-			PlaylistItemId?: string; // uuid
+			PlaylistItemId: string; // uuid
 		}
 		export interface MovieInfo {
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface MovieInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: MovieInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: MovieInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export interface MusicVideoInfo {
-			Artists?: string[];
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			Artists: string[];
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface MusicVideoInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: MusicVideoInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: MusicVideoInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export interface NameGuidPair {
-			Id?: string; // uuid
-			Name?: string;
+			Id: string; // uuid
+			Name: string;
 		}
 		export interface NameIdPair {
 			/**
 			 * Gets or sets the identifier.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 		}
 		export interface NameValuePair {
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the value.
 			 */
-			Value?: string;
+			Value: string;
 		}
 		/**
 		 * Class NewGroupRequestDto.
@@ -3195,7 +3195,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the group name.
 			 */
-			GroupName?: string;
+			GroupName: string;
 		}
 		/**
 		 * Class NextItemRequestDto.
@@ -3204,7 +3204,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the playing item identifier.
 			 */
-			PlaylistItemId?: string; // uuid
+			PlaylistItemId: string; // uuid
 		}
 		/**
 		 * The notification DTO.
@@ -3213,35 +3213,35 @@ export namespace Components {
 			/**
 			 * Gets or sets the notification date.
 			 */
-			Date?: string; // date-time
+			Date: string; // date-time
 			/**
 			 * Gets or sets the notification's description. Defaults to an empty string.
 			 */
-			Description?: string;
+			Description: string;
 			/**
 			 * Gets or sets the notification ID. Defaults to an empty string.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets a value indicating whether the notification has been read. Defaults to false.
 			 */
-			IsRead?: boolean;
+			IsRead: boolean;
 			/**
 			 * Gets or sets the notification level.
 			 */
-			Level?: NotificationLevel;
+			Level: NotificationLevel;
 			/**
 			 * Gets or sets the notification's name. Defaults to an empty string.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the notification's URL. Defaults to an empty string.
 			 */
-			Url?: string;
+			Url: string;
 			/**
 			 * Gets or sets the notification's user ID. Defaults to an empty string.
 			 */
-			UserId?: string;
+			UserId: string;
 		}
 		export type NotificationLevel = 'Normal' | 'Warning' | 'Error';
 		/**
@@ -3251,18 +3251,18 @@ export namespace Components {
 			/**
 			 * Gets or sets the current page of notifications.
 			 */
-			Notifications?: /* The notification DTO. */ NotificationDto[];
+			Notifications: /* The notification DTO. */ NotificationDto[];
 			/**
 			 * Gets or sets the total number of notifications.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		export interface NotificationTypeInfo {
-			Category?: string;
-			Enabled?: boolean;
-			IsBasedOnUserEvent?: boolean;
-			Name?: string;
-			Type?: string;
+			Category: string;
+			Enabled: boolean;
+			IsBasedOnUserEvent: boolean;
+			Name: string;
+			Type: string;
 		}
 		/**
 		 * The notification summary DTO.
@@ -3271,11 +3271,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the maximum unread notification level.
 			 */
-			MaxUnreadNotificationLevel?: NotificationLevel;
+			MaxUnreadNotificationLevel: NotificationLevel;
 			/**
 			 * Gets or sets the number of unread notifications.
 			 */
-			UnreadCount?: number; // int32
+			UnreadCount: number; // int32
 		}
 		/**
 		 * Class GroupUpdate.
@@ -3284,15 +3284,15 @@ export namespace Components {
 			/**
 			 * Gets the update data.
 			 */
-			readonly Data?: null;
+			readonly Data: null;
 			/**
 			 * Gets the group identifier.
 			 */
-			readonly GroupId?: string; // uuid
+			readonly GroupId: string; // uuid
 			/**
 			 * Gets the update type.
 			 */
-			readonly Type?: /* Enum GroupUpdateType. */ GroupUpdateType;
+			readonly Type: /* Enum GroupUpdateType. */ GroupUpdateType;
 		}
 		/**
 		 * Open live stream dto.
@@ -3301,55 +3301,55 @@ export namespace Components {
 			/**
 			 * Gets or sets the audio stream index.
 			 */
-			AudioStreamIndex?: number; // int32
+			AudioStreamIndex: number; // int32
 			/**
 			 * Gets or sets the device profile.
 			 */
-			DeviceProfile?: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
+			DeviceProfile: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
 			/**
 			 * Gets or sets the device play protocols.
 			 */
-			DirectPlayProtocols?: MediaProtocol[];
+			DirectPlayProtocols: MediaProtocol[];
 			/**
 			 * Gets or sets a value indicating whether to enable direct play.
 			 */
-			EnableDirectPlay?: boolean;
+			EnableDirectPlay: boolean;
 			/**
 			 * Gets or sets a value indicating whether to enale direct stream.
 			 */
-			EnableDirectStream?: boolean;
+			EnableDirectStream: boolean;
 			/**
 			 * Gets or sets the item id.
 			 */
-			ItemId?: string; // uuid
+			ItemId: string; // uuid
 			/**
 			 * Gets or sets the max audio channels.
 			 */
-			MaxAudioChannels?: number; // int32
+			MaxAudioChannels: number; // int32
 			/**
 			 * Gets or sets the max streaming bitrate.
 			 */
-			MaxStreamingBitrate?: number; // int32
+			MaxStreamingBitrate: number; // int32
 			/**
 			 * Gets or sets the open token.
 			 */
-			OpenToken?: string;
+			OpenToken: string;
 			/**
 			 * Gets or sets the play session id.
 			 */
-			PlaySessionId?: string;
+			PlaySessionId: string;
 			/**
 			 * Gets or sets the start time in ticks.
 			 */
-			StartTimeTicks?: number; // int64
+			StartTimeTicks: number; // int64
 			/**
 			 * Gets or sets the subtitle stream index.
 			 */
-			SubtitleStreamIndex?: number; // int32
+			SubtitleStreamIndex: number; // int32
 			/**
 			 * Gets or sets the user id.
 			 */
-			UserId?: string; // uuid
+			UserId: string; // uuid
 		}
 		/**
 		 * Class PackageInfo.
@@ -3358,36 +3358,36 @@ export namespace Components {
 			/**
 			 * Gets or sets the category.
 			 */
-			category?: string;
+			category: string;
 			/**
 			 * Gets or sets a long description of the plugin containing features or helpful explanations.
 			 */
-			description?: string;
+			description: string;
 			/**
 			 * Gets or sets the guid of the assembly associated with this plugin.
 			 * This is used to identify the proper item for automatic updates.
 			 */
-			guid?: string;
+			guid: string;
 			/**
 			 * Gets or sets the image url for the package.
 			 */
-			imageUrl?: string;
+			imageUrl: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			name?: string;
+			name: string;
 			/**
 			 * Gets or sets a short overview of what the plugin does.
 			 */
-			overview?: string;
+			overview: string;
 			/**
 			 * Gets or sets the owner.
 			 */
-			owner?: string;
+			owner: string;
 			/**
 			 * Gets or sets the versions.
 			 */
-			versions?: /* Defines the MediaBrowser.Model.Updates.VersionInfo class. */ VersionInfo[];
+			versions: /* Defines the MediaBrowser.Model.Updates.VersionInfo class. */ VersionInfo[];
 		}
 		/**
 		 * Class ParentalRating.
@@ -3396,11 +3396,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the value.
 			 */
-			Value?: number; // int32
+			Value: number; // int32
 		}
 		/**
 		 * Defines the MediaBrowser.Model.Configuration.PathSubstitution.
@@ -3409,65 +3409,65 @@ export namespace Components {
 			/**
 			 * Gets or sets the value to substitute.
 			 */
-			From?: string;
+			From: string;
 			/**
 			 * Gets or sets the value to substitution with.
 			 */
-			To?: string;
+			To: string;
 		}
 		export interface PersonLookupInfo {
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface PersonLookupInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: PersonLookupInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: PersonLookupInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export interface PinRedeemResult {
 			/**
 			 * Gets or sets a value indicating whether this MediaBrowser.Model.Users.PinRedeemResult is success.
 			 */
-			Success?: boolean;
+			Success: boolean;
 			/**
 			 * Gets or sets the users reset.
 			 */
-			UsersReset?: string[];
+			UsersReset: string[];
 		}
 		/**
 		 * Class PingRequestDto.
@@ -3476,7 +3476,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the ping time.
 			 */
-			Ping?: number; // int64
+			Ping: number; // int64
 		}
 		export type PlayAccess = 'Full' | 'None';
 		/**
@@ -3493,26 +3493,26 @@ export namespace Components {
 		 * Class PlayRequest.
 		 */
 		export interface PlayRequest {
-			AudioStreamIndex?: number; // int32
+			AudioStreamIndex: number; // int32
 			/**
 			 * Gets or sets the controlling user identifier.
 			 */
-			ControllingUserId?: string; // uuid
+			ControllingUserId: string; // uuid
 			/**
 			 * Gets or sets the item ids.
 			 */
-			ItemIds?: string /* uuid */[];
-			MediaSourceId?: string;
+			ItemIds: string /* uuid */[];
+			MediaSourceId: string;
 			/**
 			 * Gets or sets the play command.
 			 */
-			PlayCommand?: /* Enum PlayCommand. */ PlayCommand;
-			StartIndex?: number; // int32
+			PlayCommand: /* Enum PlayCommand. */ PlayCommand;
+			StartIndex: number; // int32
 			/**
 			 * Gets or sets the start position ticks that the first item should be played at.
 			 */
-			StartPositionTicks?: number; // int64
-			SubtitleStreamIndex?: number; // int32
+			StartPositionTicks: number; // int64
+			SubtitleStreamIndex: number; // int32
 		}
 		/**
 		 * Class PlayRequestDto.
@@ -3521,15 +3521,15 @@ export namespace Components {
 			/**
 			 * Gets or sets the position of the playing item in the queue.
 			 */
-			PlayingItemPosition?: number; // int32
+			PlayingItemPosition: number; // int32
 			/**
 			 * Gets or sets the playing queue.
 			 */
-			PlayingQueue?: string /* uuid */[];
+			PlayingQueue: string /* uuid */[];
 			/**
 			 * Gets or sets the start position ticks.
 			 */
-			StartPositionTicks?: number; // int64
+			StartPositionTicks: number; // int64
 		}
 		export type PlaybackErrorCode = 'NotAllowed' | 'NoCompatibleStream' | 'RateLimitExceeded';
 		/**
@@ -3539,63 +3539,63 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether to allow audio stream copy.
 			 */
-			AllowAudioStreamCopy?: boolean;
+			AllowAudioStreamCopy: boolean;
 			/**
 			 * Gets or sets a value indicating whether to enable video stream copy.
 			 */
-			AllowVideoStreamCopy?: boolean;
+			AllowVideoStreamCopy: boolean;
 			/**
 			 * Gets or sets the audio stream index.
 			 */
-			AudioStreamIndex?: number; // int32
+			AudioStreamIndex: number; // int32
 			/**
 			 * Gets or sets a value indicating whether to auto open the live stream.
 			 */
-			AutoOpenLiveStream?: boolean;
+			AutoOpenLiveStream: boolean;
 			/**
 			 * Gets or sets the device profile.
 			 */
-			DeviceProfile?: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
+			DeviceProfile: /* Defines the MediaBrowser.Model.Dlna.DeviceProfile. */ DeviceProfile;
 			/**
 			 * Gets or sets a value indicating whether to enable direct play.
 			 */
-			EnableDirectPlay?: boolean;
+			EnableDirectPlay: boolean;
 			/**
 			 * Gets or sets a value indicating whether to enable direct stream.
 			 */
-			EnableDirectStream?: boolean;
+			EnableDirectStream: boolean;
 			/**
 			 * Gets or sets a value indicating whether to enable transcoding.
 			 */
-			EnableTranscoding?: boolean;
+			EnableTranscoding: boolean;
 			/**
 			 * Gets or sets the live stream id.
 			 */
-			LiveStreamId?: string;
+			LiveStreamId: string;
 			/**
 			 * Gets or sets the max audio channels.
 			 */
-			MaxAudioChannels?: number; // int32
+			MaxAudioChannels: number; // int32
 			/**
 			 * Gets or sets the max streaming bitrate.
 			 */
-			MaxStreamingBitrate?: number; // int32
+			MaxStreamingBitrate: number; // int32
 			/**
 			 * Gets or sets the media source id.
 			 */
-			MediaSourceId?: string;
+			MediaSourceId: string;
 			/**
 			 * Gets or sets the start time in ticks.
 			 */
-			StartTimeTicks?: number; // int64
+			StartTimeTicks: number; // int64
 			/**
 			 * Gets or sets the subtitle stream index.
 			 */
-			SubtitleStreamIndex?: number; // int32
+			SubtitleStreamIndex: number; // int32
 			/**
 			 * Gets or sets the playback userId.
 			 */
-			UserId?: string; // uuid
+			UserId: string; // uuid
 		}
 		/**
 		 * Class PlaybackInfoResponse.
@@ -3604,42 +3604,42 @@ export namespace Components {
 			/**
 			 * Gets or sets the error code.
 			 */
-			ErrorCode?: PlaybackErrorCode;
+			ErrorCode: PlaybackErrorCode;
 			/**
 			 * Gets or sets the media sources.
 			 */
-			MediaSources?: MediaSourceInfo[];
+			MediaSources: MediaSourceInfo[];
 			/**
 			 * Gets or sets the play session identifier.
 			 */
-			PlaySessionId?: string;
+			PlaySessionId: string;
 		}
 		/**
 		 * Class PlaybackProgressInfo.
 		 */
 		export interface PlaybackProgressInfo {
-			AspectRatio?: string;
+			AspectRatio: string;
 			/**
 			 * Gets or sets the index of the audio stream.
 			 */
-			AudioStreamIndex?: number; // int32
-			Brightness?: number; // int32
+			AudioStreamIndex: number; // int32
+			Brightness: number; // int32
 			/**
 			 * Gets or sets a value indicating whether this instance can seek.
 			 */
-			CanSeek?: boolean;
+			CanSeek: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is muted.
 			 */
-			IsMuted?: boolean;
+			IsMuted: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is paused.
 			 */
-			IsPaused?: boolean;
+			IsPaused: boolean;
 			/**
 			 * Gets or sets the item.
 			 */
-			Item?: /**
+			Item: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
@@ -3647,73 +3647,73 @@ export namespace Components {
 			/**
 			 * Gets or sets the item identifier.
 			 */
-			ItemId?: string; // uuid
+			ItemId: string; // uuid
 			/**
 			 * Gets or sets the live stream identifier.
 			 */
-			LiveStreamId?: string;
+			LiveStreamId: string;
 			/**
 			 * Gets or sets the media version identifier.
 			 */
-			MediaSourceId?: string;
-			NowPlayingQueue?: QueueItem[];
+			MediaSourceId: string;
+			NowPlayingQueue: QueueItem[];
 			/**
 			 * Gets or sets the play method.
 			 */
-			PlayMethod?: PlayMethod;
+			PlayMethod: PlayMethod;
 			/**
 			 * Gets or sets the play session identifier.
 			 */
-			PlaySessionId?: string;
-			PlaybackStartTimeTicks?: number; // int64
-			PlaylistItemId?: string;
+			PlaySessionId: string;
+			PlaybackStartTimeTicks: number; // int64
+			PlaylistItemId: string;
 			/**
 			 * Gets or sets the position ticks.
 			 */
-			PositionTicks?: number; // int64
+			PositionTicks: number; // int64
 			/**
 			 * Gets or sets the repeat mode.
 			 */
-			RepeatMode?: RepeatMode;
+			RepeatMode: RepeatMode;
 			/**
 			 * Gets or sets the session id.
 			 */
-			SessionId?: string;
+			SessionId: string;
 			/**
 			 * Gets or sets the index of the subtitle stream.
 			 */
-			SubtitleStreamIndex?: number; // int32
+			SubtitleStreamIndex: number; // int32
 			/**
 			 * Gets or sets the volume level.
 			 */
-			VolumeLevel?: number; // int32
+			VolumeLevel: number; // int32
 		}
 		/**
 		 * Class PlaybackStartInfo.
 		 */
 		export interface PlaybackStartInfo {
-			AspectRatio?: string;
+			AspectRatio: string;
 			/**
 			 * Gets or sets the index of the audio stream.
 			 */
-			AudioStreamIndex?: number; // int32
-			Brightness?: number; // int32
+			AudioStreamIndex: number; // int32
+			Brightness: number; // int32
 			/**
 			 * Gets or sets a value indicating whether this instance can seek.
 			 */
-			CanSeek?: boolean;
+			CanSeek: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is muted.
 			 */
-			IsMuted?: boolean;
+			IsMuted: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is paused.
 			 */
-			IsPaused?: boolean;
+			IsPaused: boolean;
 			/**
 			 * Gets or sets the item.
 			 */
-			Item?: /**
+			Item: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
@@ -3721,46 +3721,46 @@ export namespace Components {
 			/**
 			 * Gets or sets the item identifier.
 			 */
-			ItemId?: string; // uuid
+			ItemId: string; // uuid
 			/**
 			 * Gets or sets the live stream identifier.
 			 */
-			LiveStreamId?: string;
+			LiveStreamId: string;
 			/**
 			 * Gets or sets the media version identifier.
 			 */
-			MediaSourceId?: string;
-			NowPlayingQueue?: QueueItem[];
+			MediaSourceId: string;
+			NowPlayingQueue: QueueItem[];
 			/**
 			 * Gets or sets the play method.
 			 */
-			PlayMethod?: PlayMethod;
+			PlayMethod: PlayMethod;
 			/**
 			 * Gets or sets the play session identifier.
 			 */
-			PlaySessionId?: string;
-			PlaybackStartTimeTicks?: number; // int64
-			PlaylistItemId?: string;
+			PlaySessionId: string;
+			PlaybackStartTimeTicks: number; // int64
+			PlaylistItemId: string;
 			/**
 			 * Gets or sets the position ticks.
 			 */
-			PositionTicks?: number; // int64
+			PositionTicks: number; // int64
 			/**
 			 * Gets or sets the repeat mode.
 			 */
-			RepeatMode?: RepeatMode;
+			RepeatMode: RepeatMode;
 			/**
 			 * Gets or sets the session id.
 			 */
-			SessionId?: string;
+			SessionId: string;
 			/**
 			 * Gets or sets the index of the subtitle stream.
 			 */
-			SubtitleStreamIndex?: number; // int32
+			SubtitleStreamIndex: number; // int32
 			/**
 			 * Gets or sets the volume level.
 			 */
-			VolumeLevel?: number; // int32
+			VolumeLevel: number; // int32
 		}
 		/**
 		 * Class PlaybackStopInfo.
@@ -3769,11 +3769,11 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether this MediaBrowser.Model.Session.PlaybackStopInfo is failed.
 			 */
-			Failed?: boolean;
+			Failed: boolean;
 			/**
 			 * Gets or sets the item.
 			 */
-			Item?: /**
+			Item: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
@@ -3781,75 +3781,75 @@ export namespace Components {
 			/**
 			 * Gets or sets the item identifier.
 			 */
-			ItemId?: string; // uuid
+			ItemId: string; // uuid
 			/**
 			 * Gets or sets the live stream identifier.
 			 */
-			LiveStreamId?: string;
+			LiveStreamId: string;
 			/**
 			 * Gets or sets the media version identifier.
 			 */
-			MediaSourceId?: string;
-			NextMediaType?: string;
-			NowPlayingQueue?: QueueItem[];
+			MediaSourceId: string;
+			NextMediaType: string;
+			NowPlayingQueue: QueueItem[];
 			/**
 			 * Gets or sets the play session identifier.
 			 */
-			PlaySessionId?: string;
-			PlaylistItemId?: string;
+			PlaySessionId: string;
+			PlaylistItemId: string;
 			/**
 			 * Gets or sets the position ticks.
 			 */
-			PositionTicks?: number; // int64
+			PositionTicks: number; // int64
 			/**
 			 * Gets or sets the session id.
 			 */
-			SessionId?: string;
+			SessionId: string;
 		}
 		export interface PlayerStateInfo {
 			/**
 			 * Gets or sets the index of the now playing audio stream.
 			 */
-			AudioStreamIndex?: number; // int32
+			AudioStreamIndex: number; // int32
 			/**
 			 * Gets or sets a value indicating whether this instance can seek.
 			 */
-			CanSeek?: boolean;
+			CanSeek: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is muted.
 			 */
-			IsMuted?: boolean;
+			IsMuted: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is paused.
 			 */
-			IsPaused?: boolean;
+			IsPaused: boolean;
 			/**
 			 * Gets or sets the now playing media version identifier.
 			 */
-			MediaSourceId?: string;
+			MediaSourceId: string;
 			/**
 			 * Gets or sets the play method.
 			 */
-			PlayMethod?: PlayMethod;
+			PlayMethod: PlayMethod;
 			/**
 			 * Gets or sets the now playing position ticks.
 			 */
-			PositionTicks?: number; // int64
+			PositionTicks: number; // int64
 			/**
 			 * Gets or sets the repeat mode.
 			 */
-			RepeatMode?: RepeatMode;
+			RepeatMode: RepeatMode;
 			/**
 			 * Gets or sets the index of the now playing subtitle stream.
 			 */
-			SubtitleStreamIndex?: number; // int32
+			SubtitleStreamIndex: number; // int32
 			/**
 			 * Gets or sets the volume level.
 			 */
-			VolumeLevel?: number; // int32
+			VolumeLevel: number; // int32
 		}
 		export interface PlaylistCreationResult {
-			readonly Id?: string;
+			readonly Id: string;
 		}
 		/**
 		 * Enum PlaystateCommand.
@@ -3868,12 +3868,12 @@ export namespace Components {
 			/**
 			 * Enum PlaystateCommand.
 			 */
-			Command?: /* Enum PlaystateCommand. */ PlaystateCommand;
+			Command: /* Enum PlaystateCommand. */ PlaystateCommand;
 			/**
 			 * Gets or sets the controlling user identifier.
 			 */
-			ControllingUserId?: string;
-			SeekPositionTicks?: number; // int64
+			ControllingUserId: string;
+			SeekPositionTicks: number; // int64
 		}
 		/**
 		 * This is a serializable stub class that is used by the api to provide information about installed plugins.
@@ -3882,35 +3882,35 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether the plugin can be uninstalled.
 			 */
-			CanUninstall?: boolean;
+			CanUninstall: boolean;
 			/**
 			 * Gets or sets the name of the configuration file.
 			 */
-			ConfigurationFileName?: string;
+			ConfigurationFileName: string;
 			/**
 			 * Gets or sets the description.
 			 */
-			Description?: string;
+			Description: string;
 			/**
 			 * Gets or sets a value indicating whether this plugin has a valid image.
 			 */
-			HasImage?: boolean;
+			HasImage: boolean;
 			/**
 			 * Gets or sets the unique id.
 			 */
-			Id?: string; // uuid
+			Id: string; // uuid
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets a value indicating the status of the plugin.
 			 */
-			Status?: /* Plugin load status. */ PluginStatus;
+			Status: /* Plugin load status. */ PluginStatus;
 			/**
 			 * Gets or sets the version.
 			 */
-			Version?: Version;
+			Version: Version;
 		}
 		/**
 		 * Plugin security info.
@@ -3919,11 +3919,11 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether is mb supporter.
 			 */
-			IsMbSupporter?: boolean;
+			IsMbSupporter: boolean;
 			/**
 			 * Gets or sets the supporter key.
 			 */
-			SupporterKey?: string;
+			SupporterKey: string;
 		}
 		/**
 		 * Plugin load status.
@@ -3943,21 +3943,21 @@ export namespace Components {
 			/**
 			 * Gets or sets the playing item identifier.
 			 */
-			PlaylistItemId?: string; // uuid
+			PlaylistItemId: string; // uuid
 		}
 		export interface ProblemDetails {
 			[name: string]: any;
-			detail?: string;
-			instance?: string;
-			status?: number; // int32
-			title?: string;
-			type?: string;
+			detail: string;
+			instance: string;
+			status: number; // int32
+			title: string;
+			type: string;
 		}
 		export interface ProfileCondition {
-			Condition?: ProfileConditionType;
-			IsRequired?: boolean;
-			Property?: ProfileConditionValue;
-			Value?: string;
+			Condition: ProfileConditionType;
+			IsRequired: boolean;
+			Property: ProfileConditionValue;
+			Value: string;
 		}
 		export type ProfileConditionType =
 			| 'Equals'
@@ -3994,45 +3994,45 @@ export namespace Components {
 			/**
 			 * Gets or sets the id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the local address.
 			 */
-			LocalAddress?: string;
+			LocalAddress: string;
 			/**
 			 * Gets or sets the operating system.
 			 */
-			OperatingSystem?: string;
+			OperatingSystem: string;
 			/**
 			 * Gets or sets the product name. This is the AssemblyProduct name.
 			 */
-			ProductName?: string;
+			ProductName: string;
 			/**
 			 * Gets or sets the name of the server.
 			 */
-			ServerName?: string;
+			ServerName: string;
 			/**
 			 * Gets or sets a value indicating whether the startup wizard is completed.
 			 */
-			StartupWizardCompleted?: boolean;
+			StartupWizardCompleted: boolean;
 			/**
 			 * Gets or sets the server version.
 			 */
-			Version?: string;
+			Version: string;
 		}
 		export interface QueryFilters {
-			Genres?: NameGuidPair[];
-			Tags?: string[];
+			Genres: NameGuidPair[];
+			Tags: string[];
 		}
 		export interface QueryFiltersLegacy {
-			Genres?: string[];
-			OfficialRatings?: string[];
-			Tags?: string[];
-			Years?: number /* int32 */[];
+			Genres: string[];
+			OfficialRatings: string[];
+			Tags: string[];
+			Years: number /* int32 */[];
 		}
 		export interface QueueItem {
-			Id?: string; // uuid
-			PlaylistItemId?: string;
+			Id: string; // uuid
+			PlaylistItemId: string;
 		}
 		/**
 		 * Class QueueRequestDto.
@@ -4041,11 +4041,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the items to enqueue.
 			 */
-			ItemIds?: string /* uuid */[];
+			ItemIds: string /* uuid */[];
 			/**
 			 * Gets or sets the mode in which to add the new items.
 			 */
-			Mode?: /* Enum GroupQueueMode. */ GroupQueueMode;
+			Mode: /* Enum GroupQueueMode. */ GroupQueueMode;
 		}
 		/**
 		 * The quick connect request body.
@@ -4063,27 +4063,27 @@ export namespace Components {
 			/**
 			 * Gets a value indicating whether this request is authorized.
 			 */
-			readonly Authenticated?: boolean;
+			readonly Authenticated: boolean;
 			/**
 			 * Gets or sets the private access token.
 			 */
-			Authentication?: string;
+			Authentication: string;
 			/**
 			 * Gets or sets the user facing code used so the user can quickly differentiate this request from others.
 			 */
-			Code?: string;
+			Code: string;
 			/**
 			 * Gets or sets the DateTime that this request was created.
 			 */
-			DateAdded?: string; // date-time
+			DateAdded: string; // date-time
 			/**
 			 * Gets or sets an error message.
 			 */
-			Error?: string;
+			Error: string;
 			/**
 			 * Gets or sets the secret value used to uniquely identify this request. Can be used to retrieve authentication information.
 			 */
-			Secret?: string;
+			Secret: string;
 		}
 		/**
 		 * Quick connect state.
@@ -4097,29 +4097,29 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether the client playback is unpaused.
 			 */
-			IsPlaying?: boolean;
+			IsPlaying: boolean;
 			/**
 			 * Gets or sets the playlist item identifier of the playing item.
 			 */
-			PlaylistItemId?: string; // uuid
+			PlaylistItemId: string; // uuid
 			/**
 			 * Gets or sets the position ticks.
 			 */
-			PositionTicks?: number; // int64
+			PositionTicks: number; // int64
 			/**
 			 * Gets or sets when the request has been made by the client.
 			 */
-			When?: string; // date-time
+			When: string; // date-time
 		}
 		export interface RecommendationDto {
-			BaselineItemName?: string;
-			CategoryId?: string; // uuid
-			Items?: /**
+			BaselineItemName: string;
+			CategoryId: string; // uuid
+			Items: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
 			BaseItemDto[];
-			RecommendationType?: RecommendationType;
+			RecommendationType: RecommendationType;
 		}
 		export type RecommendationType =
 			| 'SimilarToRecentlyPlayed'
@@ -4143,43 +4143,43 @@ export namespace Components {
 			/**
 			 * Gets or sets the community rating.
 			 */
-			CommunityRating?: number; // double
+			CommunityRating: number; // double
 			/**
 			 * Gets or sets the height.
 			 */
-			Height?: number; // int32
+			Height: number; // int32
 			/**
 			 * Gets or sets the language.
 			 */
-			Language?: string;
+			Language: string;
 			/**
 			 * Gets or sets the name of the provider.
 			 */
-			ProviderName?: string;
+			ProviderName: string;
 			/**
 			 * Gets or sets the type of the rating.
 			 */
-			RatingType?: RatingType;
+			RatingType: RatingType;
 			/**
 			 * Gets a url used for previewing a smaller version.
 			 */
-			ThumbnailUrl?: string;
+			ThumbnailUrl: string;
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: /* Enum ImageType. */ ImageType;
+			Type: /* Enum ImageType. */ ImageType;
 			/**
 			 * Gets or sets the URL.
 			 */
-			Url?: string;
+			Url: string;
 			/**
 			 * Gets or sets the vote count.
 			 */
-			VoteCount?: number; // int32
+			VoteCount: number; // int32
 			/**
 			 * Gets or sets the width.
 			 */
-			Width?: number; // int32
+			Width: number; // int32
 		}
 		/**
 		 * Class RemoteImageResult.
@@ -4188,53 +4188,53 @@ export namespace Components {
 			/**
 			 * Gets or sets the images.
 			 */
-			Images?: /* Class RemoteImageInfo. */ RemoteImageInfo[];
+			Images: /* Class RemoteImageInfo. */ RemoteImageInfo[];
 			/**
 			 * Gets or sets the providers.
 			 */
-			Providers?: string[];
+			Providers: string[];
 			/**
 			 * Gets or sets the total record count.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		export interface RemoteSearchResult {
-			AlbumArtist?: RemoteSearchResult;
-			Artists?: RemoteSearchResult[];
-			ImageUrl?: string;
-			IndexNumber?: number; // int32
-			IndexNumberEnd?: number; // int32
+			AlbumArtist: RemoteSearchResult;
+			Artists: RemoteSearchResult[];
+			ImageUrl: string;
+			IndexNumber: number; // int32
+			IndexNumberEnd: number; // int32
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			Overview?: string;
-			ParentIndexNumber?: number; // int32
-			PremiereDate?: string; // date-time
+			Name: string;
+			Overview: string;
+			ParentIndexNumber: number; // int32
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the year.
 			 */
-			ProductionYear?: number; // int32
+			ProductionYear: number; // int32
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export interface RemoteSubtitleInfo {
-			Author?: string;
-			Comment?: string;
-			CommunityRating?: number; // float
-			DateCreated?: string; // date-time
-			DownloadCount?: number; // int32
-			Format?: string;
-			Id?: string;
-			IsHashMatch?: boolean;
-			Name?: string;
-			ProviderName?: string;
-			ThreeLetterISOLanguageName?: string;
+			Author: string;
+			Comment: string;
+			CommunityRating: number; // float
+			DateCreated: string; // date-time
+			DownloadCount: number; // int32
+			Format: string;
+			Id: string;
+			IsHashMatch: boolean;
+			Name: string;
+			ProviderName: string;
+			ThreeLetterISOLanguageName: string;
 		}
 		/**
 		 * Class RemoveFromPlaylistRequestDto.
@@ -4243,7 +4243,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the playlist identifiers ot the items.
 			 */
-			PlaylistItemIds?: string /* uuid */[];
+			PlaylistItemIds: string /* uuid */[];
 		}
 		export type RepeatMode = 'RepeatNone' | 'RepeatAll' | 'RepeatOne';
 		/**
@@ -4253,24 +4253,24 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether the repository is enabled.
 			 */
-			Enabled?: boolean;
+			Enabled: boolean;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the URL.
 			 */
-			Url?: string;
+			Url: string;
 		}
 		export interface ResponseProfile {
-			AudioCodec?: string;
-			Conditions?: ProfileCondition[];
-			Container?: string;
-			MimeType?: string;
-			OrgPn?: string;
-			Type?: DlnaProfileType;
-			VideoCodec?: string;
+			AudioCodec: string;
+			Conditions: ProfileCondition[];
+			Container: string;
+			MimeType: string;
+			OrgPn: string;
+			Type: DlnaProfileType;
+			VideoCodec: string;
 		}
 		/**
 		 * An enum representing the axis that should be scrolled.
@@ -4283,101 +4283,101 @@ export namespace Components {
 			/**
 			 * Gets or sets the album.
 			 */
-			Album?: string;
+			Album: string;
 			/**
 			 * Gets or sets the album artist.
 			 */
-			AlbumArtist?: string;
-			AlbumId?: string; // uuid
+			AlbumArtist: string;
+			AlbumId: string; // uuid
 			/**
 			 * Gets or sets the artists.
 			 */
-			Artists?: string[];
+			Artists: string[];
 			/**
 			 * Gets or sets the backdrop image item identifier.
 			 */
-			BackdropImageItemId?: string;
+			BackdropImageItemId: string;
 			/**
 			 * Gets or sets the backdrop image tag.
 			 */
-			BackdropImageTag?: string;
+			BackdropImageTag: string;
 			/**
 			 * Gets or sets the channel identifier.
 			 */
-			ChannelId?: string; // uuid
+			ChannelId: string; // uuid
 			/**
 			 * Gets or sets the name of the channel.
 			 */
-			ChannelName?: string;
-			EndDate?: string; // date-time
+			ChannelName: string;
+			EndDate: string; // date-time
 			/**
 			 * Gets or sets the episode count.
 			 */
-			EpisodeCount?: number; // int32
-			Id?: string; // uuid
+			EpisodeCount: number; // int32
+			Id: string; // uuid
 			/**
 			 * Gets or sets the index number.
 			 */
-			IndexNumber?: number; // int32
-			IsFolder?: boolean;
+			IndexNumber: number; // int32
+			IsFolder: boolean;
 			/**
 			 * Gets or sets the item id.
 			 */
-			ItemId?: string; // uuid
+			ItemId: string; // uuid
 			/**
 			 * Gets or sets the matched term.
 			 */
-			MatchedTerm?: string;
+			MatchedTerm: string;
 			/**
 			 * Gets or sets the type of the media.
 			 */
-			MediaType?: string;
+			MediaType: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the parent index number.
 			 */
-			ParentIndexNumber?: number; // int32
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the primary image aspect ratio.
 			 */
-			PrimaryImageAspectRatio?: number; // double
+			PrimaryImageAspectRatio: number; // double
 			/**
 			 * Gets or sets the image tag.
 			 */
-			PrimaryImageTag?: string;
+			PrimaryImageTag: string;
 			/**
 			 * Gets or sets the production year.
 			 */
-			ProductionYear?: number; // int32
+			ProductionYear: number; // int32
 			/**
 			 * Gets or sets the run time ticks.
 			 */
-			RunTimeTicks?: number; // int64
+			RunTimeTicks: number; // int64
 			/**
 			 * Gets or sets the series.
 			 */
-			Series?: string;
+			Series: string;
 			/**
 			 * Gets or sets the song count.
 			 */
-			SongCount?: number; // int32
-			StartDate?: string; // date-time
-			Status?: string;
+			SongCount: number; // int32
+			StartDate: string; // date-time
+			Status: string;
 			/**
 			 * Gets or sets the thumb image item identifier.
 			 */
-			ThumbImageItemId?: string;
+			ThumbImageItemId: string;
 			/**
 			 * Gets or sets the thumb image tag.
 			 */
-			ThumbImageTag?: string;
+			ThumbImageTag: string;
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: string;
+			Type: string;
 		}
 		/**
 		 * Class SearchHintResult.
@@ -4386,11 +4386,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the search hints.
 			 */
-			SearchHints?: /* Class SearchHintResult. */ SearchHint[];
+			SearchHints: /* Class SearchHintResult. */ SearchHint[];
 			/**
 			 * Gets or sets the total record count.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		/**
 		 * Class SeekRequestDto.
@@ -4399,7 +4399,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the position ticks.
 			 */
-			PositionTicks?: number; // int64
+			PositionTicks: number; // int64
 		}
 		/**
 		 * Class SendCommand.
@@ -4408,75 +4408,75 @@ export namespace Components {
 			/**
 			 * Gets the command.
 			 */
-			readonly Command?: /* Enum SendCommandType. */ SendCommandType;
+			readonly Command: /* Enum SendCommandType. */ SendCommandType;
 			/**
 			 * Gets the UTC time when this command has been emitted.
 			 */
-			readonly EmittedAt?: string; // date-time
+			readonly EmittedAt: string; // date-time
 			/**
 			 * Gets the group identifier.
 			 */
-			readonly GroupId?: string; // uuid
+			readonly GroupId: string; // uuid
 			/**
 			 * Gets the playlist identifier of the playing item.
 			 */
-			readonly PlaylistItemId?: string; // uuid
+			readonly PlaylistItemId: string; // uuid
 			/**
 			 * Gets the position ticks.
 			 */
-			readonly PositionTicks?: number; // int64
+			readonly PositionTicks: number; // int64
 			/**
 			 * Gets or sets the UTC time when to execute the command.
 			 */
-			When?: string; // date-time
+			When: string; // date-time
 		}
 		/**
 		 * Enum SendCommandType.
 		 */
 		export type SendCommandType = 'Unpause' | 'Pause' | 'Stop' | 'Seek';
 		export interface SeriesInfo {
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface SeriesInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: SeriesInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: SeriesInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		/**
 		 * Enum SeriesStatus.
@@ -4489,144 +4489,144 @@ export namespace Components {
 			/**
 			 * ChannelId of the recording.
 			 */
-			ChannelId?: string; // uuid
+			ChannelId: string; // uuid
 			/**
 			 * ChannelName of the recording.
 			 */
-			ChannelName?: string;
-			ChannelPrimaryImageTag?: string;
+			ChannelName: string;
+			ChannelPrimaryImageTag: string;
 			/**
 			 * Gets or sets the day pattern.
 			 */
-			DayPattern?: DayPattern;
+			DayPattern: DayPattern;
 			/**
 			 * Gets or sets the days.
 			 */
-			Days?: DayOfWeek[];
+			Days: DayOfWeek[];
 			/**
 			 * The end date of the recording, in UTC.
 			 */
-			EndDate?: string; // date-time
+			EndDate: string; // date-time
 			/**
 			 * Gets or sets the external channel identifier.
 			 */
-			ExternalChannelId?: string;
+			ExternalChannelId: string;
 			/**
 			 * Gets or sets the external identifier.
 			 */
-			ExternalId?: string;
+			ExternalId: string;
 			/**
 			 * Gets or sets the external program identifier.
 			 */
-			ExternalProgramId?: string;
+			ExternalProgramId: string;
 			/**
 			 * Id of the recording.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the image tags.
 			 */
-			ImageTags?: {
+			ImageTags: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets a value indicating whether this instance is post padding required.
 			 */
-			IsPostPaddingRequired?: boolean;
+			IsPostPaddingRequired: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is pre padding required.
 			 */
-			IsPrePaddingRequired?: boolean;
-			KeepUntil?: KeepUntil;
-			KeepUpTo?: number; // int32
+			IsPrePaddingRequired: boolean;
+			KeepUntil: KeepUntil;
+			KeepUpTo: number; // int32
 			/**
 			 * Name of the recording.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Description of the recording.
 			 */
-			Overview?: string;
+			Overview: string;
 			/**
 			 * Gets or sets the parent backdrop image tags.
 			 */
-			ParentBackdropImageTags?: string[];
+			ParentBackdropImageTags: string[];
 			/**
 			 * If the item does not have any backdrops, this will hold the Id of the Parent that has one.
 			 */
-			ParentBackdropItemId?: string;
+			ParentBackdropItemId: string;
 			/**
 			 * Gets or sets the parent primary image item identifier.
 			 */
-			ParentPrimaryImageItemId?: string;
+			ParentPrimaryImageItemId: string;
 			/**
 			 * Gets or sets the parent primary image tag.
 			 */
-			ParentPrimaryImageTag?: string;
+			ParentPrimaryImageTag: string;
 			/**
 			 * Gets or sets the parent thumb image tag.
 			 */
-			ParentThumbImageTag?: string;
+			ParentThumbImageTag: string;
 			/**
 			 * Gets or sets the parent thumb item id.
 			 */
-			ParentThumbItemId?: string;
+			ParentThumbItemId: string;
 			/**
 			 * Gets or sets the post padding seconds.
 			 */
-			PostPaddingSeconds?: number; // int32
+			PostPaddingSeconds: number; // int32
 			/**
 			 * Gets or sets the pre padding seconds.
 			 */
-			PrePaddingSeconds?: number; // int32
+			PrePaddingSeconds: number; // int32
 			/**
 			 * Gets or sets the priority.
 			 */
-			Priority?: number; // int32
+			Priority: number; // int32
 			/**
 			 * Gets or sets the program identifier.
 			 */
-			ProgramId?: string;
+			ProgramId: string;
 			/**
 			 * Gets or sets a value indicating whether [record any channel].
 			 */
-			RecordAnyChannel?: boolean;
+			RecordAnyChannel: boolean;
 			/**
 			 * Gets or sets a value indicating whether [record any time].
 			 */
-			RecordAnyTime?: boolean;
+			RecordAnyTime: boolean;
 			/**
 			 * Gets or sets a value indicating whether [record new only].
 			 */
-			RecordNewOnly?: boolean;
+			RecordNewOnly: boolean;
 			/**
 			 * Gets or sets the server identifier.
 			 */
-			ServerId?: string;
+			ServerId: string;
 			/**
 			 * Gets or sets the name of the service.
 			 */
-			ServiceName?: string;
-			SkipEpisodesInLibrary?: boolean;
+			ServiceName: string;
+			SkipEpisodesInLibrary: boolean;
 			/**
 			 * The start date of the recording, in UTC.
 			 */
-			StartDate?: string; // date-time
-			Type?: string;
+			StartDate: string; // date-time
+			Type: string;
 		}
 		export interface SeriesTimerInfoDtoQueryResult {
 			/**
 			 * Gets or sets the items.
 			 */
-			Items?: /* Class SeriesTimerInfoDto. */ SeriesTimerInfoDto[];
+			Items: /* Class SeriesTimerInfoDto. */ SeriesTimerInfoDto[];
 			/**
 			 * The index of the first record in Items.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * The total number of records available.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		/**
 		 * Represents the server configuration.
@@ -4635,370 +4635,370 @@ export namespace Components {
 			/**
 			 * Gets or sets the number of days we should retain activity logs.
 			 */
-			ActivityLogRetentionDays?: number; // int32
+			ActivityLogRetentionDays: number; // int32
 			/**
 			 * Gets or sets a value indicating whether Autodiscovery is enabled.
 			 */
-			AutoDiscovery?: boolean;
+			AutoDiscovery: boolean;
 			/**
 			 * Gets or sets a value indicating whether Autodiscovery tracing is enabled.
 			 */
-			AutoDiscoveryTracing?: boolean;
-			BaseUrl?: string;
+			AutoDiscoveryTracing: boolean;
+			BaseUrl: string;
 			/**
 			 * Gets or sets the cache path.
 			 */
-			CachePath?: string;
+			CachePath: string;
 			/**
 			 * Gets or sets the password required to access the X.509 certificate data in the file specified by MediaBrowser.Model.Configuration.ServerConfiguration.CertificatePath.
 			 */
-			CertificatePassword?: string;
+			CertificatePassword: string;
 			/**
 			 * Gets or sets the filesystem path of an X.509 certificate to use for SSL.
 			 */
-			CertificatePath?: string;
-			CodecsUsed?: string[];
-			ContentTypes?: NameValuePair[];
+			CertificatePath: string;
+			CodecsUsed: string[];
+			ContentTypes: NameValuePair[];
 			/**
 			 * Gets or sets the cors hosts.
 			 */
-			CorsHosts?: string[];
-			DisableLiveTvChannelUserDataName?: boolean;
-			DisplaySpecialsWithinSeasons?: boolean;
+			CorsHosts: string[];
+			DisableLiveTvChannelUserDataName: boolean;
+			DisplaySpecialsWithinSeasons: boolean;
 			/**
 			 * Gets or sets a value indicating whether [enable case sensitive item ids].
 			 */
-			EnableCaseSensitiveItemIds?: boolean;
+			EnableCaseSensitiveItemIds: boolean;
 			/**
 			 * Gets or sets a value indicating whether [enable dashboard response caching].
 			 * Allows potential contributors without visual studio to modify production dashboard code and test changes.
 			 */
-			EnableDashboardResponseCaching?: boolean;
-			EnableExternalContentInSuggestions?: boolean;
-			EnableFolderView?: boolean;
-			EnableGroupingIntoCollections?: boolean;
+			EnableDashboardResponseCaching: boolean;
+			EnableExternalContentInSuggestions: boolean;
+			EnableFolderView: boolean;
+			EnableGroupingIntoCollections: boolean;
 			/**
 			 * Gets or sets a value indicating whether to use HTTPS.
 			 */
-			EnableHttps?: boolean;
+			EnableHttps: boolean;
 			/**
 			 * Gets or sets a value indicating whether IPV4 capability is enabled.
 			 */
-			EnableIPV4?: boolean;
+			EnableIPV4: boolean;
 			/**
 			 * Gets or sets a value indicating whether IPV6 capability is enabled.
 			 */
-			EnableIPV6?: boolean;
+			EnableIPV6: boolean;
 			/**
 			 * Gets or sets a value indicating whether to enable prometheus metrics exporting.
 			 */
-			EnableMetrics?: boolean;
+			EnableMetrics: boolean;
 			/**
 			 * Gets a value indicating whether multi-socket binding is available.
 			 */
-			readonly EnableMultiSocketBinding?: boolean;
-			EnableNewOmdbSupport?: boolean;
-			EnableNormalizedItemByNameIds?: boolean;
+			readonly EnableMultiSocketBinding: boolean;
+			EnableNewOmdbSupport: boolean;
+			EnableNormalizedItemByNameIds: boolean;
 			/**
 			 * Gets or sets a value indicating whether access outside of the LAN is permitted.
 			 */
-			EnableRemoteAccess?: boolean;
+			EnableRemoteAccess: boolean;
 			/**
 			 * Gets or sets a value indicating whether detailed ssdp logs are sent to the console/log.\r\n"Emby.Dlna": "Debug" must be set in logging.default.json for this property to work.
 			 */
-			EnableSSDPTracing?: boolean;
+			EnableSSDPTracing: boolean;
 			/**
 			 * Gets or sets a value indicating whether slow server responses should be logged as a warning.
 			 */
-			EnableSlowResponseWarning?: boolean;
+			EnableSlowResponseWarning: boolean;
 			/**
 			 * Gets or sets a value indicating whether to enable automatic port forwarding.
 			 */
-			EnableUPnP?: boolean;
+			EnableUPnP: boolean;
 			/**
 			 * Gets or sets the time (in seconds) between the pings of SSDP gateway monitor.
 			 */
-			GatewayMonitorPeriod?: number; // int32
+			GatewayMonitorPeriod: number; // int32
 			/**
 			 * Gets or sets the ports that HDHomerun uses.
 			 */
-			HDHomerunPortRange?: string;
+			HDHomerunPortRange: string;
 			/**
 			 * Gets or sets the HTTP server port number.
 			 */
-			HttpServerPortNumber?: number; // int32
+			HttpServerPortNumber: number; // int32
 			/**
 			 * Gets or sets the HTTPS server port number.
 			 */
-			HttpsPortNumber?: number; // int32
+			HttpsPortNumber: number; // int32
 			/**
 			 * Gets or sets a value indicating whether address names that match MediaBrowser.Model.Configuration.ServerConfiguration.VirtualInterfaceNames should be Ignore for the purposes of binding.
 			 */
-			IgnoreVirtualInterfaces?: boolean;
-			ImageExtractionTimeoutMs?: number; // int32
+			IgnoreVirtualInterfaces: boolean;
+			ImageExtractionTimeoutMs: number; // int32
 			/**
 			 * Gets or sets the image saving convention.
 			 */
-			ImageSavingConvention?: ImageSavingConvention;
+			ImageSavingConvention: ImageSavingConvention;
 			/**
 			 * Gets or sets a value indicating whether this instance is port authorized.
 			 */
-			IsPortAuthorized?: boolean;
+			IsPortAuthorized: boolean;
 			/**
 			 * Gets or sets a value indicating whether <seealso cref="P:MediaBrowser.Model.Configuration.ServerConfiguration.RemoteIPFilter" /> contains a blacklist or a whitelist. Default is a whitelist.
 			 */
-			IsRemoteIPFilterBlacklist?: boolean;
+			IsRemoteIPFilterBlacklist: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is first run.
 			 */
-			IsStartupWizardCompleted?: boolean;
+			IsStartupWizardCompleted: boolean;
 			/**
 			 * Gets or sets the known proxies.
 			 */
-			KnownProxies?: string[];
+			KnownProxies: string[];
 			/**
 			 * Gets or sets the how many metadata refreshes can run concurrently.
 			 */
-			LibraryMetadataRefreshConcurrency?: number; // int32
+			LibraryMetadataRefreshConcurrency: number; // int32
 			/**
 			 * Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed
 			 * Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several
 			 * different directories and files.
 			 */
-			LibraryMonitorDelay?: number; // int32
+			LibraryMonitorDelay: number; // int32
 			/**
 			 * Gets or sets the how the library scan fans out.
 			 */
-			LibraryScanFanoutConcurrency?: number; // int32
+			LibraryScanFanoutConcurrency: number; // int32
 			/**
 			 * Gets or sets the interface addresses which Jellyfin will bind to. If empty, all interfaces will be used.
 			 */
-			LocalNetworkAddresses?: string[];
+			LocalNetworkAddresses: string[];
 			/**
 			 * Gets or sets the subnets that are deemed to make up the LAN.
 			 */
-			LocalNetworkSubnets?: string[];
+			LocalNetworkSubnets: string[];
 			/**
 			 * Gets or sets the number of days we should retain log files.
 			 */
-			LogFileRetentionDays?: number; // int32
+			LogFileRetentionDays: number; // int32
 			/**
 			 * Gets or sets the remaining minutes of a book that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
 			 */
-			MaxAudiobookResume?: number; // int32
+			MaxAudiobookResume: number; // int32
 			/**
 			 * Gets or sets the maximum percentage of an item that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
 			 */
-			MaxResumePct?: number; // int32
+			MaxResumePct: number; // int32
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
-			MetadataNetworkPath?: string;
-			MetadataOptions?: /* Class MetadataOptions. */ MetadataOptions[];
+			MetadataCountryCode: string;
+			MetadataNetworkPath: string;
+			MetadataOptions: /* Class MetadataOptions. */ MetadataOptions[];
 			/**
 			 * Gets or sets the metadata path.
 			 */
-			MetadataPath?: string;
+			MetadataPath: string;
 			/**
 			 * Gets or sets the minimum minutes of a book that must be played in order for playstate to be updated.
 			 */
-			MinAudiobookResume?: number; // int32
+			MinAudiobookResume: number; // int32
 			/**
 			 * Gets or sets the minimum duration that an item must have in order to be eligible for playstate updates..
 			 */
-			MinResumeDurationSeconds?: number; // int32
+			MinResumeDurationSeconds: number; // int32
 			/**
 			 * Gets or sets the minimum percentage of an item that must be played in order for playstate to be updated.
 			 */
-			MinResumePct?: number; // int32
-			PathSubstitutions?: /* Defines the MediaBrowser.Model.Configuration.PathSubstitution. */ PathSubstitution[];
-			PluginRepositories?: /* Class RepositoryInfo. */ RepositoryInfo[];
+			MinResumePct: number; // int32
+			PathSubstitutions: /* Defines the MediaBrowser.Model.Configuration.PathSubstitution. */ PathSubstitution[];
+			PluginRepositories: /* Class RepositoryInfo. */ RepositoryInfo[];
 			/**
 			 * Gets or sets the preferred metadata language.
 			 */
-			PreferredMetadataLanguage?: string;
+			PreferredMetadataLanguage: string;
 			/**
 			 * Gets or sets the last known version that was ran using the configuration.
 			 */
-			PreviousVersion?: Version;
+			PreviousVersion: Version;
 			/**
 			 * Gets or sets the stringified PreviousVersion to be stored/loaded,
 			 * because System.Version itself isn't xml-serializable.
 			 */
-			PreviousVersionStr?: string;
+			PreviousVersionStr: string;
 			/**
 			 * Gets or sets the public HTTPS port.
 			 */
-			PublicHttpsPort?: number; // int32
+			PublicHttpsPort: number; // int32
 			/**
 			 * Gets or sets the public mapped port.
 			 */
-			PublicPort?: number; // int32
+			PublicPort: number; // int32
 			/**
 			 * Gets or sets PublishedServerUri to advertise for specific subnets.
 			 */
-			PublishedServerUriBySubnet?: string[];
+			PublishedServerUriBySubnet: string[];
 			/**
 			 * Gets or sets a value indicating whether quick connect is available for use on this server.
 			 */
-			QuickConnectAvailable?: boolean;
-			RemoteClientBitrateLimit?: number; // int32
+			QuickConnectAvailable: boolean;
+			RemoteClientBitrateLimit: number; // int32
 			/**
 			 * Gets or sets the filter for remote IP connectivity. Used in conjuntion with <seealso cref="P:MediaBrowser.Model.Configuration.ServerConfiguration.IsRemoteIPFilterBlacklist" />.
 			 */
-			RemoteIPFilter?: string[];
+			RemoteIPFilter: string[];
 			/**
 			 * Gets or sets a value indicating whether older plugins should automatically be deleted from the plugin folder.
 			 */
-			RemoveOldPlugins?: boolean;
+			RemoveOldPlugins: boolean;
 			/**
 			 * Gets or sets a value indicating whether the server should force connections over HTTPS.
 			 */
-			RequireHttps?: boolean;
+			RequireHttps: boolean;
 			/**
 			 * Gets or sets a value indicating whether an IP address is to be used to filter the detailed ssdp logs that are being sent to the console/log.\r\nIf the setting "Emby.Dlna": "Debug" msut be set in logging.default.json for this property to work.
 			 */
-			SSDPTracingFilter?: string;
-			SaveMetadataHidden?: boolean;
-			ServerName?: string;
-			SkipDeserializationForBasicTypes?: boolean;
+			SSDPTracingFilter: string;
+			SaveMetadataHidden: boolean;
+			ServerName: string;
+			SkipDeserializationForBasicTypes: boolean;
 			/**
 			 * Gets or sets the threshold for the slow response time warning in ms.
 			 */
-			SlowResponseThresholdMs?: number; // int64
+			SlowResponseThresholdMs: number; // int64
 			/**
 			 * Gets or sets characters to be removed from strings to create a sort name.
 			 */
-			SortRemoveCharacters?: string[];
+			SortRemoveCharacters: string[];
 			/**
 			 * Gets or sets words to be removed from strings to create a sort name.
 			 */
-			SortRemoveWords?: string[];
+			SortRemoveWords: string[];
 			/**
 			 * Gets or sets characters to be replaced with a ' ' in strings to create a sort name.
 			 */
-			SortReplaceCharacters?: string[];
+			SortReplaceCharacters: string[];
 			/**
 			 * Gets or sets a value indicating whether all IPv6 interfaces should be treated as on the internal network.
 			 * Depending on the address range implemented ULA ranges might not be used.
 			 */
-			TrustAllIP6Interfaces?: boolean;
+			TrustAllIP6Interfaces: boolean;
 			/**
 			 * Gets or sets client udp port range.
 			 */
-			UDPPortRange?: string;
+			UDPPortRange: string;
 			/**
 			 * Gets or sets the number of times SSDP UDP messages are sent.
 			 */
-			UDPSendCount?: number; // int32
+			UDPSendCount: number; // int32
 			/**
 			 * Gets or sets the delay between each groups of SSDP messages (in ms).
 			 */
-			UDPSendDelay?: number; // int32
-			UICulture?: string;
+			UDPSendDelay: number; // int32
+			UICulture: string;
 			/**
 			 * Gets or sets a value indicating whether the http port should be mapped as part of UPnP automatic port forwarding.
 			 */
-			UPnPCreateHttpPortMap?: boolean;
-			UninstalledPlugins?: string[];
+			UPnPCreateHttpPortMap: boolean;
+			UninstalledPlugins: string[];
 			/**
 			 * Gets or sets a value indicating the interfaces that should be ignored. The list can be comma separated. <seealso cref="P:MediaBrowser.Model.Configuration.ServerConfiguration.IgnoreVirtualInterfaces" />.
 			 */
-			VirtualInterfaceNames?: string;
+			VirtualInterfaceNames: string;
 		}
 		/**
 		 * Class SessionInfo.
 		 */
 		export interface SessionInfo {
-			AdditionalUsers?: /* Class SessionUserInfo. */ SessionUserInfo[];
+			AdditionalUsers: /* Class SessionUserInfo. */ SessionUserInfo[];
 			/**
 			 * Gets or sets the application version.
 			 */
-			ApplicationVersion?: string;
-			Capabilities?: ClientCapabilities;
+			ApplicationVersion: string;
+			Capabilities: ClientCapabilities;
 			/**
 			 * Gets or sets the type of the client.
 			 */
-			Client?: string;
+			Client: string;
 			/**
 			 * Gets or sets the device id.
 			 */
-			DeviceId?: string;
+			DeviceId: string;
 			/**
 			 * Gets or sets the name of the device.
 			 */
-			DeviceName?: string;
+			DeviceName: string;
 			/**
 			 * Gets or sets the type of the device.
 			 */
-			DeviceType?: string;
+			DeviceType: string;
 			/**
 			 * Class BaseItem.
 			 */
-			FullNowPlayingItem?: /* Class BaseItem. */ BaseItem;
-			HasCustomDeviceName?: boolean;
+			FullNowPlayingItem: /* Class BaseItem. */ BaseItem;
+			HasCustomDeviceName: boolean;
 			/**
 			 * Gets or sets the id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets a value indicating whether this instance is active.
 			 */
-			readonly IsActive?: boolean;
+			readonly IsActive: boolean;
 			/**
 			 * Gets or sets the last activity date.
 			 */
-			LastActivityDate?: string; // date-time
+			LastActivityDate: string; // date-time
 			/**
 			 * Gets or sets the last playback check in.
 			 */
-			LastPlaybackCheckIn?: string; // date-time
+			LastPlaybackCheckIn: string; // date-time
 			/**
 			 * Gets or sets the now playing item.
 			 */
-			NowPlayingItem?: /**
+			NowPlayingItem: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
 			BaseItemDto;
-			NowPlayingQueue?: QueueItem[];
+			NowPlayingQueue: QueueItem[];
 			/**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
-			NowViewingItem?: /**
+			NowViewingItem: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
 			BaseItemDto;
-			PlayState?: PlayerStateInfo;
+			PlayState: PlayerStateInfo;
 			/**
 			 * Gets or sets the playable media types.
 			 */
-			readonly PlayableMediaTypes?: string[];
-			PlaylistItemId?: string;
+			readonly PlayableMediaTypes: string[];
+			PlaylistItemId: string;
 			/**
 			 * Gets or sets the remote end point.
 			 */
-			RemoteEndPoint?: string;
-			ServerId?: string;
+			RemoteEndPoint: string;
+			ServerId: string;
 			/**
 			 * Gets or sets the supported commands.
 			 */
-			readonly SupportedCommands?: /* This exists simply to identify a set of known commands. */ GeneralCommandType[];
-			readonly SupportsMediaControl?: boolean;
-			readonly SupportsRemoteControl?: boolean;
-			TranscodingInfo?: TranscodingInfo;
+			readonly SupportedCommands: /* This exists simply to identify a set of known commands. */ GeneralCommandType[];
+			readonly SupportsMediaControl: boolean;
+			readonly SupportsRemoteControl: boolean;
+			TranscodingInfo: TranscodingInfo;
 			/**
 			 * Gets or sets the user id.
 			 */
-			UserId?: string; // uuid
+			UserId: string; // uuid
 			/**
 			 * Gets or sets the username.
 			 */
-			UserName?: string;
-			UserPrimaryImageTag?: string;
+			UserName: string;
+			UserPrimaryImageTag: string;
 		}
 		/**
 		 * Class SessionUserInfo.
@@ -5007,11 +5007,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the user identifier.
 			 */
-			UserId?: string; // uuid
+			UserId: string; // uuid
 			/**
 			 * Gets or sets the name of the user.
 			 */
-			UserName?: string;
+			UserName: string;
 		}
 		/**
 		 * Set channel mapping dto.
@@ -5037,7 +5037,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the playlist identifier of the playing item.
 			 */
-			PlaylistItemId?: string; // uuid
+			PlaylistItemId: string; // uuid
 		}
 		/**
 		 * Class SetRepeatModeRequestDto.
@@ -5046,7 +5046,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the repeat mode.
 			 */
-			Mode?: /* Enum GroupRepeatMode. */ GroupRepeatMode;
+			Mode: /* Enum GroupRepeatMode. */ GroupRepeatMode;
 		}
 		/**
 		 * Class SetShuffleModeRequestDto.
@@ -5055,42 +5055,42 @@ export namespace Components {
 			/**
 			 * Gets or sets the shuffle mode.
 			 */
-			Mode?: /* Enum GroupShuffleMode. */ GroupShuffleMode;
+			Mode: /* Enum GroupShuffleMode. */ GroupShuffleMode;
 		}
 		export interface SongInfo {
-			Album?: string;
-			AlbumArtists?: string[];
-			Artists?: string[];
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			Album: string;
+			AlbumArtists: string[];
+			Artists: string[];
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		/**
 		 * An enum representing the sorting order.
@@ -5103,11 +5103,11 @@ export namespace Components {
 			/**
 			 * Gets or sets view option id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets view option name.
 			 */
-			Name?: string;
+			Name: string;
 		}
 		/**
 		 * The startup configuration DTO.
@@ -5116,15 +5116,15 @@ export namespace Components {
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the preferred language for the metadata.
 			 */
-			PreferredMetadataLanguage?: string;
+			PreferredMetadataLanguage: string;
 			/**
 			 * Gets or sets UI language culture.
 			 */
-			UICulture?: string;
+			UICulture: string;
 		}
 		/**
 		 * Startup remote access dto.
@@ -5146,11 +5146,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the username.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the user's password.
 			 */
-			Password?: string;
+			Password: string;
 		}
 		export type SubtitleDeliveryMethod = 'Encode' | 'Embed' | 'External' | 'Hls';
 		/**
@@ -5158,11 +5158,11 @@ export namespace Components {
 		 */
 		export type SubtitlePlaybackMode = 'Default' | 'Always' | 'OnlyForced' | 'None' | 'Smart';
 		export interface SubtitleProfile {
-			Container?: string;
-			DidlMode?: string;
-			Format?: string;
-			Language?: string;
-			Method?: SubtitleDeliveryMethod;
+			Container: string;
+			DidlMode: string;
+			Format: string;
+			Language: string;
+			Method: SubtitleDeliveryMethod;
 		}
 		/**
 		 * Enum SyncPlayUserAccessType.
@@ -5175,98 +5175,98 @@ export namespace Components {
 			/**
 			 * Gets or sets the cache path.
 			 */
-			CachePath?: string;
-			CanLaunchWebBrowser?: boolean;
+			CachePath: string;
+			CanLaunchWebBrowser: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance can self restart.
 			 */
-			CanSelfRestart?: boolean;
+			CanSelfRestart: boolean;
 			/**
 			 * Gets or sets the completed installations.
 			 */
-			CompletedInstallations?: /* Class InstallationInfo. */ InstallationInfo[];
+			CompletedInstallations: /* Class InstallationInfo. */ InstallationInfo[];
 			/**
 			 * Enum describing the location of the FFmpeg tool.
 			 */
-			EncoderLocation?: /* Enum describing the location of the FFmpeg tool. */ FFmpegLocation;
+			EncoderLocation: /* Enum describing the location of the FFmpeg tool. */ FFmpegLocation;
 			/**
 			 * Gets or sets a value indicating whether this instance has pending restart.
 			 */
-			HasPendingRestart?: boolean;
+			HasPendingRestart: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance has update available.
 			 */
-			HasUpdateAvailable?: boolean;
+			HasUpdateAvailable: boolean;
 			/**
 			 * Gets or sets the id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the internal metadata path.
 			 */
-			InternalMetadataPath?: string;
-			IsShuttingDown?: boolean;
+			InternalMetadataPath: string;
+			IsShuttingDown: boolean;
 			/**
 			 * Gets or sets the items by name path.
 			 */
-			ItemsByNamePath?: string;
+			ItemsByNamePath: string;
 			/**
 			 * Gets or sets the local address.
 			 */
-			LocalAddress?: string;
+			LocalAddress: string;
 			/**
 			 * Gets or sets the log path.
 			 */
-			LogPath?: string;
+			LogPath: string;
 			/**
 			 * Gets or sets the operating system.
 			 */
-			OperatingSystem?: string;
+			OperatingSystem: string;
 			/**
 			 * Gets or sets the display name of the operating system.
 			 */
-			OperatingSystemDisplayName?: string;
+			OperatingSystemDisplayName: string;
 			/**
 			 * Get or sets the package name.
 			 */
-			PackageName?: string;
+			PackageName: string;
 			/**
 			 * Gets or sets the product name. This is the AssemblyProduct name.
 			 */
-			ProductName?: string;
+			ProductName: string;
 			/**
 			 * Gets or sets the program data path.
 			 */
-			ProgramDataPath?: string;
+			ProgramDataPath: string;
 			/**
 			 * Gets or sets the name of the server.
 			 */
-			ServerName?: string;
+			ServerName: string;
 			/**
 			 * Gets or sets a value indicating whether the startup wizard is completed.
 			 */
-			StartupWizardCompleted?: boolean;
+			StartupWizardCompleted: boolean;
 			/**
 			 * Gets or sets a value indicating whether [supports library monitor].
 			 */
-			SupportsLibraryMonitor?: boolean;
-			SystemArchitecture?: Architecture;
+			SupportsLibraryMonitor: boolean;
+			SystemArchitecture: Architecture;
 			/**
 			 * Gets or sets the transcode path.
 			 */
-			TranscodingTempPath?: string;
+			TranscodingTempPath: string;
 			/**
 			 * Gets or sets the server version.
 			 */
-			Version?: string;
+			Version: string;
 			/**
 			 * Gets or sets the web UI resources path.
 			 */
-			WebPath?: string;
+			WebPath: string;
 			/**
 			 * Gets or sets the web socket port number.
 			 */
-			WebSocketPortNumber?: number; // int32
+			WebSocketPortNumber: number; // int32
 		}
 		/**
 		 * Enum TaskCompletionStatus.
@@ -5279,43 +5279,43 @@ export namespace Components {
 			/**
 			 * Gets or sets the category.
 			 */
-			Category?: string;
+			Category: string;
 			/**
 			 * Gets or sets the progress.
 			 */
-			CurrentProgressPercentage?: number; // double
+			CurrentProgressPercentage: number; // double
 			/**
 			 * Gets or sets the description.
 			 */
-			Description?: string;
+			Description: string;
 			/**
 			 * Gets or sets the id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets a value indicating whether this instance is hidden.
 			 */
-			IsHidden?: boolean;
+			IsHidden: boolean;
 			/**
 			 * Gets or sets the key.
 			 */
-			Key?: string;
+			Key: string;
 			/**
 			 * Gets or sets the last execution result.
 			 */
-			LastExecutionResult?: /* Class TaskExecutionInfo. */ TaskResult;
+			LastExecutionResult: /* Class TaskExecutionInfo. */ TaskResult;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the state of the task.
 			 */
-			State?: /* Enum TaskState. */ TaskState;
+			State: /* Enum TaskState. */ TaskState;
 			/**
 			 * Gets or sets the triggers.
 			 */
-			Triggers?: /* Class TaskTriggerInfo. */ TaskTriggerInfo[];
+			Triggers: /* Class TaskTriggerInfo. */ TaskTriggerInfo[];
 		}
 		/**
 		 * Class TaskExecutionInfo.
@@ -5324,35 +5324,35 @@ export namespace Components {
 			/**
 			 * Gets or sets the end time UTC.
 			 */
-			EndTimeUtc?: string; // date-time
+			EndTimeUtc: string; // date-time
 			/**
 			 * Gets or sets the error message.
 			 */
-			ErrorMessage?: string;
+			ErrorMessage: string;
 			/**
 			 * Gets or sets the id.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets the key.
 			 */
-			Key?: string;
+			Key: string;
 			/**
 			 * Gets or sets the long error message.
 			 */
-			LongErrorMessage?: string;
+			LongErrorMessage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the start time UTC.
 			 */
-			StartTimeUtc?: string; // date-time
+			StartTimeUtc: string; // date-time
 			/**
 			 * Gets or sets the status.
 			 */
-			Status?: /* Enum TaskCompletionStatus. */ TaskCompletionStatus;
+			Status: /* Enum TaskCompletionStatus. */ TaskCompletionStatus;
 		}
 		/**
 		 * Enum TaskState.
@@ -5365,23 +5365,23 @@ export namespace Components {
 			/**
 			 * Gets or sets the day of week.
 			 */
-			DayOfWeek?: DayOfWeek;
+			DayOfWeek: DayOfWeek;
 			/**
 			 * Gets or sets the interval.
 			 */
-			IntervalTicks?: number; // int64
+			IntervalTicks: number; // int64
 			/**
 			 * Gets or sets the maximum runtime ticks.
 			 */
-			MaxRuntimeTicks?: number; // int64
+			MaxRuntimeTicks: number; // int64
 			/**
 			 * Gets or sets the time of day.
 			 */
-			TimeOfDayTicks?: number; // int64
+			TimeOfDayTicks: number; // int64
 			/**
 			 * Gets or sets the type.
 			 */
-			Type?: string;
+			Type: string;
 		}
 		/**
 		 * Class ThemeMediaResult.
@@ -5390,7 +5390,7 @@ export namespace Components {
 			/**
 			 * Gets or sets the items.
 			 */
-			Items?: /**
+			Items: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
@@ -5398,99 +5398,99 @@ export namespace Components {
 			/**
 			 * Gets or sets the owner id.
 			 */
-			OwnerId?: string; // uuid
+			OwnerId: string; // uuid
 			/**
 			 * The index of the first record in Items.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * The total number of records available.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		export interface TimerEventInfo {
-			readonly Id?: string;
-			ProgramId?: string; // uuid
+			readonly Id: string;
+			ProgramId: string; // uuid
 		}
 		export interface TimerInfoDto {
 			/**
 			 * ChannelId of the recording.
 			 */
-			ChannelId?: string; // uuid
+			ChannelId: string; // uuid
 			/**
 			 * ChannelName of the recording.
 			 */
-			ChannelName?: string;
-			ChannelPrimaryImageTag?: string;
+			ChannelName: string;
+			ChannelPrimaryImageTag: string;
 			/**
 			 * The end date of the recording, in UTC.
 			 */
-			EndDate?: string; // date-time
+			EndDate: string; // date-time
 			/**
 			 * Gets or sets the external channel identifier.
 			 */
-			ExternalChannelId?: string;
+			ExternalChannelId: string;
 			/**
 			 * Gets or sets the external identifier.
 			 */
-			ExternalId?: string;
+			ExternalId: string;
 			/**
 			 * Gets or sets the external program identifier.
 			 */
-			ExternalProgramId?: string;
+			ExternalProgramId: string;
 			/**
 			 * Gets or sets the external series timer identifier.
 			 */
-			ExternalSeriesTimerId?: string;
+			ExternalSeriesTimerId: string;
 			/**
 			 * Id of the recording.
 			 */
-			Id?: string;
+			Id: string;
 			/**
 			 * Gets or sets a value indicating whether this instance is post padding required.
 			 */
-			IsPostPaddingRequired?: boolean;
+			IsPostPaddingRequired: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is pre padding required.
 			 */
-			IsPrePaddingRequired?: boolean;
-			KeepUntil?: KeepUntil;
+			IsPrePaddingRequired: boolean;
+			KeepUntil: KeepUntil;
 			/**
 			 * Name of the recording.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Description of the recording.
 			 */
-			Overview?: string;
+			Overview: string;
 			/**
 			 * Gets or sets the parent backdrop image tags.
 			 */
-			ParentBackdropImageTags?: string[];
+			ParentBackdropImageTags: string[];
 			/**
 			 * If the item does not have any backdrops, this will hold the Id of the Parent that has one.
 			 */
-			ParentBackdropItemId?: string;
+			ParentBackdropItemId: string;
 			/**
 			 * Gets or sets the post padding seconds.
 			 */
-			PostPaddingSeconds?: number; // int32
+			PostPaddingSeconds: number; // int32
 			/**
 			 * Gets or sets the pre padding seconds.
 			 */
-			PrePaddingSeconds?: number; // int32
+			PrePaddingSeconds: number; // int32
 			/**
 			 * Gets or sets the priority.
 			 */
-			Priority?: number; // int32
+			Priority: number; // int32
 			/**
 			 * Gets or sets the program identifier.
 			 */
-			ProgramId?: string;
+			ProgramId: string;
 			/**
 			 * Gets or sets the program information.
 			 */
-			ProgramInfo?: /**
+			ProgramInfo: /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
 			 */
@@ -5498,86 +5498,86 @@ export namespace Components {
 			/**
 			 * Gets or sets the run time ticks.
 			 */
-			RunTimeTicks?: number; // int64
+			RunTimeTicks: number; // int64
 			/**
 			 * Gets or sets the series timer identifier.
 			 */
-			SeriesTimerId?: string;
+			SeriesTimerId: string;
 			/**
 			 * Gets or sets the server identifier.
 			 */
-			ServerId?: string;
+			ServerId: string;
 			/**
 			 * Gets or sets the name of the service.
 			 */
-			ServiceName?: string;
+			ServiceName: string;
 			/**
 			 * The start date of the recording, in UTC.
 			 */
-			StartDate?: string; // date-time
+			StartDate: string; // date-time
 			/**
 			 * Gets or sets the status.
 			 */
-			Status?: RecordingStatus;
-			Type?: string;
+			Status: RecordingStatus;
+			Type: string;
 		}
 		export interface TimerInfoDtoQueryResult {
 			/**
 			 * Gets or sets the items.
 			 */
-			Items?: TimerInfoDto[];
+			Items: TimerInfoDto[];
 			/**
 			 * The index of the first record in Items.
 			 */
-			StartIndex?: number; // int32
+			StartIndex: number; // int32
 			/**
 			 * The total number of records available.
 			 */
-			TotalRecordCount?: number; // int32
+			TotalRecordCount: number; // int32
 		}
 		export interface TrailerInfo {
-			IndexNumber?: number; // int32
-			IsAutomated?: boolean;
+			IndexNumber: number; // int32
+			IsAutomated: boolean;
 			/**
 			 * Gets or sets the metadata country code.
 			 */
-			MetadataCountryCode?: string;
+			MetadataCountryCode: string;
 			/**
 			 * Gets or sets the metadata language.
 			 */
-			MetadataLanguage?: string;
+			MetadataLanguage: string;
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
-			ParentIndexNumber?: number; // int32
+			Name: string;
+			ParentIndexNumber: number; // int32
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
-			PremiereDate?: string; // date-time
+			Path: string;
+			PremiereDate: string; // date-time
 			/**
 			 * Gets or sets the provider ids.
 			 */
-			ProviderIds?: {
+			ProviderIds: {
 				[name: string]: string;
 			};
 			/**
 			 * Gets or sets the year.
 			 */
-			Year?: number; // int32
+			Year: number; // int32
 		}
 		export interface TrailerInfoRemoteSearchQuery {
 			/**
 			 * Gets or sets a value indicating whether disabled providers should be included.
 			 */
-			IncludeDisabledProviders?: boolean;
-			ItemId?: string; // uuid
-			SearchInfo?: TrailerInfo;
+			IncludeDisabledProviders: boolean;
+			ItemId: string; // uuid
+			SearchInfo: TrailerInfo;
 			/**
 			 * Will only search within the given provider when set.
 			 */
-			SearchProviderName?: string;
+			SearchProviderName: string;
 		}
 		export type TranscodeReason =
 			| 'ContainerNotSupported'
@@ -5605,63 +5605,63 @@ export namespace Components {
 			| 'DirectPlayError';
 		export type TranscodeSeekInfo = 'Auto' | 'Bytes';
 		export interface TranscodingInfo {
-			AudioChannels?: number; // int32
-			AudioCodec?: string;
-			Bitrate?: number; // int32
-			CompletionPercentage?: number; // double
-			Container?: string;
-			Framerate?: number; // float
-			Height?: number; // int32
-			IsAudioDirect?: boolean;
-			IsVideoDirect?: boolean;
-			TranscodeReasons?: TranscodeReason[];
-			VideoCodec?: string;
-			Width?: number; // int32
+			AudioChannels: number; // int32
+			AudioCodec: string;
+			Bitrate: number; // int32
+			CompletionPercentage: number; // double
+			Container: string;
+			Framerate: number; // float
+			Height: number; // int32
+			IsAudioDirect: boolean;
+			IsVideoDirect: boolean;
+			TranscodeReasons: TranscodeReason[];
+			VideoCodec: string;
+			Width: number; // int32
 		}
 		export interface TranscodingProfile {
-			AudioCodec?: string;
-			BreakOnNonKeyFrames?: boolean;
-			Container?: string;
-			Context?: EncodingContext;
-			CopyTimestamps?: boolean;
-			EnableMpegtsM2TsMode?: boolean;
-			EnableSubtitlesInManifest?: boolean;
-			EstimateContentLength?: boolean;
-			MaxAudioChannels?: string;
-			MinSegments?: number; // int32
-			Protocol?: string;
-			SegmentLength?: number; // int32
-			TranscodeSeekInfo?: TranscodeSeekInfo;
-			Type?: DlnaProfileType;
-			VideoCodec?: string;
+			AudioCodec: string;
+			BreakOnNonKeyFrames: boolean;
+			Container: string;
+			Context: EncodingContext;
+			CopyTimestamps: boolean;
+			EnableMpegtsM2TsMode: boolean;
+			EnableSubtitlesInManifest: boolean;
+			EstimateContentLength: boolean;
+			MaxAudioChannels: string;
+			MinSegments: number; // int32
+			Protocol: string;
+			SegmentLength: number; // int32
+			TranscodeSeekInfo: TranscodeSeekInfo;
+			Type: DlnaProfileType;
+			VideoCodec: string;
 		}
 		export type TransportStreamTimestamp = 'None' | 'Zero' | 'Valid';
 		export interface TunerChannelMapping {
-			Id?: string;
-			Name?: string;
-			ProviderChannelId?: string;
-			ProviderChannelName?: string;
+			Id: string;
+			Name: string;
+			ProviderChannelId: string;
+			ProviderChannelName: string;
 		}
 		export interface TunerHostInfo {
-			AllowHWTranscoding?: boolean;
-			DeviceId?: string;
-			EnableStreamLooping?: boolean;
-			FriendlyName?: string;
-			Id?: string;
-			ImportFavoritesOnly?: boolean;
-			Source?: string;
-			TunerCount?: number; // int32
-			Type?: string;
-			Url?: string;
-			UserAgent?: string;
+			AllowHWTranscoding: boolean;
+			DeviceId: string;
+			EnableStreamLooping: boolean;
+			FriendlyName: string;
+			Id: string;
+			ImportFavoritesOnly: boolean;
+			Source: string;
+			TunerCount: number; // int32
+			Type: string;
+			Url: string;
+			UserAgent: string;
 		}
 		export interface TypeOptions {
-			ImageFetcherOrder?: string[];
-			ImageFetchers?: string[];
-			ImageOptions?: ImageOption[];
-			MetadataFetcherOrder?: string[];
-			MetadataFetchers?: string[];
-			Type?: string;
+			ImageFetcherOrder: string[];
+			ImageFetchers: string[];
+			ImageOptions: ImageOption[];
+			MetadataFetcherOrder: string[];
+			MetadataFetchers: string[];
+			Type: string;
 		}
 		/**
 		 * An enum representing an unrated item.
@@ -5683,11 +5683,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the library item id.
 			 */
-			Id?: string; // uuid
+			Id: string; // uuid
 			/**
 			 * Gets or sets library options.
 			 */
-			LibraryOptions?: LibraryOptions;
+			LibraryOptions: LibraryOptions;
 		}
 		/**
 		 * The update user easy password request body.
@@ -5696,15 +5696,15 @@ export namespace Components {
 			/**
 			 * Gets or sets the new sha1-hashed password.
 			 */
-			NewPassword?: string;
+			NewPassword: string;
 			/**
 			 * Gets or sets the new password.
 			 */
-			NewPw?: string;
+			NewPw: string;
 			/**
 			 * Gets or sets a value indicating whether to reset the password.
 			 */
-			ResetPassword?: boolean;
+			ResetPassword: boolean;
 		}
 		/**
 		 * The update user password request body.
@@ -5713,19 +5713,19 @@ export namespace Components {
 			/**
 			 * Gets or sets the current sha1-hashed password.
 			 */
-			CurrentPassword?: string;
+			CurrentPassword: string;
 			/**
 			 * Gets or sets the current plain text password.
 			 */
-			CurrentPw?: string;
+			CurrentPw: string;
 			/**
 			 * Gets or sets the new plain text password.
 			 */
-			NewPw?: string;
+			NewPw: string;
 			/**
 			 * Gets or sets a value indicating whether to reset the password.
 			 */
-			ResetPassword?: boolean;
+			ResetPassword: boolean;
 		}
 		/**
 		 * Upload subtitles dto.
@@ -5755,30 +5755,30 @@ export namespace Components {
 			/**
 			 * Gets or sets the audio language preference.
 			 */
-			AudioLanguagePreference?: string;
-			DisplayCollectionsView?: boolean;
-			DisplayMissingEpisodes?: boolean;
-			EnableLocalPassword?: boolean;
-			EnableNextEpisodeAutoPlay?: boolean;
-			GroupedFolders?: string[];
-			HidePlayedInLatest?: boolean;
-			LatestItemsExcludes?: string[];
-			MyMediaExcludes?: string[];
-			OrderedViews?: string[];
+			AudioLanguagePreference: string;
+			DisplayCollectionsView: boolean;
+			DisplayMissingEpisodes: boolean;
+			EnableLocalPassword: boolean;
+			EnableNextEpisodeAutoPlay: boolean;
+			GroupedFolders: string[];
+			HidePlayedInLatest: boolean;
+			LatestItemsExcludes: string[];
+			MyMediaExcludes: string[];
+			OrderedViews: string[];
 			/**
 			 * Gets or sets a value indicating whether [play default audio track].
 			 */
-			PlayDefaultAudioTrack?: boolean;
-			RememberAudioSelections?: boolean;
-			RememberSubtitleSelections?: boolean;
+			PlayDefaultAudioTrack: boolean;
+			RememberAudioSelections: boolean;
+			RememberSubtitleSelections: boolean;
 			/**
 			 * Gets or sets the subtitle language preference.
 			 */
-			SubtitleLanguagePreference?: string;
+			SubtitleLanguagePreference: string;
 			/**
 			 * An enum representing a subtitle playback mode.
 			 */
-			SubtitleMode?: /* An enum representing a subtitle playback mode. */ SubtitlePlaybackMode;
+			SubtitleMode: /* An enum representing a subtitle playback mode. */ SubtitlePlaybackMode;
 		}
 		/**
 		 * Class UserDto.
@@ -5787,60 +5787,60 @@ export namespace Components {
 			/**
 			 * Gets or sets the configuration.
 			 */
-			Configuration?: /* Class UserConfiguration. */ UserConfiguration;
+			Configuration: /* Class UserConfiguration. */ UserConfiguration;
 			/**
 			 * Gets or sets whether async login is enabled or not.
 			 */
-			EnableAutoLogin?: boolean;
+			EnableAutoLogin: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance has configured easy password.
 			 */
-			HasConfiguredEasyPassword?: boolean;
+			HasConfiguredEasyPassword: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance has configured password.
 			 */
-			HasConfiguredPassword?: boolean;
+			HasConfiguredPassword: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance has password.
 			 */
-			HasPassword?: boolean;
+			HasPassword: boolean;
 			/**
 			 * Gets or sets the id.
 			 */
-			Id?: string; // uuid
+			Id: string; // uuid
 			/**
 			 * Gets or sets the last activity date.
 			 */
-			LastActivityDate?: string; // date-time
+			LastActivityDate: string; // date-time
 			/**
 			 * Gets or sets the last login date.
 			 */
-			LastLoginDate?: string; // date-time
+			LastLoginDate: string; // date-time
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the policy.
 			 */
-			Policy?: UserPolicy;
+			Policy: UserPolicy;
 			/**
 			 * Gets or sets the primary image aspect ratio.
 			 */
-			PrimaryImageAspectRatio?: number; // double
+			PrimaryImageAspectRatio: number; // double
 			/**
 			 * Gets or sets the primary image tag.
 			 */
-			PrimaryImageTag?: string;
+			PrimaryImageTag: string;
 			/**
 			 * Gets or sets the server identifier.
 			 */
-			ServerId?: string;
+			ServerId: string;
 			/**
 			 * Gets or sets the name of the server.
 			 * This is not used by the server and is for client-side usage only.
 			 */
-			ServerName?: string;
+			ServerName: string;
 		}
 		/**
 		 * Class UserItemDataDto.
@@ -5849,106 +5849,106 @@ export namespace Components {
 			/**
 			 * Gets or sets a value indicating whether this instance is favorite.
 			 */
-			IsFavorite?: boolean;
+			IsFavorite: boolean;
 			/**
 			 * Gets or sets the item identifier.
 			 */
-			ItemId?: string;
+			ItemId: string;
 			/**
 			 * Gets or sets the key.
 			 */
-			Key?: string;
+			Key: string;
 			/**
 			 * Gets or sets the last played date.
 			 */
-			LastPlayedDate?: string; // date-time
+			LastPlayedDate: string; // date-time
 			/**
 			 * Gets or sets a value indicating whether this MediaBrowser.Model.Dto.UserItemDataDto is likes.
 			 */
-			Likes?: boolean;
+			Likes: boolean;
 			/**
 			 * Gets or sets the play count.
 			 */
-			PlayCount?: number; // int32
+			PlayCount: number; // int32
 			/**
 			 * Gets or sets the playback position ticks.
 			 */
-			PlaybackPositionTicks?: number; // int64
+			PlaybackPositionTicks: number; // int64
 			/**
 			 * Gets or sets a value indicating whether this MediaBrowser.Model.Dto.UserItemDataDto is played.
 			 */
-			Played?: boolean;
+			Played: boolean;
 			/**
 			 * Gets or sets the played percentage.
 			 */
-			PlayedPercentage?: number; // double
+			PlayedPercentage: number; // double
 			/**
 			 * Gets or sets the rating.
 			 */
-			Rating?: number; // double
+			Rating: number; // double
 			/**
 			 * Gets or sets the unplayed item count.
 			 */
-			UnplayedItemCount?: number; // int32
+			UnplayedItemCount: number; // int32
 		}
 		export interface UserPolicy {
-			AccessSchedules?: /* An entity representing a user's access schedule. */ AccessSchedule[];
-			AuthenticationProviderId?: string;
-			BlockUnratedItems?: /* An enum representing an unrated item. */ UnratedItem[];
-			BlockedChannels?: string /* uuid */[];
-			BlockedMediaFolders?: string /* uuid */[];
-			BlockedTags?: string[];
-			EnableAllChannels?: boolean;
-			EnableAllDevices?: boolean;
-			EnableAllFolders?: boolean;
-			EnableAudioPlaybackTranscoding?: boolean;
-			EnableContentDeletion?: boolean;
-			EnableContentDeletionFromFolders?: string[];
-			EnableContentDownloading?: boolean;
-			EnableLiveTvAccess?: boolean;
-			EnableLiveTvManagement?: boolean;
-			EnableMediaConversion?: boolean;
-			EnableMediaPlayback?: boolean;
-			EnablePlaybackRemuxing?: boolean;
-			EnablePublicSharing?: boolean;
-			EnableRemoteAccess?: boolean;
-			EnableRemoteControlOfOtherUsers?: boolean;
-			EnableSharedDeviceControl?: boolean;
+			AccessSchedules: /* An entity representing a user's access schedule. */ AccessSchedule[];
+			AuthenticationProviderId: string;
+			BlockUnratedItems: /* An enum representing an unrated item. */ UnratedItem[];
+			BlockedChannels: string /* uuid */[];
+			BlockedMediaFolders: string /* uuid */[];
+			BlockedTags: string[];
+			EnableAllChannels: boolean;
+			EnableAllDevices: boolean;
+			EnableAllFolders: boolean;
+			EnableAudioPlaybackTranscoding: boolean;
+			EnableContentDeletion: boolean;
+			EnableContentDeletionFromFolders: string[];
+			EnableContentDownloading: boolean;
+			EnableLiveTvAccess: boolean;
+			EnableLiveTvManagement: boolean;
+			EnableMediaConversion: boolean;
+			EnableMediaPlayback: boolean;
+			EnablePlaybackRemuxing: boolean;
+			EnablePublicSharing: boolean;
+			EnableRemoteAccess: boolean;
+			EnableRemoteControlOfOtherUsers: boolean;
+			EnableSharedDeviceControl: boolean;
 			/**
 			 * Gets or sets a value indicating whether [enable synchronize].
 			 */
-			EnableSyncTranscoding?: boolean;
-			EnableUserPreferenceAccess?: boolean;
-			EnableVideoPlaybackTranscoding?: boolean;
-			EnabledChannels?: string /* uuid */[];
-			EnabledDevices?: string[];
-			EnabledFolders?: string /* uuid */[];
-			ForceRemoteSourceTranscoding?: boolean;
-			InvalidLoginAttemptCount?: number; // int32
+			EnableSyncTranscoding: boolean;
+			EnableUserPreferenceAccess: boolean;
+			EnableVideoPlaybackTranscoding: boolean;
+			EnabledChannels: string /* uuid */[];
+			EnabledDevices: string[];
+			EnabledFolders: string /* uuid */[];
+			ForceRemoteSourceTranscoding: boolean;
+			InvalidLoginAttemptCount: number; // int32
 			/**
 			 * Gets or sets a value indicating whether this instance is administrator.
 			 */
-			IsAdministrator?: boolean;
+			IsAdministrator: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is disabled.
 			 */
-			IsDisabled?: boolean;
+			IsDisabled: boolean;
 			/**
 			 * Gets or sets a value indicating whether this instance is hidden.
 			 */
-			IsHidden?: boolean;
-			LoginAttemptsBeforeLockout?: number; // int32
-			MaxActiveSessions?: number; // int32
+			IsHidden: boolean;
+			LoginAttemptsBeforeLockout: number; // int32
+			MaxActiveSessions: number; // int32
 			/**
 			 * Gets or sets the max parental rating.
 			 */
-			MaxParentalRating?: number; // int32
-			PasswordResetProviderId?: string;
-			RemoteClientBitrateLimit?: number; // int32
+			MaxParentalRating: number; // int32
+			PasswordResetProviderId: string;
+			RemoteClientBitrateLimit: number; // int32
 			/**
 			 * Enum SyncPlayUserAccessType.
 			 */
-			SyncPlayAccess?: /* Enum SyncPlayUserAccessType. */ SyncPlayUserAccessType;
+			SyncPlayAccess: /* Enum SyncPlayUserAccessType. */ SyncPlayUserAccessType;
 		}
 		/**
 		 * Class UtcTimeResponse.
@@ -5957,11 +5957,11 @@ export namespace Components {
 			/**
 			 * Gets the UTC time when request has been received.
 			 */
-			readonly RequestReceptionTime?: string; // date-time
+			readonly RequestReceptionTime: string; // date-time
 			/**
 			 * Gets the UTC time when response has been sent.
 			 */
-			readonly ResponseTransmissionTime?: string; // date-time
+			readonly ResponseTransmissionTime: string; // date-time
 		}
 		/**
 		 * Validate path object.
@@ -5970,23 +5970,23 @@ export namespace Components {
 			/**
 			 * Gets or sets is path file.
 			 */
-			IsFile?: boolean;
+			IsFile: boolean;
 			/**
 			 * Gets or sets the path.
 			 */
-			Path?: string;
+			Path: string;
 			/**
 			 * Gets or sets a value indicating whether validate if path is writable.
 			 */
-			ValidateWritable?: boolean;
+			ValidateWritable: boolean;
 		}
 		export interface Version {
-			readonly Build?: number; // int32
-			readonly Major?: number; // int32
-			readonly MajorRevision?: number; // int32
-			readonly Minor?: number; // int32
-			readonly MinorRevision?: number; // int32
-			readonly Revision?: number; // int32
+			readonly Build: number; // int32
+			readonly Major: number; // int32
+			readonly MajorRevision: number; // int32
+			readonly Minor: number; // int32
+			readonly MinorRevision: number; // int32
+			readonly Revision: number; // int32
 		}
 		/**
 		 * Defines the MediaBrowser.Model.Updates.VersionInfo class.
@@ -5995,39 +5995,39 @@ export namespace Components {
 			/**
 			 * Gets the version as a System.Version.
 			 */
-			readonly VersionNumber?: Version;
+			readonly VersionNumber: Version;
 			/**
 			 * Gets or sets the changelog for this version.
 			 */
-			changelog?: string;
+			changelog: string;
 			/**
 			 * Gets or sets a checksum for the binary.
 			 */
-			checksum?: string;
+			checksum: string;
 			/**
 			 * Gets or sets the repository name.
 			 */
-			repositoryName?: string;
+			repositoryName: string;
 			/**
 			 * Gets or sets the repository url.
 			 */
-			repositoryUrl?: string;
+			repositoryUrl: string;
 			/**
 			 * Gets or sets the source URL.
 			 */
-			sourceUrl?: string;
+			sourceUrl: string;
 			/**
 			 * Gets or sets the ABI that this version was built against.
 			 */
-			targetAbi?: string;
+			targetAbi: string;
 			/**
 			 * Gets or sets a timestamp of when the binary was built.
 			 */
-			timestamp?: string;
+			timestamp: string;
 			/**
 			 * Gets or sets the version.
 			 */
-			version?: string;
+			version: string;
 		}
 		export type Video3DFormat =
 			| 'HalfSideBySide'
@@ -6046,26 +6046,26 @@ export namespace Components {
 			/**
 			 * Gets or sets the type of the collection.
 			 */
-			CollectionType?: CollectionTypeOptions;
+			CollectionType: CollectionTypeOptions;
 			/**
 			 * Gets or sets the item identifier.
 			 */
-			ItemId?: string;
-			LibraryOptions?: LibraryOptions;
+			ItemId: string;
+			LibraryOptions: LibraryOptions;
 			/**
 			 * Gets or sets the locations.
 			 */
-			Locations?: string[];
+			Locations: string[];
 			/**
 			 * Gets or sets the name.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the primary image item identifier.
 			 */
-			PrimaryImageItemId?: string;
-			RefreshProgress?: number; // double
-			RefreshStatus?: string;
+			PrimaryImageItemId: string;
+			RefreshProgress: number; // double
+			RefreshStatus: string;
 		}
 		/**
 		 * Provides the MAC address and port for wake-on-LAN functionality.
@@ -6074,11 +6074,11 @@ export namespace Components {
 			/**
 			 * Gets the MAC address of the device.
 			 */
-			MacAddress?: string;
+			MacAddress: string;
 			/**
 			 * Gets or sets the wake-on-LAN port.
 			 */
-			Port?: number; // int32
+			Port: number; // int32
 		}
 		/**
 		 * Defines the MediaBrowser.Model.Dlna.XmlAttribute.
@@ -6087,11 +6087,11 @@ export namespace Components {
 			/**
 			 * Gets or sets the name of the attribute.
 			 */
-			Name?: string;
+			Name: string;
 			/**
 			 * Gets or sets the value of the attribute.
 			 */
-			Value?: string;
+			Value: string;
 		}
 	}
 }
@@ -6119,9 +6119,9 @@ export namespace Paths {
 			export type ValidateLogin = boolean;
 		}
 		export interface QueryParameters {
-			pw?: /* Password. */ Parameters.Pw;
-			validateListings?: /* Validate listings. */ Parameters.ValidateListings;
-			validateLogin?: /* Validate login. */ Parameters.ValidateLogin;
+			pw: /* Password. */ Parameters.Pw;
+			validateListings: /* Validate listings. */ Parameters.ValidateListings;
+			validateLogin: /* Validate login. */ Parameters.ValidateLogin;
 		}
 		/**
 		 * New listings info.
@@ -6141,7 +6141,7 @@ export namespace Paths {
 			export type RefreshLibrary = boolean;
 		}
 		export interface QueryParameters {
-			refreshLibrary?: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
+			refreshLibrary: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
 		}
 		/**
 		 * The media path dto.
@@ -6195,8 +6195,8 @@ export namespace Paths {
 			playlistId: /* The playlist id. */ Parameters.PlaylistId /* uuid */;
 		}
 		export interface QueryParameters {
-			ids?: /* Item id, comma delimited. */ Parameters.Ids;
-			userId?: /* The userId. */ Parameters.UserId /* uuid */;
+			ids: /* Item id, comma delimited. */ Parameters.Ids;
+			userId: /* The userId. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6256,10 +6256,10 @@ export namespace Paths {
 			export type RefreshLibrary = boolean;
 		}
 		export interface QueryParameters {
-			name?: /* The name of the virtual folder. */ Parameters.Name;
-			collectionType?: /* The type of the collection. */ Parameters.CollectionType;
-			paths?: /* The paths of the virtual folder. */ Parameters.Paths;
-			refreshLibrary?: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
+			name: /* The name of the virtual folder. */ Parameters.Name;
+			collectionType: /* The type of the collection. */ Parameters.CollectionType;
+			paths: /* The paths of the virtual folder. */ Parameters.Paths;
+			refreshLibrary: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
 		}
 		/**
 		 * The library options.
@@ -6286,7 +6286,7 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			replaceAllImages?: /* Optional. Whether or not to replace all images. Default: True. */ Parameters.ReplaceAllImages;
+			replaceAllImages: /* Optional. Whether or not to replace all images. Default: True. */ Parameters.ReplaceAllImages;
 		}
 		/**
 		 * The remote search result.
@@ -6318,7 +6318,7 @@ export namespace Paths {
 		}
 		export interface QueryParameters {
 			pw: /* The password as plain text. */ Parameters.Pw;
-			password?: /* The password sha1-hash. */ Parameters.Password;
+			password: /* The password sha1-hash. */ Parameters.Password;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.AuthenticationResult;
@@ -6369,7 +6369,7 @@ export namespace Paths {
 			export type Status = /* Quick connect state. */ Components.Schemas.QuickConnectState;
 		}
 		export interface QueryParameters {
-			status?: /* New MediaBrowser.Model.QuickConnect.QuickConnectState. */ Parameters.Status;
+			status: /* New MediaBrowser.Model.QuickConnect.QuickConnectState. */ Parameters.Status;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6483,10 +6483,10 @@ export namespace Paths {
 			export type Url = string;
 		}
 		export interface QueryParameters {
-			url?: /* The URL of the notification. */ Parameters.Url;
-			level?: /* The level of the notification. */ Parameters.Level;
-			name?: /* The name of the notification. */ Parameters.Name;
-			description?: /* The description of the notification. */ Parameters.Description;
+			url: /* The URL of the notification. */ Parameters.Url;
+			level: /* The level of the notification. */ Parameters.Level;
+			name: /* The name of the notification. */ Parameters.Name;
+			description: /* The description of the notification. */ Parameters.Description;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6514,10 +6514,10 @@ export namespace Paths {
 			export type ParentId = string; // uuid
 		}
 		export interface QueryParameters {
-			name?: /* The name of the collection. */ Parameters.Name;
-			ids?: /* Item Ids to add to the collection. */ Parameters.Ids;
-			parentId?: /* Optional. Create the collection within a specific folder. */ Parameters.ParentId /* uuid */;
-			isLocked?: /* Whether or not to lock the new collection. */ Parameters.IsLocked;
+			name: /* The name of the collection. */ Parameters.Name;
+			ids: /* Item Ids to add to the collection. */ Parameters.Ids;
+			parentId: /* Optional. Create the collection within a specific folder. */ Parameters.ParentId /* uuid */;
+			isLocked: /* Whether or not to lock the new collection. */ Parameters.IsLocked;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.CollectionCreationResult;
@@ -6561,10 +6561,10 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			name?: /* The playlist name. */ Parameters.Name;
-			ids?: /* The item ids. */ Parameters.Ids;
-			userId?: /* The user id. */ Parameters.UserId /* uuid */;
-			mediaType?: /* The media type. */ Parameters.MediaType;
+			name: /* The playlist name. */ Parameters.Name;
+			ids: /* The item ids. */ Parameters.Ids;
+			userId: /* The user id. */ Parameters.UserId /* uuid */;
+			mediaType: /* The media type. */ Parameters.MediaType;
 		}
 		/**
 		 * The create playlist payload.
@@ -6697,7 +6697,7 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			imageIndex?: /* The image index. */ Parameters.ImageIndex /* int32 */;
+			imageIndex: /* The image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6741,7 +6741,7 @@ export namespace Paths {
 			export type Ids = string /* uuid */[];
 		}
 		export interface QueryParameters {
-			ids?: /* The item ids. */ Parameters.Ids;
+			ids: /* The item ids. */ Parameters.Ids;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6757,7 +6757,7 @@ export namespace Paths {
 			export type Id = string;
 		}
 		export interface QueryParameters {
-			id?: /* Listing provider id. */ Parameters.Id;
+			id: /* Listing provider id. */ Parameters.Id;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6829,7 +6829,7 @@ export namespace Paths {
 			export type Id = string;
 		}
 		export interface QueryParameters {
-			id?: /* Tuner host id. */ Parameters.Id;
+			id: /* Tuner host id. */ Parameters.Id;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6874,7 +6874,7 @@ export namespace Paths {
 			imageType: /* (Unused) Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			index?: /* (Unused) Image index. */ Parameters.Index /* int32 */;
+			index: /* (Unused) Image index. */ Parameters.Index /* int32 */;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -6959,7 +6959,7 @@ export namespace Paths {
 			export type NewDevicesOnly = boolean;
 		}
 		export interface QueryParameters {
-			newDevicesOnly?: /* Only discover new tuners. */ Parameters.NewDevicesOnly;
+			newDevicesOnly: /* Only discover new tuners. */ Parameters.NewDevicesOnly;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.TunerHostInfo[];
@@ -6975,7 +6975,7 @@ export namespace Paths {
 			export type NewDevicesOnly = boolean;
 		}
 		export interface QueryParameters {
-			newDevicesOnly?: /* Only discover new tuners. */ Parameters.NewDevicesOnly;
+			newDevicesOnly: /* Only discover new tuners. */ Parameters.NewDevicesOnly;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.TunerHostInfo[];
@@ -7036,7 +7036,7 @@ export namespace Paths {
 		}
 		export interface QueryParameters {
 			type: /* The image type. */ Parameters.Type;
-			imageUrl?: /* The image url. */ Parameters.ImageUrl;
+			imageUrl: /* The image url. */ Parameters.ImageUrl;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -7182,24 +7182,24 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			userId?: /* Optional. Supply a user id to search within a user's library or omit to search all. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			userId: /* Optional. Supply a user id to search within a user's library or omit to search all. */ Parameters.UserId /* uuid */;
 			searchTerm: /* The search term to filter on. */ Parameters.SearchTerm;
-			includeItemTypes?: /* If specified, only results with the specified item types are returned. This allows multiple, comma delimeted. */ Parameters.IncludeItemTypes;
-			excludeItemTypes?: /* If specified, results with these item types are filtered out. This allows multiple, comma delimeted. */ Parameters.ExcludeItemTypes;
-			mediaTypes?: /* If specified, only results with the specified media types are returned. This allows multiple, comma delimeted. */ Parameters.MediaTypes;
-			parentId?: /* If specified, only children of the parent are returned. */ Parameters.ParentId /* uuid */;
-			isMovie?: /* Optional filter for movies. */ Parameters.IsMovie;
-			isSeries?: /* Optional filter for series. */ Parameters.IsSeries;
-			isNews?: /* Optional filter for news. */ Parameters.IsNews;
-			isKids?: /* Optional filter for kids. */ Parameters.IsKids;
-			isSports?: /* Optional filter for sports. */ Parameters.IsSports;
-			includePeople?: /* Optional filter whether to include people. */ Parameters.IncludePeople;
-			includeMedia?: /* Optional filter whether to include media. */ Parameters.IncludeMedia;
-			includeGenres?: /* Optional filter whether to include genres. */ Parameters.IncludeGenres;
-			includeStudios?: /* Optional filter whether to include studios. */ Parameters.IncludeStudios;
-			includeArtists?: /* Optional filter whether to include artists. */ Parameters.IncludeArtists;
+			includeItemTypes: /* If specified, only results with the specified item types are returned. This allows multiple, comma delimeted. */ Parameters.IncludeItemTypes;
+			excludeItemTypes: /* If specified, results with these item types are filtered out. This allows multiple, comma delimeted. */ Parameters.ExcludeItemTypes;
+			mediaTypes: /* If specified, only results with the specified media types are returned. This allows multiple, comma delimeted. */ Parameters.MediaTypes;
+			parentId: /* If specified, only children of the parent are returned. */ Parameters.ParentId /* uuid */;
+			isMovie: /* Optional filter for movies. */ Parameters.IsMovie;
+			isSeries: /* Optional filter for series. */ Parameters.IsSeries;
+			isNews: /* Optional filter for news. */ Parameters.IsNews;
+			isKids: /* Optional filter for kids. */ Parameters.IsKids;
+			isSports: /* Optional filter for sports. */ Parameters.IsSports;
+			includePeople: /* Optional filter whether to include people. */ Parameters.IncludePeople;
+			includeMedia: /* Optional filter whether to include media. */ Parameters.IncludeMedia;
+			includeGenres: /* Optional filter whether to include genres. */ Parameters.IncludeGenres;
+			includeStudios: /* Optional filter whether to include studios. */ Parameters.IncludeStudios;
+			includeArtists: /* Optional filter whether to include artists. */ Parameters.IncludeArtists;
 		}
 		namespace Responses {
 			export type $200 = /* Class SearchHintResult. */ Components.Schemas.SearchHintResult;
@@ -7222,7 +7222,7 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -7354,36 +7354,36 @@ export namespace Paths {
 			export type Years = number /* int32 */[];
 		}
 		export interface QueryParameters {
-			minCommunityRating?: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			searchTerm?: /* Optional. Search term. */ Parameters.SearchTerm;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			filters?: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			mediaTypes?: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
-			genres?: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
-			genreIds?: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
-			officialRatings?: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
-			tags?: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
-			years?: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
-			enableUserData?: /* Optional, include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			person?: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
-			personIds?: /* Optional. If specified, results will be filtered to include only those containing the specified person ids. */ Parameters.PersonIds;
-			personTypes?: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
-			studios?: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
-			studioIds?: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
-			userId?: /* User id. */ Parameters.UserId /* uuid */;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
-			enableTotalRecordCount?: /* Total record count. */ Parameters.EnableTotalRecordCount;
+			minCommunityRating: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			searchTerm: /* Optional. Search term. */ Parameters.SearchTerm;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			filters: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			mediaTypes: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			genres: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
+			genreIds: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
+			officialRatings: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
+			tags: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
+			years: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
+			enableUserData: /* Optional, include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			person: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
+			personIds: /* Optional. If specified, results will be filtered to include only those containing the specified person ids. */ Parameters.PersonIds;
+			personTypes: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
+			studios: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
+			studioIds: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
+			userId: /* User id. */ Parameters.UserId /* uuid */;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
+			enableTotalRecordCount: /* Total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -7413,14 +7413,13 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto[];
+			 */ Components.Schemas.BaseItemDto[];
 			export interface $401 {}
 			export interface $403 {}
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -7441,14 +7440,13 @@ export namespace Paths {
 			name: /* Studio name. */ Parameters.Name;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -7530,20 +7528,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -7673,36 +7671,36 @@ export namespace Paths {
 			export type Years = number /* int32 */[];
 		}
 		export interface QueryParameters {
-			minCommunityRating?: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			searchTerm?: /* Optional. Search term. */ Parameters.SearchTerm;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			filters?: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			mediaTypes?: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
-			genres?: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
-			genreIds?: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
-			officialRatings?: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
-			tags?: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
-			years?: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
-			enableUserData?: /* Optional, include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			person?: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
-			personIds?: /* Optional. If specified, results will be filtered to include only those containing the specified person ids. */ Parameters.PersonIds;
-			personTypes?: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
-			studios?: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
-			studioIds?: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
-			userId?: /* User id. */ Parameters.UserId /* uuid */;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
-			enableTotalRecordCount?: /* Total record count. */ Parameters.EnableTotalRecordCount;
+			minCommunityRating: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			searchTerm: /* Optional. Search term. */ Parameters.SearchTerm;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			filters: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			mediaTypes: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			genres: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
+			genreIds: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
+			officialRatings: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
+			tags: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
+			years: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
+			enableUserData: /* Optional, include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			person: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
+			personIds: /* Optional. If specified, results will be filtered to include only those containing the specified person ids. */ Parameters.PersonIds;
+			personTypes: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
+			studios: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
+			studioIds: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
+			userId: /* User id. */ Parameters.UserId /* uuid */;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
+			enableTotalRecordCount: /* Total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -7940,54 +7938,54 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			container?: /* The audio container. */ Parameters.Container;
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			container: /* The audio container. */ Parameters.Container;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace GetAudioStreamByContainer {
@@ -8196,53 +8194,53 @@ export namespace Paths {
 			container: /* The audio container. */ Parameters.Container;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace GetAuthProviders {
@@ -8260,7 +8258,7 @@ export namespace Paths {
 			export type Size = number; // int32
 		}
 		export interface QueryParameters {
-			size?: /* The bitrate. Defaults to 102400. */ Parameters.Size /* int32 */;
+			size: /* The bitrate. Defaults to 102400. */ Parameters.Size /* int32 */;
 		}
 		namespace Responses {
 			export type $200 = string; // binary
@@ -8323,14 +8321,13 @@ export namespace Paths {
 			channelId: /* Channel id. */ Parameters.ChannelId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -8394,14 +8391,14 @@ export namespace Paths {
 			channelId: /* Channel Id. */ Parameters.ChannelId /* uuid */;
 		}
 		export interface QueryParameters {
-			folderId?: /* Optional. Folder Id. */ Parameters.FolderId /* uuid */;
-			userId?: /* Optional. User Id. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			sortOrder?: /* Optional. Sort Order - Ascending,Descending. */ Parameters.SortOrder;
-			filters?: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
-			sortBy?: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			folderId: /* Optional. Folder Id. */ Parameters.FolderId /* uuid */;
+			userId: /* Optional. User Id. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			sortOrder: /* Optional. Sort Order - Ascending,Descending. */ Parameters.SortOrder;
+			filters: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
+			sortBy: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -8417,7 +8414,7 @@ export namespace Paths {
 			export type ProviderId = string;
 		}
 		export interface QueryParameters {
-			providerId?: /* Provider id. */ Parameters.ProviderId;
+			providerId: /* Provider id. */ Parameters.ProviderId;
 		}
 		namespace Responses {
 			export type $200 = /* Channel mapping options dto. */ Components.Schemas.ChannelMappingOptionsDto;
@@ -8453,12 +8450,12 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* User Id to filter by. Use System.Guid.Empty to not filter by user. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			supportsLatestItems?: /* Optional. Filter by channels that support getting latest items. */ Parameters.SupportsLatestItems;
-			supportsMediaDeletion?: /* Optional. Filter by channels that support media deletion. */ Parameters.SupportsMediaDeletion;
-			isFavorite?: /* Optional. Filter by channels that are favorite. */ Parameters.IsFavorite;
+			userId: /* User Id to filter by. Use System.Guid.Empty to not filter by user. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			supportsLatestItems: /* Optional. Filter by channels that support getting latest items. */ Parameters.SupportsLatestItems;
+			supportsMediaDeletion: /* Optional. Filter by channels that support media deletion. */ Parameters.SupportsMediaDeletion;
+			isFavorite: /* Optional. Filter by channels that are favorite. */ Parameters.IsFavorite;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -8485,8 +8482,8 @@ export namespace Paths {
 			export type PageType = /* Enum ConfigurationPageType. */ Components.Schemas.ConfigurationPageType;
 		}
 		export interface QueryParameters {
-			enableInMainMenu?: /* Whether to enable in the main menu. */ Parameters.EnableInMainMenu;
-			pageType?: /* The Jellyfin.Api.Models.ConfigurationPageInfo. */ Parameters.PageType;
+			enableInMainMenu: /* Whether to enable in the main menu. */ Parameters.EnableInMainMenu;
+			pageType: /* The Jellyfin.Api.Models.ConfigurationPageInfo. */ Parameters.PageType;
 		}
 		namespace Responses {
 			export type $200 = /* The configuration page info. */ Components.Schemas.ConfigurationPageInfo[];
@@ -8626,7 +8623,7 @@ export namespace Paths {
 			export type Name = string;
 		}
 		export interface QueryParameters {
-			name?: /* The name of the page. */ Parameters.Name;
+			name: /* The name of the page. */ Parameters.Name;
 		}
 		namespace Responses {
 			export type $200 = string; // binary
@@ -8669,7 +8666,7 @@ export namespace Paths {
 			export type ProgramId = string;
 		}
 		export interface QueryParameters {
-			programId?: /* Optional. To attach default values based on a program. */ Parameters.ProgramId;
+			programId: /* Optional. To attach default values based on a program. */ Parameters.ProgramId;
 		}
 		namespace Responses {
 			export type $200 = /* Class SeriesTimerInfoDto. */ Components.Schemas.SeriesTimerInfoDto;
@@ -8753,8 +8750,8 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			supportsSync?: /* Gets or sets a value indicating whether [supports synchronize]. */ Parameters.SupportsSync;
-			userId?: /* Gets or sets the user identifier. */ Parameters.UserId /* uuid */;
+			supportsSync: /* Gets or sets a value indicating whether [supports synchronize]. */ Parameters.SupportsSync;
+			userId: /* Gets or sets the user identifier. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.DeviceInfoQueryResult;
@@ -8779,8 +8776,8 @@ export namespace Paths {
 		}
 		export interface QueryParameters {
 			path: /* The path. */ Parameters.Path;
-			includeFiles?: /* An optional filter to include or exclude files from the results. true/false. */ Parameters.IncludeFiles;
-			includeDirectories?: /* An optional filter to include or exclude folders from the results. true/false. */ Parameters.IncludeDirectories;
+			includeFiles: /* An optional filter to include or exclude files from the results. true/false. */ Parameters.IncludeFiles;
+			includeDirectories: /* An optional filter to include or exclude folders from the results. true/false. */ Parameters.IncludeDirectories;
 		}
 		namespace Responses {
 			export type $200 = /* Class FileSystemEntryInfo. */ Components.Schemas.FileSystemEntryInfo[];
@@ -8913,20 +8910,20 @@ export namespace Paths {
 			seriesId: /* The series id. */ Parameters.SeriesId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* The user id. */ Parameters.UserId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
-			season?: /* Optional filter by season number. */ Parameters.Season /* int32 */;
-			seasonId?: /* Optional. Filter by season id. */ Parameters.SeasonId /* uuid */;
-			isMissing?: /* Optional. Filter by items that are missing episodes or not. */ Parameters.IsMissing;
-			adjacentTo?: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
-			startItemId?: /* Optional. Skip through the list until a given item is found. */ Parameters.StartItemId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			sortBy?: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
+			userId: /* The user id. */ Parameters.UserId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			season: /* Optional filter by season number. */ Parameters.Season /* int32 */;
+			seasonId: /* Optional. Filter by season id. */ Parameters.SeasonId /* uuid */;
+			isMissing: /* Optional. Filter by items that are missing episodes or not. */ Parameters.IsMissing;
+			adjacentTo: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
+			startItemId: /* Optional. Skip through the list until a given item is found. */ Parameters.StartItemId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			sortBy: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -9045,14 +9042,13 @@ export namespace Paths {
 			genreName: /* The genre name. */ Parameters.GenreName;
 		}
 		export interface QueryParameters {
-			userId?: /* The user id. */ Parameters.UserId /* uuid */;
+			userId: /* The user id. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -9133,21 +9129,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -9230,20 +9226,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -9317,22 +9313,22 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			searchTerm?: /* The search term. */ Parameters.SearchTerm;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			userId?: /* User id. */ Parameters.UserId /* uuid */;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
-			enableTotalRecordCount?: /* Optional. Include total record count. */ Parameters.EnableTotalRecordCount;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			searchTerm: /* The search term. */ Parameters.SearchTerm;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* User id. */ Parameters.UserId /* uuid */;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
+			enableTotalRecordCount: /* Optional. Include total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -9582,54 +9578,54 @@ export namespace Paths {
 			container: /* The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. */ Parameters.Container;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			maxStreamingBitrate?: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			maxStreamingBitrate: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -9904,53 +9900,53 @@ export namespace Paths {
 			container: /* The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. */ Parameters.Container;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -10060,13 +10056,13 @@ export namespace Paths {
 			id: /* The item id. */ Parameters.Id /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -10113,13 +10109,13 @@ export namespace Paths {
 			id: /* The item id. */ Parameters.Id /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -10166,13 +10162,13 @@ export namespace Paths {
 			id: /* The item id. */ Parameters.Id /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -10219,13 +10215,13 @@ export namespace Paths {
 			name: /* The genre name. */ Parameters.Name;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -10272,13 +10268,13 @@ export namespace Paths {
 			id: /* The item id. */ Parameters.Id /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -10325,13 +10321,13 @@ export namespace Paths {
 			id: /* The item id. */ Parameters.Id /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -10378,13 +10374,13 @@ export namespace Paths {
 			id: /* The item id. */ Parameters.Id /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -10429,11 +10425,10 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -10450,8 +10445,8 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Get counts from a specific user's library. */ Parameters.UserId /* uuid */;
-			isFavorite?: /* Optional. Get counts of favorite items. */ Parameters.IsFavorite;
+			userId: /* Optional. Get counts from a specific user's library. */ Parameters.UserId /* uuid */;
+			isFavorite: /* Optional. Get counts of favorite items. */ Parameters.IsFavorite;
 		}
 		namespace Responses {
 			export type $200 = /* Class LibrarySummary. */ Components.Schemas.ItemCounts;
@@ -10535,21 +10530,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			format?: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			format: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -10638,14 +10633,14 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -10728,20 +10723,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			format?: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			format: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -11088,86 +11083,86 @@ export namespace Paths {
 			export type Years = number /* int32 */[];
 		}
 		export interface QueryParameters {
-			userId?: /* The user id supplied as query parameter. */ Parameters.UserId /* uuid */;
-			maxOfficialRating?: /* Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MaxOfficialRating;
-			hasThemeSong?: /* Optional filter by items with theme songs. */ Parameters.HasThemeSong;
-			hasThemeVideo?: /* Optional filter by items with theme videos. */ Parameters.HasThemeVideo;
-			hasSubtitles?: /* Optional filter by items with subtitles. */ Parameters.HasSubtitles;
-			hasSpecialFeature?: /* Optional filter by items with special features. */ Parameters.HasSpecialFeature;
-			hasTrailer?: /* Optional filter by items with trailers. */ Parameters.HasTrailer;
-			adjacentTo?: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
-			parentIndexNumber?: /* Optional filter by parent index number. */ Parameters.ParentIndexNumber /* int32 */;
-			hasParentalRating?: /* Optional filter by items that have or do not have a parental rating. */ Parameters.HasParentalRating;
-			isHd?: /* Optional filter by items that are HD or not. */ Parameters.IsHd;
-			is4K?: /* Optional filter by items that are 4K or not. */ Parameters.Is4K;
-			locationTypes?: /* Optional. If specified, results will be filtered based on LocationType. This allows multiple, comma delimited. */ Parameters.LocationTypes;
-			excludeLocationTypes?: /* Optional. If specified, results will be filtered based on the LocationType. This allows multiple, comma delimited. */ Parameters.ExcludeLocationTypes;
-			isMissing?: /* Optional filter by items that are missing episodes or not. */ Parameters.IsMissing;
-			isUnaired?: /* Optional filter by items that are unaired episodes or not. */ Parameters.IsUnaired;
-			minCommunityRating?: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
-			minCriticRating?: /* Optional filter by minimum critic rating. */ Parameters.MinCriticRating /* double */;
-			minPremiereDate?: /* Optional. The minimum premiere date. Format = ISO. */ Parameters.MinPremiereDate /* date-time */;
-			minDateLastSaved?: /* Optional. The minimum last saved date. Format = ISO. */ Parameters.MinDateLastSaved /* date-time */;
-			minDateLastSavedForUser?: /* Optional. The minimum last saved date for the current user. Format = ISO. */ Parameters.MinDateLastSavedForUser /* date-time */;
-			maxPremiereDate?: /* Optional. The maximum premiere date. Format = ISO. */ Parameters.MaxPremiereDate /* date-time */;
-			hasOverview?: /* Optional filter by items that have an overview or not. */ Parameters.HasOverview;
-			hasImdbId?: /* Optional filter by items that have an imdb id or not. */ Parameters.HasImdbId;
-			hasTmdbId?: /* Optional filter by items that have a tmdb id or not. */ Parameters.HasTmdbId;
-			hasTvdbId?: /* Optional filter by items that have a tvdb id or not. */ Parameters.HasTvdbId;
-			excludeItemIds?: /* Optional. If specified, results will be filtered by excluding item ids. This allows multiple, comma delimited. */ Parameters.ExcludeItemIds;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			recursive?: /* When searching within folders, this determines whether or not the search will be recursive. true/false. */ Parameters.Recursive;
-			searchTerm?: /* Optional. Filter based on a search term. */ Parameters.SearchTerm;
-			sortOrder?: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on the item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			filters?: /* Optional. Specify additional filters to apply. This allows multiple, comma delimited. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes. */ Parameters.Filters;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			mediaTypes?: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
-			imageTypes?: /* Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited. */ Parameters.ImageTypes;
-			sortBy?: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
-			isPlayed?: /* Optional filter by items that are played, or not. */ Parameters.IsPlayed;
-			genres?: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
-			officialRatings?: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
-			tags?: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
-			years?: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
-			enableUserData?: /* Optional, include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			person?: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
-			personIds?: /* Optional. If specified, results will be filtered to include only those containing the specified person id. */ Parameters.PersonIds;
-			personTypes?: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
-			studios?: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
-			artists?: /* Optional. If specified, results will be filtered based on artists. This allows multiple, pipe delimited. */ Parameters.Artists;
-			excludeArtistIds?: /* Optional. If specified, results will be filtered based on artist id. This allows multiple, pipe delimited. */ Parameters.ExcludeArtistIds;
-			artistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified artist id. */ Parameters.ArtistIds;
-			albumArtistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified album artist id. */ Parameters.AlbumArtistIds;
-			contributingArtistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified contributing artist id. */ Parameters.ContributingArtistIds;
-			albums?: /* Optional. If specified, results will be filtered based on album. This allows multiple, pipe delimited. */ Parameters.Albums;
-			albumIds?: /* Optional. If specified, results will be filtered based on album id. This allows multiple, pipe delimited. */ Parameters.AlbumIds;
-			ids?: /* Optional. If specific items are needed, specify a list of item id's to retrieve. This allows multiple, comma delimited. */ Parameters.Ids;
-			videoTypes?: /* Optional filter by VideoType (videofile, dvd, bluray, iso). Allows multiple, comma delimited. */ Parameters.VideoTypes;
-			minOfficialRating?: /* Optional filter by minimum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MinOfficialRating;
-			isLocked?: /* Optional filter by items that are locked. */ Parameters.IsLocked;
-			isPlaceHolder?: /* Optional filter by items that are placeholders. */ Parameters.IsPlaceHolder;
-			hasOfficialRating?: /* Optional filter by items that have official ratings. */ Parameters.HasOfficialRating;
-			collapseBoxSetItems?: /* Whether or not to hide items behind their boxsets. */ Parameters.CollapseBoxSetItems;
-			minWidth?: /* Optional. Filter by the minimum width of the item. */ Parameters.MinWidth /* int32 */;
-			minHeight?: /* Optional. Filter by the minimum height of the item. */ Parameters.MinHeight /* int32 */;
-			maxWidth?: /* Optional. Filter by the maximum width of the item. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* Optional. Filter by the maximum height of the item. */ Parameters.MaxHeight /* int32 */;
-			is3D?: /* Optional filter by items that are 3D, or not. */ Parameters.Is3D;
-			seriesStatus?: /* Optional filter by Series Status. Allows multiple, comma delimited. */ Parameters.SeriesStatus;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			studioIds?: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
-			genreIds?: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
-			enableTotalRecordCount?: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
+			userId: /* The user id supplied as query parameter. */ Parameters.UserId /* uuid */;
+			maxOfficialRating: /* Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MaxOfficialRating;
+			hasThemeSong: /* Optional filter by items with theme songs. */ Parameters.HasThemeSong;
+			hasThemeVideo: /* Optional filter by items with theme videos. */ Parameters.HasThemeVideo;
+			hasSubtitles: /* Optional filter by items with subtitles. */ Parameters.HasSubtitles;
+			hasSpecialFeature: /* Optional filter by items with special features. */ Parameters.HasSpecialFeature;
+			hasTrailer: /* Optional filter by items with trailers. */ Parameters.HasTrailer;
+			adjacentTo: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
+			parentIndexNumber: /* Optional filter by parent index number. */ Parameters.ParentIndexNumber /* int32 */;
+			hasParentalRating: /* Optional filter by items that have or do not have a parental rating. */ Parameters.HasParentalRating;
+			isHd: /* Optional filter by items that are HD or not. */ Parameters.IsHd;
+			is4K: /* Optional filter by items that are 4K or not. */ Parameters.Is4K;
+			locationTypes: /* Optional. If specified, results will be filtered based on LocationType. This allows multiple, comma delimited. */ Parameters.LocationTypes;
+			excludeLocationTypes: /* Optional. If specified, results will be filtered based on the LocationType. This allows multiple, comma delimited. */ Parameters.ExcludeLocationTypes;
+			isMissing: /* Optional filter by items that are missing episodes or not. */ Parameters.IsMissing;
+			isUnaired: /* Optional filter by items that are unaired episodes or not. */ Parameters.IsUnaired;
+			minCommunityRating: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
+			minCriticRating: /* Optional filter by minimum critic rating. */ Parameters.MinCriticRating /* double */;
+			minPremiereDate: /* Optional. The minimum premiere date. Format = ISO. */ Parameters.MinPremiereDate /* date-time */;
+			minDateLastSaved: /* Optional. The minimum last saved date. Format = ISO. */ Parameters.MinDateLastSaved /* date-time */;
+			minDateLastSavedForUser: /* Optional. The minimum last saved date for the current user. Format = ISO. */ Parameters.MinDateLastSavedForUser /* date-time */;
+			maxPremiereDate: /* Optional. The maximum premiere date. Format = ISO. */ Parameters.MaxPremiereDate /* date-time */;
+			hasOverview: /* Optional filter by items that have an overview or not. */ Parameters.HasOverview;
+			hasImdbId: /* Optional filter by items that have an imdb id or not. */ Parameters.HasImdbId;
+			hasTmdbId: /* Optional filter by items that have a tmdb id or not. */ Parameters.HasTmdbId;
+			hasTvdbId: /* Optional filter by items that have a tvdb id or not. */ Parameters.HasTvdbId;
+			excludeItemIds: /* Optional. If specified, results will be filtered by excluding item ids. This allows multiple, comma delimited. */ Parameters.ExcludeItemIds;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			recursive: /* When searching within folders, this determines whether or not the search will be recursive. true/false. */ Parameters.Recursive;
+			searchTerm: /* Optional. Filter based on a search term. */ Parameters.SearchTerm;
+			sortOrder: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on the item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			filters: /* Optional. Specify additional filters to apply. This allows multiple, comma delimited. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes. */ Parameters.Filters;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			mediaTypes: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			imageTypes: /* Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited. */ Parameters.ImageTypes;
+			sortBy: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
+			isPlayed: /* Optional filter by items that are played, or not. */ Parameters.IsPlayed;
+			genres: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
+			officialRatings: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
+			tags: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
+			years: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
+			enableUserData: /* Optional, include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			person: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
+			personIds: /* Optional. If specified, results will be filtered to include only those containing the specified person id. */ Parameters.PersonIds;
+			personTypes: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
+			studios: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
+			artists: /* Optional. If specified, results will be filtered based on artists. This allows multiple, pipe delimited. */ Parameters.Artists;
+			excludeArtistIds: /* Optional. If specified, results will be filtered based on artist id. This allows multiple, pipe delimited. */ Parameters.ExcludeArtistIds;
+			artistIds: /* Optional. If specified, results will be filtered to include only those containing the specified artist id. */ Parameters.ArtistIds;
+			albumArtistIds: /* Optional. If specified, results will be filtered to include only those containing the specified album artist id. */ Parameters.AlbumArtistIds;
+			contributingArtistIds: /* Optional. If specified, results will be filtered to include only those containing the specified contributing artist id. */ Parameters.ContributingArtistIds;
+			albums: /* Optional. If specified, results will be filtered based on album. This allows multiple, pipe delimited. */ Parameters.Albums;
+			albumIds: /* Optional. If specified, results will be filtered based on album id. This allows multiple, pipe delimited. */ Parameters.AlbumIds;
+			ids: /* Optional. If specific items are needed, specify a list of item id's to retrieve. This allows multiple, comma delimited. */ Parameters.Ids;
+			videoTypes: /* Optional filter by VideoType (videofile, dvd, bluray, iso). Allows multiple, comma delimited. */ Parameters.VideoTypes;
+			minOfficialRating: /* Optional filter by minimum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MinOfficialRating;
+			isLocked: /* Optional filter by items that are locked. */ Parameters.IsLocked;
+			isPlaceHolder: /* Optional filter by items that are placeholders. */ Parameters.IsPlaceHolder;
+			hasOfficialRating: /* Optional filter by items that have official ratings. */ Parameters.HasOfficialRating;
+			collapseBoxSetItems: /* Whether or not to hide items behind their boxsets. */ Parameters.CollapseBoxSetItems;
+			minWidth: /* Optional. Filter by the minimum width of the item. */ Parameters.MinWidth /* int32 */;
+			minHeight: /* Optional. Filter by the minimum height of the item. */ Parameters.MinHeight /* int32 */;
+			maxWidth: /* Optional. Filter by the maximum width of the item. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* Optional. Filter by the maximum height of the item. */ Parameters.MaxHeight /* int32 */;
+			is3D: /* Optional filter by items that are 3D, or not. */ Parameters.Is3D;
+			seriesStatus: /* Optional filter by Series Status. Allows multiple, comma delimited. */ Parameters.SeriesStatus;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			studioIds: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
+			genreIds: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
+			enableTotalRecordCount: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -11502,85 +11497,85 @@ export namespace Paths {
 			userId: /* The user id supplied as query parameter. */ Parameters.UserId /* uuid */;
 		}
 		export interface QueryParameters {
-			maxOfficialRating?: /* Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MaxOfficialRating;
-			hasThemeSong?: /* Optional filter by items with theme songs. */ Parameters.HasThemeSong;
-			hasThemeVideo?: /* Optional filter by items with theme videos. */ Parameters.HasThemeVideo;
-			hasSubtitles?: /* Optional filter by items with subtitles. */ Parameters.HasSubtitles;
-			hasSpecialFeature?: /* Optional filter by items with special features. */ Parameters.HasSpecialFeature;
-			hasTrailer?: /* Optional filter by items with trailers. */ Parameters.HasTrailer;
-			adjacentTo?: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
-			parentIndexNumber?: /* Optional filter by parent index number. */ Parameters.ParentIndexNumber /* int32 */;
-			hasParentalRating?: /* Optional filter by items that have or do not have a parental rating. */ Parameters.HasParentalRating;
-			isHd?: /* Optional filter by items that are HD or not. */ Parameters.IsHd;
-			is4K?: /* Optional filter by items that are 4K or not. */ Parameters.Is4K;
-			locationTypes?: /* Optional. If specified, results will be filtered based on LocationType. This allows multiple, comma delimeted. */ Parameters.LocationTypes;
-			excludeLocationTypes?: /* Optional. If specified, results will be filtered based on the LocationType. This allows multiple, comma delimeted. */ Parameters.ExcludeLocationTypes;
-			isMissing?: /* Optional filter by items that are missing episodes or not. */ Parameters.IsMissing;
-			isUnaired?: /* Optional filter by items that are unaired episodes or not. */ Parameters.IsUnaired;
-			minCommunityRating?: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
-			minCriticRating?: /* Optional filter by minimum critic rating. */ Parameters.MinCriticRating /* double */;
-			minPremiereDate?: /* Optional. The minimum premiere date. Format = ISO. */ Parameters.MinPremiereDate /* date-time */;
-			minDateLastSaved?: /* Optional. The minimum last saved date. Format = ISO. */ Parameters.MinDateLastSaved /* date-time */;
-			minDateLastSavedForUser?: /* Optional. The minimum last saved date for the current user. Format = ISO. */ Parameters.MinDateLastSavedForUser /* date-time */;
-			maxPremiereDate?: /* Optional. The maximum premiere date. Format = ISO. */ Parameters.MaxPremiereDate /* date-time */;
-			hasOverview?: /* Optional filter by items that have an overview or not. */ Parameters.HasOverview;
-			hasImdbId?: /* Optional filter by items that have an imdb id or not. */ Parameters.HasImdbId;
-			hasTmdbId?: /* Optional filter by items that have a tmdb id or not. */ Parameters.HasTmdbId;
-			hasTvdbId?: /* Optional filter by items that have a tvdb id or not. */ Parameters.HasTvdbId;
-			excludeItemIds?: /* Optional. If specified, results will be filtered by exxcluding item ids. This allows multiple, comma delimeted. */ Parameters.ExcludeItemIds;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			recursive?: /* When searching within folders, this determines whether or not the search will be recursive. true/false. */ Parameters.Recursive;
-			searchTerm?: /* Optional. Filter based on a search term. */ Parameters.SearchTerm;
-			sortOrder?: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimeted. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimeted. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on the item type. This allows multiple, comma delimeted. */ Parameters.IncludeItemTypes;
-			filters?: /* Optional. Specify additional filters to apply. This allows multiple, comma delimeted. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes. */ Parameters.Filters;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			mediaTypes?: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
-			imageTypes?: /* Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited. */ Parameters.ImageTypes;
-			sortBy?: /* Optional. Specify one or more sort orders, comma delimeted. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
-			isPlayed?: /* Optional filter by items that are played, or not. */ Parameters.IsPlayed;
-			genres?: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimeted. */ Parameters.Genres;
-			officialRatings?: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimeted. */ Parameters.OfficialRatings;
-			tags?: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimeted. */ Parameters.Tags;
-			years?: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimeted. */ Parameters.Years;
-			enableUserData?: /* Optional, include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			person?: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
-			personIds?: /* Optional. If specified, results will be filtered to include only those containing the specified person id. */ Parameters.PersonIds;
-			personTypes?: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
-			studios?: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimeted. */ Parameters.Studios;
-			artists?: /* Optional. If specified, results will be filtered based on artists. This allows multiple, pipe delimeted. */ Parameters.Artists;
-			excludeArtistIds?: /* Optional. If specified, results will be filtered based on artist id. This allows multiple, pipe delimeted. */ Parameters.ExcludeArtistIds;
-			artistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified artist id. */ Parameters.ArtistIds;
-			albumArtistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified album artist id. */ Parameters.AlbumArtistIds;
-			contributingArtistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified contributing artist id. */ Parameters.ContributingArtistIds;
-			albums?: /* Optional. If specified, results will be filtered based on album. This allows multiple, pipe delimeted. */ Parameters.Albums;
-			albumIds?: /* Optional. If specified, results will be filtered based on album id. This allows multiple, pipe delimeted. */ Parameters.AlbumIds;
-			ids?: /* Optional. If specific items are needed, specify a list of item id's to retrieve. This allows multiple, comma delimited. */ Parameters.Ids;
-			videoTypes?: /* Optional filter by VideoType (videofile, dvd, bluray, iso). Allows multiple, comma delimeted. */ Parameters.VideoTypes;
-			minOfficialRating?: /* Optional filter by minimum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MinOfficialRating;
-			isLocked?: /* Optional filter by items that are locked. */ Parameters.IsLocked;
-			isPlaceHolder?: /* Optional filter by items that are placeholders. */ Parameters.IsPlaceHolder;
-			hasOfficialRating?: /* Optional filter by items that have official ratings. */ Parameters.HasOfficialRating;
-			collapseBoxSetItems?: /* Whether or not to hide items behind their boxsets. */ Parameters.CollapseBoxSetItems;
-			minWidth?: /* Optional. Filter by the minimum width of the item. */ Parameters.MinWidth /* int32 */;
-			minHeight?: /* Optional. Filter by the minimum height of the item. */ Parameters.MinHeight /* int32 */;
-			maxWidth?: /* Optional. Filter by the maximum width of the item. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* Optional. Filter by the maximum height of the item. */ Parameters.MaxHeight /* int32 */;
-			is3D?: /* Optional filter by items that are 3D, or not. */ Parameters.Is3D;
-			seriesStatus?: /* Optional filter by Series Status. Allows multiple, comma delimeted. */ Parameters.SeriesStatus;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			studioIds?: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimeted. */ Parameters.StudioIds;
-			genreIds?: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimeted. */ Parameters.GenreIds;
-			enableTotalRecordCount?: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
+			maxOfficialRating: /* Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MaxOfficialRating;
+			hasThemeSong: /* Optional filter by items with theme songs. */ Parameters.HasThemeSong;
+			hasThemeVideo: /* Optional filter by items with theme videos. */ Parameters.HasThemeVideo;
+			hasSubtitles: /* Optional filter by items with subtitles. */ Parameters.HasSubtitles;
+			hasSpecialFeature: /* Optional filter by items with special features. */ Parameters.HasSpecialFeature;
+			hasTrailer: /* Optional filter by items with trailers. */ Parameters.HasTrailer;
+			adjacentTo: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
+			parentIndexNumber: /* Optional filter by parent index number. */ Parameters.ParentIndexNumber /* int32 */;
+			hasParentalRating: /* Optional filter by items that have or do not have a parental rating. */ Parameters.HasParentalRating;
+			isHd: /* Optional filter by items that are HD or not. */ Parameters.IsHd;
+			is4K: /* Optional filter by items that are 4K or not. */ Parameters.Is4K;
+			locationTypes: /* Optional. If specified, results will be filtered based on LocationType. This allows multiple, comma delimeted. */ Parameters.LocationTypes;
+			excludeLocationTypes: /* Optional. If specified, results will be filtered based on the LocationType. This allows multiple, comma delimeted. */ Parameters.ExcludeLocationTypes;
+			isMissing: /* Optional filter by items that are missing episodes or not. */ Parameters.IsMissing;
+			isUnaired: /* Optional filter by items that are unaired episodes or not. */ Parameters.IsUnaired;
+			minCommunityRating: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
+			minCriticRating: /* Optional filter by minimum critic rating. */ Parameters.MinCriticRating /* double */;
+			minPremiereDate: /* Optional. The minimum premiere date. Format = ISO. */ Parameters.MinPremiereDate /* date-time */;
+			minDateLastSaved: /* Optional. The minimum last saved date. Format = ISO. */ Parameters.MinDateLastSaved /* date-time */;
+			minDateLastSavedForUser: /* Optional. The minimum last saved date for the current user. Format = ISO. */ Parameters.MinDateLastSavedForUser /* date-time */;
+			maxPremiereDate: /* Optional. The maximum premiere date. Format = ISO. */ Parameters.MaxPremiereDate /* date-time */;
+			hasOverview: /* Optional filter by items that have an overview or not. */ Parameters.HasOverview;
+			hasImdbId: /* Optional filter by items that have an imdb id or not. */ Parameters.HasImdbId;
+			hasTmdbId: /* Optional filter by items that have a tmdb id or not. */ Parameters.HasTmdbId;
+			hasTvdbId: /* Optional filter by items that have a tvdb id or not. */ Parameters.HasTvdbId;
+			excludeItemIds: /* Optional. If specified, results will be filtered by exxcluding item ids. This allows multiple, comma delimeted. */ Parameters.ExcludeItemIds;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			recursive: /* When searching within folders, this determines whether or not the search will be recursive. true/false. */ Parameters.Recursive;
+			searchTerm: /* Optional. Filter based on a search term. */ Parameters.SearchTerm;
+			sortOrder: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimeted. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimeted. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on the item type. This allows multiple, comma delimeted. */ Parameters.IncludeItemTypes;
+			filters: /* Optional. Specify additional filters to apply. This allows multiple, comma delimeted. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes. */ Parameters.Filters;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			mediaTypes: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			imageTypes: /* Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited. */ Parameters.ImageTypes;
+			sortBy: /* Optional. Specify one or more sort orders, comma delimeted. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
+			isPlayed: /* Optional filter by items that are played, or not. */ Parameters.IsPlayed;
+			genres: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimeted. */ Parameters.Genres;
+			officialRatings: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimeted. */ Parameters.OfficialRatings;
+			tags: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimeted. */ Parameters.Tags;
+			years: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimeted. */ Parameters.Years;
+			enableUserData: /* Optional, include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			person: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
+			personIds: /* Optional. If specified, results will be filtered to include only those containing the specified person id. */ Parameters.PersonIds;
+			personTypes: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
+			studios: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimeted. */ Parameters.Studios;
+			artists: /* Optional. If specified, results will be filtered based on artists. This allows multiple, pipe delimeted. */ Parameters.Artists;
+			excludeArtistIds: /* Optional. If specified, results will be filtered based on artist id. This allows multiple, pipe delimeted. */ Parameters.ExcludeArtistIds;
+			artistIds: /* Optional. If specified, results will be filtered to include only those containing the specified artist id. */ Parameters.ArtistIds;
+			albumArtistIds: /* Optional. If specified, results will be filtered to include only those containing the specified album artist id. */ Parameters.AlbumArtistIds;
+			contributingArtistIds: /* Optional. If specified, results will be filtered to include only those containing the specified contributing artist id. */ Parameters.ContributingArtistIds;
+			albums: /* Optional. If specified, results will be filtered based on album. This allows multiple, pipe delimeted. */ Parameters.Albums;
+			albumIds: /* Optional. If specified, results will be filtered based on album id. This allows multiple, pipe delimeted. */ Parameters.AlbumIds;
+			ids: /* Optional. If specific items are needed, specify a list of item id's to retrieve. This allows multiple, comma delimited. */ Parameters.Ids;
+			videoTypes: /* Optional filter by VideoType (videofile, dvd, bluray, iso). Allows multiple, comma delimeted. */ Parameters.VideoTypes;
+			minOfficialRating: /* Optional filter by minimum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MinOfficialRating;
+			isLocked: /* Optional filter by items that are locked. */ Parameters.IsLocked;
+			isPlaceHolder: /* Optional filter by items that are placeholders. */ Parameters.IsPlaceHolder;
+			hasOfficialRating: /* Optional filter by items that have official ratings. */ Parameters.HasOfficialRating;
+			collapseBoxSetItems: /* Whether or not to hide items behind their boxsets. */ Parameters.CollapseBoxSetItems;
+			minWidth: /* Optional. Filter by the minimum width of the item. */ Parameters.MinWidth /* int32 */;
+			minHeight: /* Optional. Filter by the minimum height of the item. */ Parameters.MinHeight /* int32 */;
+			maxWidth: /* Optional. Filter by the maximum width of the item. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* Optional. Filter by the maximum height of the item. */ Parameters.MaxHeight /* int32 */;
+			is3D: /* Optional filter by items that are 3D, or not. */ Parameters.Is3D;
+			seriesStatus: /* Optional filter by Series Status. Allows multiple, comma delimeted. */ Parameters.SeriesStatus;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			studioIds: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimeted. */ Parameters.StudioIds;
+			genreIds: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimeted. */ Parameters.GenreIds;
+			enableTotalRecordCount: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -11623,12 +11618,12 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. User Id. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			filters?: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			channelIds?: /* Optional. Specify one or more channel id's, comma delimited. */ Parameters.ChannelIds;
+			userId: /* Optional. User Id. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			filters: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			channelIds: /* Optional. Specify one or more channel id's, comma delimited. */ Parameters.ChannelIds;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -11687,23 +11682,22 @@ export namespace Paths {
 			userId: /* User id. */ Parameters.UserId /* uuid */;
 		}
 		export interface QueryParameters {
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			isPlayed?: /* Filter by items that are played, or not. */ Parameters.IsPlayed;
-			enableImages?: /* Optional. include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional. the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			enableUserData?: /* Optional. include user data. */ Parameters.EnableUserData;
-			limit?: /* Return item limit. */ Parameters.Limit /* int32 */;
-			groupItems?: /* Whether or not to group items into a parent container. */ Parameters.GroupItems;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			isPlayed: /* Filter by items that are played, or not. */ Parameters.IsPlayed;
+			enableImages: /* Optional. include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional. the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			enableUserData: /* Optional. include user data. */ Parameters.EnableUserData;
+			limit: /* Return item limit. */ Parameters.Limit /* int32 */;
+			groupItems: /* Whether or not to group items into a parent container. */ Parameters.GroupItems;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto[];
+			 */ Components.Schemas.BaseItemDto[];
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -11720,8 +11714,8 @@ export namespace Paths {
 			export type LibraryContentType = string;
 		}
 		export interface QueryParameters {
-			libraryContentType?: /* Library content type. */ Parameters.LibraryContentType;
-			isNewLibrary?: /* Whether this is a new library. */ Parameters.IsNewLibrary;
+			libraryContentType: /* Library content type. */ Parameters.LibraryContentType;
+			isNewLibrary: /* Whether this is a new library. */ Parameters.IsNewLibrary;
 		}
 		namespace Responses {
 			export type $200 = /* Library options result dto. */ Components.Schemas.LibraryOptionsResultDto;
@@ -11749,10 +11743,10 @@ export namespace Paths {
 			export type Type = string;
 		}
 		export interface QueryParameters {
-			id?: /* Provider id. */ Parameters.Id;
-			type?: /* Provider type. */ Parameters.Type;
-			location?: /* Location. */ Parameters.Location;
-			country?: /* Country. */ Parameters.Country;
+			id: /* Provider id. */ Parameters.Id;
+			type: /* Provider type. */ Parameters.Type;
+			location: /* Location. */ Parameters.Location;
+			country: /* Country. */ Parameters.Country;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.NameIdPair[];
@@ -11977,57 +11971,57 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			container?: /* The audio container. */ Parameters.Container;
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
-			maxWidth?: /* Optional. The max width. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* Optional. The max height. */ Parameters.MaxHeight /* int32 */;
-			enableSubtitlesInManifest?: /* Optional. Whether to enable subtitles in the manifest. */ Parameters.EnableSubtitlesInManifest;
+			container: /* The audio container. */ Parameters.Container;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			maxWidth: /* Optional. The max width. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* Optional. The max height. */ Parameters.MaxHeight /* int32 */;
+			enableSubtitlesInManifest: /* Optional. Whether to enable subtitles in the manifest. */ Parameters.EnableSubtitlesInManifest;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -12155,27 +12149,27 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			type?: /* Optional. Filter by channel type. */ Parameters.Type;
-			userId?: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			isMovie?: /* Optional. Filter for movies. */ Parameters.IsMovie;
-			isSeries?: /* Optional. Filter for series. */ Parameters.IsSeries;
-			isNews?: /* Optional. Filter for news. */ Parameters.IsNews;
-			isKids?: /* Optional. Filter for kids. */ Parameters.IsKids;
-			isSports?: /* Optional. Filter for sports. */ Parameters.IsSports;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			isFavorite?: /* Optional. Filter by channels that are favorites, or not. */ Parameters.IsFavorite;
-			isLiked?: /* Optional. Filter by channels that are liked, or not. */ Parameters.IsLiked;
-			isDisliked?: /* Optional. Filter by channels that are disliked, or not. */ Parameters.IsDisliked;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* "Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			sortBy?: /* Optional. Key to sort by. */ Parameters.SortBy;
-			sortOrder?: /* Optional. Sort order. */ Parameters.SortOrder;
-			enableFavoriteSorting?: /* Optional. Incorporate favorite and like status into channel sorting. */ Parameters.EnableFavoriteSorting;
-			addCurrentProgram?: /* Optional. Adds current program info to each channel. */ Parameters.AddCurrentProgram;
+			type: /* Optional. Filter by channel type. */ Parameters.Type;
+			userId: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			isMovie: /* Optional. Filter for movies. */ Parameters.IsMovie;
+			isSeries: /* Optional. Filter for series. */ Parameters.IsSeries;
+			isNews: /* Optional. Filter for news. */ Parameters.IsNews;
+			isKids: /* Optional. Filter for kids. */ Parameters.IsKids;
+			isSports: /* Optional. Filter for sports. */ Parameters.IsSports;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			isFavorite: /* Optional. Filter by channels that are favorites, or not. */ Parameters.IsFavorite;
+			isLiked: /* Optional. Filter by channels that are liked, or not. */ Parameters.IsLiked;
+			isDisliked: /* Optional. Filter by channels that are disliked, or not. */ Parameters.IsDisliked;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* "Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			sortBy: /* Optional. Key to sort by. */ Parameters.SortBy;
+			sortOrder: /* Optional. Sort order. */ Parameters.SortOrder;
+			enableFavoriteSorting: /* Optional. Incorporate favorite and like status into channel sorting. */ Parameters.EnableFavoriteSorting;
+			addCurrentProgram: /* Optional. Adds current program info to each channel. */ Parameters.AddCurrentProgram;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -12302,33 +12296,33 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			channelIds?: /* The channels to return guide information for. */ Parameters.ChannelIds;
-			userId?: /* Optional. Filter by user id. */ Parameters.UserId /* uuid */;
-			minStartDate?: /* Optional. The minimum premiere start date. */ Parameters.MinStartDate /* date-time */;
-			hasAired?: /* Optional. Filter by programs that have completed airing, or not. */ Parameters.HasAired;
-			isAiring?: /* Optional. Filter by programs that are currently airing, or not. */ Parameters.IsAiring;
-			maxStartDate?: /* Optional. The maximum premiere start date. */ Parameters.MaxStartDate /* date-time */;
-			minEndDate?: /* Optional. The minimum premiere end date. */ Parameters.MinEndDate /* date-time */;
-			maxEndDate?: /* Optional. The maximum premiere end date. */ Parameters.MaxEndDate /* date-time */;
-			isMovie?: /* Optional. Filter for movies. */ Parameters.IsMovie;
-			isSeries?: /* Optional. Filter for series. */ Parameters.IsSeries;
-			isNews?: /* Optional. Filter for news. */ Parameters.IsNews;
-			isKids?: /* Optional. Filter for kids. */ Parameters.IsKids;
-			isSports?: /* Optional. Filter for sports. */ Parameters.IsSports;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			sortBy?: /* Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate. */ Parameters.SortBy;
-			sortOrder?: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
-			genres?: /* The genres to return guide information for. */ Parameters.Genres;
-			genreIds?: /* The genre ids to return guide information for. */ Parameters.GenreIds;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			seriesTimerId?: /* Optional. Filter by series timer id. */ Parameters.SeriesTimerId;
-			librarySeriesId?: /* Optional. Filter by library series id. */ Parameters.LibrarySeriesId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableTotalRecordCount?: /* Retrieve total record count. */ Parameters.EnableTotalRecordCount;
+			channelIds: /* The channels to return guide information for. */ Parameters.ChannelIds;
+			userId: /* Optional. Filter by user id. */ Parameters.UserId /* uuid */;
+			minStartDate: /* Optional. The minimum premiere start date. */ Parameters.MinStartDate /* date-time */;
+			hasAired: /* Optional. Filter by programs that have completed airing, or not. */ Parameters.HasAired;
+			isAiring: /* Optional. Filter by programs that are currently airing, or not. */ Parameters.IsAiring;
+			maxStartDate: /* Optional. The maximum premiere start date. */ Parameters.MaxStartDate /* date-time */;
+			minEndDate: /* Optional. The minimum premiere end date. */ Parameters.MinEndDate /* date-time */;
+			maxEndDate: /* Optional. The maximum premiere end date. */ Parameters.MaxEndDate /* date-time */;
+			isMovie: /* Optional. Filter for movies. */ Parameters.IsMovie;
+			isSeries: /* Optional. Filter for series. */ Parameters.IsSeries;
+			isNews: /* Optional. Filter for news. */ Parameters.IsNews;
+			isKids: /* Optional. Filter for kids. */ Parameters.IsKids;
+			isSports: /* Optional. Filter for sports. */ Parameters.IsSports;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			sortBy: /* Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate. */ Parameters.SortBy;
+			sortOrder: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
+			genres: /* The genres to return guide information for. */ Parameters.Genres;
+			genreIds: /* The genre ids to return guide information for. */ Parameters.GenreIds;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			seriesTimerId: /* Optional. Filter by series timer id. */ Parameters.SeriesTimerId;
+			librarySeriesId: /* Optional. Filter by library series id. */ Parameters.LibrarySeriesId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableTotalRecordCount: /* Retrieve total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -12352,11 +12346,10 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto[];
+			 */ Components.Schemas.BaseItemDto[];
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -12388,10 +12381,10 @@ export namespace Paths {
 			export type StartIndex = number; // int32
 		}
 		export interface QueryParameters {
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			minDate?: /* Optional. The minimum date. Format = ISO. */ Parameters.MinDate /* date-time */;
-			hasUserId?: /* Optional. Filter log entries if it has user id, or not. */ Parameters.HasUserId;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			minDate: /* Optional. The minimum date. Format = ISO. */ Parameters.MinDate /* date-time */;
+			hasUserId: /* Optional. Filter log entries if it has user id, or not. */ Parameters.HasUserId;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.ActivityLogEntryQueryResult;
@@ -12624,55 +12617,55 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
 			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			maxStreamingBitrate?: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
-			enableAdaptiveBitrateStreaming?: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			maxStreamingBitrate: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			enableAdaptiveBitrateStreaming: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -12884,54 +12877,54 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
 			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
-			enableAdaptiveBitrateStreaming?: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			enableAdaptiveBitrateStreaming: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -12946,7 +12939,7 @@ export namespace Paths {
 			export type IsHidden = boolean;
 		}
 		export interface QueryParameters {
-			isHidden?: /* Optional. Filter by folders that are marked hidden, or not. */ Parameters.IsHidden;
+			isHidden: /* Optional. Filter by folders that are marked hidden, or not. */ Parameters.IsHidden;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -13066,11 +13059,11 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. The fields to return. */ Parameters.Fields;
-			categoryLimit?: /* The max number of categories to return. */ Parameters.CategoryLimit /* int32 */;
-			itemLimit?: /* The max number of items to return per category. */ Parameters.ItemLimit /* int32 */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. The fields to return. */ Parameters.Fields;
+			categoryLimit: /* The max number of categories to return. */ Parameters.CategoryLimit /* int32 */;
+			itemLimit: /* The max number of items to return per category. */ Parameters.ItemLimit /* int32 */;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.RecommendationDto[];
@@ -13126,14 +13119,13 @@ export namespace Paths {
 			genreName: /* The genre name. */ Parameters.GenreName;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -13214,21 +13206,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -13311,20 +13303,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -13398,22 +13390,22 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			searchTerm?: /* The search term. */ Parameters.SearchTerm;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			userId?: /* User id. */ Parameters.UserId /* uuid */;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
-			enableTotalRecordCount?: /* Optional. Include total record count. */ Parameters.EnableTotalRecordCount;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			searchTerm: /* The search term. */ Parameters.SearchTerm;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* User id. */ Parameters.UserId /* uuid */;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
+			enableTotalRecordCount: /* Optional. Include total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -13507,18 +13499,18 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* The user id of the user to get the next up episodes for. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			seriesId?: /* Optional. Filter by series id. */ Parameters.SeriesId;
-			parentId?: /* Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			enableImges?: /* Optional. Include image information in output. */ Parameters.EnableImges;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			enableTotalRecordCount?: /* Whether to enable the total records count. Defaults to true. */ Parameters.EnableTotalRecordCount;
-			disableFirstEpisode?: /* Whether to disable sending the first episode in a series as next up. */ Parameters.DisableFirstEpisode;
+			userId: /* The user id of the user to get the next up episodes for. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			seriesId: /* Optional. Filter by series id. */ Parameters.SeriesId;
+			parentId: /* Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			enableImges: /* Optional. Include image information in output. */ Parameters.EnableImges;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			enableTotalRecordCount: /* Whether to enable the total records count. Defaults to true. */ Parameters.EnableTotalRecordCount;
+			disableFirstEpisode: /* Whether to disable sending the first episode in a series as next up. */ Parameters.DisableFirstEpisode;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -13581,7 +13573,7 @@ export namespace Paths {
 			name: /* The name of the package. */ Parameters.Name;
 		}
 		export interface QueryParameters {
-			assemblyGuid?: /* The GUID of the associated assembly. */ Parameters.AssemblyGuid /* uuid */;
+			assemblyGuid: /* The GUID of the associated assembly. */ Parameters.AssemblyGuid /* uuid */;
 		}
 		namespace Responses {
 			export type $200 = /* Class PackageInfo. */ Components.Schemas.PackageInfo;
@@ -13641,14 +13633,13 @@ export namespace Paths {
 			name: /* Person name. */ Parameters.Name;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -13730,21 +13721,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -13827,20 +13818,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -13913,19 +13904,19 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			searchTerm?: /* The search term. */ Parameters.SearchTerm;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			filters?: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. userId is required. */ Parameters.IsFavorite;
-			enableUserData?: /* Optional, include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			excludePersonTypes?: /* Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited. */ Parameters.ExcludePersonTypes;
-			personTypes?: /* Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
-			appearsInItemId?: /* Optional. If specified, person results will be filtered on items related to said persons. */ Parameters.AppearsInItemId /* uuid */;
-			userId?: /* User id. */ Parameters.UserId /* uuid */;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			searchTerm: /* The search term. */ Parameters.SearchTerm;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			filters: /* Optional. Specify additional filters to apply. */ Parameters.Filters;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. userId is required. */ Parameters.IsFavorite;
+			enableUserData: /* Optional, include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			excludePersonTypes: /* Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited. */ Parameters.ExcludePersonTypes;
+			personTypes: /* Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
+			appearsInItemId: /* Optional. If specified, person results will be filtered on items related to said persons. */ Parameters.AppearsInItemId /* uuid */;
+			userId: /* User id. */ Parameters.UserId /* uuid */;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14012,13 +14003,13 @@ export namespace Paths {
 		}
 		export interface QueryParameters {
 			userId: /* User id. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14156,20 +14147,20 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* The user id. */ Parameters.UserId /* uuid */;
-			maxStreamingBitrate?: /* The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			startTimeTicks?: /* The start time in ticks. */ Parameters.StartTimeTicks /* int64 */;
-			audioStreamIndex?: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
-			subtitleStreamIndex?: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
-			maxAudioChannels?: /* The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
-			mediaSourceId?: /* The media source id. */ Parameters.MediaSourceId;
-			liveStreamId?: /* The livestream id. */ Parameters.LiveStreamId;
-			autoOpenLiveStream?: /* Whether to auto open the livestream. */ Parameters.AutoOpenLiveStream;
-			enableDirectPlay?: /* Whether to enable direct play. Default: true. */ Parameters.EnableDirectPlay;
-			enableDirectStream?: /* Whether to enable direct stream. Default: true. */ Parameters.EnableDirectStream;
-			enableTranscoding?: /* Whether to enable transcoding. Default: true. */ Parameters.EnableTranscoding;
-			allowVideoStreamCopy?: /* Whether to allow to copy the video stream. Default: true. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether to allow to copy the audio stream. Default: true. */ Parameters.AllowAudioStreamCopy;
+			userId: /* The user id. */ Parameters.UserId /* uuid */;
+			maxStreamingBitrate: /* The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			startTimeTicks: /* The start time in ticks. */ Parameters.StartTimeTicks /* int64 */;
+			audioStreamIndex: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
+			subtitleStreamIndex: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
+			maxAudioChannels: /* The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
+			mediaSourceId: /* The media source id. */ Parameters.MediaSourceId;
+			liveStreamId: /* The livestream id. */ Parameters.LiveStreamId;
+			autoOpenLiveStream: /* Whether to auto open the livestream. */ Parameters.AutoOpenLiveStream;
+			enableDirectPlay: /* Whether to enable direct play. Default: true. */ Parameters.EnableDirectPlay;
+			enableDirectStream: /* Whether to enable direct stream. Default: true. */ Parameters.EnableDirectStream;
+			enableTranscoding: /* Whether to enable transcoding. Default: true. */ Parameters.EnableTranscoding;
+			allowVideoStreamCopy: /* Whether to allow to copy the video stream. Default: true. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether to allow to copy the audio stream. Default: true. */ Parameters.AllowAudioStreamCopy;
 		}
 		/**
 		 * The playback info.
@@ -14220,14 +14211,13 @@ export namespace Paths {
 			programId: /* Program id. */ Parameters.ProgramId;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -14297,16 +14287,16 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. User id. */ Parameters.UserId /* uuid */;
-			parentId?: /* Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			isAiring?: /* Optional. Is item airing. */ Parameters.IsAiring;
-			isMovie?: /* Optional. Is item movie. */ Parameters.IsMovie;
-			isSports?: /* Optional. Is item sports. */ Parameters.IsSports;
-			isKids?: /* Optional. Is item kids. */ Parameters.IsKids;
-			isNews?: /* Optional. Is item news. */ Parameters.IsNews;
-			isSeries?: /* Optional. Is item series. */ Parameters.IsSeries;
-			recursive?: /* Optional. Search recursive. */ Parameters.Recursive;
+			userId: /* Optional. User id. */ Parameters.UserId /* uuid */;
+			parentId: /* Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			isAiring: /* Optional. Is item airing. */ Parameters.IsAiring;
+			isMovie: /* Optional. Is item movie. */ Parameters.IsMovie;
+			isSports: /* Optional. Is item sports. */ Parameters.IsSports;
+			isKids: /* Optional. Is item kids. */ Parameters.IsKids;
+			isNews: /* Optional. Is item news. */ Parameters.IsNews;
+			isSeries: /* Optional. Is item series. */ Parameters.IsSeries;
+			recursive: /* Optional. Search recursive. */ Parameters.Recursive;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.QueryFilters;
@@ -14334,10 +14324,10 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. User id. */ Parameters.UserId /* uuid */;
-			parentId?: /* Optional. Parent id. */ Parameters.ParentId /* uuid */;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			mediaTypes?: /* Optional. Filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			userId: /* Optional. User id. */ Parameters.UserId /* uuid */;
+			parentId: /* Optional. Parent id. */ Parameters.ParentId /* uuid */;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			mediaTypes: /* Optional. Filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.QueryFiltersLegacy;
@@ -14439,22 +14429,22 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. filter by user id. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			isAiring?: /* Optional. Filter by programs that are currently airing, or not. */ Parameters.IsAiring;
-			hasAired?: /* Optional. Filter by programs that have completed airing, or not. */ Parameters.HasAired;
-			isSeries?: /* Optional. Filter for series. */ Parameters.IsSeries;
-			isMovie?: /* Optional. Filter for movies. */ Parameters.IsMovie;
-			isNews?: /* Optional. Filter for news. */ Parameters.IsNews;
-			isKids?: /* Optional. Filter for kids. */ Parameters.IsKids;
-			isSports?: /* Optional. Filter for sports. */ Parameters.IsSports;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			genreIds?: /* The genres to return guide information for. */ Parameters.GenreIds;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableUserData?: /* Optional. include user data. */ Parameters.EnableUserData;
-			enableTotalRecordCount?: /* Retrieve total record count. */ Parameters.EnableTotalRecordCount;
+			userId: /* Optional. filter by user id. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			isAiring: /* Optional. Filter by programs that are currently airing, or not. */ Parameters.IsAiring;
+			hasAired: /* Optional. Filter by programs that have completed airing, or not. */ Parameters.HasAired;
+			isSeries: /* Optional. Filter for series. */ Parameters.IsSeries;
+			isMovie: /* Optional. Filter for movies. */ Parameters.IsMovie;
+			isNews: /* Optional. Filter for news. */ Parameters.IsNews;
+			isKids: /* Optional. Filter for kids. */ Parameters.IsKids;
+			isSports: /* Optional. Filter for sports. */ Parameters.IsSports;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			genreIds: /* The genres to return guide information for. */ Parameters.GenreIds;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableUserData: /* Optional. include user data. */ Parameters.EnableUserData;
+			enableTotalRecordCount: /* Retrieve total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14477,14 +14467,13 @@ export namespace Paths {
 			recordingId: /* Recording id. */ Parameters.RecordingId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -14497,7 +14486,7 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14529,7 +14518,7 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14617,25 +14606,25 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			channelId?: /* Optional. Filter by channel id. */ Parameters.ChannelId;
-			userId?: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			status?: /* Optional. Filter by recording status. */ Parameters.Status;
-			isInProgress?: /* Optional. Filter by recordings that are in progress, or not. */ Parameters.IsInProgress;
-			seriesTimerId?: /* Optional. Filter by recordings belonging to a series timer. */ Parameters.SeriesTimerId;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			isMovie?: /* Optional. Filter for movies. */ Parameters.IsMovie;
-			isSeries?: /* Optional. Filter for series. */ Parameters.IsSeries;
-			isKids?: /* Optional. Filter for kids. */ Parameters.IsKids;
-			isSports?: /* Optional. Filter for sports. */ Parameters.IsSports;
-			isNews?: /* Optional. Filter for news. */ Parameters.IsNews;
-			isLibraryItem?: /* Optional. Filter for is library item. */ Parameters.IsLibraryItem;
-			enableTotalRecordCount?: /* Optional. Return total record count. */ Parameters.EnableTotalRecordCount;
+			channelId: /* Optional. Filter by channel id. */ Parameters.ChannelId;
+			userId: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			status: /* Optional. Filter by recording status. */ Parameters.Status;
+			isInProgress: /* Optional. Filter by recordings that are in progress, or not. */ Parameters.IsInProgress;
+			seriesTimerId: /* Optional. Filter by recordings belonging to a series timer. */ Parameters.SeriesTimerId;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			isMovie: /* Optional. Filter for movies. */ Parameters.IsMovie;
+			isSeries: /* Optional. Filter for series. */ Parameters.IsSeries;
+			isKids: /* Optional. Filter for kids. */ Parameters.IsKids;
+			isSports: /* Optional. Filter for sports. */ Parameters.IsSports;
+			isNews: /* Optional. Filter for news. */ Parameters.IsNews;
+			isLibraryItem: /* Optional. Filter for is library item. */ Parameters.IsLibraryItem;
+			enableTotalRecordCount: /* Optional. Return total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14703,20 +14692,20 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			channelId?: /* Optional. Filter by channel id. */ Parameters.ChannelId;
-			userId?: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
-			groupId?: /* Optional. Filter by recording group. */ Parameters.GroupId;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			status?: /* Optional. Filter by recording status. */ Parameters.Status;
-			isInProgress?: /* Optional. Filter by recordings that are in progress, or not. */ Parameters.IsInProgress;
-			seriesTimerId?: /* Optional. Filter by recordings belonging to a series timer. */ Parameters.SeriesTimerId;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			enableTotalRecordCount?: /* Optional. Return total record count. */ Parameters.EnableTotalRecordCount;
+			channelId: /* Optional. Filter by channel id. */ Parameters.ChannelId;
+			userId: /* Optional. Filter by user and attach user data. */ Parameters.UserId /* uuid */;
+			groupId: /* Optional. Filter by recording group. */ Parameters.GroupId;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			status: /* Optional. Filter by recording status. */ Parameters.Status;
+			isInProgress: /* Optional. Filter by recordings that are in progress, or not. */ Parameters.IsInProgress;
+			seriesTimerId: /* Optional. Filter by recordings belonging to a series timer. */ Parameters.SeriesTimerId;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			enableTotalRecordCount: /* Optional. Return total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14786,11 +14775,11 @@ export namespace Paths {
 			itemId: /* Item Id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			type?: /* The image type. */ Parameters.Type;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			providerName?: /* Optional. The image provider to use. */ Parameters.ProviderName;
-			includeAllLanguages?: /* Optional. Include all languages. */ Parameters.IncludeAllLanguages;
+			type: /* The image type. */ Parameters.Type;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			providerName: /* Optional. The image provider to use. */ Parameters.ProviderName;
+			includeAllLanguages: /* Optional. Include all languages. */ Parameters.IncludeAllLanguages;
 		}
 		namespace Responses {
 			export type $200 = /* Class RemoteImageResult. */ Components.Schemas.RemoteImageResult;
@@ -14905,19 +14894,19 @@ export namespace Paths {
 			userId: /* The user id. */ Parameters.UserId /* uuid */;
 		}
 		export interface QueryParameters {
-			startIndex?: /* The start index. */ Parameters.StartIndex /* int32 */;
-			limit?: /* The item limit. */ Parameters.Limit /* int32 */;
-			searchTerm?: /* The search term. */ Parameters.SearchTerm;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
-			mediaTypes?: /* Optional. Filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on the item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			enableTotalRecordCount?: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			startIndex: /* The start index. */ Parameters.StartIndex /* int32 */;
+			limit: /* The item limit. */ Parameters.Limit /* int32 */;
+			searchTerm: /* The search term. */ Parameters.SearchTerm;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
+			mediaTypes: /* Optional. Filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			excludeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on the item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			enableTotalRecordCount: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -14936,11 +14925,10 @@ export namespace Paths {
 			userId: /* User id. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -14999,15 +14987,15 @@ export namespace Paths {
 			seriesId: /* The series id. */ Parameters.SeriesId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* The user id. */ Parameters.UserId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
-			isSpecialSeason?: /* Optional. Filter by special season. */ Parameters.IsSpecialSeason;
-			isMissing?: /* Optional. Filter by items that are missing episodes or not. */ Parameters.IsMissing;
-			adjacentTo?: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
+			userId: /* The user id. */ Parameters.UserId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			isSpecialSeason: /* Optional. Filter by special season. */ Parameters.IsSpecialSeason;
+			isMissing: /* Optional. Filter by items that are missing episodes or not. */ Parameters.IsMissing;
+			adjacentTo: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15056,8 +15044,8 @@ export namespace Paths {
 			export type SortOrder = /* An enum representing the sorting order. */ Components.Schemas.SortOrder;
 		}
 		export interface QueryParameters {
-			sortBy?: /* Optional. Sort by SortName or Priority. */ Parameters.SortBy;
-			sortOrder?: /* Optional. Sort in Ascending or Descending order. */ Parameters.SortOrder;
+			sortBy: /* Optional. Sort by SortName or Priority. */ Parameters.SortBy;
+			sortOrder: /* Optional. Sort in Ascending or Descending order. */ Parameters.SortOrder;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.SeriesTimerInfoDtoQueryResult;
@@ -15088,9 +15076,9 @@ export namespace Paths {
 			export type DeviceId = string;
 		}
 		export interface QueryParameters {
-			controllableByUserId?: /* Filter by sessions that a given user is allowed to remote control. */ Parameters.ControllableByUserId /* uuid */;
-			deviceId?: /* Filter by device Id. */ Parameters.DeviceId;
-			activeWithinSeconds?: /* Optional. Filter by sessions that were active in the last n seconds. */ Parameters.ActiveWithinSeconds /* int32 */;
+			controllableByUserId: /* Filter by sessions that a given user is allowed to remote control. */ Parameters.ControllableByUserId /* uuid */;
+			deviceId: /* Filter by device Id. */ Parameters.DeviceId;
+			activeWithinSeconds: /* Optional. Filter by sessions that were active in the last n seconds. */ Parameters.ActiveWithinSeconds /* int32 */;
 		}
 		namespace Responses {
 			export type $200 = /* Class SessionInfo. */ Components.Schemas.SessionInfo[];
@@ -15125,10 +15113,10 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			excludeArtistIds?: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			excludeArtistIds: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15163,10 +15151,10 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			excludeArtistIds?: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			excludeArtistIds: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15201,10 +15189,10 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			excludeArtistIds?: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			excludeArtistIds: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15239,10 +15227,10 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			excludeArtistIds?: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			excludeArtistIds: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15277,10 +15265,10 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			excludeArtistIds?: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			excludeArtistIds: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15315,10 +15303,10 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			excludeArtistIds?: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
+			excludeArtistIds: /* Exclude artist ids. */ Parameters.ExcludeArtistIds;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. */ Parameters.Fields;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15342,11 +15330,10 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto[];
+			 */ Components.Schemas.BaseItemDto[];
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -15378,14 +15365,13 @@ export namespace Paths {
 			name: /* Studio name. */ Parameters.Name;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 		}
@@ -15466,21 +15452,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -15563,20 +15549,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -15654,23 +15640,23 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			searchTerm?: /* Optional. Search term. */ Parameters.SearchTerm;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			enableUserData?: /* Optional, include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			userId?: /* User id. */ Parameters.UserId /* uuid */;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
-			enableTotalRecordCount?: /* Total record count. */ Parameters.EnableTotalRecordCount;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			searchTerm: /* Optional. Search term. */ Parameters.SearchTerm;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			enableUserData: /* Optional, include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* User id. */ Parameters.UserId /* uuid */;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
+			enableTotalRecordCount: /* Total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15720,10 +15706,10 @@ export namespace Paths {
 			format: /* The format of the returned subtitle. */ Parameters.Format;
 		}
 		export interface QueryParameters {
-			endPositionTicks?: /* Optional. The end position of the subtitle in ticks. */ Parameters.EndPositionTicks /* int64 */;
-			copyTimestamps?: /* Optional. Whether to copy the timestamps. */ Parameters.CopyTimestamps;
-			addVttTimeMap?: /* Optional. Whether to add a VTT time map. */ Parameters.AddVttTimeMap;
-			startPositionTicks?: /* Optional. The start position of the subtitle in ticks. */ Parameters.StartPositionTicks /* int64 */;
+			endPositionTicks: /* Optional. The end position of the subtitle in ticks. */ Parameters.EndPositionTicks /* int64 */;
+			copyTimestamps: /* Optional. Whether to copy the timestamps. */ Parameters.CopyTimestamps;
+			addVttTimeMap: /* Optional. Whether to add a VTT time map. */ Parameters.AddVttTimeMap;
+			startPositionTicks: /* Optional. The start position of the subtitle in ticks. */ Parameters.StartPositionTicks /* int64 */;
 		}
 		namespace Responses {
 			export type $200 = string; // binary
@@ -15804,9 +15790,9 @@ export namespace Paths {
 			format: /* The format of the returned subtitle. */ Parameters.Format;
 		}
 		export interface QueryParameters {
-			endPositionTicks?: /* Optional. The end position of the subtitle in ticks. */ Parameters.EndPositionTicks /* int64 */;
-			copyTimestamps?: /* Optional. Whether to copy the timestamps. */ Parameters.CopyTimestamps;
-			addVttTimeMap?: /* Optional. Whether to add a VTT time map. */ Parameters.AddVttTimeMap;
+			endPositionTicks: /* Optional. The end position of the subtitle in ticks. */ Parameters.EndPositionTicks /* int64 */;
+			copyTimestamps: /* Optional. Whether to copy the timestamps. */ Parameters.CopyTimestamps;
+			addVttTimeMap: /* Optional. Whether to add a VTT time map. */ Parameters.AddVttTimeMap;
 		}
 		namespace Responses {
 			export type $200 = string; // binary
@@ -15843,11 +15829,11 @@ export namespace Paths {
 			userId: /* The user id. */ Parameters.UserId /* uuid */;
 		}
 		export interface QueryParameters {
-			mediaType?: /* The media types. */ Parameters.MediaType;
-			type?: /* The type. */ Parameters.Type;
-			startIndex?: /* Optional. The start index. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The limit. */ Parameters.Limit /* int32 */;
-			enableTotalRecordCount?: /* Whether to enable the total record count. */ Parameters.EnableTotalRecordCount;
+			mediaType: /* The media types. */ Parameters.MediaType;
+			type: /* The type. */ Parameters.Type;
+			startIndex: /* Optional. The start index. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The limit. */ Parameters.Limit /* int32 */;
+			enableTotalRecordCount: /* Whether to enable the total record count. */ Parameters.EnableTotalRecordCount;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -15891,8 +15877,8 @@ export namespace Paths {
 			export type IsHidden = boolean;
 		}
 		export interface QueryParameters {
-			isHidden?: /* Optional filter tasks that are hidden, or not. */ Parameters.IsHidden;
-			isEnabled?: /* Optional filter tasks that are enabled, or not. */ Parameters.IsEnabled;
+			isHidden: /* Optional filter tasks that are hidden, or not. */ Parameters.IsHidden;
+			isEnabled: /* Optional filter tasks that are enabled, or not. */ Parameters.IsEnabled;
 		}
 		namespace Responses {
 			export type $200 = /* Class TaskInfo. */ Components.Schemas.TaskInfo[];
@@ -15919,8 +15905,8 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			inheritFromParent?: /* Optional. Determines whether or not parent items should be searched for theme media. */ Parameters.InheritFromParent;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			inheritFromParent: /* Optional. Determines whether or not parent items should be searched for theme media. */ Parameters.InheritFromParent;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.AllThemeMediaResult;
@@ -15948,8 +15934,8 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			inheritFromParent?: /* Optional. Determines whether or not parent items should be searched for theme media. */ Parameters.InheritFromParent;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			inheritFromParent: /* Optional. Determines whether or not parent items should be searched for theme media. */ Parameters.InheritFromParent;
 		}
 		namespace Responses {
 			export type $200 = /* Class ThemeMediaResult. */ Components.Schemas.ThemeMediaResult;
@@ -15977,8 +15963,8 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
-			inheritFromParent?: /* Optional. Determines whether or not parent items should be searched for theme media. */ Parameters.InheritFromParent;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			inheritFromParent: /* Optional. Determines whether or not parent items should be searched for theme media. */ Parameters.InheritFromParent;
 		}
 		namespace Responses {
 			export type $200 = /* Class ThemeMediaResult. */ Components.Schemas.ThemeMediaResult;
@@ -16023,10 +16009,10 @@ export namespace Paths {
 			export type SeriesTimerId = string;
 		}
 		export interface QueryParameters {
-			channelId?: /* Optional. Filter by channel id. */ Parameters.ChannelId;
-			seriesTimerId?: /* Optional. Filter by timers belonging to a series timer. */ Parameters.SeriesTimerId;
-			isActive?: /* Optional. Filter by timers that are active. */ Parameters.IsActive;
-			isScheduled?: /* Optional. Filter by timers that are scheduled. */ Parameters.IsScheduled;
+			channelId: /* Optional. Filter by channel id. */ Parameters.ChannelId;
+			seriesTimerId: /* Optional. Filter by timers belonging to a series timer. */ Parameters.SeriesTimerId;
+			isActive: /* Optional. Filter by timers that are active. */ Parameters.IsActive;
+			isScheduled: /* Optional. Filter by timers that are scheduled. */ Parameters.IsScheduled;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.TimerInfoDtoQueryResult;
@@ -16365,85 +16351,85 @@ export namespace Paths {
 			export type Years = number /* int32 */[];
 		}
 		export interface QueryParameters {
-			userId?: /* The user id. */ Parameters.UserId /* uuid */;
-			maxOfficialRating?: /* Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MaxOfficialRating;
-			hasThemeSong?: /* Optional filter by items with theme songs. */ Parameters.HasThemeSong;
-			hasThemeVideo?: /* Optional filter by items with theme videos. */ Parameters.HasThemeVideo;
-			hasSubtitles?: /* Optional filter by items with subtitles. */ Parameters.HasSubtitles;
-			hasSpecialFeature?: /* Optional filter by items with special features. */ Parameters.HasSpecialFeature;
-			hasTrailer?: /* Optional filter by items with trailers. */ Parameters.HasTrailer;
-			adjacentTo?: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
-			parentIndexNumber?: /* Optional filter by parent index number. */ Parameters.ParentIndexNumber /* int32 */;
-			hasParentalRating?: /* Optional filter by items that have or do not have a parental rating. */ Parameters.HasParentalRating;
-			isHd?: /* Optional filter by items that are HD or not. */ Parameters.IsHd;
-			is4K?: /* Optional filter by items that are 4K or not. */ Parameters.Is4K;
-			locationTypes?: /* Optional. If specified, results will be filtered based on LocationType. This allows multiple, comma delimited. */ Parameters.LocationTypes;
-			excludeLocationTypes?: /* Optional. If specified, results will be filtered based on the LocationType. This allows multiple, comma delimited. */ Parameters.ExcludeLocationTypes;
-			isMissing?: /* Optional filter by items that are missing episodes or not. */ Parameters.IsMissing;
-			isUnaired?: /* Optional filter by items that are unaired episodes or not. */ Parameters.IsUnaired;
-			minCommunityRating?: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
-			minCriticRating?: /* Optional filter by minimum critic rating. */ Parameters.MinCriticRating /* double */;
-			minPremiereDate?: /* Optional. The minimum premiere date. Format = ISO. */ Parameters.MinPremiereDate /* date-time */;
-			minDateLastSaved?: /* Optional. The minimum last saved date. Format = ISO. */ Parameters.MinDateLastSaved /* date-time */;
-			minDateLastSavedForUser?: /* Optional. The minimum last saved date for the current user. Format = ISO. */ Parameters.MinDateLastSavedForUser /* date-time */;
-			maxPremiereDate?: /* Optional. The maximum premiere date. Format = ISO. */ Parameters.MaxPremiereDate /* date-time */;
-			hasOverview?: /* Optional filter by items that have an overview or not. */ Parameters.HasOverview;
-			hasImdbId?: /* Optional filter by items that have an imdb id or not. */ Parameters.HasImdbId;
-			hasTmdbId?: /* Optional filter by items that have a tmdb id or not. */ Parameters.HasTmdbId;
-			hasTvdbId?: /* Optional filter by items that have a tvdb id or not. */ Parameters.HasTvdbId;
-			excludeItemIds?: /* Optional. If specified, results will be filtered by excluding item ids. This allows multiple, comma delimited. */ Parameters.ExcludeItemIds;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			recursive?: /* When searching within folders, this determines whether or not the search will be recursive. true/false. */ Parameters.Recursive;
-			searchTerm?: /* Optional. Filter based on a search term. */ Parameters.SearchTerm;
-			sortOrder?: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			filters?: /* Optional. Specify additional filters to apply. This allows multiple, comma delimited. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes. */ Parameters.Filters;
-			isFavorite?: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
-			mediaTypes?: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
-			imageTypes?: /* Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited. */ Parameters.ImageTypes;
-			sortBy?: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
-			isPlayed?: /* Optional filter by items that are played, or not. */ Parameters.IsPlayed;
-			genres?: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
-			officialRatings?: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
-			tags?: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
-			years?: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
-			enableUserData?: /* Optional, include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			person?: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
-			personIds?: /* Optional. If specified, results will be filtered to include only those containing the specified person id. */ Parameters.PersonIds;
-			personTypes?: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
-			studios?: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
-			artists?: /* Optional. If specified, results will be filtered based on artists. This allows multiple, pipe delimited. */ Parameters.Artists;
-			excludeArtistIds?: /* Optional. If specified, results will be filtered based on artist id. This allows multiple, pipe delimited. */ Parameters.ExcludeArtistIds;
-			artistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified artist id. */ Parameters.ArtistIds;
-			albumArtistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified album artist id. */ Parameters.AlbumArtistIds;
-			contributingArtistIds?: /* Optional. If specified, results will be filtered to include only those containing the specified contributing artist id. */ Parameters.ContributingArtistIds;
-			albums?: /* Optional. If specified, results will be filtered based on album. This allows multiple, pipe delimited. */ Parameters.Albums;
-			albumIds?: /* Optional. If specified, results will be filtered based on album id. This allows multiple, pipe delimited. */ Parameters.AlbumIds;
-			ids?: /* Optional. If specific items are needed, specify a list of item id's to retrieve. This allows multiple, comma delimited. */ Parameters.Ids;
-			videoTypes?: /* Optional filter by VideoType (videofile, dvd, bluray, iso). Allows multiple, comma delimited. */ Parameters.VideoTypes;
-			minOfficialRating?: /* Optional filter by minimum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MinOfficialRating;
-			isLocked?: /* Optional filter by items that are locked. */ Parameters.IsLocked;
-			isPlaceHolder?: /* Optional filter by items that are placeholders. */ Parameters.IsPlaceHolder;
-			hasOfficialRating?: /* Optional filter by items that have official ratings. */ Parameters.HasOfficialRating;
-			collapseBoxSetItems?: /* Whether or not to hide items behind their boxsets. */ Parameters.CollapseBoxSetItems;
-			minWidth?: /* Optional. Filter by the minimum width of the item. */ Parameters.MinWidth /* int32 */;
-			minHeight?: /* Optional. Filter by the minimum height of the item. */ Parameters.MinHeight /* int32 */;
-			maxWidth?: /* Optional. Filter by the maximum width of the item. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* Optional. Filter by the maximum height of the item. */ Parameters.MaxHeight /* int32 */;
-			is3D?: /* Optional filter by items that are 3D, or not. */ Parameters.Is3D;
-			seriesStatus?: /* Optional filter by Series Status. Allows multiple, comma delimited. */ Parameters.SeriesStatus;
-			nameStartsWithOrGreater?: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
-			nameStartsWith?: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
-			nameLessThan?: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
-			studioIds?: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
-			genreIds?: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
-			enableTotalRecordCount?: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
-			enableImages?: /* Optional, include image information in output. */ Parameters.EnableImages;
+			userId: /* The user id. */ Parameters.UserId /* uuid */;
+			maxOfficialRating: /* Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MaxOfficialRating;
+			hasThemeSong: /* Optional filter by items with theme songs. */ Parameters.HasThemeSong;
+			hasThemeVideo: /* Optional filter by items with theme videos. */ Parameters.HasThemeVideo;
+			hasSubtitles: /* Optional filter by items with subtitles. */ Parameters.HasSubtitles;
+			hasSpecialFeature: /* Optional filter by items with special features. */ Parameters.HasSpecialFeature;
+			hasTrailer: /* Optional filter by items with trailers. */ Parameters.HasTrailer;
+			adjacentTo: /* Optional. Return items that are siblings of a supplied item. */ Parameters.AdjacentTo;
+			parentIndexNumber: /* Optional filter by parent index number. */ Parameters.ParentIndexNumber /* int32 */;
+			hasParentalRating: /* Optional filter by items that have or do not have a parental rating. */ Parameters.HasParentalRating;
+			isHd: /* Optional filter by items that are HD or not. */ Parameters.IsHd;
+			is4K: /* Optional filter by items that are 4K or not. */ Parameters.Is4K;
+			locationTypes: /* Optional. If specified, results will be filtered based on LocationType. This allows multiple, comma delimited. */ Parameters.LocationTypes;
+			excludeLocationTypes: /* Optional. If specified, results will be filtered based on the LocationType. This allows multiple, comma delimited. */ Parameters.ExcludeLocationTypes;
+			isMissing: /* Optional filter by items that are missing episodes or not. */ Parameters.IsMissing;
+			isUnaired: /* Optional filter by items that are unaired episodes or not. */ Parameters.IsUnaired;
+			minCommunityRating: /* Optional filter by minimum community rating. */ Parameters.MinCommunityRating /* double */;
+			minCriticRating: /* Optional filter by minimum critic rating. */ Parameters.MinCriticRating /* double */;
+			minPremiereDate: /* Optional. The minimum premiere date. Format = ISO. */ Parameters.MinPremiereDate /* date-time */;
+			minDateLastSaved: /* Optional. The minimum last saved date. Format = ISO. */ Parameters.MinDateLastSaved /* date-time */;
+			minDateLastSavedForUser: /* Optional. The minimum last saved date for the current user. Format = ISO. */ Parameters.MinDateLastSavedForUser /* date-time */;
+			maxPremiereDate: /* Optional. The maximum premiere date. Format = ISO. */ Parameters.MaxPremiereDate /* date-time */;
+			hasOverview: /* Optional filter by items that have an overview or not. */ Parameters.HasOverview;
+			hasImdbId: /* Optional filter by items that have an imdb id or not. */ Parameters.HasImdbId;
+			hasTmdbId: /* Optional filter by items that have a tmdb id or not. */ Parameters.HasTmdbId;
+			hasTvdbId: /* Optional filter by items that have a tvdb id or not. */ Parameters.HasTvdbId;
+			excludeItemIds: /* Optional. If specified, results will be filtered by excluding item ids. This allows multiple, comma delimited. */ Parameters.ExcludeItemIds;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			recursive: /* When searching within folders, this determines whether or not the search will be recursive. true/false. */ Parameters.Recursive;
+			searchTerm: /* Optional. Filter based on a search term. */ Parameters.SearchTerm;
+			sortOrder: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			filters: /* Optional. Specify additional filters to apply. This allows multiple, comma delimited. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes. */ Parameters.Filters;
+			isFavorite: /* Optional filter by items that are marked as favorite, or not. */ Parameters.IsFavorite;
+			mediaTypes: /* Optional filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			imageTypes: /* Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited. */ Parameters.ImageTypes;
+			sortBy: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
+			isPlayed: /* Optional filter by items that are played, or not. */ Parameters.IsPlayed;
+			genres: /* Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. */ Parameters.Genres;
+			officialRatings: /* Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. */ Parameters.OfficialRatings;
+			tags: /* Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. */ Parameters.Tags;
+			years: /* Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. */ Parameters.Years;
+			enableUserData: /* Optional, include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional, the max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			person: /* Optional. If specified, results will be filtered to include only those containing the specified person. */ Parameters.Person;
+			personIds: /* Optional. If specified, results will be filtered to include only those containing the specified person id. */ Parameters.PersonIds;
+			personTypes: /* Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. */ Parameters.PersonTypes;
+			studios: /* Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. */ Parameters.Studios;
+			artists: /* Optional. If specified, results will be filtered based on artists. This allows multiple, pipe delimited. */ Parameters.Artists;
+			excludeArtistIds: /* Optional. If specified, results will be filtered based on artist id. This allows multiple, pipe delimited. */ Parameters.ExcludeArtistIds;
+			artistIds: /* Optional. If specified, results will be filtered to include only those containing the specified artist id. */ Parameters.ArtistIds;
+			albumArtistIds: /* Optional. If specified, results will be filtered to include only those containing the specified album artist id. */ Parameters.AlbumArtistIds;
+			contributingArtistIds: /* Optional. If specified, results will be filtered to include only those containing the specified contributing artist id. */ Parameters.ContributingArtistIds;
+			albums: /* Optional. If specified, results will be filtered based on album. This allows multiple, pipe delimited. */ Parameters.Albums;
+			albumIds: /* Optional. If specified, results will be filtered based on album id. This allows multiple, pipe delimited. */ Parameters.AlbumIds;
+			ids: /* Optional. If specific items are needed, specify a list of item id's to retrieve. This allows multiple, comma delimited. */ Parameters.Ids;
+			videoTypes: /* Optional filter by VideoType (videofile, dvd, bluray, iso). Allows multiple, comma delimited. */ Parameters.VideoTypes;
+			minOfficialRating: /* Optional filter by minimum official rating (PG, PG-13, TV-MA, etc). */ Parameters.MinOfficialRating;
+			isLocked: /* Optional filter by items that are locked. */ Parameters.IsLocked;
+			isPlaceHolder: /* Optional filter by items that are placeholders. */ Parameters.IsPlaceHolder;
+			hasOfficialRating: /* Optional filter by items that have official ratings. */ Parameters.HasOfficialRating;
+			collapseBoxSetItems: /* Whether or not to hide items behind their boxsets. */ Parameters.CollapseBoxSetItems;
+			minWidth: /* Optional. Filter by the minimum width of the item. */ Parameters.MinWidth /* int32 */;
+			minHeight: /* Optional. Filter by the minimum height of the item. */ Parameters.MinHeight /* int32 */;
+			maxWidth: /* Optional. Filter by the maximum width of the item. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* Optional. Filter by the maximum height of the item. */ Parameters.MaxHeight /* int32 */;
+			is3D: /* Optional filter by items that are 3D, or not. */ Parameters.Is3D;
+			seriesStatus: /* Optional filter by Series Status. Allows multiple, comma delimited. */ Parameters.SeriesStatus;
+			nameStartsWithOrGreater: /* Optional filter by items whose name is sorted equally or greater than a given input string. */ Parameters.NameStartsWithOrGreater;
+			nameStartsWith: /* Optional filter by items whose name is sorted equally than a given input string. */ Parameters.NameStartsWith;
+			nameLessThan: /* Optional filter by items whose name is equally or lesser than a given input string. */ Parameters.NameLessThan;
+			studioIds: /* Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. */ Parameters.StudioIds;
+			genreIds: /* Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. */ Parameters.GenreIds;
+			enableTotalRecordCount: /* Optional. Enable the total record count. */ Parameters.EnableTotalRecordCount;
+			enableImages: /* Optional, include image information in output. */ Parameters.EnableImages;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -16537,23 +16523,23 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			container?: /* Optional. The audio container. */ Parameters.Container;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			userId?: /* Optional. The user id. */ Parameters.UserId /* uuid */;
-			audioCodec?: /* Optional. The audio codec to transcode to. */ Parameters.AudioCodec;
-			maxAudioChannels?: /* Optional. The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
-			transcodingAudioChannels?: /* Optional. The number of how many audio channels to transcode to. */ Parameters.TranscodingAudioChannels /* int32 */;
-			maxStreamingBitrate?: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			transcodingContainer?: /* Optional. The container to transcode to. */ Parameters.TranscodingContainer;
-			transcodingProtocol?: /* Optional. The transcoding protocol. */ Parameters.TranscodingProtocol;
-			maxAudioSampleRate?: /* Optional. The maximum audio sample rate. */ Parameters.MaxAudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			enableRemoteMedia?: /* Optional. Whether to enable remote media. */ Parameters.EnableRemoteMedia;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			enableRedirection?: /* Whether to enable redirection. Defaults to true. */ Parameters.EnableRedirection;
+			container: /* Optional. The audio container. */ Parameters.Container;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			userId: /* Optional. The user id. */ Parameters.UserId /* uuid */;
+			audioCodec: /* Optional. The audio codec to transcode to. */ Parameters.AudioCodec;
+			maxAudioChannels: /* Optional. The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
+			transcodingAudioChannels: /* Optional. The number of how many audio channels to transcode to. */ Parameters.TranscodingAudioChannels /* int32 */;
+			maxStreamingBitrate: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			transcodingContainer: /* Optional. The container to transcode to. */ Parameters.TranscodingContainer;
+			transcodingProtocol: /* Optional. The transcoding protocol. */ Parameters.TranscodingProtocol;
+			maxAudioSampleRate: /* Optional. The maximum audio sample rate. */ Parameters.MaxAudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			enableRemoteMedia: /* Optional. Whether to enable remote media. */ Parameters.EnableRemoteMedia;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			enableRedirection: /* Whether to enable redirection. Defaults to true. */ Parameters.EnableRedirection;
 		}
 		namespace Responses {
 			export interface $302 {}
@@ -16601,15 +16587,15 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			userId?: /* The user id of the user to get the upcoming episodes for. */ Parameters.UserId /* uuid */;
-			startIndex?: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			parentId?: /* Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			enableImges?: /* Optional. Include image information in output. */ Parameters.EnableImges;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
+			userId: /* The user id of the user to get the upcoming episodes for. */ Parameters.UserId /* uuid */;
+			startIndex: /* Optional. The record index to start at. All items with a lower index will be dropped from the results. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			parentId: /* Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			enableImges: /* Optional. Include image information in output. */ Parameters.EnableImges;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -16710,21 +16696,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -16807,20 +16793,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -16849,9 +16835,9 @@ export namespace Paths {
 			userId: /* User id. */ Parameters.UserId /* uuid */;
 		}
 		export interface QueryParameters {
-			includeExternalContent?: /* Whether or not to include external views such as channels or live tv. */ Parameters.IncludeExternalContent;
-			presetViews?: /* Preset views. */ Parameters.PresetViews;
-			includeHidden?: /* Whether or not to include hidden content. */ Parameters.IncludeHidden;
+			includeExternalContent: /* Whether or not to include external views such as channels or live tv. */ Parameters.IncludeExternalContent;
+			presetViews: /* Preset views. */ Parameters.PresetViews;
+			includeHidden: /* Whether or not to include hidden content. */ Parameters.IncludeHidden;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -16869,8 +16855,8 @@ export namespace Paths {
 			export type IsHidden = boolean;
 		}
 		export interface QueryParameters {
-			isHidden?: /* Optional filter by IsHidden=true or false. */ Parameters.IsHidden;
-			isDisabled?: /* Optional filter by IsDisabled=true or false. */ Parameters.IsDisabled;
+			isHidden: /* Optional filter by IsHidden=true or false. */ Parameters.IsHidden;
+			isDisabled: /* Optional filter by IsDisabled=true or false. */ Parameters.IsDisabled;
 		}
 		namespace Responses {
 			export type $200 = /* Class UserDto. */ Components.Schemas.UserDto[];
@@ -17088,54 +17074,54 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			maxStreamingBitrate?: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			maxStreamingBitrate: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -17343,53 +17329,53 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -17601,54 +17587,54 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			container?: /* The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. */ Parameters.Container;
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			container: /* The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. */ Parameters.Container;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace GetVideoStreamByContainer {
@@ -17859,53 +17845,53 @@ export namespace Paths {
 			stream: Parameters.Stream;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace GetVirtualFolders {
@@ -17937,14 +17923,13 @@ export namespace Paths {
 			year: /* The year. */ Parameters.Year /* int32 */;
 		}
 		export interface QueryParameters {
-			userId?: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
+			userId: /* Optional. Filter by user id, and attach user data. */ Parameters.UserId /* uuid */;
 		}
 		namespace Responses {
-			export type $200
-			/**
+			export type $200 = /**
 			 * This is strictly used as a data transfer object from the api layer.
 			 * This holds information about a BaseItem in a format that is convenient for the client.
-			 */ = Components.Schemas.BaseItemDto;
+			 */ Components.Schemas.BaseItemDto;
 			export interface $401 {}
 			export interface $403 {}
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -18014,21 +17999,21 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			startIndex?: /* Skips over a given number of items within the results. Use for paging. */ Parameters.StartIndex /* int32 */;
-			limit?: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
-			sortOrder?: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
-			parentId?: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
-			fields?: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
-			excludeItemTypes?: /* Optional. If specified, results will be excluded based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
-			includeItemTypes?: /* Optional. If specified, results will be included based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
-			mediaTypes?: /* Optional. Filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
-			sortBy?: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
-			enableUserData?: /* Optional. Include user data. */ Parameters.EnableUserData;
-			imageTypeLimit?: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
-			enableImageTypes?: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
-			userId?: /* User Id. */ Parameters.UserId /* uuid */;
-			recursive?: /* Search recursively. */ Parameters.Recursive;
-			enableImages?: /* Optional. Include image information in output. */ Parameters.EnableImages;
+			startIndex: /* Skips over a given number of items within the results. Use for paging. */ Parameters.StartIndex /* int32 */;
+			limit: /* Optional. The maximum number of records to return. */ Parameters.Limit /* int32 */;
+			sortOrder: /* Sort Order - Ascending,Descending. */ Parameters.SortOrder;
+			parentId: /* Specify this to localize the search to a specific item or folder. Omit to use the root. */ Parameters.ParentId /* uuid */;
+			fields: /* Optional. Specify additional fields of information to return in the output. */ Parameters.Fields;
+			excludeItemTypes: /* Optional. If specified, results will be excluded based on item type. This allows multiple, comma delimited. */ Parameters.ExcludeItemTypes;
+			includeItemTypes: /* Optional. If specified, results will be included based on item type. This allows multiple, comma delimited. */ Parameters.IncludeItemTypes;
+			mediaTypes: /* Optional. Filter by MediaType. Allows multiple, comma delimited. */ Parameters.MediaTypes;
+			sortBy: /* Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. */ Parameters.SortBy;
+			enableUserData: /* Optional. Include user data. */ Parameters.EnableUserData;
+			imageTypeLimit: /* Optional. The max number of images to return, per image type. */ Parameters.ImageTypeLimit /* int32 */;
+			enableImageTypes: /* Optional. The image types to include in the output. */ Parameters.EnableImageTypes;
+			userId: /* User Id. */ Parameters.UserId /* uuid */;
+			recursive: /* Search recursively. */ Parameters.Recursive;
+			enableImages: /* Optional. Include image information in output. */ Parameters.EnableImages;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.BaseItemDtoQueryResult;
@@ -18113,20 +18098,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -18337,54 +18322,54 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			container?: /* The audio container. */ Parameters.Container;
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			container: /* The audio container. */ Parameters.Container;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace HeadAudioStreamByContainer {
@@ -18593,53 +18578,53 @@ export namespace Paths {
 			container: /* The audio container. */ Parameters.Container;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace HeadGenreImage {
@@ -18718,21 +18703,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -18815,20 +18800,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -18910,21 +18895,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			format?: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			format: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -19013,14 +18998,14 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -19103,20 +19088,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			format?: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			format: /* Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. */ Parameters.Format;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -19331,55 +19316,55 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
 			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			maxStreamingBitrate?: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
-			enableAdaptiveBitrateStreaming?: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			maxStreamingBitrate: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			enableAdaptiveBitrateStreaming: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -19591,54 +19576,54 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
 			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
-			enableAdaptiveBitrateStreaming?: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			enableAdaptiveBitrateStreaming: /* Enable adaptive bitrate streaming. */ Parameters.EnableAdaptiveBitrateStreaming;
 		}
 		namespace Responses {
 			export interface $401 {}
@@ -19721,21 +19706,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -19818,20 +19803,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -19913,21 +19898,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -20010,20 +19995,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -20105,21 +20090,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -20202,20 +20187,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -20300,23 +20285,23 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			container?: /* Optional. The audio container. */ Parameters.Container;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			userId?: /* Optional. The user id. */ Parameters.UserId /* uuid */;
-			audioCodec?: /* Optional. The audio codec to transcode to. */ Parameters.AudioCodec;
-			maxAudioChannels?: /* Optional. The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
-			transcodingAudioChannels?: /* Optional. The number of how many audio channels to transcode to. */ Parameters.TranscodingAudioChannels /* int32 */;
-			maxStreamingBitrate?: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			transcodingContainer?: /* Optional. The container to transcode to. */ Parameters.TranscodingContainer;
-			transcodingProtocol?: /* Optional. The transcoding protocol. */ Parameters.TranscodingProtocol;
-			maxAudioSampleRate?: /* Optional. The maximum audio sample rate. */ Parameters.MaxAudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			enableRemoteMedia?: /* Optional. Whether to enable remote media. */ Parameters.EnableRemoteMedia;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			enableRedirection?: /* Whether to enable redirection. Defaults to true. */ Parameters.EnableRedirection;
+			container: /* Optional. The audio container. */ Parameters.Container;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			userId: /* Optional. The user id. */ Parameters.UserId /* uuid */;
+			audioCodec: /* Optional. The audio codec to transcode to. */ Parameters.AudioCodec;
+			maxAudioChannels: /* Optional. The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
+			transcodingAudioChannels: /* Optional. The number of how many audio channels to transcode to. */ Parameters.TranscodingAudioChannels /* int32 */;
+			maxStreamingBitrate: /* Optional. The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			transcodingContainer: /* Optional. The container to transcode to. */ Parameters.TranscodingContainer;
+			transcodingProtocol: /* Optional. The transcoding protocol. */ Parameters.TranscodingProtocol;
+			maxAudioSampleRate: /* Optional. The maximum audio sample rate. */ Parameters.MaxAudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			enableRemoteMedia: /* Optional. Whether to enable remote media. */ Parameters.EnableRemoteMedia;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			enableRedirection: /* Whether to enable redirection. Defaults to true. */ Parameters.EnableRedirection;
 		}
 		namespace Responses {
 			export interface $302 {}
@@ -20400,21 +20385,21 @@ export namespace Paths {
 			imageType: /* Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
-			imageIndex?: /* Image index. */ Parameters.ImageIndex /* int32 */;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -20497,20 +20482,20 @@ export namespace Paths {
 			imageIndex: /* Image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			tag?: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
-			format?: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
-			maxWidth?: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
-			maxHeight?: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
-			percentPlayed?: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
-			unplayedCount?: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
-			width?: /* The fixed image width to return. */ Parameters.Width /* int32 */;
-			height?: /* The fixed image height to return. */ Parameters.Height /* int32 */;
-			quality?: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
-			cropWhitespace?: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
-			addPlayedIndicator?: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
-			blur?: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
-			backgroundColor?: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
-			foregroundLayer?: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
+			tag: /* Optional. Supply the cache tag from the item object to receive strong caching headers. */ Parameters.Tag;
+			format: /* Determines the output format of the image - original,gif,jpg,png. */ Parameters.Format;
+			maxWidth: /* The maximum image width to return. */ Parameters.MaxWidth /* int32 */;
+			maxHeight: /* The maximum image height to return. */ Parameters.MaxHeight /* int32 */;
+			percentPlayed: /* Optional. Percent to render for the percent played overlay. */ Parameters.PercentPlayed /* double */;
+			unplayedCount: /* Optional. Unplayed count overlay to render. */ Parameters.UnplayedCount /* int32 */;
+			width: /* The fixed image width to return. */ Parameters.Width /* int32 */;
+			height: /* The fixed image height to return. */ Parameters.Height /* int32 */;
+			quality: /* Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. */ Parameters.Quality /* int32 */;
+			cropWhitespace: /* Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. */ Parameters.CropWhitespace;
+			addPlayedIndicator: /* Optional. Add a played indicator. */ Parameters.AddPlayedIndicator;
+			blur: /* Optional. Blur image. */ Parameters.Blur /* int32 */;
+			backgroundColor: /* Optional. Apply a background color for transparent images. */ Parameters.BackgroundColor;
+			foregroundLayer: /* Optional. Apply a foreground layer on top of the image. */ Parameters.ForegroundLayer;
 		}
 		namespace Responses {
 			export type $404 = Components.Schemas.ProblemDetails;
@@ -20721,54 +20706,54 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			container?: /* The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. */ Parameters.Container;
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment length. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			container: /* The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv. */ Parameters.Container;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment length. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamorphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace HeadVideoStreamByContainer {
@@ -20979,53 +20964,53 @@ export namespace Paths {
 			stream: Parameters.Stream;
 		}
 		export interface QueryParameters {
-			static?: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
-			params?: /* The streaming parameters. */ Parameters.Params;
-			tag?: /* The tag. */ Parameters.Tag;
-			deviceProfileId?: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			segmentContainer?: /* The segment container. */ Parameters.SegmentContainer;
-			segmentLength?: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
-			minSegments?: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
-			mediaSourceId?: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			audioCodec?: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
-			enableAutoStreamCopy?: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
-			allowVideoStreamCopy?: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
-			allowAudioStreamCopy?: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
-			breakOnNonKeyFrames?: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
-			audioSampleRate?: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
-			maxAudioBitDepth?: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
-			audioBitRate?: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
-			audioChannels?: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
-			maxAudioChannels?: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
-			profile?: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
-			level?: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
-			framerate?: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
-			maxFramerate?: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
-			copyTimestamps?: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
-			startTimeTicks?: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
-			width?: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
-			height?: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
-			videoBitRate?: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
-			subtitleStreamIndex?: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
-			subtitleMethod?: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
-			maxRefFrames?: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
-			maxVideoBitDepth?: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
-			requireAvc?: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
-			deInterlace?: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
-			requireNonAnamorphic?: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
-			transcodingMaxAudioChannels?: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
-			cpuCoreLimit?: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			enableMpegtsM2TsMode?: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
-			videoCodec?: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
-			subtitleCodec?: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
-			transcodeReasons?: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
-			audioStreamIndex?: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
-			videoStreamIndex?: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
-			context?: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
-			streamOptions?: /* Optional. The streaming options. */ Parameters.StreamOptions;
+			static: /* Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false. */ Parameters.Static;
+			params: /* The streaming parameters. */ Parameters.Params;
+			tag: /* The tag. */ Parameters.Tag;
+			deviceProfileId: /* Optional. The dlna device profile id to utilize. */ Parameters.DeviceProfileId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			segmentContainer: /* The segment container. */ Parameters.SegmentContainer;
+			segmentLength: /* The segment lenght. */ Parameters.SegmentLength /* int32 */;
+			minSegments: /* The minimum number of segments. */ Parameters.MinSegments /* int32 */;
+			mediaSourceId: /* The media version id, if playing an alternate version. */ Parameters.MediaSourceId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			audioCodec: /* Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma. */ Parameters.AudioCodec;
+			enableAutoStreamCopy: /* Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. */ Parameters.EnableAutoStreamCopy;
+			allowVideoStreamCopy: /* Whether or not to allow copying of the video stream url. */ Parameters.AllowVideoStreamCopy;
+			allowAudioStreamCopy: /* Whether or not to allow copying of the audio stream url. */ Parameters.AllowAudioStreamCopy;
+			breakOnNonKeyFrames: /* Optional. Whether to break on non key frames. */ Parameters.BreakOnNonKeyFrames;
+			audioSampleRate: /* Optional. Specify a specific audio sample rate, e.g. 44100. */ Parameters.AudioSampleRate /* int32 */;
+			maxAudioBitDepth: /* Optional. The maximum audio bit depth. */ Parameters.MaxAudioBitDepth /* int32 */;
+			audioBitRate: /* Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. */ Parameters.AudioBitRate /* int32 */;
+			audioChannels: /* Optional. Specify a specific number of audio channels to encode to, e.g. 2. */ Parameters.AudioChannels /* int32 */;
+			maxAudioChannels: /* Optional. Specify a maximum number of audio channels to encode to, e.g. 2. */ Parameters.MaxAudioChannels /* int32 */;
+			profile: /* Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high. */ Parameters.Profile;
+			level: /* Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1. */ Parameters.Level;
+			framerate: /* Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.Framerate /* float */;
+			maxFramerate: /* Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements. */ Parameters.MaxFramerate /* float */;
+			copyTimestamps: /* Whether or not to copy timestamps when transcoding with an offset. Defaults to false. */ Parameters.CopyTimestamps;
+			startTimeTicks: /* Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. */ Parameters.StartTimeTicks /* int64 */;
+			width: /* Optional. The fixed horizontal resolution of the encoded video. */ Parameters.Width /* int32 */;
+			height: /* Optional. The fixed vertical resolution of the encoded video. */ Parameters.Height /* int32 */;
+			videoBitRate: /* Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. */ Parameters.VideoBitRate /* int32 */;
+			subtitleStreamIndex: /* Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. */ Parameters.SubtitleStreamIndex /* int32 */;
+			subtitleMethod: /* Optional. Specify the subtitle delivery method. */ Parameters.SubtitleMethod;
+			maxRefFrames: /* Optional. */ Parameters.MaxRefFrames /* int32 */;
+			maxVideoBitDepth: /* Optional. The maximum video bit depth. */ Parameters.MaxVideoBitDepth /* int32 */;
+			requireAvc: /* Optional. Whether to require avc. */ Parameters.RequireAvc;
+			deInterlace: /* Optional. Whether to deinterlace the video. */ Parameters.DeInterlace;
+			requireNonAnamorphic: /* Optional. Whether to require a non anamporphic stream. */ Parameters.RequireNonAnamorphic;
+			transcodingMaxAudioChannels: /* Optional. The maximum number of audio channels to transcode. */ Parameters.TranscodingMaxAudioChannels /* int32 */;
+			cpuCoreLimit: /* Optional. The limit of how many cpu cores to use. */ Parameters.CpuCoreLimit /* int32 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			enableMpegtsM2TsMode: /* Optional. Whether to enable the MpegtsM2Ts mode. */ Parameters.EnableMpegtsM2TsMode;
+			videoCodec: /* Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv. */ Parameters.VideoCodec;
+			subtitleCodec: /* Optional. Specify a subtitle codec to encode to. */ Parameters.SubtitleCodec;
+			transcodeReasons: /* Optional. The transcoding reason. */ Parameters.TranscodeReasons;
+			audioStreamIndex: /* Optional. The index of the audio stream to use. If omitted the first audio stream will be used. */ Parameters.AudioStreamIndex /* int32 */;
+			videoStreamIndex: /* Optional. The index of the video stream to use. If omitted the first video stream will be used. */ Parameters.VideoStreamIndex /* int32 */;
+			context: /* Optional. The MediaBrowser.Model.Dlna.EncodingContext. */ Parameters.Context;
+			streamOptions: /* Optional. The streaming options. */ Parameters.StreamOptions;
 		}
 	}
 	namespace Initiate {
@@ -21057,9 +21042,9 @@ export namespace Paths {
 			name: /* Package name. */ Parameters.Name;
 		}
 		export interface QueryParameters {
-			assemblyGuid?: /* GUID of the associated assembly. */ Parameters.AssemblyGuid /* uuid */;
-			version?: /* Optional version. Defaults to latest version. */ Parameters.Version;
-			repositoryUrl?: /* Optional. Specify the repository to install from. */ Parameters.RepositoryUrl;
+			assemblyGuid: /* GUID of the associated assembly. */ Parameters.AssemblyGuid /* uuid */;
+			version: /* Optional version. Defaults to latest version. */ Parameters.Version;
+			repositoryUrl: /* Optional. Specify the repository to install from. */ Parameters.RepositoryUrl;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21109,7 +21094,7 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			datePlayed?: /* Optional. The date the item was played. */ Parameters.DatePlayed /* date-time */;
+			datePlayed: /* Optional. The date the item was played. */ Parameters.DatePlayed /* date-time */;
 		}
 		namespace Responses {
 			export type $200 = /* Class UserItemDataDto. */ Components.Schemas.UserItemDataDto;
@@ -21241,17 +21226,17 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			mediaSourceId?: /* The id of the MediaSource. */ Parameters.MediaSourceId;
-			positionTicks?: /* Optional. The current position, in ticks. 1 tick = 10000 ms. */ Parameters.PositionTicks /* int64 */;
-			audioStreamIndex?: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
-			subtitleStreamIndex?: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
-			volumeLevel?: /* Scale of 0-100. */ Parameters.VolumeLevel /* int32 */;
-			playMethod?: /* The play method. */ Parameters.PlayMethod;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			repeatMode?: /* The repeat mode. */ Parameters.RepeatMode;
-			isPaused?: /* Indicates if the player is paused. */ Parameters.IsPaused;
-			isMuted?: /* Indicates if the player is muted. */ Parameters.IsMuted;
+			mediaSourceId: /* The id of the MediaSource. */ Parameters.MediaSourceId;
+			positionTicks: /* Optional. The current position, in ticks. 1 tick = 10000 ms. */ Parameters.PositionTicks /* int64 */;
+			audioStreamIndex: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
+			subtitleStreamIndex: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
+			volumeLevel: /* Scale of 0-100. */ Parameters.VolumeLevel /* int32 */;
+			playMethod: /* The play method. */ Parameters.PlayMethod;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			repeatMode: /* The repeat mode. */ Parameters.RepeatMode;
+			isPaused: /* Indicates if the player is paused. */ Parameters.IsPaused;
+			isMuted: /* Indicates if the player is muted. */ Parameters.IsMuted;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21303,13 +21288,13 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			mediaSourceId?: /* The id of the MediaSource. */ Parameters.MediaSourceId;
-			audioStreamIndex?: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
-			subtitleStreamIndex?: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
-			playMethod?: /* The play method. */ Parameters.PlayMethod;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			canSeek?: /* Indicates if the client can seek. */ Parameters.CanSeek;
+			mediaSourceId: /* The id of the MediaSource. */ Parameters.MediaSourceId;
+			audioStreamIndex: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
+			subtitleStreamIndex: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
+			playMethod: /* The play method. */ Parameters.PlayMethod;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			canSeek: /* Indicates if the client can seek. */ Parameters.CanSeek;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21353,11 +21338,11 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			mediaSourceId?: /* The id of the MediaSource. */ Parameters.MediaSourceId;
-			nextMediaType?: /* The next media type that will play. */ Parameters.NextMediaType;
-			positionTicks?: /* Optional. The position, in ticks, where playback stopped. 1 tick = 10000 ms. */ Parameters.PositionTicks /* int64 */;
-			liveStreamId?: /* The live stream id. */ Parameters.LiveStreamId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
+			mediaSourceId: /* The id of the MediaSource. */ Parameters.MediaSourceId;
+			nextMediaType: /* The next media type that will play. */ Parameters.NextMediaType;
+			positionTicks: /* Optional. The position, in ticks, where playback stopped. 1 tick = 10000 ms. */ Parameters.PositionTicks /* int64 */;
+			liveStreamId: /* The live stream id. */ Parameters.LiveStreamId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21413,17 +21398,17 @@ export namespace Paths {
 			export type UserId = string; // uuid
 		}
 		export interface QueryParameters {
-			openToken?: /* The open token. */ Parameters.OpenToken;
-			userId?: /* The user id. */ Parameters.UserId /* uuid */;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
-			maxStreamingBitrate?: /* The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
-			startTimeTicks?: /* The start time in ticks. */ Parameters.StartTimeTicks /* int64 */;
-			audioStreamIndex?: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
-			subtitleStreamIndex?: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
-			maxAudioChannels?: /* The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
-			itemId?: /* The item id. */ Parameters.ItemId /* uuid */;
-			enableDirectPlay?: /* Whether to enable direct play. Default: true. */ Parameters.EnableDirectPlay;
-			enableDirectStream?: /* Whether to enable direct stream. Default: true. */ Parameters.EnableDirectStream;
+			openToken: /* The open token. */ Parameters.OpenToken;
+			userId: /* The user id. */ Parameters.UserId /* uuid */;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
+			maxStreamingBitrate: /* The maximum streaming bitrate. */ Parameters.MaxStreamingBitrate /* int32 */;
+			startTimeTicks: /* The start time in ticks. */ Parameters.StartTimeTicks /* int64 */;
+			audioStreamIndex: /* The audio stream index. */ Parameters.AudioStreamIndex /* int32 */;
+			subtitleStreamIndex: /* The subtitle stream index. */ Parameters.SubtitleStreamIndex /* int32 */;
+			maxAudioChannels: /* The maximum number of audio channels. */ Parameters.MaxAudioChannels /* int32 */;
+			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
+			enableDirectPlay: /* Whether to enable direct play. Default: true. */ Parameters.EnableDirectPlay;
+			enableDirectStream: /* Whether to enable direct stream. Default: true. */ Parameters.EnableDirectStream;
 		}
 		/**
 		 * The open live stream dto.
@@ -21443,7 +21428,7 @@ export namespace Paths {
 			export type PlaySessionId = string;
 		}
 		export interface QueryParameters {
-			playSessionId?: /* Playback session id. */ Parameters.PlaySessionId;
+			playSessionId: /* Playback session id. */ Parameters.PlaySessionId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21476,7 +21461,7 @@ export namespace Paths {
 		export interface QueryParameters {
 			playCommand: /* The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now. */ Parameters.PlayCommand;
 			itemIds: /* The ids of the items to play, comma delimited. */ Parameters.ItemIds;
-			startPositionTicks?: /* The starting position of the first item. */ Parameters.StartPositionTicks /* int64 */;
+			startPositionTicks: /* The starting position of the first item. */ Parameters.StartPositionTicks /* int64 */;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21511,10 +21496,10 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			metadataRefreshMode?: /* (Optional) Specifies the metadata refresh mode. */ Parameters.MetadataRefreshMode;
-			imageRefreshMode?: /* (Optional) Specifies the image refresh mode. */ Parameters.ImageRefreshMode;
-			replaceAllMetadata?: /* (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh. */ Parameters.ReplaceAllMetadata;
-			replaceAllImages?: /* (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh. */ Parameters.ReplaceAllImages;
+			metadataRefreshMode: /* (Optional) Specifies the metadata refresh mode. */ Parameters.MetadataRefreshMode;
+			imageRefreshMode: /* (Optional) Specifies the image refresh mode. */ Parameters.ImageRefreshMode;
+			replaceAllMetadata: /* (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh. */ Parameters.ReplaceAllMetadata;
+			replaceAllImages: /* (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh. */ Parameters.ReplaceAllImages;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21535,8 +21520,8 @@ export namespace Paths {
 			export type TmdbId = string;
 		}
 		export interface QueryParameters {
-			tmdbId?: /* The tmdbId. */ Parameters.TmdbId;
-			imdbId?: /* The imdbId. */ Parameters.ImdbId;
+			tmdbId: /* The tmdbId. */ Parameters.TmdbId;
+			imdbId: /* The imdbId. */ Parameters.ImdbId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21552,7 +21537,7 @@ export namespace Paths {
 			export type TvdbId = string;
 		}
 		export interface QueryParameters {
-			tvdbId?: /* The tvdbId. */ Parameters.TvdbId;
+			tvdbId: /* The tvdbId. */ Parameters.TvdbId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21588,12 +21573,12 @@ export namespace Paths {
 			export type SupportsSync = boolean;
 		}
 		export interface QueryParameters {
-			id?: /* The session id. */ Parameters.Id;
-			playableMediaTypes?: /* A list of playable media types, comma delimited. Audio, Video, Book, Photo. */ Parameters.PlayableMediaTypes;
-			supportedCommands?: /* A list of supported remote control commands, comma delimited. */ Parameters.SupportedCommands;
-			supportsMediaControl?: /* Determines whether media can be played remotely.. */ Parameters.SupportsMediaControl;
-			supportsSync?: /* Determines whether sync is supported. */ Parameters.SupportsSync;
-			supportsPersistentIdentifier?: /* Determines whether the device supports a unique identifier. */ Parameters.SupportsPersistentIdentifier;
+			id: /* The session id. */ Parameters.Id;
+			playableMediaTypes: /* A list of playable media types, comma delimited. Audio, Video, Book, Photo. */ Parameters.PlayableMediaTypes;
+			supportedCommands: /* A list of supported remote control commands, comma delimited. */ Parameters.SupportedCommands;
+			supportsMediaControl: /* Determines whether media can be played remotely.. */ Parameters.SupportsMediaControl;
+			supportsSync: /* Determines whether sync is supported. */ Parameters.SupportsSync;
+			supportsPersistentIdentifier: /* Determines whether the device supports a unique identifier. */ Parameters.SupportsPersistentIdentifier;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21609,7 +21594,7 @@ export namespace Paths {
 			export type Id = string;
 		}
 		export interface QueryParameters {
-			id?: /* The session id. */ Parameters.Id;
+			id: /* The session id. */ Parameters.Id;
 		}
 		/**
 		 * The MediaBrowser.Model.Session.ClientCapabilities.
@@ -21649,8 +21634,8 @@ export namespace Paths {
 			export type TmdbId = string;
 		}
 		export interface QueryParameters {
-			tmdbId?: /* The tmdbId. */ Parameters.TmdbId;
-			imdbId?: /* The imdbId. */ Parameters.ImdbId;
+			tmdbId: /* The tmdbId. */ Parameters.TmdbId;
+			imdbId: /* The imdbId. */ Parameters.ImdbId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21666,7 +21651,7 @@ export namespace Paths {
 			export type TvdbId = string;
 		}
 		export interface QueryParameters {
-			tvdbId?: /* The tvdbId. */ Parameters.TvdbId;
+			tvdbId: /* The tvdbId. */ Parameters.TvdbId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21694,7 +21679,7 @@ export namespace Paths {
 			imageType: /* (Unused) Image type. */ Parameters.ImageType;
 		}
 		export interface QueryParameters {
-			index?: /* (Unused) Image index. */ Parameters.Index /* int32 */;
+			index: /* (Unused) Image index. */ Parameters.Index /* int32 */;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21818,7 +21803,7 @@ export namespace Paths {
 			playlistId: /* The playlist id. */ Parameters.PlaylistId;
 		}
 		export interface QueryParameters {
-			entryIds?: /* The item ids, comma delimited. */ Parameters.EntryIds;
+			entryIds: /* The item ids, comma delimited. */ Parameters.EntryIds;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21842,9 +21827,9 @@ export namespace Paths {
 			export type RefreshLibrary = boolean;
 		}
 		export interface QueryParameters {
-			name?: /* The name of the library. */ Parameters.Name;
-			path?: /* The path to remove. */ Parameters.Path;
-			refreshLibrary?: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
+			name: /* The name of the library. */ Parameters.Name;
+			path: /* The path to remove. */ Parameters.Path;
+			refreshLibrary: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21885,8 +21870,8 @@ export namespace Paths {
 			export type RefreshLibrary = boolean;
 		}
 		export interface QueryParameters {
-			name?: /* The name of the folder. */ Parameters.Name;
-			refreshLibrary?: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
+			name: /* The name of the folder. */ Parameters.Name;
+			refreshLibrary: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21910,9 +21895,9 @@ export namespace Paths {
 			export type RefreshLibrary = boolean;
 		}
 		export interface QueryParameters {
-			name?: /* The name of the virtual folder. */ Parameters.Name;
-			newName?: /* The new name. */ Parameters.NewName;
-			refreshLibrary?: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
+			name: /* The name of the virtual folder. */ Parameters.Name;
+			newName: /* The new name. */ Parameters.NewName;
+			refreshLibrary: /* Whether to refresh the library. */ Parameters.RefreshLibrary;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -21974,7 +21959,7 @@ export namespace Paths {
 			export type SessionId = string;
 		}
 		export interface QueryParameters {
-			sessionId?: /* The session id. */ Parameters.SessionId;
+			sessionId: /* The session id. */ Parameters.SessionId;
 			itemId: /* The item id. */ Parameters.ItemId;
 		}
 		namespace Responses {
@@ -22042,7 +22027,7 @@ export namespace Paths {
 			language: /* The language of the subtitles. */ Parameters.Language;
 		}
 		export interface QueryParameters {
-			isPerfectMatch?: /* Optional. Only show subtitles which are a perfect match. */ Parameters.IsPerfectMatch;
+			isPerfectMatch: /* Optional. Only show subtitles which are a perfect match. */ Parameters.IsPerfectMatch;
 		}
 		namespace Responses {
 			export type $200 = Components.Schemas.RemoteSubtitleInfo[];
@@ -22115,8 +22100,8 @@ export namespace Paths {
 		}
 		export interface QueryParameters {
 			text: /* The message test. */ Parameters.Text;
-			header?: /* The message header. */ Parameters.Header;
-			timeoutMs?: /* The message timeout. If omitted the user will have to confirm viewing the message. */ Parameters.TimeoutMs /* int64 */;
+			header: /* The message header. */ Parameters.Header;
+			timeoutMs: /* The message timeout. If omitted the user will have to confirm viewing the message. */ Parameters.TimeoutMs /* int64 */;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -22148,8 +22133,8 @@ export namespace Paths {
 			command: /* The MediaBrowser.Model.Session.PlaystateCommand. */ Parameters.Command;
 		}
 		export interface QueryParameters {
-			seekPositionTicks?: /* The optional position ticks. */ Parameters.SeekPositionTicks /* int64 */;
-			controllingUserId?: /* The optional controlling user id. */ Parameters.ControllingUserId;
+			seekPositionTicks: /* The optional position ticks. */ Parameters.SeekPositionTicks /* int64 */;
+			controllingUserId: /* The optional controlling user id. */ Parameters.ControllingUserId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -22322,8 +22307,8 @@ export namespace Paths {
 			export type PlaySessionId = string;
 		}
 		export interface QueryParameters {
-			deviceId?: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
-			playSessionId?: /* The play session id. */ Parameters.PlaySessionId;
+			deviceId: /* The device id of the client requesting. Used to stop encoding processes when needed. */ Parameters.DeviceId;
+			playSessionId: /* The play session id. */ Parameters.PlaySessionId;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -22707,11 +22692,10 @@ export namespace Paths {
 		/**
 		 * The new item properties.
 		 */
-		export type RequestBody
-		/**
+		export type RequestBody = /**
 		 * This is strictly used as a data transfer object from the api layer.
 		 * This holds information about a BaseItem in a format that is convenient for the client.
-		 */ = Components.Schemas.BaseItemDto;
+		 */ Components.Schemas.BaseItemDto;
 		namespace Responses {
 			export interface $204 {}
 			export interface $401 {}
@@ -22734,7 +22718,7 @@ export namespace Paths {
 			itemId: /* The item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			contentType?: /* The content type of the item. */ Parameters.ContentType;
+			contentType: /* The content type of the item. */ Parameters.ContentType;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -22768,7 +22752,7 @@ export namespace Paths {
 			imageIndex: /* Old image index. */ Parameters.ImageIndex /* int32 */;
 		}
 		export interface QueryParameters {
-			newIndex?: /* New image index. */ Parameters.NewIndex /* int32 */;
+			newIndex: /* New image index. */ Parameters.NewIndex /* int32 */;
 		}
 		namespace Responses {
 			export interface $204 {}
@@ -22807,7 +22791,7 @@ export namespace Paths {
 			export type Name = string;
 		}
 		export interface QueryParameters {
-			name?: /* The name of the library. */ Parameters.Name;
+			name: /* The name of the library. */ Parameters.Name;
 		}
 		/**
 		 * The path info.
@@ -23038,7 +23022,7 @@ export namespace Paths {
 			itemId: /* Item id. */ Parameters.ItemId /* uuid */;
 		}
 		export interface QueryParameters {
-			likes?: /* Whether this M:Jellyfin.Api.Controllers.UserLibraryController.UpdateUserItemRating(System.Guid,System.Guid,System.Nullable{System.Boolean}) is likes. */ Parameters.Likes;
+			likes: /* Whether this M:Jellyfin.Api.Controllers.UserLibraryController.UpdateUserItemRating(System.Guid,System.Guid,System.Nullable{System.Boolean}) is likes. */ Parameters.Likes;
 		}
 		namespace Responses {
 			export type $200 = /* Class UserItemDataDto. */ Components.Schemas.UserItemDataDto;
