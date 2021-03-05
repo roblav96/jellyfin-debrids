@@ -7,19 +7,18 @@ export function toHashId(string: string) {
 		hash = (hash << 5) - hash + char
 		hash |= 0
 	}
-	return Math.abs(hash)
+	return `${Math.abs(hash)}`
 }
 
 export function random(length = 8) {
-	// if (!Number.isSafeInteger(length)) {
-	// 	throw new TypeError(`!Number.isSafeInteger(length = ${length})`)
-	// }
 	length = Math.ceil(Math.abs(length))
 	if (length == 0) return ''
+	if (!Number.isSafeInteger(length)) {
+		throw new TypeError(`!Number.isSafeInteger(length = ${length})`)
+	}
 	let chars = ''
 	while (chars.length < length) {
 		chars += Math.random().toString(36).slice(-8)
 	}
 	return chars.slice(0, -(8 - (length % 8)))
 }
-

@@ -1,2 +1,3 @@
-export * as obj from './object.ts'
-export * as str from './string.ts'
+export * as J from './json.ts'
+export * as O from './object.ts'
+export * as S from './string.ts'

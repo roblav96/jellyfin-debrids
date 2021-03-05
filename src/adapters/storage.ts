@@ -5,27 +5,33 @@ import Emittery from 'https://esm.sh/emittery?dev'
 import { serialize, deserialize } from 'https://deno.land/x/serialize_javascript/mod.ts'
 
 export default class Db<T extends unknown> {
+	private static fromFileURL(fileURL: string) {
+		let relative = path.relative(path.dirname(Deno.mainModule), fileURL)
+		if (!relative || relative.startsWith('file:') || path.isAbsolute(relative)) {
+			return path.basename(fileURL)
+		}
+		return relative
+	}
+
 	private dirpath: string
 	private keypath(key: string) {
-		if (!(key?.length > 0)) key = '_'
-		return path.join(this.dirpath, key.replaceAll(/\W/g, '_'))
+		return path.join(this.dirpath, `_${key}_`.replaceAll(/\W/g, '_'))
 	}
 
 	constructor(namespace: string, private ttl?: number) {
+		if (namespace.startsWith('file:')) {
+			namespace = Db.fromFileURL(namespace)
+		}
 		if (typeof ttl == 'number') {
 			this.ttl = Math.abs(ttl)
 		}
-		if (namespace.startsWith('file:')) {
-			let relative = path.relative(path.dirname(Deno.mainModule), namespace)
-			if (!relative || relative.startsWith('file:') || path.isAbsolute(relative)) {
-				namespace = path.basename(namespace)
-			} else {
-				namespace = relative
-			}
-		}
 		let datadir = dataDir()
-		if (!datadir) throw new Deno.errors.NotFound('data directory via dataDir()')
-		this.dirpath = path.join(datadir, 'jellyfin-debrids', namespace.replaceAll(/\W/g, '_'))
+		if (!datadir) throw new Deno.errors.NotFound(`USER's data directory via dataDir()`)
+		this.dirpath = path.join(
+			datadir,
+			'jellyfin-debrids',
+			`_${namespace}_`.replaceAll(/\W/g, '_'),
+		)
 		fs.ensureDirSync(this.dirpath)
 	}
 

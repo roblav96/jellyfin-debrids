@@ -3,7 +3,6 @@ import * as poly from '../poly/poly.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import Db from '../adapters/storage.ts'
 import deepmerge from 'https://esm.sh/deepmerge?dev'
-import { createHash } from 'https://deno.land/std/hash/mod.ts'
 import { getCookies } from 'https://deno.land/std/http/cookie.ts'
 import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
@@ -186,14 +185,13 @@ export class Http {
 		let reqid = ''
 		if (init.memoize) {
 			let values = [init.method, url.toString(), [...headers]] as any[]
-			if (what.isFunction((init.body as any)?.[Symbol.iterator])) {
+			if (Symbol.iterator in (init.body as any)) {
 				values.push([...(init.body as any)])
 			} else {
 				values.push(init.body)
 			}
-			console.log('values ->', values)
-			console.log('poly.str.toHashId(JSON.stringify(values)) ->', poly.str.toHashId(JSON.stringify(values)))
-			reqid = createHash('md5').update(JSON.stringify(values)).toString()
+			// console.log('values ->', values)
+			reqid = poly.S.toHashId(JSON.stringify(values))
 			let db = new Db(`memoize:${url.hostname}`)
 			let memoized = await db.get(reqid)
 			if (Array.isArray(memoized)) {

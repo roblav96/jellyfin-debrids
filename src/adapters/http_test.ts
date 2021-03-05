@@ -6,6 +6,7 @@ import ky, { KyOptions, KyResponsePromise } from '../shims/ky.ts'
 import { Http, HttpError } from './http.ts'
 
 const db = new Db(import.meta.url)
+console.log('db ->', poly.O.allEntries(db))
 const httpbin = new Http({
 	prefixUrl: 'https://nghttp2.org/httpbin',
 })
@@ -23,7 +24,7 @@ try {
 		// httpbin.json('anything', {
 		// httpbin.text('anything', {
 		httpbin.text('delay/3', {
-			form: { hai: 'bai' },
+			multipart: { hai: 'bai' },
 			memoize: new Date(0).setMinutes(60),
 			// cookies: true,
 			timeout: 1000,
@@ -37,7 +38,7 @@ try {
 	// console.log('response.json() ->', await response.json())
 } catch (error) {
 	console.error('httpbin catch ->', error)
-	console.log('poly.obj.allKeys(error) ->', poly.obj.allKeys(error))
+	console.log('poly.O.allEntries(error) ->', poly.O.allEntries(error))
 	if (error instanceof DOMException) {
 		console.warn('instanceof DOMException ->')
 		console.log('error.code ->', error.code)
