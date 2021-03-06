@@ -1,8 +1,9 @@
-export type { Components, Paths } from './openapi.d.ts'
+export * from './openapi.ts'
+import * as library from './library.ts'
 import * as socket from './socket.ts'
 import * as wizard from './wizard.ts'
 import Db from '../adapters/storage.ts'
-import type { Components, Paths } from './openapi.d.ts'
+import { GetPublicSystemInfo } from './openapi.ts'
 import { Http } from '../adapters/http.ts'
 import { open as opener } from 'https://deno.land/x/opener/mod.ts'
 
@@ -21,7 +22,7 @@ export const api = new Http({
 export async function start() {
 	let PublicSystemInfo = (await api.json(
 		'/System/Info/Public',
-	)) as Paths.GetPublicSystemInfo.Responses.$200
+	)) as GetPublicSystemInfo.$200
 	if (PublicSystemInfo.StartupWizardCompleted == false) {
 		let wizardstart = `${PublicSystemInfo.LocalAddress}/web/index.html#!/wizardstart.html`
 		await opener(wizardstart)
@@ -33,4 +34,5 @@ export async function start() {
 		throw new Error(`Undefined JELLYFIN_API_KEY -> ${apikeys}`)
 	}
 	socket.start(PublicSystemInfo)
+	await library.setVirtualFolders()
 }

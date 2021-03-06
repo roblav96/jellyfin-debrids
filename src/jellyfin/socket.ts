@@ -14,7 +14,7 @@ export const ee = new EventEmitter<{
 }>()
 
 let socket: Sockette<SocketEvent>
-export function start({ LocalAddress, Id }: jellyfin.Components.Schemas.PublicSystemInfo) {
+export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
 	socket?.close()
 	let params = qs.stringify({ api_key: Deno.env.get('JELLYFIN_API_KEY'), deviceId: Id })
 	let url = `${LocalAddress.replace('http', 'ws')}/socket?${params}`
