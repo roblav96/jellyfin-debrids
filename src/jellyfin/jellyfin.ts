@@ -20,9 +20,7 @@ export const api = new Http({
 })
 
 export async function start() {
-	let PublicSystemInfo = (await api.json(
-		'/System/Info/Public',
-	)) as GetPublicSystemInfo.$200
+	let PublicSystemInfo = (await api.json('/System/Info/Public')) as GetPublicSystemInfo.$200
 	if (PublicSystemInfo.StartupWizardCompleted == false) {
 		let wizardstart = `${PublicSystemInfo.LocalAddress}/web/index.html#!/wizardstart.html`
 		await opener(wizardstart)

@@ -6,9 +6,7 @@ export async function start() {
 	)) as jellyfin.GetStartupConfiguration.$200
 	console.log('config ->', config)
 	config.PreferredMetadataLanguage ||= config.UICulture.split('-')[0]
-	let user = (await jellyfin.api.json(
-		'/Startup/User',
-	)) as jellyfin.GetFirstUser.$200
+	let user = (await jellyfin.api.json('/Startup/User')) as jellyfin.GetFirstUser.$200
 	user.Password = 'qwer1234'
 	await jellyfin.api.post('/Startup/User', { json: user })
 	await jellyfin.api.post('/Startup/RemoteAccess', {
