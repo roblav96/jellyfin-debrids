@@ -3,8 +3,8 @@ import mapObj from 'https://esm.sh/map-obj?dev'
 const outfile = new URL('./openapi.ts', import.meta.url).pathname
 
 let json = mapObj(
-	JSON.parse(await Deno.readTextFile(new URL('./openapi.json', import.meta.url).pathname)),
-	// await (await fetch('http://127.0.0.1:8096/api-docs/openapi.json')).json(),
+	// JSON.parse(await Deno.readTextFile(new URL('./openapi.json', import.meta.url).pathname)),
+	await (await fetch('http://127.0.0.1:8096/api-docs/openapi.json')).json(),
 	(key, value) => {
 		if (key == 'allOf' && Array.isArray(value) && value.length == 1) {
 			let $ref = value[0].$ref
@@ -78,9 +78,3 @@ let prettier = Deno.run({
 })
 await prettier.status()
 prettier.close()
-
-let check = Deno.run({
-	cmd: ['deno', 'cache', '--unstable', outfile],
-})
-await check.status()
-check.close()
