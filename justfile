@@ -7,19 +7,19 @@ _default :
 
 
 install :
-	test -d "${DENO_DIR}" && rm -f -v "node_modules/.cache/deno" && mkdir -p -v "node_modules/.cache" && ln -s -f -v "${DENO_DIR}" "node_modules/.cache/deno" || true
-	test -e "openapi.json" && npx dtsgenerator "openapi.json" | sed -e 's/declare /export /' -e 's/ | null;/;/' -e 's/ null | / /' > "src/jellyfin/openapi.d.ts" || true
-	deno cache --unstable --no-check --reload src/**/*.ts || true
+	deno run --unstable --no-check --allow-all "src/jellyfin/openapi/install.ts"
+	# deno cache --unstable --no-check --reload src/**/*.ts || true
+	# npm install --no-save "dtsgenerator" "prettier"
 
 deps main="src/mod.ts" :
 	NO_COLOR=1 deno info --unstable {{main}}
-run main="src/mod.ts" subcommand="run" :
+run main="src/mod.ts" :
 	@tput clear; echo
 	@deno cache --unstable --no-check src/**/*.ts || true
 	@deno cache --unstable {{main}} || true; echo
-	@deno {{subcommand}} --unstable --no-check --allow-all {{main}}
-watch main="src/mod.ts" subcommand="run" :
-	watchexec --no-default-ignore --restart --watch=src --exts=ts -- just run {{main}} {{subcommand}}
+	@deno run --unstable --no-check --allow-all {{main}}
+watch main="src/mod.ts" :
+	watchexec --no-default-ignore --restart --watch=src --exts=ts -- just run {{main}}
 
 
 

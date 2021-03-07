@@ -22,9 +22,10 @@ export async function runBenchmarks(options = {} as bench.BenchmarkRunOptions & 
 
 	for (let benchmark of benchmarks) {
 		let func = typeof benchmark == 'function' ? benchmark : benchmark.func
-		let autotimer = func.toString().split('\n')[0].endsWith('() {')
+		let lines = func.toString().split('\n')
+		let autotimer = lines[0].startsWith('()=>{') || lines[0].endsWith('() {')
 		bench.bench({
-			name: benchmark.name,
+			name: lines.slice(1, -1).join(' ').trim().replace(/;$/, ''),
 			runs: options.runs,
 			func: async ({ start, stop }) => {
 				if (autotimer) start()
@@ -48,7 +49,7 @@ export async function runBenchmarks(options = {} as bench.BenchmarkRunOptions & 
 		if (measuredRunsAvgMs < totalMs) {
 			parts.unshift(`\t${gray('Average:')}`, yellow(toMs(measuredRunsAvgMs)))
 		}
-		console.debug('🟣', `${bold(magenta(name))}\n\t`, ...parts, '\n')
+		console.debug('🟣', `${magenta(name)}\n\t`, ...parts, '\n')
 	}
 	console.debug(
 		`🟢 ${bold(green('DONE'))}\n\t\tRuns: ${yellow(`${options.runs}`)}\t\tTotal:`,
