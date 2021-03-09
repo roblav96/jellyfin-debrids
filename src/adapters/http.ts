@@ -1,4 +1,5 @@
 import * as async from 'https://deno.land/std/async/mod.ts'
+import * as O from '../poly/object.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import arrify from 'https://esm.sh/arrify?dev'
 import Db from '../adapters/storage.ts'
@@ -7,23 +8,21 @@ import hashIt from 'https://esm.sh/hash-it?dev'
 import { getCookies } from 'https://deno.land/std/http/cookie.ts'
 import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
-type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE' | 'OPTIONS'
 export interface HttpInit extends Omit<RequestInit, 'headers' | 'signal'> {
-	buildRequest: ((init: HttpInit) => Promise<void>)[]
+	buildRequest: ((init: HttpInit) => Promise<void> | void)[]
 	client?: Deno.HttpClient
 	cookies?: boolean
 	delay?: number
-	form?: Record<string, string>
+	form?: HttpInit['searchParams']
 	headers: Record<string, string>
 	json?: unknown
 	memoize?: number
-	method: RequestMethod
-	multipart?: Record<string, string | Blob>
+	method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE' | 'OPTIONS'
+	multipart?: Record<string, string | string[] | Blob>
 	prefixUrl?: string
-	qsArrayBracket?: boolean
 	randelay?: number
 	retries: number
-	retryMethods: Set<RequestMethod>
+	retryMethods: Set<HttpInit['method']>
 	retryStatusCodes: Set<number>
 	searchParams: Record<string, string | string[]>
 	timeout: number
@@ -36,8 +35,6 @@ export class HttpError extends DOMException {
 	}
 	constructor(public input: string, public init: HttpInit, public response: Response) {
 		super(response.statusText ?? STATUS_TEXT.get(response.status), 'HttpError')
-		// console.log('response.status ->', new DOMException(response.statusText, 'HttpError').constructor.toString())
-		// Object.assign(this, { code: response.status } as DOMException)
 	}
 }
 
@@ -56,18 +53,8 @@ export class Http {
 			},
 			method: 'GET',
 			retries: 2,
-			retryMethods: new Set(['GET', 'PUT', 'HEAD', 'DELETE', 'OPTIONS']),
-			// retryStatusCodes: new Set([403, 408, 413, 429, 500, 502, 503, 504]),
-			retryStatusCodes: new Set([
-				Status.Forbidden,
-				Status.RequestTimeout,
-				Status.RequestEntityTooLarge,
-				Status.TooManyRequests,
-				Status.InternalServerError,
-				Status.BadGateway,
-				Status.ServiceUnavailable,
-				Status.GatewayTimeout,
-			]),
+			retryMethods: new Set<HttpInit['method']>(['GET', 'HEAD', 'DELETE', 'OPTIONS']),
+			retryStatusCodes: new Set<number>([403, 408, 413, 429, 500, 502, 503, 504]),
 			searchParams: {},
 			timeout: 10000,
 		} as HttpInit
@@ -84,6 +71,22 @@ export class Http {
 				return Array.isArray(value) || what.isPlainObject(value)
 			},
 		})
+	}
+
+	static toIterable<T extends FormData | Headers | URLSearchParams>(
+		input: Record<string, string | string[] | Blob>,
+		iterable: T,
+	) {
+		for (let [key, value] of Object.entries(input)) {
+			if (Array.isArray(value)) {
+				value.forEach((v) => iterable.append(key, v))
+			} else if (iterable instanceof FormData) {
+				iterable.append(key, value)
+			} else {
+				iterable.set(key, value as string)
+			}
+		}
+		return iterable
 	}
 
 	constructor(public options = {} as Partial<HttpInit>) {
@@ -155,14 +158,7 @@ export class Http {
 			}
 			url = new URL(input.startsWith('/') ? input.slice(1) : input, prefixUrl)
 		}
-		for (let [key, value] of Object.entries(init.searchParams)) {
-			if (what.isString(value)) {
-				url.searchParams.set(key, value)
-			} else if (Array.isArray(value)) {
-				if (init.qsArrayBracket == true) key = `${key}[]`
-				value.forEach((v) => url.searchParams.append(key, v))
-			}
-		}
+		Http.toIterable(init.searchParams, url.searchParams)
 
 		if (init.json) {
 			init.body = JSON.stringify(init.json)
@@ -171,23 +167,19 @@ export class Http {
 			}
 		}
 
-		if (init.multipart) {
-			let multipart = new FormData()
-			for (let key in init.multipart) {
-				multipart.append(key, init.multipart[key])
-			}
-			init.body = multipart
+		if (init.form) {
+			init.body = Http.toIterable(init.form, new URLSearchParams())
 		}
 
-		if (init.form) {
-			init.body = new URLSearchParams(init.form)
+		if (init.multipart) {
+			init.body = Http.toIterable(init.multipart, new FormData())
 		}
 
 		let reqid = ''
 		if (init.memoize) {
-			let values = [init.method, url.toString(), arrify(headers), arrify(init.body)]
-			// console.log('values ->', values)
-			reqid = hashIt(values).toString()
+			let reqs = [init.method, url.toString(), arrify(headers), arrify(init.body)]
+			// console.log('reqs ->', reqs)
+			reqid = hashIt(reqs).toString()
 			let db = new Db(`memoize:${url.hostname}`)
 			let memoized = await db.get(reqid)
 			if (Array.isArray(memoized)) {

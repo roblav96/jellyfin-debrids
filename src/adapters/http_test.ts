@@ -6,7 +6,6 @@ import ky, { KyOptions, KyResponsePromise } from '../shims/ky.ts'
 import { Http, HttpError } from './http.ts'
 
 const db = new Db(import.meta.url)
-console.log('db ->', poly.O.allEntries(db))
 const httpbin = new Http({
 	prefixUrl: 'https://nghttp2.org/httpbin',
 })
@@ -22,10 +21,12 @@ try {
 		// new Http().get('https://www.limetorrents.info/search/all/ubuntu/', {
 		// new Http().get('https://linkedin.com', {
 		// httpbin.json('anything', {
-		// httpbin.text('anything', {
-		httpbin.text('delay/3', {
-			multipart: { hai: 'bai' },
-			memoize: new Date(0).setMinutes(60),
+		// httpbin.json('delay/3', {
+		httpbin.json('anything', {
+			multipart: { 'magnets[]': ['hai', 'bai'] },
+			// qsArrayBracket: true,
+			// searchParams: { 'magnets[]': ['bai', 'hai'] },
+			memoize: new Date(0).setMinutes(1),
 			// cookies: true,
 			timeout: 1000,
 		}),
@@ -34,17 +35,17 @@ try {
 		// 	timeout: 2000,
 		// }),
 	])
-	console.log('response ->', what.getType(response), response)
+	console.log('response ->', response)
 	// console.log('response.json() ->', await response.json())
 } catch (error) {
 	console.error('httpbin catch ->', error)
-	console.log('poly.O.allEntries(error) ->', poly.O.allEntries(error))
-	if (error instanceof DOMException) {
-		console.warn('instanceof DOMException ->')
-		console.log('error.code ->', error.code)
-	}
-	console.log('error.name ->', error.name)
-	console.log('error.constructor.name ->', error.constructor.name)
-	console.log('error.message ->', error.message)
-	console.log('what.getType(error) ->', what.getType(error))
+	// console.log('poly.O.allEntries(error) ->', poly.O.allEntries(error))
+	// if (error instanceof DOMException) {
+	// 	console.warn('instanceof DOMException ->')
+	// 	console.log('error.code ->', error.code)
+	// }
+	// console.log('error.name ->', error.name)
+	// console.log('error.constructor.name ->', error.constructor.name)
+	// console.log('error.message ->', error.message)
+	// console.log('what.getType(error) ->', what.getType(error))
 }
