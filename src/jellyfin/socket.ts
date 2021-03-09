@@ -1,5 +1,5 @@
+import * as ENV from '../config/env.ts'
 import * as jellyfin from './jellyfin.ts'
-import * as qs from 'https://deno.land/std/node/querystring.ts'
 import { EventEmitter } from 'https://deno.land/x/event/mod.ts'
 import { Sockette } from '../shims/sockette.ts'
 
@@ -14,11 +14,18 @@ export const ee = new EventEmitter<{
 }>()
 
 let socket: Sockette<SocketEvent>
+setInterval(() => {
+	try {
+		socket?.json({ MessageType: 'KeepAlive' })
+	} catch {}
+}, 10000)
+
 export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
 	socket?.close()
-	let params = qs.stringify({ api_key: Deno.env.get('JELLYFIN_API_KEY'), deviceId: Id })
-	let url = `${LocalAddress.replace('http', 'ws')}/socket?${params}`
-	socket = new Sockette<SocketEvent>(url, {
+	let url = new URL(`${LocalAddress.replace('http', 'ws')}/socket`)
+	url.searchParams.set('api_key', ENV.get('API_KEY')!)
+	url.searchParams.set('deviceId', Id)
+	socket = new Sockette<SocketEvent>(url.toString(), {
 		timeout: 3000,
 		onerror(event) {
 			console.error('socket error ->', event.error)
@@ -27,7 +34,7 @@ export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
 			console.warn('socket close ->', event.code, event.reason)
 		},
 		onopen(event) {
-			console.info('socket onopen ->', `${new URL(url).origin}/socket`)
+			console.info('socket onopen ->', `${url.origin}/socket`)
 			socket.json({ MessageType: 'SessionsStart', Data: '0,1500' })
 		},
 		onmessage({ data }) {
@@ -43,44 +50,6 @@ export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
 	})
 }
 
-setInterval(() => {
-	try {
-		socket?.json({ MessageType: 'KeepAlive' })
-	} catch {}
-}, 10000)
-
-// let query = qs.stringify({
-// 	api_key: Deno.env.get('JELLYFIN_API_KEY')!,
-// 	deviceId: (await jellyfin.SystemInfoPublic()).Id,
-// })
-// const socket = new WebSocket(`ws://127.0.0.1:8096/socket?${query}`)
-// socket.addEventListener('error', (event) => {
-// 	console.error('socket error ->', (event as ErrorEvent).message)
-// })
-// socket.addEventListener('close', (event) => {
-// 	console.warn('socket close ->', event.code, event.reason)
-// })
-// socket.addEventListener('open', (event) => {
-// 	// socket.send(JSON.stringify({ MessageType: 'ScheduledTasksInfoStart', Data: '0,1000' }))
-// 	socket.send(JSON.stringify({ MessageType: 'SessionsStart', Data: '0,1500' }))
-// 	// socket.send(JSON.stringify({ MessageType: 'ActivityLogEntryStart', Data: '0,1000' }))
-// })
-// socket.addEventListener('message', (event) => {
-// 	try {
-// 		let data = JSON.parse(event.data) as SocketEvent
-// 		if (data.MessageType == 'KeepAlive') return
-// 		if (data.MessageType == 'ForceKeepAlive') {
-// 			return ForceKeepAlive()
-// 		}
-// 		rxSocket.next(data)
-// 	} catch (error) {
-// 		console.error('socket message ->', error)
-// 	}
-// })
-// const ForceKeepAlive = R.once(() =>
-// 	setInterval(() => socket.send(JSON.stringify({ MessageType: 'KeepAlive' })), 10000),
-// )
-
-// rxSocket.subscribe((data) => {
-// 	console.log('data ->', data)
+// ee.on('message', (message) => {
+// 	console.log('message ->', message)
 // })

@@ -12,6 +12,7 @@ export interface HttpInit extends Omit<RequestInit, 'headers' | 'signal'> {
 	buildRequest: ((init: HttpInit) => Promise<void> | void)[]
 	client?: Deno.HttpClient
 	cookies?: boolean
+	debug?: boolean
 	delay?: number
 	form?: HttpInit['searchParams']
 	headers: Record<string, string>
@@ -73,15 +74,17 @@ export class Http {
 		})
 	}
 
-	static toIterable<T extends FormData | Headers | URLSearchParams>(
+	static toIterable<T extends FormData | URLSearchParams>(
 		input: Record<string, string | string[] | Blob>,
 		iterable: T,
 	) {
 		for (let [key, value] of Object.entries(input)) {
-			if (Array.isArray(value)) {
+			if (what.isNullOrUndefined(value)) {
+				continue
+			} else if (Array.isArray(value)) {
 				value.forEach((v) => iterable.append(key, v))
 			} else if (iterable instanceof FormData) {
-				iterable.append(key, value)
+				;(iterable as FormData).append(key, value)
 			} else {
 				iterable.set(key, value as string)
 			}
@@ -176,7 +179,7 @@ export class Http {
 		}
 
 		let reqid = ''
-		if (init.memoize) {
+		if (typeof init.memoize == 'number' && init.memoize > 0) {
 			let reqs = [init.method, url.toString(), arrify(headers), arrify(init.body)]
 			// console.log('reqs ->', reqs)
 			reqid = hashIt(reqs).toString()
@@ -213,6 +216,9 @@ export class Http {
 		// console.log('url ->', url)
 		// console.log('headers ->', [...headers])
 		Object.assign(init, { headers })
+		if (init.debug == true) {
+			console.log(`[${init.method} ${url.host}]`, url.pathname, init)
+		}
 		let response = await this.fetch(url.toString(), init)
 
 		if (init.cookies == true) {
@@ -232,7 +238,7 @@ export class Http {
 			}
 		}
 
-		if (init.memoize) {
+		if (typeof init.memoize == 'number' && init.memoize > 0) {
 			let memoized = Object.assign(response.clone(), response)
 			let body = await memoized.text()
 			let db = new Db(`memoize:${url.hostname}`)

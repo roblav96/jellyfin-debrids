@@ -43,7 +43,7 @@
 							"messageIdGeneratorType": "Timestamp",
 							"messageTemplateFieldName": "message_template",
 							"minimumLogEventLevel": "Information",
-							"port": 18066,
+							"port": 12201,
 							"restrictedToMinimumLevel": "Information",
 							"shortMessageMaxLength": 4096,
 							"transportType": "Tcp"

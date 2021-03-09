@@ -19,6 +19,14 @@ type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
 	? I
 	: never;
 
+type DeepPartial<T> = {
+	[K in keyof T]?: T[K] extends unknown[]
+		? T[K]
+		: T extends Record<PropertyKey, unknown>
+		? DeepPartial<T[K]>
+		: T[K];
+};
+
 type PartialDeeper<T> = {
 	[P in keyof T]?: T[P] extends Array<infer U>
 		? Array<PartialDeeper<U>>

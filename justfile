@@ -10,7 +10,7 @@ install :
 	deno cache --unstable --no-check --reload src/**/*.ts || true
 	npm install --no-save "dtsgenerator" "prettier"
 	deno run --unstable --no-check --allow-all "src/jellyfin/openapi/install.ts"
-	deno cache --unstable "src/jellyfin/openapi/install.ts"
+	deno cache --unstable "src/jellyfin/openapi/openapi.ts"
 
 deps main="src/mod.ts" :
 	NO_COLOR=1 deno info --unstable {{main}}

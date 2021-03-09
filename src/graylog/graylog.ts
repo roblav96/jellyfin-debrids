@@ -1,7 +1,7 @@
+import * as async from 'https://deno.land/std/async/mod.ts'
 import * as Rx from '../shims/rxjs.ts'
 import type { GraylogMessage } from './graylog_worker.ts'
 import { EventEmitter } from 'https://deno.land/x/event/mod.ts'
-import * as async from 'https://deno.land/std/async/mod.ts'
 
 export type GraylogEvents = {
 	message: [GraylogMessage]

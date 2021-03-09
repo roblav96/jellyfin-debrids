@@ -26,13 +26,15 @@ const DEFAULT_INSPECT_OPTIONS = {
 const ANSI_REGEX = ansi({ onlyFirst: true })
 const EOL_REGEX = /(?:\r?\n)/
 
-let root_path = path.dirname(path.dirname(path.fromFileUrl(import.meta.url)))
+let root_path = path.dirname(path.dirname(path.dirname(path.fromFileUrl(import.meta.url))))
 try {
 	if (Deno.mainModule) {
 		root_path = path.dirname(path.fromFileUrl(Deno.mainModule))
 		Deno.core.print(`\n████  ${datetime.format(new Date(), 'hh:mm:ss a')}  ████\n\n`)
 	}
-	Deno.cwd() && (root_path = Deno.cwd())
+	if (path.isAbsolute(Deno.cwd())) {
+		root_path = Deno.cwd()
+	}
 } catch {}
 
 let now_stamp = performance.now()
