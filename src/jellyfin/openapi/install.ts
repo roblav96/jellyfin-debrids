@@ -1,10 +1,14 @@
+import * as ENV from '../../config/env.ts'
+import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import mapObj from 'https://esm.sh/map-obj?dev'
+import sortKeys from 'https://esm.sh/sort-keys?dev'
 
 const outfile = new URL('./openapi.ts', import.meta.url).pathname
+const outjson = new URL('./openapi.json', import.meta.url).pathname
 
 let json = mapObj(
-	// JSON.parse(await Deno.readTextFile(new URL('./openapi.json', import.meta.url).pathname)),
-	await (await fetch('http://127.0.0.1:8096/api-docs/openapi.json')).json(),
+	// JSON.parse(await Deno.readTextFile(outjson)),
+	await (await fetch(`http://127.0.0.1:${ENV.get('PORT', '8096')}/api-docs/openapi.json`)).json(),
 	(key, value) => {
 		if (key == 'allOf' && Array.isArray(value) && value.length == 1) {
 			let $ref = value[0].$ref
@@ -12,19 +16,20 @@ let json = mapObj(
 				return ['$ref', $ref]
 			}
 		}
+		if (what.isPlainObject(value)) {
+			return [key, sortKeys(value, { deep: true })]
+		}
 		return [key, value] as any
 	},
 	{ deep: true },
 )
 
-let tempjson = await Deno.makeTempFile({ suffix: '.json' })
-await Deno.writeTextFile(tempjson, JSON.stringify(json))
+await Deno.writeTextFile(outjson, JSON.stringify(json, null, 4))
 let dtsgenerator = Deno.run({
-	cmd: ['npx', 'dtsgenerator', '--out', outfile, tempjson],
+	cmd: ['npx', 'dtsgenerator', '--out', outfile, outjson],
 })
 await dtsgenerator.status()
 dtsgenerator.close()
-await Deno.remove(tempjson)
 
 let openapi = await Deno.readTextFile(outfile)
 openapi = openapi.replace('declare namespace Components {', '')

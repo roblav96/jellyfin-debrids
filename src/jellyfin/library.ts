@@ -3,13 +3,46 @@ import * as jellyfin from './jellyfin.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
 import * as Rx from '../shims/rxjs.ts'
 
+const vfolders = {
+	movies: {},
+	tvshows: {},
+}
+
 export async function setVirtualFolders() {
-	let SystemInfo = (await jellyfin.api.json('/System/Info')) as jellyfin.GetSystemInfo.$200
+	let SystemInfo = (await jellyfin.api.json('System/Info')) as jellyfin.GetSystemInfo.$200
+	console.log('SystemInfo ->', SystemInfo)
 	let mediadir = path.join(SystemInfo.ProgramDataPath, 'media')
 	await fs.ensureDir(mediadir)
+	for (let vfolder in vfolders) {
+		await fs.ensureDir(path.join(mediadir, vfolder))
+	}
 
 	let VirtualFolders = (await jellyfin.api.json(
-		'/Library/VirtualFolders',
+		'Library/VirtualFolders',
 	)) as jellyfin.GetVirtualFolders.$200
 	console.log('VirtualFolders ->', VirtualFolders)
+
+	if (VirtualFolders.length == 0) {
+		let library = `${SystemInfo.LocalAddress}/web/index.html#!/library.html`
+		// await opener(library)
+		throw new Error(`VirtualFolders.length == 0 -> ${library}`)
+	}
+
+	// let AvailableOptions = (await jellyfin.api.json('Libraries/AvailableOptions', {
+	// 	searchParams: ({
+	// 		isNewLibrary: false,
+	// 		libraryContentType: 'movies',
+	// 	} as jellyfin.GetLibraryOptionsInfo.QueryParameters) as any,
+	// })) as jellyfin.GetLibraryOptionsInfo.$200
+	// console.log('AvailableOptions ->', AvailableOptions)
+
+	// let LibraryOptions = (await jellyfin.api.json('Library/VirtualFolders/LibraryOptions', {
+	// 	searchParams: ({
+	// 		isNewLibrary: false,
+	// 		libraryContentType: 'movies',
+	// 	} as jellyfin.GetLibraryOptionsInfo.QueryParameters) as any,
+	// })) as jellyfin.GetLibraryOptionsInfo.$200
+	// console.log('LibraryOptions ->', LibraryOptions)
+
+
 }

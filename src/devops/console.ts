@@ -14,7 +14,7 @@ const LOG_SYMBOLS = {
 const DEFAULT_INSPECT_OPTIONS = {
 	colors: true,
 	compact: true,
-	depth: 4,
+	depth: 8,
 	getters: true,
 	iterableLimit: 128,
 	showHidden: true,
