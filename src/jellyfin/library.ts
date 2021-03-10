@@ -10,7 +10,7 @@ const vfolders = {
 
 export async function setVirtualFolders() {
 	let SystemInfo = (await jellyfin.api.json('System/Info')) as jellyfin.GetSystemInfo.$200
-	console.log('SystemInfo ->', SystemInfo)
+	// console.log('SystemInfo ->', SystemInfo)
 	let mediadir = path.join(SystemInfo.ProgramDataPath, 'media')
 	await fs.ensureDir(mediadir)
 	for (let vfolder in vfolders) {
@@ -25,7 +25,7 @@ export async function setVirtualFolders() {
 		// await opener(library)
 		throw new Error(`VirtualFolders.length == 0 -> ${library}`)
 	}
-	console.log('VirtualFolders ->', VirtualFolders)
+	// console.log('VirtualFolders ->', VirtualFolders)
 
 	let AvailableOptions = (await jellyfin.api.json('Libraries/AvailableOptions', {
 		searchParams: {
@@ -33,7 +33,7 @@ export async function setVirtualFolders() {
 			libraryContentType: 'tvshows',
 		} as jellyfin.GetLibraryOptionsInfo.QueryParameters,
 	})) as jellyfin.GetLibraryOptionsInfo.$200
-	console.log('AvailableOptions ->', AvailableOptions)
+	// console.log('AvailableOptions ->', AvailableOptions)
 
 	// let LibraryOptions = (await jellyfin.api.json('Library/VirtualFolders/LibraryOptions', {
 	// 	searchParams: ({

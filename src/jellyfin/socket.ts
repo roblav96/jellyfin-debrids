@@ -1,6 +1,6 @@
 import * as ENV from '../config/env.ts'
 import * as jellyfin from './jellyfin.ts'
-import { EventEmitter } from 'https://deno.land/x/event/mod.ts'
+import Emittery from 'https://esm.sh/emittery?dev'
 import { Sockette } from '../shims/sockette.ts'
 
 export interface SocketEvent<T = any> {
@@ -9,9 +9,14 @@ export interface SocketEvent<T = any> {
 	MessageType: string
 	ServerId: string
 }
-export const ee = new EventEmitter<{
-	message: [SocketEvent]
-}>()
+
+const Events = {
+	ActivityLogEntry: [] as jellyfin.Schemas.ActivityLogEntry[],
+	message: {} as SocketEvent,
+	ScheduledTasksInfo: [] as jellyfin.Schemas.TaskInfo[],
+	Sessions: [] as jellyfin.Schemas.SessionInfo[],
+}
+export const ee = new Emittery<typeof Events>()
 
 let socket: Sockette<SocketEvent>
 setInterval(() => {
@@ -35,14 +40,20 @@ export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
 		},
 		onopen(event) {
 			console.info('socket onopen ->', `${url.origin}/socket`)
-			socket.json({ MessageType: 'SessionsStart', Data: '0,1500' })
+			socket.json({ MessageType: 'ActivityLogEntryStart', Data: '0,1000' })
+			socket.json({ MessageType: 'ScheduledTasksInfoStart', Data: '0,1000' })
+			socket.json({ MessageType: 'SessionsStart', Data: '0,1000' })
 		},
 		onmessage({ data }) {
 			try {
 				data = JSON.parse(data as any)
 				if (data.MessageType == 'KeepAlive') return
 				if (data.MessageType == 'ForceKeepAlive') return
-				ee.emit('message', data)
+				if (data.MessageType in Events) {
+					ee.emit(data.MessageType as any, data.Data)
+				} else {
+					ee.emit('message', data)
+				}
 			} catch (error) {
 				console.error('socket message ->', error)
 			}
@@ -50,6 +61,6 @@ export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
 	})
 }
 
-// ee.on('message', (message) => {
-// 	console.log('message ->', message)
-// })
+ee.onAny((event, data) => {
+	console.log(`socket '${event}' ->`, data)
+})

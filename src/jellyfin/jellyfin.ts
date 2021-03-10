@@ -12,7 +12,7 @@ export const db = new Db(import.meta.url)
 
 export const api = new Http({
 	prefixUrl: `http://127.0.0.1:${ENV.get('PORT', '8096')}`,
-	searchParams: { api_key: ENV.get('API_KEY')! },
+	searchParams: { api_key: ENV.get('API_KEY') },
 })
 
 export async function start() {
