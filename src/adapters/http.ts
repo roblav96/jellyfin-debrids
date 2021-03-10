@@ -74,16 +74,16 @@ export class Http {
 		})
 	}
 
-	static toIterable<T extends FormData | URLSearchParams>(input: object, iterable: T) {
+	static toIterable<T extends FormData | Headers | URLSearchParams>(iterable: T, input: object) {
 		for (let [key, value] of Object.entries(input)) {
 			if (what.isNullOrUndefined(value)) {
 				continue
 			} else if (Array.isArray(value)) {
 				value.forEach((v) => iterable.append(key, v))
-			} else if (iterable instanceof FormData) {
-				iterable.append(key, value)
-			} else {
+			} else if (iterable instanceof URLSearchParams) {
 				iterable.set(key, value)
+			} else {
+				iterable.append(key, value)
 			}
 		}
 		return iterable
@@ -158,7 +158,7 @@ export class Http {
 			}
 			url = new URL(input.startsWith('/') ? input.slice(1) : input, prefixUrl)
 		}
-		Http.toIterable(init.searchParams, url.searchParams)
+		Http.toIterable(url.searchParams, init.searchParams)
 
 		if (init.json) {
 			init.body = JSON.stringify(init.json)
@@ -168,11 +168,11 @@ export class Http {
 		}
 
 		if (init.form) {
-			init.body = Http.toIterable(init.form, new URLSearchParams())
+			init.body = Http.toIterable(new URLSearchParams(), init.form)
 		}
 
 		if (init.multipart) {
-			init.body = Http.toIterable(init.multipart, new FormData())
+			init.body = Http.toIterable(new FormData(), init.multipart)
 		}
 
 		let reqid = ''
