@@ -20,21 +20,20 @@ export async function setVirtualFolders() {
 	let VirtualFolders = (await jellyfin.api.json(
 		'Library/VirtualFolders',
 	)) as jellyfin.GetVirtualFolders.$200
-	console.log('VirtualFolders ->', VirtualFolders)
-
 	if (VirtualFolders.length == 0) {
 		let library = `${SystemInfo.LocalAddress}/web/index.html#!/library.html`
 		// await opener(library)
 		throw new Error(`VirtualFolders.length == 0 -> ${library}`)
 	}
+	console.log('VirtualFolders ->', VirtualFolders)
 
-	// let AvailableOptions = (await jellyfin.api.json('Libraries/AvailableOptions', {
-	// 	searchParams: ({
-	// 		isNewLibrary: false,
-	// 		libraryContentType: 'movies',
-	// 	} as jellyfin.GetLibraryOptionsInfo.QueryParameters) as any,
-	// })) as jellyfin.GetLibraryOptionsInfo.$200
-	// console.log('AvailableOptions ->', AvailableOptions)
+	let AvailableOptions = (await jellyfin.api.json('Libraries/AvailableOptions', {
+		searchParams: {
+			isNewLibrary: false,
+			libraryContentType: 'tvshows',
+		} as jellyfin.GetLibraryOptionsInfo.QueryParameters,
+	})) as jellyfin.GetLibraryOptionsInfo.$200
+	console.log('AvailableOptions ->', AvailableOptions)
 
 	// let LibraryOptions = (await jellyfin.api.json('Library/VirtualFolders/LibraryOptions', {
 	// 	searchParams: ({
@@ -43,6 +42,4 @@ export async function setVirtualFolders() {
 	// 	} as jellyfin.GetLibraryOptionsInfo.QueryParameters) as any,
 	// })) as jellyfin.GetLibraryOptionsInfo.$200
 	// console.log('LibraryOptions ->', LibraryOptions)
-
-
 }

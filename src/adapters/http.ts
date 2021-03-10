@@ -14,18 +14,18 @@ export interface HttpInit extends Omit<RequestInit, 'headers' | 'signal'> {
 	cookies?: boolean
 	debug?: boolean
 	delay?: number
-	form?: HttpInit['searchParams']
+	form?: object
 	headers: Record<string, string>
 	json?: unknown
 	memoize?: number
 	method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'HEAD' | 'DELETE' | 'OPTIONS'
-	multipart?: Record<string, string | string[] | Blob>
+	multipart?: object
 	prefixUrl?: string
 	randelay?: number
 	retries: number
 	retryMethods: Set<HttpInit['method']>
 	retryStatusCodes: Set<number>
-	searchParams: Record<string, string | string[]>
+	searchParams: object
 	timeout: number
 }
 
@@ -74,19 +74,16 @@ export class Http {
 		})
 	}
 
-	static toIterable<T extends FormData | URLSearchParams>(
-		input: Record<string, string | string[] | Blob>,
-		iterable: T,
-	) {
+	static toIterable<T extends FormData | URLSearchParams>(input: object, iterable: T) {
 		for (let [key, value] of Object.entries(input)) {
 			if (what.isNullOrUndefined(value)) {
 				continue
 			} else if (Array.isArray(value)) {
 				value.forEach((v) => iterable.append(key, v))
 			} else if (iterable instanceof FormData) {
-				;(iterable as FormData).append(key, value)
+				iterable.append(key, value)
 			} else {
-				iterable.set(key, value as string)
+				iterable.set(key, value)
 			}
 		}
 		return iterable
