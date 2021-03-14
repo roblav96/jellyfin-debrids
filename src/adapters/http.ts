@@ -1,5 +1,4 @@
 import * as async from 'https://deno.land/std/async/mod.ts'
-import * as O from '../poly/object.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import arrify from 'https://esm.sh/arrify?dev'
 import Db from '../adapters/storage.ts'

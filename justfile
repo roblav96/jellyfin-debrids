@@ -7,7 +7,7 @@ _default :
 
 
 install :
-	deno cache --unstable --no-check src/**/*.ts || true
+	deno cache --unstable --no-check --reload src/**/*.ts || true
 	deno run --unstable --no-check --allow-all "src/jellyfin/openapi/install.ts"
 	deno cache --unstable "src/jellyfin/openapi/openapi.ts"
 	deno run --unstable --no-check --allow-all "src/themoviedb/openapi/install.ts"

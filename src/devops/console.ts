@@ -14,7 +14,7 @@ const LOG_SYMBOLS = {
 const DEFAULT_INSPECT_OPTIONS = {
 	colors: true,
 	compact: true,
-	depth: 8,
+	depth: 4,
 	getters: true,
 	iterableLimit: 128,
 	showHidden: true,
@@ -134,14 +134,14 @@ for (let [level, symbol] of Object.entries(LOG_SYMBOLS) as [keyof typeof LOG_SYM
 
 const TIMERS = new Map()
 Object.assign(console, {
-	time(label) {
+	time(label: string) {
 		label = String(label)
 		if (TIMERS.has(label)) {
 			return console.warn(`Timer '${label}' already exists`)
 		}
 		TIMERS.set(label, performance.now())
 	},
-	timeEnd(label) {
+	timeEnd(label: string) {
 		label = String(label)
 		if (!TIMERS.has(label)) {
 			return console.warn(`Timer '${label}' does not exist`)
