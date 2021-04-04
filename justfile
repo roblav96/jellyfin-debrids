@@ -8,10 +8,10 @@ _default :
 
 install :
 	deno cache --unstable --no-check --reload src/**/*.ts || true
-	deno run --unstable --no-check --allow-all "src/jellyfin/openapi/install.ts"
-	deno cache --unstable "src/jellyfin/openapi/openapi.ts"
-	deno run --unstable --no-check --allow-all "src/themoviedb/openapi/install.ts"
-	deno cache --unstable "src/themoviedb/openapi/openapi.ts"
+	deno run --unstable --no-check --allow-all src/jellyfin/openapi/install.ts
+	deno cache --unstable src/jellyfin/openapi/openapi.ts
+	deno run --unstable --no-check --allow-all src/themoviedb/openapi/install.ts
+	deno cache --unstable src/themoviedb/openapi/openapi.ts
 
 deps main="src/mod.ts" :
 	NO_COLOR=1 deno info --unstable {{main}}
@@ -29,15 +29,15 @@ jellyfin_dir := (justfile_directory() + "/.local/jellyfin")
 jellyfin :
 	@tput clear; echo
 	mkdir -p "{{jellyfin_dir}}/config"
-	# cp -n "configs/jellyfin/system.xml" "{{jellyfin_dir}}/config/system.xml"
-	cp -f "configs/jellyfin/logging.json" "{{jellyfin_dir}}/config/logging.json"
+	# cp -n configs/jellyfin/system.xml "{{jellyfin_dir}}/config/system.xml"
+	cp -f configs/jellyfin/logging.json "{{jellyfin_dir}}/config/logging.json"
 	jellyfin \
 		--datadir "{{jellyfin_dir}}" \
 		--cachedir "{{jellyfin_dir}}/cache" \
 		--configdir "{{jellyfin_dir}}/config" \
 		--logdir "{{jellyfin_dir}}/log"
 jellyfin-watch :
-	watchexec --no-default-ignore --restart --watch "configs/jellyfin" -- just jellyfin
+	watchexec --no-default-ignore --restart --watch configs/jellyfin -- just jellyfin
 
 
 
