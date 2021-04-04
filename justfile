@@ -17,7 +17,6 @@ deps main="src/mod.ts" :
 	NO_COLOR=1 deno info --unstable {{main}}
 run main="src/mod.ts" :
 	@tput clear; echo
-	@deno cache --unstable --no-check src/**/*.ts || true
 	@deno cache --unstable {{main}} || true; echo
 	@deno run --unstable --no-check --allow-all {{main}}
 watch main="src/mod.ts" :
