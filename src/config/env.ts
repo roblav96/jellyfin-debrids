@@ -22,6 +22,7 @@ const DEFAULTS = {
 	//
 
 	ALLDEBRID_AGENT: '',
+	ALLDEBRID_FOLDER: '',
 	ALLDEBRID_KEY: '',
 	ORION_APP: '',
 	ORION_KEY: '',
