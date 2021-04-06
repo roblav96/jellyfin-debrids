@@ -28,7 +28,7 @@ setInterval(() => {
 export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
 	socket?.close()
 	let url = new URL(`${LocalAddress.replace('http', 'ws')}/socket`)
-	url.searchParams.set('api_key', ENV.get('API_KEY')!)
+	url.searchParams.set('api_key', ENV.get('JELLYFIN_API_KEY')!)
 	url.searchParams.set('deviceId', Id)
 	socket = new Sockette<SocketEvent>(url.toString(), {
 		timeout: 3000,

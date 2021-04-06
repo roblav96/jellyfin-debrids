@@ -4,7 +4,7 @@ import * as io from 'https://deno.land/std/io/mod.ts'
 
 const listener = Deno.listen({
 	hostname: '127.0.0.1',
-	port: Number(ENV.get('GRAYLOG_PORT', '12201')),
+	port: Number(ENV.get('JELLYFIN_GRAYLOG_PORT', '12201')),
 	transport: 'tcp',
 })
 
