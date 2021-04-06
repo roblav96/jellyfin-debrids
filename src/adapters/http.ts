@@ -29,12 +29,9 @@ export interface HttpInit extends Omit<RequestInit, 'headers' | 'signal'> {
 }
 
 export class HttpError extends DOMException {
-	// @ts-ignore
-	get code() {
-		return this.response.status
-	}
 	constructor(public input: string, public init: HttpInit, public response: Response) {
 		super(response.statusText ?? STATUS_TEXT.get(response.status), 'HttpError')
+		Object.defineProperty(this, 'code', { value: this.response.status })
 	}
 }
 
@@ -123,16 +120,20 @@ export class Http {
 					error instanceof AbortError ||
 					(error instanceof HttpError && init.retryStatusCodes.has(error.response.status))
 				) {
+					let delay = NaN
 					if (error instanceof HttpError && error.response.headers.has('retry-after')) {
 						let after = error.response.headers.get('retry-after')!
-						let delay = Number(after) * 1000
-						if (Number.isNaN(delay)) {
-							delay = Date.parse(after) - Date.now()
+						let date = Date.parse(after)
+						if (Number.isFinite(date)) {
+							delay = Math.abs(date - Date.now())
+						} else {
+							delay = Number(after) * 1000
 						}
-						await async.delay(delay)
-					} else {
-						await async.delay(Http.randelay(1000))
 					}
+					if (!Number.isFinite(delay)) {
+						delay = Http.randelay(1000)
+					}
+					await async.delay(delay)
 					init.retries--
 					return this.fetch(input, init)
 				}
@@ -213,7 +214,7 @@ export class Http {
 		// console.log('headers ->', [...headers])
 		Object.assign(init, { headers })
 		if (init.debug == true) {
-			console.log(`[${init.method} ${url.host}]`, url.pathname, init)
+			console.log(`[${init.method}]`, `${url.host}${url.pathname}`, init)
 		}
 		let response = await this.fetch(url.toString(), init)
 
