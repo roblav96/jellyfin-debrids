@@ -21,7 +21,7 @@ let json = mapObj(
 
 await Deno.writeTextFile(outjson, JSON.stringify(json, null, 4))
 let dtsgenerator = Deno.run({
-	cmd: ['npx', 'dtsgenerator', '--out', outfile, outjson],
+	cmd: ['npx', '-y', 'dtsgenerator', '--out', outfile, outjson],
 })
 await dtsgenerator.status()
 dtsgenerator.close()

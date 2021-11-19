@@ -222,7 +222,7 @@ export class Http {
 			let db = new Db(`cookies:${url.hostname}`)
 			for (let [key, value] of response.headers.entries()) {
 				if (key != 'set-cookie') continue
-				let cookie = getCookies({ headers: new Headers({ cookie: value }) })
+				let cookie = getCookies(new Headers({ cookie: value }))
 				let keys = ['domain', 'expires', 'httponly', 'maxage', 'path', 'samesite', 'secure']
 				let name = Object.keys(cookie).find((k) => !keys.includes(k.toLowerCase()))
 				if (!name) continue

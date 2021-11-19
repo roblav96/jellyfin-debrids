@@ -7,7 +7,8 @@ import { Http, HttpError } from './http.ts'
 
 const db = new Db(import.meta.url)
 const httpbin = new Http({
-	prefixUrl: 'https://nghttp2.org/httpbin',
+	// prefixUrl: 'https://nghttp2.org/httpbin',
+	prefixUrl: 'https://httpbingo.org',
 })
 
 try {
@@ -41,13 +42,11 @@ try {
 	// console.log('response.json() ->', await response.json())
 } catch (error) {
 	console.error('httpbin catch ->', error)
-	// console.log('poly.O.allEntries(error) ->', Object.fromEntries(poly.O.allEntries(error)))
 	if (error instanceof DOMException) {
 		console.warn('instanceof DOMException ->')
 		console.log('error.name ->', error.name)
 		console.log('error.code ->', error.code)
-		console.log('Object.keys(error) ->', Object.keys(error))
-		console.log('Object.getOwnPropertyDescriptors(error) ->', Object.getOwnPropertyDescriptors(error))
+		// console.log('poly.O.allEntries(error) ->', Object.fromEntries(poly.O.allEntries(error)))
 	}
 	// console.log('error.name ->', error.name)
 	// console.log('error.constructor.name ->', error.constructor.name)
