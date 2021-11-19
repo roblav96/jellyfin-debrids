@@ -1,6 +1,9 @@
 #!/usr/bin/env just --justfile
 # https://github.com/casey/just
 
+set shell := ["bash", "-uc"]
+set dotenv-load := true
+
 _default :
 	@just --dump
 
@@ -36,7 +39,7 @@ jellyfin :
 		--configdir "{{jellyfin_dir}}/config" \
 		--logdir "{{jellyfin_dir}}/log"
 jellyfin-watch :
-	watchexec --no-default-ignore --restart --watch configs/jellyfin -- just jellyfin
+	watchexec --no-default-ignore --restart --watch=configs/jellyfin -- just jellyfin
 
 
 
