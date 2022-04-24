@@ -2,8 +2,7 @@ import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import mapObj from 'https://esm.sh/map-obj?dev'
 import sortKeys from 'https://esm.sh/sort-keys?dev'
 
-const outfile = new URL('./openapi.ts', import.meta.url).pathname
-const outjson = new URL('./openapi.json', import.meta.url).pathname
+const outfile = new URL('../types/themoviedb.d.ts', import.meta.url).pathname
 
 let json = mapObj(
 	// JSON.parse(await Deno.readTextFile(outjson)),

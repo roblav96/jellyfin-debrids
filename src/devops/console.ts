@@ -152,7 +152,7 @@ Object.assign(console, {
 		console.info(`${label}: ${ms(duration, { compact: true, formatSubMilliseconds: true })}`)
 	},
 	async dts(data, identifier) {
-		let dts = await (import(`${'https://esm.sh/dts-generate?dev&no-check'}`) as Promise<
+		let dts = await (import(`${'https://esm.sh/dts-generate?no-check'}`) as Promise<
 			typeof import('https://esm.sh/dts-generate/dist/index.d.ts')
 		>)
 		let output = dts.generate(data, identifier)

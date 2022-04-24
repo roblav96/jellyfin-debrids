@@ -1,0 +1,13 @@
+{
+	"tasks": {
+		"install:types:jellyfin": "deno run --unstable --allow-all --config=/dev/null src/scripts/jellyfin_types.ts",
+		"install:types:themoviedb": "deno run --unstable --allow-all --config=/dev/null src/scripts/themoviedb_types.ts"
+	},
+	"compilerOptions": {
+		"types": [
+			"./src/types/globals.d.ts",
+			"./src/types/jellyfin.d.ts",
+			"./src/types/themoviedb.d.ts"
+		]
+	}
+}

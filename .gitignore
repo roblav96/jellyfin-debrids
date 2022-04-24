@@ -8,9 +8,8 @@ node_modules
 !.env.defaults
 !.env.example
 
-openapi.d.ts
-openapi.json
-openapi.ts
+jellyfin.d.ts
+themoviedb.d.ts
 
 src/bench.ts
 src/repl.ts
