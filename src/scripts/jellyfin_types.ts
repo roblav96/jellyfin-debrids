@@ -40,7 +40,7 @@ let child = Deno.spawnChild('npx', {
 	],
 	stdin: 'piped',
 	// stdout: 'inherit',
-	// stderr: 'inherit',
+	stderr: 'inherit',
 })
 let writer = child.stdin.getWriter()
 await writer.write(new TextEncoder().encode(JSON.stringify(json)))

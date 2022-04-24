@@ -5,9 +5,8 @@ import sortKeys from 'https://esm.sh/sort-keys?dev'
 const outfile = new URL('../types/themoviedb.d.ts', import.meta.url).pathname
 
 let json = mapObj(
-	// JSON.parse(await Deno.readTextFile(outjson)),
 	await (
-		await fetch('https://api.stoplight.io/v1/versions/9WaNJfGpnnQ76opqe/export/oai.json')
+		await fetch('https://api.stoplight.io/v1/versions/9WaNJfGpnnQ76opqe/export/oas.json')
 	).json(),
 	(key, value) => {
 		if (what.isPlainObject(value)) {
@@ -18,52 +17,48 @@ let json = mapObj(
 	{ deep: true },
 )
 
-await Deno.writeTextFile(outjson, JSON.stringify(json, null, 4))
-let dtsgenerator = Deno.run({
-	cmd: ['npx', '-y', 'dtsgenerator', '--out', outfile, outjson],
+let child = Deno.spawnChild('npx', {
+	args: ['--yes', 'dtsgenerator'],
+	stdin: 'piped',
+	// stdout: 'inherit',
+	stderr: 'inherit',
 })
-await dtsgenerator.status()
-dtsgenerator.close()
+let writer = child.stdin.getWriter()
+await writer.write(new TextEncoder().encode(JSON.stringify(json)))
+writer.releaseLock()
+await child.stdin.close()
+let stdout = new TextDecoder().decode((await child.output()).stdout)
+// console.log('stdout ->', stdout.length)
 
-let openapi = await Deno.readTextFile(outfile)
-openapi = openapi.replace('declare namespace Paths {', '')
-openapi = openapi.replace('\n}\ndeclare namespace Responses {', '\ndeclare namespace Responses {')
-openapi = openapi.replaceAll('declare namespace ', 'export namespace ')
-openapi = openapi.replaceAll('\n    namespace ', '\n    export namespace ')
-openapi = openapi.replaceAll('?: ', ': ')
-openapi = openapi.replaceAll('| null;', ';')
-openapi = openapi.replaceAll(' null | ', ' ')
+stdout = stdout.replaceAll('declare ', '')
+stdout = stdout.replaceAll('export ', '')
+stdout = stdout.replaceAll('?: ', ': ')
+stdout = stdout.replaceAll(' | null;', ';')
+stdout = stdout.replaceAll(' null | ', ' ')
 
-let [bounds, n] = [['        namespace Responses {', '        }'], 0]
-let lines = openapi.split('\n').filter((line) => {
-	if (line == bounds[n % 2]) {
-		n++
-		return false
-	}
-	return true
-})
-openapi = lines.join('\n')
+stdout = stdout.replaceAll(/ = \/\* .*? \*\/ /g, ' = ')
+stdout = stdout.replaceAll(/: \/\* .*? \*\/ /g, ': ')
+stdout = stdout.replaceAll(/: \/\*\*.*?\*\/\s+/gms, ': ')
+stdout = stdout.replaceAll(/: \(\/\* .*? \*\/ /g, ': (')
+stdout = stdout.replaceAll(/ \| \/\* .*? \*\/ /g, ' & ')
 
-await Deno.writeTextFile(outfile, openapi)
+stdout = stdout.replace(/^namespace Responses {$/m, 'namespace ErrorResponses {')
+stdout = stdout.replace(/^namespace Parameters {$/m, 'namespace TraitParameters {')
+stdout = stdout.replaceAll(' Parameters.Trait', ' TraitParameters.Trait')
 
-let prettier = Deno.run({
-	cmd: [
-		'npx',
-		'prettier',
-		'--no-config',
-		// '____',
-		'--no-semi',
-		'--print-width=100',
-		'--prose-wrap=never',
-		'--quote-props=consistent',
-		'--single-quote',
-		'--tab-width=4',
-		'--trailing-comma=all',
-		'--use-tabs',
-		// '____',
-		'--write',
+stdout = stdout.replace(/^namespace Paths {\n(.*?)\n}$/ms, '$1')
+stdout = stdout.replaceAll(/namespace Responses {\s+(.*?)\s+}$/gms, '$1')
+
+stdout = stdout.replaceAll('\n\n', '\n')
+await Deno.writeTextFile(outfile, `declare namespace Tmdb {\n${stdout}}\n`)
+
+await Deno.spawn(Deno.execPath(), {
+	args: [
+		'fmt',
+		'--unstable',
+		'--config=/dev/null',
+		'--options-indent-width=4',
+		'--options-line-width=100',
 		outfile,
 	],
 })
-await prettier.status()
-prettier.close()
