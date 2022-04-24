@@ -64,7 +64,7 @@ export class Http {
 
 	static merge(x: Partial<HttpInit>, y: Partial<HttpInit>) {
 		return deepmerge(x, y, {
-			isMergeableObject: (value) => {
+			isMergeableObject: (value: any) => {
 				return Array.isArray(value) || what.isPlainObject(value)
 			},
 		})

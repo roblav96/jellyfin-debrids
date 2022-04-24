@@ -1,5 +1,4 @@
 import * as ENV from '../config/env.ts'
-import * as jellyfin from './jellyfin.ts'
 import Emittery from 'https://esm.sh/emittery?dev'
 import { Sockette } from '../shims/sockette.ts'
 
@@ -11,10 +10,10 @@ export interface SocketEvent<T = any> {
 }
 
 const Events = {
-	ActivityLogEntry: [] as jellyfin.Schemas.ActivityLogEntry[],
+	ActivityLogEntry: [] as Jellyfin.Schemas.ActivityLogEntry[],
 	message: {} as SocketEvent,
-	ScheduledTasksInfo: [] as jellyfin.Schemas.TaskInfo[],
-	Sessions: [] as jellyfin.Schemas.SessionInfo[],
+	ScheduledTasksInfo: [] as Jellyfin.Schemas.TaskInfo[],
+	Sessions: [] as Jellyfin.Schemas.SessionInfo[],
 }
 export const ee = new Emittery<typeof Events>()
 
@@ -25,7 +24,7 @@ setInterval(() => {
 	} catch {}
 }, 10000)
 
-export function start({ LocalAddress, Id }: jellyfin.Schemas.PublicSystemInfo) {
+export function start({ LocalAddress, Id }: Jellyfin.Schemas.PublicSystemInfo) {
 	socket?.close()
 	let url = new URL(`${LocalAddress.replace('http', 'ws')}/socket`)
 	url.searchParams.set('api_key', ENV.get('JELLYFIN_API_KEY')!)
