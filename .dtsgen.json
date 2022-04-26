@@ -1,8 +1,0 @@
-{
-	"plugins": {
-		"@dtsgenerator/decorate-typename": {
-			"interface": { "prefix": "I" },
-			"type": { "prefix": "T" }
-		}
-	}
-}

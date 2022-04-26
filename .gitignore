@@ -9,7 +9,7 @@ node_modules
 !.env.example
 
 jellyfin.d.ts
-themoviedb.d.ts
+tmdb.d.ts
 
 src/bench.ts
 src/repl.ts
