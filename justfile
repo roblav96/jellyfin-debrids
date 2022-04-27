@@ -10,11 +10,9 @@ _default:
 
 
 install:
-	deno cache --unstable --no-check --reload src/**/*.ts || true
-	deno run --unstable --no-check --allow-all src/jellyfin/openapi/install.ts
-	deno cache --unstable src/jellyfin/openapi/openapi.ts
-	deno run --unstable --no-check --allow-all src/themoviedb/openapi/install.ts
-	deno cache --unstable src/themoviedb/openapi/openapi.ts
+	deno run --unstable --allow-all --config=/dev/null src/scripts/jellyfin_openapi.ts
+	deno run --unstable --allow-all --config=/dev/null src/scripts/tmdb_openapi.ts
+	deno cache --unstable --reload src/**/*.ts || true
 
 deps main="src/mod.ts":
 	NO_COLOR=1 deno info --unstable {{main}}

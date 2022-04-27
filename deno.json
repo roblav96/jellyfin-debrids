@@ -1,8 +1,4 @@
 {
-	"tasks": {
-		"install:types:jellyfin": "deno run --unstable --allow-all --config=/dev/null src/scripts/jellyfin_openapi.ts",
-		"install:types:tmdb": "deno run --unstable --allow-all --config=/dev/null src/scripts/tmdb_openapi.ts"
-	},
 	"compilerOptions": {
 		"types": [
 			"./src/types/globals.d.ts",
