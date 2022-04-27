@@ -20,6 +20,8 @@ export async function dtsgen(json: Record<string, any>) {
 	writer.releaseLock()
 	await child.stdin.close()
 	let output = new TextDecoder().decode((await child.output()).stdout)
+	// console.log('output ->', output.length)
+
 	output = output
 		.replaceAll('declare ', '')
 		.replaceAll('export ', '')
@@ -28,18 +30,6 @@ export async function dtsgen(json: Record<string, any>) {
 		.replaceAll(' null | ', ' ')
 		.replaceAll(/([=|:]) \/\*\*\n.*? \*\/\s+/gms, '$1 ')
 		.replaceAll(/; \/\/ .*/g, ';')
-
-	// .replaceAll(/ \/\* .* \*\/;/g, ';')
-	// .replaceAll(/ \| \/\* .* \*\/ /g, ' | ____ ')
-	// .replaceAll(/: \/\* .* \*\/ /g, ': ____ ')
-	// .replaceAll(/\B \| \/\* .* \*\/ \B/g, ' ____ ')
-	// .replaceAll(/([=|:]) \/\* .* \*\/ /g, '$1 ')
-
-	// .replaceAll(/ \/\* .* \*\/ /g, ' ')
-	// .replaceAll(/ \/\* .* \*\//g, '')
-	// .replaceAll(/\/\* .* \*\/ /g, '')
-	// .replaceAll(/: \(\/\* .*? \*\/ /g, ': (')
-	// .replaceAll(/ \| \/\* .*? \*\/ /g, ' & ')
 
 	let lines = output.split('\n')
 	for (let i = 0; i < lines.length; i++) {
@@ -68,7 +58,7 @@ export async function write(name: string, output: string) {
 			'--unstable',
 			'--config=/dev/null',
 			'--options-indent-width=4',
-			'--options-line-width=999',
+			'--options-line-width=9999',
 			outfile,
 		],
 		// stdout: 'inherit',
