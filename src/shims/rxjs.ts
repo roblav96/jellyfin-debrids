@@ -1,2 +1,2 @@
-export * from 'https://esm.sh/rxjs@next?dev'
-export * as op from 'https://esm.sh/rxjs@next/operators?dev'
+export * from 'https://esm.sh/rxjs?dev'
+export * as op from 'https://esm.sh/rxjs/operators?dev'
