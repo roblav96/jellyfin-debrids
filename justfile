@@ -10,18 +10,17 @@ _default:
 
 
 install:
-	deno run --unstable --allow-all --config=/dev/null src/scripts/jellyfin_openapi.ts
-	deno run --unstable --allow-all --config=/dev/null src/scripts/tmdb_openapi.ts
-	deno cache --unstable --reload src/**/*.ts || true
+	deno run --unstable --no-check --allow-all --config=/dev/null src/scripts/jellyfin_openapi.ts
+	deno run --unstable --no-check --allow-all --config=/dev/null src/scripts/tmdb_openapi.ts
+	deno cache --unstable --no-check --reload src/**/*.ts
 
-deps main="src/mod.ts":
+deps main:
 	NO_COLOR=1 deno info --unstable {{main}}
-run main="src/mod.ts":
-	@tput clear; echo
-	@deno cache --unstable {{main}} || true; echo
-	@deno run --unstable --no-check --allow-all {{main}}
-watch main="src/mod.ts":
-	watchexec --no-default-ignore --restart --watch=src --exts=ts -- just run {{main}}
+run main:
+	-@deno cache --unstable --no-check src/**/*.ts
+	-@deno run --unstable --no-check --allow-all {{main}}
+watch main:
+	watchexec --no-project-ignore --clear --restart --shell=none --watch=src --exts=ts -- just run {{main}}
 
 
 
