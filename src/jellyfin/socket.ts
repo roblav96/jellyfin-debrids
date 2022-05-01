@@ -1,4 +1,3 @@
-import * as ENV from '../config/env.ts'
 import Emittery from 'https://esm.sh/emittery?dev'
 import { Sockette } from '../shims/sockette.ts'
 
@@ -27,7 +26,7 @@ setInterval(() => {
 export function start({ LocalAddress, Id }: Jellyfin.Schemas.PublicSystemInfo) {
 	socket?.close()
 	let url = new URL(`${LocalAddress.replace('http', 'ws')}/socket`)
-	url.searchParams.set('api_key', ENV.get('JELLYFIN_API_KEY')!)
+	url.searchParams.set('api_key', Deno.env.get('JELLYFIN_API_KEY')!)
 	url.searchParams.set('deviceId', Id)
 	socket = new Sockette<SocketEvent>(url.toString(), {
 		timeout: 3000,
