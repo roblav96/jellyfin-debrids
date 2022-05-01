@@ -17,7 +17,8 @@ install:
 deps main:
 	NO_COLOR=1 deno info --unstable {{main}}
 run main:
-	-@deno cache --unstable --no-check src/**/*.ts
+	-@setsid --fork deno cache --unstable --no-check src/**/*.ts
+	-@setsid --fork deno check --unstable --quiet {{main}}
 	-@deno run --unstable --no-check --allow-all {{main}}
 watch main:
 	watchexec --no-project-ignore --clear --restart --shell=none --watch=src --exts=ts -- just run {{main}}
