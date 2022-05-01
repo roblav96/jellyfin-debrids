@@ -20,6 +20,7 @@ const DEFAULT_INSPECT_OPTIONS = {
 	showHidden: true,
 	showProxy: true,
 	sorted: true,
+	strAbbreviateSize: Infinity,
 	trailingComma: true,
 } as Deno.InspectOptions
 
