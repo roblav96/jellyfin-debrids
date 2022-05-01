@@ -81,12 +81,14 @@ export class Http {
 		let hostname = new URL(input).hostname
 		let headers = new Headers(init.headers)
 		if (init.cookies == true) {
+			let cookies = [headers.get('cookie')!]
 			let db = new Db(`cookies:${hostname}`)
 			for (let [name, value] of await db.entries()) {
-				headers.append('cookie', `${name}=${value}`)
+				cookies.push(`${name}=${value}`)
 			}
-			if (headers.has('cookie')) {
-				headers.set('cookie', headers.get('cookie')!.replaceAll(', ', '; '))
+			cookies = cookies.filter(v => what.isFullString(v))
+			if (what.isFullArray(cookies)) {
+				headers.set('cookie', cookies.join('; '))
 			}
 		}
 
