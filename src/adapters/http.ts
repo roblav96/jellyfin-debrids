@@ -5,7 +5,7 @@ import Db from '../adapters/storage.ts'
 import hashIt from 'https://esm.sh/hash-it?dev'
 import { deepMerge } from 'https://deno.land/std/collections/deep_merge.ts'
 import { getCookies } from 'https://deno.land/std/http/cookie.ts'
-import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
+import { STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
 export interface HttpInit extends Omit<RequestInit, 'headers' | 'redirect' | 'signal'> {
 	beforeRequest?: ((init: HttpInit) => Promise<void> | void)[]
@@ -78,11 +78,10 @@ export class Http {
 	}
 
 	private async fetch(input: string, init: HttpInit): Promise<Response> {
-		let url = new URL(input)
+		let hostname = new URL(input).hostname
 		let headers = new Headers(init.headers)
 		if (init.cookies == true) {
-			let cookies = [] as string[]
-			let db = new Db(`cookies:${url.hostname}`)
+			let db = new Db(`cookies:${hostname}`)
 			for (let [name, value] of await db.entries()) {
 				headers.append('cookie', `${name}=${value}`)
 			}
@@ -95,7 +94,6 @@ export class Http {
 			let response = await fetch(input, {
 				...init,
 				headers,
-				redirect: 'manual',
 				signal: what.isPositiveNumber(init.timeout)
 					? AbortSignal.timeout(init.timeout)
 					: null,
@@ -105,13 +103,12 @@ export class Http {
 			console.log('response.headers ->', [...response.headers.entries()])
 			if (init.cookies == true) {
 				let keys = ['domain', 'expires', 'httponly', 'maxage', 'path', 'samesite', 'secure']
-				let db = new Db(`cookies:${url.hostname}`)
+				let db = new Db(`cookies:${hostname}`)
 				for (let [key, value] of response.headers.entries()) {
 					if (key != 'set-cookie') continue
 					let cookie = getCookies(new Headers({ cookie: value }))
 					let name = Object.keys(cookie).find((k) => !keys.includes(k.toLowerCase()))
 					if (!name) continue
-					// console.log('name, cookie[name] ->', name, cookie[name])
 					let expires = Date.parse(cookie['expires'] || cookie['Expires'])
 					if (what.isPositiveNumber(expires) && expires > Date.now()) {
 						await db.set(name, cookie[name], expires - Date.now())
@@ -119,11 +116,6 @@ export class Http {
 						await db.set(name, cookie[name])
 					}
 				}
-			}
-
-			if (response.status >= 301 && response.status <= 308) {
-				url.pathname = response.headers.get('location')!
-				return this.fetch(url.toString(), init)
 			}
 
 			if (!response.ok) {
@@ -191,6 +183,8 @@ export class Http {
 			init.body = Http.toIterable(new FormData(), init.multipart)
 		}
 
+		Object.assign(init, { headers: Object.fromEntries(headers.entries()) })
+
 		let reqid = ''
 		if (what.isPositiveNumber(init.memoize)) {
 			let reqs = [init.method, url.toString(), arrify(headers), arrify(init.body)]
@@ -206,8 +200,6 @@ export class Http {
 			}
 		}
 
-		Object.assign(init, { headers })
-
 		if (init.delay) {
 			await async.delay(init.delay)
 		}
@@ -215,7 +207,7 @@ export class Http {
 			await async.delay(Http.randelay(init.randelay))
 		}
 
-		console.log('url.toString() ->', url.toString())
+		// console.log('url.toString() ->', url.toString())
 		if (init.debug == true) {
 			console.log(`[${init.method}]`, `${url.host}${url.pathname}`, init)
 		}

@@ -1,8 +1,5 @@
 import '../devops/console.ts'
-import * as poly from '../poly/poly.ts'
-import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import Db from './storage.ts'
-import ky from 'https://esm.sh/ky?dev'
 import { Http, HttpError } from './http.ts'
 
 const db = new Db(import.meta.url)
@@ -44,7 +41,7 @@ try {
 		// 	timeout: 2000,
 		// }),
 	])
-	console.log('response ->', { ...response })
+	console.log('response ->', response)
 	// console.log('response.json() ->', await response.json())
 } catch (error) {
 	console.error('httpbin catch ->', error)
