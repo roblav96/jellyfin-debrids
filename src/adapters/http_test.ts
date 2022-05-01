@@ -19,7 +19,7 @@ try {
 		// new Http().get('https://github.com', {
 		// new Http().get('https://www.limetorrents.info/search/all/ubuntu/', {
 		// new Http().get('https://linkedin.com', {
-		httpbin.json('/cookies/set', {
+		httpbin.json('/get', {
 			// httpbin.json('delay/3', {
 			// httpbin.json('bearer', {
 			// httpbin.json('anything', {
@@ -33,6 +33,7 @@ try {
 			},
 			// memoize: new Date(0).setMinutes(1),
 			cookies: true,
+			memoize: 5000,
 			// retries: 0,
 			// timeout: 1000,
 		}),

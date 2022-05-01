@@ -98,9 +98,7 @@ export class Http {
 					? AbortSignal.timeout(init.timeout)
 					: null,
 			})
-			console.log('response ->', { ...response })
 
-			console.log('response.headers ->', [...response.headers.entries()])
 			if (init.cookies == true) {
 				let keys = ['domain', 'expires', 'httponly', 'maxage', 'path', 'samesite', 'secure']
 				let db = new Db(`cookies:${hostname}`)
@@ -168,35 +166,25 @@ export class Http {
 			Http.toIterable(url.searchParams, init.searchParams)
 		}
 
-		let headers = new Headers(init.headers)
-
 		if (init.json) {
 			init.body = JSON.stringify(init.json)
-			headers.set('content-type', 'application/json')
+			init.headers['content-type'] = 'application/json'
 		}
-
 		if (init.form) {
 			init.body = Http.toIterable(new URLSearchParams(), init.form)
 		}
-
 		if (init.multipart) {
 			init.body = Http.toIterable(new FormData(), init.multipart)
 		}
 
-		Object.assign(init, { headers: Object.fromEntries(headers.entries()) })
-
-		let reqid = ''
+		let reqId = ''
 		if (what.isPositiveNumber(init.memoize)) {
-			let reqs = [init.method, url.toString(), arrify(headers), arrify(init.body)]
-			// console.log('reqs ->', reqs)
-			reqid = hashIt(reqs).toString()
+			let reqs = [init.method, url.toString(), arrify(init.headers), arrify(init.body)]
+			reqId = hashIt(reqs).toString()
 			let db = new Db(`memoize:${url.hostname}`)
-			let memoized = await db.get(reqid)
+			let memoized = (await db.get(reqId)) as [BodyInit, HeadersInit]
 			if (what.isArray(memoized)) {
-				let [body, headers, init] = memoized
-				let response = new Response(body, init)
-				Object.assign(response, init, { headers: new Headers(headers) })
-				return response
+				return new Response(memoized[0], { headers: memoized[1] })
 			}
 		}
 
@@ -207,7 +195,6 @@ export class Http {
 			await async.delay(Http.randelay(init.randelay))
 		}
 
-		// console.log('url.toString() ->', url.toString())
 		if (init.debug == true) {
 			console.log(`[${init.method}]`, `${url.host}${url.pathname}`, init)
 		}
@@ -215,21 +202,12 @@ export class Http {
 		let response = await this.fetch(url.toString(), init)
 
 		if (what.isPositiveNumber(init.memoize)) {
-			let memoized = Object.assign(response.clone(), response)
-			let body = await memoized.text()
+			let clone = response.clone()
 			let db = new Db(`memoize:${url.hostname}`)
-			await db.set(reqid, [body, [...memoized.headers], memoized], init.memoize)
+			await db.set(reqId, [await clone.text(), [...clone.headers]], init.memoize)
 		}
 
-		// let memoized = new Response(response.body, response)
-		// Object.assign(memoized, response)
-		// console.log('memoized ->', JSON.stringify(memoized))
-
 		return response
-
-		// if (response.headers.get('content-type')?.startsWith('application/json')) {
-		// 	return await response.json()
-		// }
 	}
 
 	async arrayBuffer(
