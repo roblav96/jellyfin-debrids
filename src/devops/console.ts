@@ -5,10 +5,10 @@ import ansi from 'https://esm.sh/ansi-regex?dev'
 import ms from 'https://esm.sh/pretty-ms?dev'
 
 const LOG_SYMBOLS = {
-	log: '🔵',
-	info: '🟢',
-	warn: '🟠',
-	error: '🔴',
+	log: '🟦',
+	info: '🟩',
+	warn: '🟧',
+	error: '🟥',
 } as const
 
 const DEFAULT_INSPECT_OPTIONS = {
@@ -20,7 +20,7 @@ const DEFAULT_INSPECT_OPTIONS = {
 	showHidden: true,
 	showProxy: true,
 	sorted: true,
-	trailingComma: false,
+	trailingComma: true,
 } as Deno.InspectOptions
 
 const ANSI_REGEX = ansi({ onlyFirst: true })
@@ -155,27 +155,19 @@ Object.assign(console, {
 		let dts = await (import(`${'https://esm.sh/dts-generate?no-check'}`) as Promise<
 			typeof import('https://esm.sh/dts-generate/dist/index.d.ts')
 		>)
-		let output = dts.generate(data, identifier)
-		console.log(output)
-		return output
+		console.log(dts.generate(data, identifier))
 	},
 } as Console)
 
 declare global {
 	interface Console {
-		dts(data: unknown, identifier?: string): Promise<string>
-		indentLevel: number
+		dts(data: unknown, identifier?: string): Promise<void>
 	}
-	var closed: boolean
 	namespace Deno {
 		interface Core {
-			evalContext(content: string, filename?: string): [Promise<unknown>, unknown]
-			jsonOpSync<T>(name: string, params: T): unknown
-			ops(): Record<string, number>
 			print(msg: string, code?: number): void
 			registerErrorClass(name: string, ctor: typeof Error): void
 		}
 		var core: Core
-		var internal: symbol
 	}
 }
