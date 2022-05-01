@@ -1,8 +1,6 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
-import dataDir from 'https://deno.land/x/data_dir/mod.ts'
-import Emittery from 'https://esm.sh/emittery?dev'
-import { serialize, deserialize } from 'https://deno.land/x/serialize_javascript/mod.ts'
+import cache_dir from 'https://deno.land/x/dir/cache_dir/mod.ts'
 
 export default class Db<T extends unknown> {
 	private static fromFileURL(fileURL: string) {
@@ -25,10 +23,8 @@ export default class Db<T extends unknown> {
 		if (typeof ttl == 'number') {
 			this.ttl = Math.abs(ttl)
 		}
-		let datadir = dataDir()
-		if (!datadir) throw new Deno.errors.NotFound(`USER's data directory via dataDir()`)
 		this.dirpath = path.join(
-			datadir,
+			cache_dir()!,
 			'jellyfin-debrids',
 			`_${namespace}_`.replaceAll(/\W/g, '_'),
 		)
