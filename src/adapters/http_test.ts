@@ -2,13 +2,14 @@ import '../devops/console.ts'
 import * as poly from '../poly/poly.ts'
 import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import Db from './storage.ts'
-// import ky, { KyOptions, KyResponsePromise } from '../shims/ky.ts'
+import ky from 'https://esm.sh/ky?dev'
 import { Http, HttpError } from './http.ts'
 
 const db = new Db(import.meta.url)
 const httpbin = new Http({
-	// prefixUrl: 'https://nghttp2.org/httpbin',
-	prefixUrl: 'https://httpbingo.org',
+	prefixUrl: 'https://nghttp2.org/httpbin/anything',
+	// prefixUrl: 'https://httpbingo.org',
+	debug: true,
 })
 
 try {
@@ -21,17 +22,17 @@ try {
 		// new Http().get('https://github.com', {
 		// new Http().get('https://www.limetorrents.info/search/all/ubuntu/', {
 		// new Http().get('https://linkedin.com', {
-		// httpbin.json('anything', {
+		httpbin.json('more', {
 		// httpbin.json('delay/3', {
-		httpbin.json('bearer', {
+		// httpbin.json('bearer', {
 			// httpbin.json('anything', {
 			// multipart: { 'magnets[]': ['hai', 'bai'] },
 			// qsArrayBracket: true,
-			// searchParams: { 'magnets[]': ['bai', 'hai'] },
+			searchParams: { 'magnets[]': ['bai', 'hai'] },
 			// memoize: new Date(0).setMinutes(1),
 			// cookies: true,
-			retries: 0,
-			timeout: 1000,
+			// retries: 0,
+			// timeout: 1000,
 		}),
 		// ky('https://nghttp2.org/httpbin/delay/3', {
 		// 	throwHttpErrors: false,
