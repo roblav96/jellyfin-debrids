@@ -7,8 +7,8 @@ import { Http, HttpError } from './http.ts'
 
 const db = new Db(import.meta.url)
 const httpbin = new Http({
-	prefixUrl: 'https://nghttp2.org/httpbin/anything',
-	// prefixUrl: 'https://httpbingo.org',
+	// prefixUrl: 'https://nghttp2.org/httpbin',
+	prefixUrl: 'https://httpbingo.org',
 	debug: true,
 })
 
@@ -22,15 +22,20 @@ try {
 		// new Http().get('https://github.com', {
 		// new Http().get('https://www.limetorrents.info/search/all/ubuntu/', {
 		// new Http().get('https://linkedin.com', {
-		httpbin.json('more', {
-		// httpbin.json('delay/3', {
-		// httpbin.json('bearer', {
+		httpbin.json('/cookies/set', {
+			// httpbin.json('delay/3', {
+			// httpbin.json('bearer', {
 			// httpbin.json('anything', {
 			// multipart: { 'magnets[]': ['hai', 'bai'] },
 			// qsArrayBracket: true,
-			searchParams: { 'magnets[]': ['bai', 'hai'] },
+			// searchParams: { 'magnets[]': ['bai', 'hai'] },
+			headers: { cookie: 'bar=bazzz' },
+			searchParams: {
+				cf_bm: 'foo',
+				captcha: 'bar',
+			},
 			// memoize: new Date(0).setMinutes(1),
-			// cookies: true,
+			cookies: true,
 			// retries: 0,
 			// timeout: 1000,
 		}),
@@ -39,7 +44,7 @@ try {
 		// 	timeout: 2000,
 		// }),
 	])
-	console.log('response ->', response)
+	console.log('response ->', { ...response })
 	// console.log('response.json() ->', await response.json())
 } catch (error) {
 	console.error('httpbin catch ->', error)

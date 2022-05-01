@@ -7,7 +7,7 @@ import { deepMerge } from 'https://deno.land/std/collections/deep_merge.ts'
 import { getCookies } from 'https://deno.land/std/http/cookie.ts'
 import { Status, STATUS_TEXT } from 'https://deno.land/std/http/http_status.ts'
 
-export interface HttpInit extends Omit<RequestInit, 'headers'> {
+export interface HttpInit extends Omit<RequestInit, 'headers' | 'redirect' | 'signal'> {
 	beforeRequest?: ((init: HttpInit) => Promise<void> | void)[]
 	client?: Deno.HttpClient
 	cookies?: boolean
@@ -78,13 +78,54 @@ export class Http {
 	}
 
 	private async fetch(input: string, init: HttpInit): Promise<Response> {
+		let url = new URL(input)
+		let headers = new Headers(init.headers)
+		if (init.cookies == true) {
+			let cookies = [] as string[]
+			let db = new Db(`cookies:${url.hostname}`)
+			for (let [name, value] of await db.entries()) {
+				headers.append('cookie', `${name}=${value}`)
+			}
+			if (headers.has('cookie')) {
+				headers.set('cookie', headers.get('cookie')!.replaceAll(', ', '; '))
+			}
+		}
+
 		try {
 			let response = await fetch(input, {
+				...init,
+				headers,
+				redirect: 'manual',
 				signal: what.isPositiveNumber(init.timeout)
 					? AbortSignal.timeout(init.timeout)
 					: null,
-				...init,
 			})
+			console.log('response ->', { ...response })
+
+			console.log('response.headers ->', [...response.headers.entries()])
+			if (init.cookies == true) {
+				let keys = ['domain', 'expires', 'httponly', 'maxage', 'path', 'samesite', 'secure']
+				let db = new Db(`cookies:${url.hostname}`)
+				for (let [key, value] of response.headers.entries()) {
+					if (key != 'set-cookie') continue
+					let cookie = getCookies(new Headers({ cookie: value }))
+					let name = Object.keys(cookie).find((k) => !keys.includes(k.toLowerCase()))
+					if (!name) continue
+					// console.log('name, cookie[name] ->', name, cookie[name])
+					let expires = Date.parse(cookie['expires'] || cookie['Expires'])
+					if (what.isPositiveNumber(expires) && expires > Date.now()) {
+						await db.set(name, cookie[name], expires - Date.now())
+					} else {
+						await db.set(name, cookie[name])
+					}
+				}
+			}
+
+			if (response.status >= 301 && response.status <= 308) {
+				url.pathname = response.headers.get('location')!
+				return this.fetch(url.toString(), init)
+			}
+
 			if (!response.ok) {
 				throw new HttpError(input, init, response)
 			}
@@ -99,9 +140,9 @@ export class Http {
 					if (error instanceof HttpError && error.response.headers.has('retry-after')) {
 						let after = error.response.headers.get('retry-after')!
 						let ms = Date.parse(after)
-						if (what.isPositiveNumber(ms)) {
-							delay = Math.abs(ms - Date.now())
-						} else {
+						if (what.isPositiveNumber(ms) && ms > Date.now()) {
+							delay = ms - Date.now()
+						} else if (what.isPositiveNumber(Number(after))) {
 							delay = Number(after) * 1000
 						}
 					}
@@ -117,10 +158,8 @@ export class Http {
 	async request(input: string, options = {} as Partial<HttpInit>) {
 		let init = Http.merge(this.options, options)
 
-		if (what.isArray(init.beforeRequest)) {
-			for (let hook of init.beforeRequest) {
-				await hook(init)
-			}
+		for (let hook of init.beforeRequest ?? []) {
+			await hook(init)
 		}
 
 		if (init.prefixUrl) {
@@ -167,19 +206,6 @@ export class Http {
 			}
 		}
 
-		if (init.cookies == true) {
-			let db = new Db(`cookies:${url.hostname}`)
-			// await db.clear()
-			for (let [name, value] of await db.entries()) {
-				// console.log('name, value ->', name, value)
-				headers.append('cookie', `${name}=${value}`)
-			}
-			if (headers.has('cookie')) {
-				headers.set('cookie', headers.get('cookie')!.replaceAll(', ', '; '))
-			}
-			// console.warn('cookies ->', headers.get('cookie'))
-		}
-
 		Object.assign(init, { headers })
 
 		if (init.delay) {
@@ -189,28 +215,12 @@ export class Http {
 			await async.delay(Http.randelay(init.randelay))
 		}
 
+		console.log('url.toString() ->', url.toString())
 		if (init.debug == true) {
 			console.log(`[${init.method}]`, `${url.host}${url.pathname}`, init)
 		}
 
 		let response = await this.fetch(url.toString(), init)
-
-		if (init.cookies == true) {
-			let db = new Db(`cookies:${url.hostname}`)
-			for (let [key, value] of response.headers.entries()) {
-				if (key != 'set-cookie') continue
-				let cookie = getCookies(new Headers({ cookie: value }))
-				let keys = ['domain', 'expires', 'httponly', 'maxage', 'path', 'samesite', 'secure']
-				let name = Object.keys(cookie).find((k) => !keys.includes(k.toLowerCase()))
-				if (!name) continue
-				let expires = Date.parse(cookie.expires || cookie.Expires)
-				if (what.isPositiveNumber(expires) && expires > Date.now()) {
-					await db.set(name, cookie[name], expires - Date.now())
-				} else {
-					await db.set(name, cookie[name])
-				}
-			}
-		}
 
 		if (what.isPositiveNumber(init.memoize)) {
 			let memoized = Object.assign(response.clone(), response)
@@ -230,35 +240,81 @@ export class Http {
 		// }
 	}
 
-	async arrayBuffer(input: string, options = {} as Partial<HttpInit>) {
-		return (await this.request(input, options)).arrayBuffer()
+	async arrayBuffer(
+		input: string,
+		options = {} as Partial<HttpInit> & {
+			afterResponse?: ((buffer: ArrayBuffer) => Promise<ArrayBuffer>)[]
+		},
+	) {
+		let buffer = await (await this.request(input, options)).arrayBuffer()
+		for (let hook of options.afterResponse ?? []) {
+			buffer = await hook(buffer)
+		}
+		return buffer
 	}
-	async blob(input: string, options = {} as Partial<HttpInit>) {
-		return (await this.request(input, options)).blob()
+	async blob(
+		input: string,
+		options = {} as Partial<HttpInit> & {
+			afterResponse?: ((blob: Blob) => Promise<Blob>)[]
+		},
+	) {
+		let blob = await (await this.request(input, options)).blob()
+		for (let hook of options.afterResponse ?? []) {
+			blob = await hook(blob)
+		}
+		return blob
 	}
-	async formData(input: string, options = {} as Partial<HttpInit>) {
-		return (
+	async formData(
+		input: string,
+		options = {} as Partial<HttpInit> & {
+			afterResponse?: ((formData: FormData) => Promise<void>)[]
+		},
+	) {
+		let formData = await (
 			await this.request(
 				input,
 				Http.merge({ headers: { accept: 'multipart/form-data' } }, options),
 			)
 		).formData()
+		for (let hook of options.afterResponse ?? []) {
+			await hook(formData)
+		}
+		return formData
 	}
-	async json<T = unknown>(input: string, options = {} as Partial<HttpInit>) {
+	async json<T = object>(
+		input: string,
+		options = {} as Partial<HttpInit> & {
+			afterResponse?: ((json: T) => Promise<void>)[]
+		},
+	) {
 		let response = await this.request(
 			input,
 			Http.merge({ headers: { accept: 'application/json' } }, options),
 		)
+		let json: T
 		try {
-			return JSON.parse((await response.text()) as any) as T
+			json = JSON.parse(await response.text())
 		} catch {
-			return {} as never
+			return
 		}
+		for (let hook of options.afterResponse ?? []) {
+			await hook(json)
+		}
+		return json
 	}
-	async text(input: string, options = {} as Partial<HttpInit>) {
-		return (
+	async text(
+		input: string,
+		options = {} as Partial<HttpInit> & {
+			afterResponse?: ((text: string) => Promise<string>)[]
+		},
+	) {
+		let text = await (
 			await this.request(input, Http.merge({ headers: { accept: 'text/plain' } }, options))
 		).text()
+		for (let hook of options.afterResponse ?? []) {
+			text = await hook(text)
+		}
+		return text
 	}
 
 	get(input: string, options = {} as Partial<HttpInit>) {
