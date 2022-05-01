@@ -48,7 +48,7 @@ export async function connect() {
 	}
 
 	worker.onmessage = ({ data: message }: MessageEvent<GraylogMessage>) => {
-		// console.log('graylog message ->', message)
+		console.log('graylog message ->', message)
 		ee.emit('message', message)
 		let { context, event, level, line } = message
 		if (
