@@ -4,72 +4,81 @@ import * as what from 'https://deno.land/x/is_what/src/index.ts'
 import cache_dir from 'https://deno.land/x/dir/cache_dir/mod.ts'
 
 export default class Db<T extends unknown> {
-	private static fromFileURL(fileURL: string) {
-		let relative = path.relative(path.dirname(Deno.mainModule), fileURL)
+	static fromFileUrl(fileUrl: string) {
+		let relative = path.relative(path.dirname(Deno.mainModule), fileUrl)
 		if (!relative || relative.startsWith('file:') || path.isAbsolute(relative)) {
-			return path.basename(fileURL)
+			return path.basename(fileUrl)
 		}
 		return relative
 	}
 
-	private dirpath: string
-	private keypath(key: string) {
+	dirpath: string
+	keypath(key: string) {
 		return path.join(this.dirpath, key.replaceAll(/\W/g, '_'))
 	}
 
-	constructor(namespace: string, private ttl?: number) {
+	constructor(namespace: string, public ttl?: number) {
 		if (namespace.startsWith('file:')) {
-			namespace = Db.fromFileURL(namespace)
+			namespace = Db.fromFileUrl(namespace)
 		}
 		this.dirpath = path.join(cache_dir()!, 'jellyfin-debrids', namespace.replaceAll(/\W/g, '_'))
 	}
 
-	async clear() {
-		await Deno.remove(this.dirpath, { recursive: true }).catch(() => {})
+	clear() {
+		try {
+			Deno.removeSync(this.dirpath, { recursive: true })
+		} catch {}
 	}
 
-	async delete(key: string) {
-		await Deno.remove(this.keypath(key)).catch(() => {})
+	delete(key: string) {
+		try {
+			Deno.removeSync(this.keypath(key))
+		} catch {}
 	}
 
-	async has(key: string) {
-		return await fs.exists(this.keypath(key))
+	has(key: string) {
+		return fs.existsSync(this.keypath(key))
 	}
 
-	async get<TT = T>(key: string) {
-		let data = await Deno.readTextFile(this.keypath(key)).catch(() => {})
-		if (!what.isString(data)) return
+	get<TT = T>(key: string) {
+		let data!: string
+		try {
+			data = Deno.readTextFileSync(this.keypath(key))
+		} catch {}
+		if (!what.isFullString(data)) return
 		let [value, ttl] = JSON.parse(data) as [TT, number?]
 		if (what.isPositiveNumber(ttl) && Date.now() > ttl) {
-			await this.delete(key)
+			this.delete(key)
 		} else {
 			return value
 		}
 	}
 
-	async set<TT = T>(key: string, value: TT, ttl?: number) {
-		if (!what.isPositiveNumber(ttl) && what.isPositiveNumber(this.ttl)) ttl = this.ttl
-		await fs.ensureDir(this.dirpath)
-		await Deno.writeTextFile(
+	set<TT = T>(key: string, value: TT, ttl?: number) {
+		if (!what.isPositiveNumber(ttl) && what.isPositiveNumber(this.ttl)) {
+			ttl = this.ttl
+		}
+		fs.ensureDirSync(this.dirpath)
+		Deno.writeTextFileSync(
 			this.keypath(key),
 			JSON.stringify(what.isPositiveNumber(ttl) ? [value, Date.now() + ttl] : [value]),
 		)
 	}
 
-	async entries<TT = T>() {
+	entries<TT = T>() {
 		let entries = [] as [string, TT][]
 		try {
-			for await (let entry of Deno.readDir(this.dirpath)) {
-				let value = await this.get<TT>(entry.name)
+			for (let entry of Deno.readDirSync(this.dirpath)) {
+				let value = this.get<TT>(entry.name)
 				if (value) entries.push([entry.name, value])
 			}
 		} catch {}
 		return entries
 	}
-	async keys() {
-		return (await this.entries()).map(([key, value]) => key)
+	keys() {
+		return this.entries().map(([key, value]) => key)
 	}
-	async values<TT = T>() {
-		return (await this.entries()).map(([key, value]) => value) as TT[]
+	values<TT = T>() {
+		return this.entries().map(([key, value]) => value) as TT[]
 	}
 }
