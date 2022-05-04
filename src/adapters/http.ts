@@ -185,7 +185,12 @@ export class Http {
 
 		let reqId = ''
 		if (what.isPositiveNumber(init.memoize)) {
-			let reqs = [init.method, url.toString(), arrify(init.headers), arrify(init.body)]
+			let reqs = [
+				init.method,
+				url.toString(),
+				[...new Headers(init.headers)],
+				[...arrify(init.body)],
+			]
 			reqId = hashIt(reqs).toString()
 			let db = new Db(`memoize:${url.hostname}`)
 			let memoized = db.get(reqId) as [BodyInit, HeadersInit]

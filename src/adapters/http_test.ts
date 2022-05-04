@@ -33,7 +33,7 @@ try {
 			},
 			// memoize: new Date(0).setMinutes(1),
 			cookies: true,
-			memoize: Infinity,
+			memoize: 5000,
 			// retries: 0,
 			// timeout: 1000,
 		}),
