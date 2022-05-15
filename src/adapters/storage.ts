@@ -24,61 +24,54 @@ export default class Db<T extends unknown> {
 		this.dirpath = path.join(cache_dir()!, 'jellyfin-debrids', namespace.replaceAll(/\W/g, '_'))
 	}
 
-	clear() {
-		try {
-			Deno.removeSync(this.dirpath, { recursive: true })
-		} catch {}
+	async clear() {
+		await Deno.remove(this.dirpath, { recursive: true }).catch(() => {})
 	}
 
-	delete(key: string) {
-		try {
-			Deno.removeSync(this.keypath(key))
-		} catch {}
+	async delete(key: string) {
+		await Deno.remove(this.keypath(key)).catch(() => {})
 	}
 
-	has(key: string) {
-		return fs.existsSync(this.keypath(key))
+	async has(key: string) {
+		return await fs.exists(this.keypath(key))
 	}
 
-	get<TT = T>(key: string) {
-		let data!: string
-		try {
-			data = Deno.readTextFileSync(this.keypath(key))
-		} catch {}
+	async get<TT = T>(key: string) {
+		let data = await Deno.readTextFile(this.keypath(key)).catch(() => {})
 		if (!what.isFullString(data)) return
 		let [value, ttl] = JSON.parse(data) as [TT, number?]
 		if (what.isPositiveNumber(ttl) && Date.now() > ttl) {
-			this.delete(key)
+			await this.delete(key)
 		} else {
 			return value
 		}
 	}
 
-	set<TT = T>(key: string, value: TT, ttl?: number) {
+	async set<TT = T>(key: string, value: TT, ttl?: number) {
 		if (!what.isPositiveNumber(ttl) && what.isPositiveNumber(this.ttl)) {
 			ttl = this.ttl
 		}
-		fs.ensureDirSync(this.dirpath)
-		Deno.writeTextFileSync(
+		await fs.ensureDir(this.dirpath)
+		await Deno.writeTextFile(
 			this.keypath(key),
 			JSON.stringify(what.isPositiveNumber(ttl) ? [value, Date.now() + ttl] : [value]),
 		)
 	}
 
-	entries<TT = T>() {
+	async entries<TT = T>() {
 		let entries = [] as [string, TT][]
 		try {
-			for (let entry of Deno.readDirSync(this.dirpath)) {
-				let value = this.get<TT>(entry.name)
+			for await (let entry of Deno.readDir(this.dirpath)) {
+				let value = await this.get<TT>(entry.name)
 				if (value) entries.push([entry.name, value])
 			}
 		} catch {}
 		return entries
 	}
-	keys() {
-		return this.entries().map(([key, value]) => key)
+	async keys() {
+		return (await this.entries()).map(([key, value]) => key)
 	}
-	values<TT = T>() {
-		return this.entries().map(([key, value]) => value) as TT[]
+	async values<TT = T>() {
+		return (await this.entries()).map(([key, value]) => value) as TT[]
 	}
 }

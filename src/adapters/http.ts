@@ -83,7 +83,7 @@ export class Http {
 		if (init.cookies == true) {
 			let cookies = [headers.get('cookie')!]
 			let db = new Db(`cookies:${hostname}`)
-			for (let [name, value] of db.entries()) {
+			for (let [name, value] of await db.entries()) {
 				cookies.push(`${name}=${value}`)
 			}
 			cookies = cookies.filter((v) => what.isFullString(v))
@@ -111,9 +111,9 @@ export class Http {
 					if (!name) continue
 					let expires = Date.parse(cookie['expires'] || cookie['Expires'])
 					if (what.isPositiveNumber(expires) && expires > Date.now()) {
-						db.set(name, cookie[name], expires - Date.now())
+						await db.set(name, cookie[name], expires - Date.now())
 					} else {
-						db.set(name, cookie[name])
+						await db.set(name, cookie[name])
 					}
 				}
 			}
@@ -193,7 +193,7 @@ export class Http {
 			]
 			reqId = hashIt(reqs).toString()
 			let db = new Db(`memoize:${url.hostname}`)
-			let memoized = db.get(reqId) as [BodyInit, HeadersInit]
+			let memoized = (await db.get(reqId)) as [BodyInit, HeadersInit]
 			if (what.isArray(memoized)) {
 				return new Response(memoized[0], { headers: memoized[1] })
 			}
@@ -211,7 +211,7 @@ export class Http {
 		if (what.isPositiveNumber(init.memoize)) {
 			let clone = response.clone()
 			let db = new Db(`memoize:${url.hostname}`)
-			db.set(reqId, [await clone.text(), [...clone.headers]], init.memoize)
+			await db.set(reqId, [await clone.text(), [...clone.headers]], init.memoize)
 		}
 
 		return response
