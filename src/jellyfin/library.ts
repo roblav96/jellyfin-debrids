@@ -1,7 +1,7 @@
 import * as fs from 'https://deno.land/std/fs/mod.ts'
 import * as jellyfin from './jellyfin.ts'
 import * as path from 'https://deno.land/std/path/mod.ts'
-import * as Rx from '../shims/rxjs.ts'
+import * as Rx from 'https://esm.sh/rxjs?dev'
 
 const vfolders = {
 	movies: {},

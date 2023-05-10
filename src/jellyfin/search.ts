@@ -1,17 +1,17 @@
-import * as Rx from '../shims/rxjs.ts'
+import * as Rx from 'https://esm.sh/rxjs?dev'
 import { rxHttp } from './jellyfin.ts'
 
 const rxSearch = rxHttp.pipe(
-	Rx.op.filter(({ query }) => !!query.SearchTerm && !!query.UserId),
-	Rx.op.map(({ query }) => ({
+	Rx.filter(({ query }) => !!query.SearchTerm && !!query.UserId),
+	Rx.map(({ query }) => ({
 		SearchTerm: query.SearchTerm.toLowerCase().trim(),
 		UserId: query.UserId,
 	})),
-	Rx.op.debounceTime(100),
-	Rx.op.distinctUntilChanged((a, b) => {
+	Rx.debounceTime(100),
+	Rx.distinctUntilChanged((a, b) => {
 		return a.SearchTerm == b.SearchTerm
 	}),
-	Rx.op.concatMap(async ({ SearchTerm, UserId }) => {
+	Rx.concatMap(async ({ SearchTerm, UserId }) => {
 		console.log('SearchTerm ->', SearchTerm)
 	}),
 )

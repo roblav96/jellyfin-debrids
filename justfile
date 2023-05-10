@@ -10,8 +10,8 @@ _default:
 
 
 install:
-	deno run --unstable --no-check --allow-all --config=/dev/null src/scripts/jellyfin_openapi.ts
-	deno run --unstable --no-check --allow-all --config=/dev/null src/scripts/tmdb_openapi.ts
+	deno run --unstable --no-check --allow-all --no-config src/scripts/jellyfin_openapi.ts
+	deno run --unstable --no-check --allow-all --no-config src/scripts/tmdb_openapi.ts
 	deno cache --unstable --no-check --reload src/**/*.ts
 
 deps main:

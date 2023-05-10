@@ -56,7 +56,7 @@ export async function write(name: string, output: string) {
 		args: [
 			'fmt',
 			'--unstable',
-			'--config=/dev/null',
+			'--no-config',
 			'--options-indent-width=4',
 			'--options-line-width=9999',
 			outfile,

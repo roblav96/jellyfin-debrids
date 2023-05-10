@@ -1,3 +1,3 @@
-import * as Rx from '../shims/rxjs.ts'
+import Rx from 'https://esm.sh/rxjs?dev'
 
 export const RxBus = new Rx.Subject<string>()

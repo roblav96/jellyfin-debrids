@@ -35,7 +35,7 @@ export async function connect() {
 	}
 
 	worker = new Worker(new URL('./graylog_worker.ts', import.meta.url).href, {
-		deno: { namespace: true, permissions: 'inherit' },
+		deno: { permissions: 'inherit' },
 		name: 'graylog_worker',
 		type: 'module',
 	})

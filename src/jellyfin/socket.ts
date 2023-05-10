@@ -1,5 +1,6 @@
+import * as Rx from 'https://esm.sh/rxjs?dev'
 import Emittery from 'https://esm.sh/emittery?dev'
-import { Sockette } from '../shims/sockette.ts'
+import { Sockette } from '../deps/sockette.ts'
 
 export interface SocketEvent<T = any> {
 	Data: T
@@ -15,6 +16,8 @@ const Events = {
 	Sessions: [] as Jellyfin.Schemas.SessionInfo[],
 }
 export const ee = new Emittery<typeof Events>()
+
+export const rxSocket = new Rx.Subject<Jellyfin.Schemas.SessionInfo>()
 
 let socket: Sockette<SocketEvent>
 setInterval(() => {
@@ -38,8 +41,8 @@ export function start({ LocalAddress, Id }: Jellyfin.Schemas.PublicSystemInfo) {
 		},
 		onopen(event) {
 			console.info('socket onopen ->', `${url.origin}/socket`)
-			socket.json({ MessageType: 'ActivityLogEntryStart', Data: '0,1000' })
-			socket.json({ MessageType: 'ScheduledTasksInfoStart', Data: '0,1000' })
+			// socket.json({ MessageType: 'ActivityLogEntryStart', Data: '0,1000' })
+			// socket.json({ MessageType: 'ScheduledTasksInfoStart', Data: '0,1000' })
 			socket.json({ MessageType: 'SessionsStart', Data: '0,1000' })
 		},
 		onmessage({ data }) {
